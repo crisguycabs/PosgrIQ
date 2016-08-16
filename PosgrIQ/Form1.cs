@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace PosgrIQ
 {
@@ -15,6 +16,21 @@ namespace PosgrIQ
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
+            try
+            {
+                conection.Open();
+            }
+            catch
+            {
+
+
+            }
+
         }
     }
 }
