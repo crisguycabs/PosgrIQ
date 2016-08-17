@@ -24,6 +24,29 @@ namespace PosgrIQ
             try
             {
                 conection.Open();
+
+                var query = "SELECT * FROM Profesores";
+                var command = new OleDbCommand(query, conection);
+
+                /*
+                var reader = command.ExecuteReader();
+
+                int count = 0;
+                while (reader.Read())
+                {
+                    count++;
+                }
+                 * 
+
+                MessageBox.Show(count.ToString());*/
+
+                OleDbDataAdapter da = new OleDbDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dataGridView1.DataSource = dt;
+
+                conection.Close();
             }
             catch
             {
