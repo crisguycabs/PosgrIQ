@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using PdfSharp;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using PdfSharp.Pdf.IO;
+using GemBox.Spreadsheet;
 
 namespace PosgrIQ
 {
@@ -121,6 +126,79 @@ namespace PosgrIQ
                 // Print the CategoryID as a subscript, then the CategoryName:
                 Console.WriteLine("CategoryName[{0}] is {1}", dr[0], dr[1]);
             }
+        }
+
+        public void Test1()
+        {
+            // Create a new PDF document
+
+            PdfDocument document = new PdfDocument();
+
+            document.Info.Title = "Created with PDFsharp";
+
+            // Create an empty page
+
+            PdfPage page = document.AddPage();
+
+            // Get an XGraphics object for drawing
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+
+            // Create a font
+            XFont font = new XFont("Verdana", 20, XFontStyle.BoldItalic);
+
+            // Draw the text
+            gfx.DrawString("Hello, World!", font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.TopCenter);
+
+            // Save the document...
+            const string filename = "HelloWorld.pdf";
+            document.Save(filename);
+            // ...and start a viewer.
+            System.Diagnostics.Process.Start(filename);
+        }
+
+        public void TestGembox()
+        {
+            SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
+            // Create new spreadsheet type file.
+            var file = new ExcelFile();
+            var sheet = file.Worksheets.Add("Sheet");
+
+            // Create some sample content and format it.
+            foreach (var cell in sheet.Cells.GetSubrange("B2", "D2"))
+            {
+                cell.Value = "Sample";
+                //cell.Style.FillPattern.SetSolid(Color.LightBlue);
+                //cell.SetBorders(MultipleBorders.Top, Color.DarkBlue, LineStyle.Medium);
+            }
+            foreach (var cell in sheet.Cells.GetSubrange("A4", "E5"))
+            {
+                cell.Value = "Sample";
+                //cell.Style.FillPattern.SetSolid(Color.LightGreen);
+                //cell.SetBorders(MultipleBorders.Outside, Color.DarkGreen, LineStyle.Medium);
+            }
+            foreach (var cell in sheet.Cells.GetSubrange("B7", "D7"))
+            {
+                cell.Value = "Sample";
+                //cell.Style.FillPattern.SetSolid(Color.LightGray);
+                //cell.SetBorders(MultipleBorders.Bottom, Color.DarkGray, LineStyle.Medium);
+            }
+
+            // Print spreadsheet content.
+            //sheet.PrintOptions.PrintGridlines = true;
+            sheet.NamedRanges.SetPrintArea(sheet.Cells.GetSubrange("A1", "E8"));
+            file.Print();
+            // Or save it as PDF file.
+            file.Save("Sample.pdf");
+        }
+
+        private void btnPdf_Click(object sender, EventArgs e)
+        {
+            TestGembox();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
