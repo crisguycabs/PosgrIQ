@@ -12,9 +12,25 @@ namespace PosgrIQ
 {
     public partial class HomeForm : Form
     {
+        #region variables de clase
+
+        public MainForm padre;
+
+        #endregion
+
         public HomeForm()
         {
             InitializeComponent();
+        }
+
+        private void btnProfesores_Click(object sender, EventArgs e)
+        {
+            padre.AbrirProfesoresForm();
+        }
+
+        private void btnEscuelas_Click(object sender, EventArgs e)
+        {
+            padre.AbrirEscuelasForm();
         }
     }
 }
