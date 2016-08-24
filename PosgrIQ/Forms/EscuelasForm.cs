@@ -59,11 +59,32 @@ namespace PosgrIQ
 
                 // se reescala el datagridview
                 MainForm.ReescalarDataGridView(ref dataGridEscuelas);
+
+                dataGridEscuelas.Sort(dataGridEscuelas.Columns[0], ListSortDirection.Ascending);
             }
             catch
             {
                 MessageBox.Show("No se puede acceder a la base de datos", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddEscuelasForm agregar = new AddEscuelasForm();
+            agregar.padre = this.padre;
+            agregar.modo = true;
+
+            if (agregar.ShowDialog() == DialogResult.OK) this.EscuelasForm_Load(sender, e);
+        }
+
+        private void btnMod_Click(object sender, EventArgs e)
+        {
+            AddEscuelasForm modificar = new AddEscuelasForm();
+            modificar.padre = this.padre;
+            modificar.modo = false;
+            modificar.codigo = Convert.ToInt32(dataGridEscuelas.SelectedRows[0].Cells[0].Value);
+
+            if (modificar.ShowDialog() == DialogResult.OK) this.EscuelasForm_Load(sender, e);
         }
     }
 }

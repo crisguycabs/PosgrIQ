@@ -205,8 +205,7 @@ namespace PosgrIQ
 
                     dt.Rows.Add(fila);
                 }
-
-
+                
                 // se enlaza el datatable con el datagrid
                 dataGridProfesores.DataSource = dt;
 
@@ -214,6 +213,8 @@ namespace PosgrIQ
 
                 // se reescala el datagridview
                 MainForm.ReescalarDataGridView(ref dataGridProfesores);
+
+                dataGridProfesores.Sort(dataGridProfesores.Columns[0], ListSortDirection.Ascending);
             }
             catch
             {
