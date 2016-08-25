@@ -44,14 +44,14 @@
             this.label1.Font = new System.Drawing.Font("Calibri", 9F);
             this.label1.Location = new System.Drawing.Point(10, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 14);
+            this.label1.Size = new System.Drawing.Size(47, 14);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Codigo de la Escuela:";
+            this.label1.Text = "Codigo:";
             // 
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtNombre.Location = new System.Drawing.Point(143, 36);
+            this.txtNombre.Location = new System.Drawing.Point(64, 36);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(217, 22);
             this.txtNombre.TabIndex = 1;
@@ -65,7 +65,7 @@
             0,
             0,
             0});
-            this.numCod.Location = new System.Drawing.Point(143, 8);
+            this.numCod.Location = new System.Drawing.Point(64, 8);
             this.numCod.Maximum = new decimal(new int[] {
             999,
             0,
@@ -86,16 +86,16 @@
             this.label2.Font = new System.Drawing.Font("Calibri", 9F);
             this.label2.Location = new System.Drawing.Point(10, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 14);
+            this.label2.Size = new System.Drawing.Size(53, 14);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Nombre de la Escuela:";
+            this.label2.Text = "Nombre:";
             // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAdd.Location = new System.Drawing.Point(285, 77);
+            this.btnAdd.Location = new System.Drawing.Point(206, 77);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 6;
@@ -109,7 +109,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnCancel.Location = new System.Drawing.Point(204, 77);
+            this.btnCancel.Location = new System.Drawing.Point(125, 77);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
@@ -124,7 +124,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(368, 108);
+            this.ClientSize = new System.Drawing.Size(287, 108);
             this.ControlBox = false;
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
@@ -136,6 +136,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddEscuelasForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Escuelas";
             this.Load += new System.EventHandler(this.AddEscuelasForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCod)).EndInit();

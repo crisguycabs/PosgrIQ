@@ -185,6 +185,9 @@ namespace PosgrIQ
                 dt.Columns.Add("Nombre", typeof(string));
                 dt.Columns.Add("Colegiatura", typeof(string));
                 dt.Columns.Add("Escuela", typeof(string));
+                dt.Columns.Add("Correo", typeof(string));
+                dt.Columns.Add("Telefono", typeof(string));
+                dt.Columns.Add("Universidad", typeof(string));
 
                 // se llena el nuevo datatable
                 for (int i = 0; i < dtProfesores.Rows.Count; i++)
@@ -202,6 +205,15 @@ namespace PosgrIQ
 
                     // escuela
                     fila[3] = dtEscuelas.Select("codigo=" + dtProfesores.Rows[i][3].ToString())[0][1];
+
+                    // correo
+                    fila[4] = dtProfesores.Rows[i][4];
+
+                    // telefono
+                    fila[5] = dtProfesores.Rows[i][5];
+
+                    // escuela
+                    fila[6] = dtProfesores.Rows[i][6];
 
                     dt.Rows.Add(fila);
                 }
@@ -225,6 +237,25 @@ namespace PosgrIQ
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             padre.CerrarProfesoresForm();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddProfesoresForm agregar = new AddProfesoresForm();
+            agregar.padre = this.padre;
+            agregar.modo = true;
+
+            if (agregar.ShowDialog() == DialogResult.OK) this.ProfesoresForm_Load(sender, e);
+        }
+
+        private void btnMod_Click(object sender, EventArgs e)
+        {
+            AddProfesoresForm modificar = new AddProfesoresForm();
+            modificar.padre = this.padre;
+            modificar.modo = false;
+            modificar.codigo = Convert.ToInt32(dataGridProfesores.SelectedRows[0].Cells[0].Value);
+
+            if (modificar.ShowDialog() == DialogResult.OK) this.ProfesoresForm_Load(sender, e);
         }
     }
 }

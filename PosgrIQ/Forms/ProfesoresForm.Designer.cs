@@ -43,7 +43,6 @@
             this.dataGridProfesores.AllowUserToResizeRows = false;
             this.dataGridProfesores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridProfesores.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridProfesores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridProfesores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProfesores.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridProfesores.GridColor = System.Drawing.SystemColors.ControlLightLight;
@@ -51,14 +50,14 @@
             this.dataGridProfesores.MultiSelect = false;
             this.dataGridProfesores.Name = "dataGridProfesores";
             this.dataGridProfesores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridProfesores.Size = new System.Drawing.Size(450, 200);
+            this.dataGridProfesores.Size = new System.Drawing.Size(800, 200);
             this.dataGridProfesores.TabIndex = 0;
             // 
             // btnCerrar
             // 
             this.btnCerrar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Location = new System.Drawing.Point(388, 222);
+            this.btnCerrar.Location = new System.Drawing.Point(735, 221);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(75, 23);
             this.btnCerrar.TabIndex = 1;
@@ -70,23 +69,25 @@
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Location = new System.Drawing.Point(224, 222);
+            this.btnAdd.Location = new System.Drawing.Point(571, 221);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnMod
             // 
             this.btnMod.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMod.Location = new System.Drawing.Point(306, 222);
+            this.btnMod.Location = new System.Drawing.Point(653, 221);
             this.btnMod.Name = "btnMod";
             this.btnMod.Size = new System.Drawing.Size(75, 23);
             this.btnMod.TabIndex = 2;
             this.btnMod.Text = "Modificar";
             this.btnMod.UseVisualStyleBackColor = false;
+            this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
             // 
             // ProfesoresForm
             // 
@@ -94,7 +95,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(470, 251);
+            this.ClientSize = new System.Drawing.Size(817, 251);
             this.ControlBox = false;
             this.Controls.Add(this.btnMod);
             this.Controls.Add(this.btnAdd);

@@ -74,7 +74,7 @@ namespace PosgrIQ
                         numCod.Value = dt.Rows.Count + 1;
                         txtNombre.Text = "";
 
-                        this.Text = "Agregar Nueva Escuela";
+                        this.Text = "AGREGAR NUEVA ESCUELA";
 
                         break;
 
@@ -85,7 +85,7 @@ namespace PosgrIQ
                         txtNombre.Text = Convert.ToString(dt.Select("codigo=" + codigo.ToString())[0][1]);
 
                         btnAdd.Text = "Modificar";
-                        this.Text = "Modificar Escuela";
+                        this.Text = "MODIFICAR ESCUELA";
 
                         break;
                     default:
@@ -163,6 +163,7 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        this.DialogResult = DialogResult.OK;
                     }
                     catch
                     {
@@ -174,8 +175,6 @@ namespace PosgrIQ
                 default:
                     break;
             }
-
-            this.DialogResult = DialogResult.OK;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
