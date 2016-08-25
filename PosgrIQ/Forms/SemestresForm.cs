@@ -57,11 +57,11 @@ namespace PosgrIQ
                 dt.Columns.Add("Nombre", typeof(string));
                 dt.Columns.Add("Año", typeof(int));
                 dt.Columns.Add("Periodo", typeof(int));
-                dt.Columns.Add("Limite Tomar Qualify", typeof(DateTime));
-                dt.Columns.Add("Limite Propuesta Doctorado", typeof(DateTime));
-                dt.Columns.Add("Limite Propuesta Maestria", typeof(DateTime));
-                dt.Columns.Add("Limite Pedir Qualify", typeof(DateTime));
-                dt.Columns.Add("Limite Tema", typeof(DateTime));
+                dt.Columns.Add("Limite Tomar Qualify", typeof(string));
+                dt.Columns.Add("Limite Propuesta Doctorado", typeof(string));
+                dt.Columns.Add("Limite Propuesta Maestria", typeof(string));
+                dt.Columns.Add("Limite Pedir Qualify", typeof(string));
+                dt.Columns.Add("Limite Tema", typeof(string));
 
                 // se llena el nuevo datatable
                 for (int i = 0; i < dtSemestres.Rows.Count; i++)
@@ -81,19 +81,19 @@ namespace PosgrIQ
                     fila[3] = Convert.ToInt32(dtSemestres.Rows[i][3]);
 
                     // tomar qualify
-                    fila[4] = Convert.ToDateTime(dtSemestres.Rows[i][4]);
+                    fila[4] = ((string)dtSemestres.Rows[i][4]);
 
                     // propuesta doct
-                    fila[5] = Convert.ToDateTime(dtSemestres.Rows[i][5]);
+                    fila[5] = ((string)dtSemestres.Rows[i][5]);
 
                     // propusta maes
-                    fila[6] = Convert.ToDateTime(dtSemestres.Rows[i][6]);
+                    fila[6] = ((string)dtSemestres.Rows[i][6]);
 
                     // pedir qualify
-                    fila[7] = Convert.ToDateTime(dtSemestres.Rows[i][7]);
+                    fila[7] = ((string)dtSemestres.Rows[i][7]);
 
                     // tema
-                    fila[8] = Convert.ToDateTime(dtSemestres.Rows[i][8]);
+                    fila[8] = ((string)dtSemestres.Rows[i][8]);
 
                     dt.Rows.Add(fila);
                 }
@@ -106,12 +106,31 @@ namespace PosgrIQ
                 // se reescala el datagridview
                 // MainForm.ReescalarDataGridView(ref dataGridSemestres);
 
-                dataGridSemestres.Sort(dataGridSemestres.Columns[0], ListSortDirection.Ascending);
+                dataGridSemestres.Sort(dataGridSemestres.Columns[2], ListSortDirection.Descending);
             }
             catch
             {
                 MessageBox.Show("No se puede acceder a la base de datos", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddSemestresForm agregar = new AddSemestresForm();
+            agregar.padre = this.padre;
+            agregar.modo = true;
+
+            if (agregar.ShowDialog() == DialogResult.OK) this.SemestresForm_Load(sender, e);
+        }
+
+        private void btnMod_Click(object sender, EventArgs e)
+        {
+            AddSemestresForm modificar = new AddSemestresForm();
+            modificar.padre = this.padre;
+            modificar.modo = false;
+            modificar.codigo = Convert.ToInt32(dataGridSemestres.SelectedRows[0].Cells[0].Value);
+
+            if (modificar.ShowDialog() == DialogResult.OK) this.SemestresForm_Load(sender, e);
         }
     }
 }

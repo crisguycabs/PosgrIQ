@@ -60,11 +60,6 @@
             // numCod
             // 
             this.numCod.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numCod.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
             this.numCod.Location = new System.Drawing.Point(64, 8);
             this.numCod.Maximum = new decimal(new int[] {
             999,

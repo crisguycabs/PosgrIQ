@@ -43,6 +43,7 @@
             this.dataGridSemestres.AllowUserToResizeRows = false;
             this.dataGridSemestres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridSemestres.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridSemestres.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridSemestres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSemestres.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridSemestres.GridColor = System.Drawing.SystemColors.ControlLightLight;
@@ -63,6 +64,7 @@
             this.btnMod.TabIndex = 5;
             this.btnMod.Text = "Modificar";
             this.btnMod.UseVisualStyleBackColor = false;
+            this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
             // 
             // btnAdd
             // 
@@ -74,6 +76,7 @@
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCerrar
             // 

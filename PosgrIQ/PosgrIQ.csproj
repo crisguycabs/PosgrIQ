@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddSemestresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddSemestresForm.Designer.cs">
+      <DependentUpon>AddSemestresForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddProfesoresForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     <Compile Include="Forms\SemestresForm.Designer.cs">
       <DependentUpon>SemestresForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AddSemestresForm.resx">
+      <DependentUpon>AddSemestresForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddProfesoresForm.resx">
       <DependentUpon>AddProfesoresForm.cs</DependentUpon>
     </EmbeddedResource>

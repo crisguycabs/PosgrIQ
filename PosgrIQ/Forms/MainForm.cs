@@ -182,5 +182,33 @@ namespace PosgrIQ
             if (MainForm.ReescalarAltoDataGridView(control) > 200) control.Height = 200;
             else control.Height = MainForm.ReescalarAltoDataGridView(control);
         }
+
+        /// <summary>
+        /// Se convierte una fecha en texto dd/mm/aaaa a un formato DateTime
+        /// </summary>
+        /// <param name="texto"></param>
+        /// <returns></returns>
+        public static DateTime Texto2Fecha(string texto)
+        {
+            string[] texto2 = texto.Split('/');
+
+            return new DateTime(Convert.ToInt32(texto2[2]), Convert.ToInt32(texto2[1]), Convert.ToInt32(texto2[0]));
+        }
+
+        /// <summary>
+        /// Convierte un formato fecha a texto dd/mm/aaaa
+        /// </summary>
+        /// <param name="fecha"></param>
+        /// <returns></returns>
+        public static String Fecha2Texto(DateTime fecha)
+        {
+            string mes = fecha.Month.ToString();
+            string dia = fecha.Day.ToString();
+
+            if (mes.Length < 2) mes = "0" + mes;
+            if (dia.Length < 2) dia = "0" + dia;
+
+            return (dia + "/" + mes + "/" + fecha.Year.ToString());
+        }
     }
 }
