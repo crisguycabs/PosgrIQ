@@ -43,6 +43,7 @@
             this.dataGridProfesores.AllowUserToResizeRows = false;
             this.dataGridProfesores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridProfesores.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridProfesores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridProfesores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProfesores.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridProfesores.GridColor = System.Drawing.SystemColors.ControlLightLight;

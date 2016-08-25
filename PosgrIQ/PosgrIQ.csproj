@@ -96,6 +96,12 @@
     <Compile Include="Forms\SplashForm.Designer.cs">
       <DependentUpon>SplashForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SemestresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SemestresForm.Designer.cs">
+      <DependentUpon>SemestresForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\AddProfesoresForm.resx">
       <DependentUpon>AddProfesoresForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SemestresForm.resx">
+      <DependentUpon>SemestresForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

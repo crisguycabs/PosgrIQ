@@ -45,6 +45,16 @@ namespace PosgrIQ
         /// </summary>
         public bool abiertoEscuelasForm = false;
 
+        /// <summary>
+        /// Instancia de la ventana SemestresForm
+        /// </summary>
+        public SemestresForm semestresForm = null;
+
+        /// <summary>
+        /// Indica si la ventana SemestresForm esta abierta, o no
+        /// </summary>
+        public bool abiertoSemestresForm = false;
+
         #endregion
 
         public MainForm()
@@ -85,6 +95,31 @@ namespace PosgrIQ
             escuelasForm.Close();
             escuelasForm = null;
             abiertoEscuelasForm = false;
+        }
+
+        public void AbrirSemestresForm()
+        {
+            if (!abiertoSemestresForm)
+            {
+                semestresForm = new SemestresForm();
+                semestresForm.padre = this;
+                semestresForm.MdiParent = this;
+
+                abiertoSemestresForm = true;
+
+                semestresForm.Show();
+            }
+            else
+            {
+                semestresForm.Select();
+            }
+        }
+
+        public void CerrarSemestresForm()
+        {
+            semestresForm.Close();
+            semestresForm = null;
+            abiertoSemestresForm = false;
         }
 
         public void AbrirHomeForm()
