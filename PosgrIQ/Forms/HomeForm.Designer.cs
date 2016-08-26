@@ -32,15 +32,16 @@
             this.btnProfesores = new System.Windows.Forms.Button();
             this.btnEscuelas = new System.Windows.Forms.Button();
             this.btnSemestres = new System.Windows.Forms.Button();
+            this.btnReglamentos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProfesores
             // 
             this.btnProfesores.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnProfesores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfesores.Location = new System.Drawing.Point(105, 101);
+            this.btnProfesores.Location = new System.Drawing.Point(98, 86);
             this.btnProfesores.Name = "btnProfesores";
-            this.btnProfesores.Size = new System.Drawing.Size(75, 23);
+            this.btnProfesores.Size = new System.Drawing.Size(89, 23);
             this.btnProfesores.TabIndex = 0;
             this.btnProfesores.Text = "Profesores";
             this.btnProfesores.UseVisualStyleBackColor = false;
@@ -50,9 +51,9 @@
             // 
             this.btnEscuelas.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEscuelas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEscuelas.Location = new System.Drawing.Point(105, 130);
+            this.btnEscuelas.Location = new System.Drawing.Point(98, 115);
             this.btnEscuelas.Name = "btnEscuelas";
-            this.btnEscuelas.Size = new System.Drawing.Size(75, 23);
+            this.btnEscuelas.Size = new System.Drawing.Size(89, 23);
             this.btnEscuelas.TabIndex = 1;
             this.btnEscuelas.Text = "Escuelas";
             this.btnEscuelas.UseVisualStyleBackColor = false;
@@ -62,13 +63,25 @@
             // 
             this.btnSemestres.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnSemestres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSemestres.Location = new System.Drawing.Point(105, 159);
+            this.btnSemestres.Location = new System.Drawing.Point(98, 144);
             this.btnSemestres.Name = "btnSemestres";
-            this.btnSemestres.Size = new System.Drawing.Size(75, 23);
+            this.btnSemestres.Size = new System.Drawing.Size(89, 23);
             this.btnSemestres.TabIndex = 2;
             this.btnSemestres.Text = "Semestres";
             this.btnSemestres.UseVisualStyleBackColor = false;
             this.btnSemestres.Click += new System.EventHandler(this.btnSemestres_Click);
+            // 
+            // btnReglamentos
+            // 
+            this.btnReglamentos.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnReglamentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReglamentos.Location = new System.Drawing.Point(98, 173);
+            this.btnReglamentos.Name = "btnReglamentos";
+            this.btnReglamentos.Size = new System.Drawing.Size(89, 23);
+            this.btnReglamentos.TabIndex = 2;
+            this.btnReglamentos.Text = "Reglamentos";
+            this.btnReglamentos.UseVisualStyleBackColor = false;
+            this.btnReglamentos.Click += new System.EventHandler(this.btnReglamentos_Click);
             // 
             // HomeForm
             // 
@@ -77,6 +90,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(284, 282);
             this.ControlBox = false;
+            this.Controls.Add(this.btnReglamentos);
             this.Controls.Add(this.btnSemestres);
             this.Controls.Add(this.btnEscuelas);
             this.Controls.Add(this.btnProfesores);
@@ -95,5 +109,6 @@
         private System.Windows.Forms.Button btnProfesores;
         private System.Windows.Forms.Button btnEscuelas;
         private System.Windows.Forms.Button btnSemestres;
+        private System.Windows.Forms.Button btnReglamentos;
     }
 }

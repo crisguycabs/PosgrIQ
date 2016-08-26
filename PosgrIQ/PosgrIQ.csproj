@@ -108,6 +108,12 @@
     <Compile Include="Forms\SemestresForm.Designer.cs">
       <DependentUpon>SemestresForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ReglamentosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReglamentosForm.Designer.cs">
+      <DependentUpon>ReglamentosForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\AddSemestresForm.resx">
       <DependentUpon>AddSemestresForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SemestresForm.resx">
       <DependentUpon>SemestresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReglamentosForm.resx">
+      <DependentUpon>ReglamentosForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

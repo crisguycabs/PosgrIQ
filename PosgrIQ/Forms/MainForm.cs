@@ -55,6 +55,16 @@ namespace PosgrIQ
         /// </summary>
         public bool abiertoSemestresForm = false;
 
+        /// <summary>
+        /// Instancia de la ventana ReglamentoForm
+        /// </summary>
+        public ReglamentosForm reglamentosForm = null;
+
+        /// <summary>
+        /// Indica si la ventana ReglamentosForm esta abierta, o no
+        /// </summary>
+        public bool abiertoReglamentosForm = false;
+
         #endregion
 
         public MainForm()
@@ -70,6 +80,31 @@ namespace PosgrIQ
         private void MainForm_Load(object sender, EventArgs e)
         {
             AbrirHomeForm();
+        }
+
+        public void AbrirReglamentosForm()
+        {
+            if (!abiertoReglamentosForm)
+            {
+                reglamentosForm = new ReglamentosForm();
+                reglamentosForm.padre = this;
+                reglamentosForm.MdiParent = this;
+
+                abiertoReglamentosForm = true;
+
+                reglamentosForm.Show();
+            }
+            else
+            {
+                reglamentosForm.Select();
+            }
+        }
+
+        public void CerrarReglamentosForm()
+        {
+            reglamentosForm.Close();
+            reglamentosForm = null;
+            abiertoReglamentosForm = false;
         }
 
         public void AbrirEscuelasForm()

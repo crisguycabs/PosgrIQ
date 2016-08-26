@@ -37,5 +37,10 @@ namespace PosgrIQ
         {
             padre.AbrirSemestresForm();
         }
+
+        private void btnReglamentos_Click(object sender, EventArgs e)
+        {
+            padre.AbrirReglamentosForm();
+        }
     }
 }
