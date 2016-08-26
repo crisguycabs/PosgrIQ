@@ -45,6 +45,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtUniversidad = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnAddEscuela = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numCod)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAdd.Location = new System.Drawing.Point(231, 208);
+            this.btnAdd.Location = new System.Drawing.Point(231, 234);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 12;
@@ -67,7 +68,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnCancel.Location = new System.Drawing.Point(150, 208);
+            this.btnCancel.Location = new System.Drawing.Point(150, 234);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 11;
@@ -161,7 +162,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtCorreo.Location = new System.Drawing.Point(89, 117);
+            this.txtCorreo.Location = new System.Drawing.Point(89, 146);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(217, 22);
             this.txtCorreo.TabIndex = 8;
@@ -171,7 +172,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label5.Location = new System.Drawing.Point(12, 121);
+            this.label5.Location = new System.Drawing.Point(12, 150);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 14);
             this.label5.TabIndex = 10;
@@ -180,7 +181,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtTelefono.Location = new System.Drawing.Point(89, 145);
+            this.txtTelefono.Location = new System.Drawing.Point(89, 174);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(217, 22);
             this.txtTelefono.TabIndex = 8;
@@ -190,7 +191,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label6.Location = new System.Drawing.Point(12, 149);
+            this.label6.Location = new System.Drawing.Point(12, 178);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 14);
             this.label6.TabIndex = 10;
@@ -199,7 +200,7 @@
             // txtUniversidad
             // 
             this.txtUniversidad.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtUniversidad.Location = new System.Drawing.Point(89, 173);
+            this.txtUniversidad.Location = new System.Drawing.Point(89, 202);
             this.txtUniversidad.Name = "txtUniversidad";
             this.txtUniversidad.Size = new System.Drawing.Size(217, 22);
             this.txtUniversidad.TabIndex = 8;
@@ -209,11 +210,24 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label7.Location = new System.Drawing.Point(12, 177);
+            this.label7.Location = new System.Drawing.Point(12, 206);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 14);
             this.label7.TabIndex = 10;
             this.label7.Text = "Universidad:";
+            // 
+            // btnAddEscuela
+            // 
+            this.btnAddEscuela.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAddEscuela.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddEscuela.Font = new System.Drawing.Font("Calibri", 9F);
+            this.btnAddEscuela.Location = new System.Drawing.Point(201, 117);
+            this.btnAddEscuela.Name = "btnAddEscuela";
+            this.btnAddEscuela.Size = new System.Drawing.Size(105, 23);
+            this.btnAddEscuela.TabIndex = 12;
+            this.btnAddEscuela.Text = "Agregar Escuela";
+            this.btnAddEscuela.UseVisualStyleBackColor = false;
+            this.btnAddEscuela.Click += new System.EventHandler(this.btnAddEscuela_Click);
             // 
             // AddProfesoresForm
             // 
@@ -222,10 +236,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(313, 239);
+            this.ClientSize = new System.Drawing.Size(313, 264);
             this.ControlBox = false;
             this.Controls.Add(this.cmbEscuela);
             this.Controls.Add(this.cmbColegiatura);
+            this.Controls.Add(this.btnAddEscuela);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnCancel);
@@ -271,5 +286,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtUniversidad;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnAddEscuela;
     }
 }

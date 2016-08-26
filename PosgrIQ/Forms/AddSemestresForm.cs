@@ -62,7 +62,7 @@ namespace PosgrIQ
                 OleDbDataAdapter da;
 
                 // se pide la informacion de los semestres
-                query = "SELECT * FROM Semestres";
+                query = "SELECT * FROM Semestres ORDER BY codigo ASC";
                 command = new OleDbCommand(query, conection);
 
                 da = new OleDbDataAdapter(command);

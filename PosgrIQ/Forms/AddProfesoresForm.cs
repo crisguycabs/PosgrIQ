@@ -61,7 +61,7 @@ namespace PosgrIQ
             {
                 conection.Open();
 
-                string query = "SELECT * FROM Escuelas";
+                string query = "SELECT * FROM Escuelas ORDER BY codigo ASC";
                 OleDbCommand command = new OleDbCommand(query, conection);
                 OleDbDataAdapter da = new OleDbDataAdapter(command);
                 
@@ -69,6 +69,8 @@ namespace PosgrIQ
                 da.Fill(dtEscuelas);
 
                 conection.Close();
+
+                cmbEscuela.Items.Clear();
 
                 foreach (DataRow row in dtEscuelas.Rows)
                 {
@@ -89,7 +91,7 @@ namespace PosgrIQ
             {
                 conection.Open();
 
-                string query = "SELECT * FROM Colegiatura";
+                string query = "SELECT * FROM Colegiatura ORDER BY codigo ASC";
                 OleDbCommand command = new OleDbCommand(query, conection);
                 OleDbDataAdapter da = new OleDbDataAdapter(command);
 
@@ -97,6 +99,8 @@ namespace PosgrIQ
                 da.Fill(dtColegiatura);
 
                 conection.Close();
+
+                cmbColegiatura.Items.Clear();
 
                 foreach (DataRow row in dtColegiatura.Rows)
                 {
@@ -123,7 +127,7 @@ namespace PosgrIQ
                 OleDbDataAdapter da;
 
                 // se pide la informacion de los profesores
-                query = "SELECT * FROM Profesores";
+                query = "SELECT * FROM Profesores ORDER BY codigo ASC";
                 command = new OleDbCommand(query, conection);
 
                 da = new OleDbDataAdapter(command);
@@ -155,7 +159,7 @@ namespace PosgrIQ
                         // se escriben en los controles la informacion de la escuela seleccionada
 
                         DataRow[] seleccionado = dtProfesores.Select("codigo=" + codigo.ToString());
-
+                        DataRow[] listaEscuelas= dtEscuelas.Select("codigo=" + seleccionado[0][3]);
                         numCod.Value = codigo;
                         txtNombre.Text = Convert.ToString(seleccionado[0][1]);
                         cmbColegiatura.SelectedIndex = Convert.ToInt32(seleccionado[0][2]) - 1;
@@ -241,7 +245,8 @@ namespace PosgrIQ
                         conection.Open();
 
                         // se prepara la cadena SQL
-                        query = "INSERT INTO Profesores VALUES(" + numCod.Value.ToString() + ",'" + txtNombre.Text + "',"+(cmbColegiatura.SelectedIndex+1).ToString()+","+(cmbEscuela.SelectedIndex+1).ToString()+",'"+ txtCorreo.Text +"','"+ txtTelefono.Text +"','"+ txtUniversidad.Text + "')";
+                        DataRow[] busqueda = dtEscuelas.Select("escuela='" + cmbEscuela.Items[cmbEscuela.SelectedIndex] + "'");
+                        query = "INSERT INTO Profesores VALUES(" + numCod.Value.ToString() + ",'" + txtNombre.Text + "',"+(cmbColegiatura.SelectedIndex+1).ToString()+"," + busqueda[0][0] +",'"+ txtCorreo.Text +"','"+ txtTelefono.Text +"','"+ txtUniversidad.Text + "')";
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
@@ -263,7 +268,8 @@ namespace PosgrIQ
                         conection.Open();
 
                         // se prepara la cadena SQL
-                        query = "UPDATE Profesores SET codigo=" + numCod.Value.ToString() + ", nombre='" + txtNombre.Text + "', colegiatura=" + (cmbColegiatura.SelectedIndex + 1).ToString() + ", escuela=" + (cmbEscuela.SelectedIndex + 1).ToString() + ", correo='" + txtCorreo.Text + "', telefono='" + txtTelefono.Text + "', universidad='" + txtUniversidad.Text + "' WHERE codigo=" + codigo.ToString();
+                        DataRow[] busqueda = dtEscuelas.Select("escuela='" + cmbEscuela.Items[cmbEscuela.SelectedIndex] + "'");
+                        query = "UPDATE Profesores SET codigo=" + numCod.Value.ToString() + ", nombre='" + txtNombre.Text + "', colegiatura=" + (cmbColegiatura.SelectedIndex + 1).ToString() + ", escuela=" + busqueda[0][0] + ", correo='" + txtCorreo.Text + "', telefono='" + txtTelefono.Text + "', universidad='" + txtUniversidad.Text + "' WHERE codigo=" + codigo.ToString();
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
@@ -282,6 +288,19 @@ namespace PosgrIQ
                 default:
                     break;
             }            
+        }
+
+        private void btnAddEscuela_Click(object sender, EventArgs e)
+        {
+            AddEscuelasForm agregar = new AddEscuelasForm();
+            agregar.padre = this.padre;
+            agregar.modo = true;
+
+            if (agregar.ShowDialog() == DialogResult.OK)
+            {
+                this.LlenarEscuelas();
+                this.cmbEscuela.SelectedIndex = this.cmbEscuela.Items.Count - 1;
+            }
         }
     }
 }

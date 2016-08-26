@@ -44,7 +44,7 @@ namespace PosgrIQ
                 OleDbDataAdapter da;
 
                 // se pide la informacion de los profesores
-                query = "SELECT * FROM Escuelas";
+                query = "SELECT * FROM Escuelas ORDER BY codigo ASC";
                 command = new OleDbCommand(query, conection);
 
                 da = new OleDbDataAdapter(command);
