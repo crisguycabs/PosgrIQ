@@ -51,7 +51,6 @@ namespace PosgrIQ
                 dt = new DataTable();
                 da.Fill(dt);
 
-
                 // se enlaza el datatable con el datagrid
                 dataGridReglamentos.DataSource = dt;
 
@@ -66,6 +65,25 @@ namespace PosgrIQ
             {
                 MessageBox.Show("No se puede acceder a la base de datos", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddReglamentosForm agregar = new AddReglamentosForm();
+            agregar.padre = this.padre;
+            agregar.modo = true;
+
+            if (agregar.ShowDialog() == DialogResult.OK) this.ReglamentosForm_Load(sender, e);
+        }
+
+        private void btnMod_Click(object sender, EventArgs e)
+        {
+            AddReglamentosForm modificar = new AddReglamentosForm();
+            modificar.padre = this.padre;
+            modificar.modo = false;
+            modificar.codigo = Convert.ToInt32(dataGridReglamentos.SelectedRows[0].Cells[0].Value);
+
+            if (modificar.ShowDialog() == DialogResult.OK) this.ReglamentosForm_Load(sender, e);
         }
     }
 }

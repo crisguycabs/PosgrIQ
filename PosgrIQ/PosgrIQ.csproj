@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddReglamentosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddReglamentosForm.Designer.cs">
+      <DependentUpon>AddReglamentosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddSemestresForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     <Compile Include="Forms\ReglamentosForm.Designer.cs">
       <DependentUpon>ReglamentosForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AddReglamentosForm.resx">
+      <DependentUpon>AddReglamentosForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddSemestresForm.resx">
       <DependentUpon>AddSemestresForm.cs</DependentUpon>
     </EmbeddedResource>
