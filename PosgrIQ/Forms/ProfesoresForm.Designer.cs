@@ -57,16 +57,17 @@
             this.dataGridProfesores.Name = "dataGridProfesores";
             this.dataGridProfesores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridProfesores.Size = new System.Drawing.Size(750, 200);
-            this.dataGridProfesores.TabIndex = 0;
+            this.dataGridProfesores.TabIndex = 1;
             // 
             // btnCerrar
             // 
             this.btnCerrar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Location = new System.Drawing.Point(162, 0);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCerrar.TabIndex = 1;
+            this.btnCerrar.TabIndex = 4;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -90,7 +91,7 @@
             this.btnMod.Location = new System.Drawing.Point(81, 0);
             this.btnMod.Name = "btnMod";
             this.btnMod.Size = new System.Drawing.Size(75, 23);
-            this.btnMod.TabIndex = 2;
+            this.btnMod.TabIndex = 3;
             this.btnMod.Text = "Modificar";
             this.btnMod.UseVisualStyleBackColor = false;
             this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
@@ -127,10 +128,12 @@
             // 
             // ProfesoresForm
             // 
+            this.AcceptButton = this.btnMod;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CancelButton = this.btnCerrar;
             this.ClientSize = new System.Drawing.Size(766, 245);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);

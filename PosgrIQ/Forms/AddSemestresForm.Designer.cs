@@ -59,7 +59,7 @@
             this.btnAdd.Location = new System.Drawing.Point(227, 265);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 14;
+            this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -73,7 +73,7 @@
             this.btnCancel.Location = new System.Drawing.Point(146, 265);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 13;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -89,7 +89,7 @@
             0});
             this.numCod.Name = "numCod";
             this.numCod.Size = new System.Drawing.Size(45, 22);
-            this.numCod.TabIndex = 16;
+            this.numCod.TabIndex = 1;
             this.numCod.Value = new decimal(new int[] {
             999,
             0,
@@ -122,7 +122,7 @@
             0});
             this.numAno.Name = "numAno";
             this.numAno.Size = new System.Drawing.Size(45, 22);
-            this.numAno.TabIndex = 17;
+            this.numAno.TabIndex = 2;
             this.numAno.Value = new decimal(new int[] {
             2999,
             0,
@@ -148,7 +148,7 @@
             this.cmbPeriodo.Location = new System.Drawing.Point(257, 9);
             this.cmbPeriodo.Name = "cmbPeriodo";
             this.cmbPeriodo.Size = new System.Drawing.Size(45, 22);
-            this.cmbPeriodo.TabIndex = 18;
+            this.cmbPeriodo.TabIndex = 3;
             // 
             // label3
             // 
@@ -166,7 +166,7 @@
             this.dateTomarQualify.Location = new System.Drawing.Point(206, 53);
             this.dateTomarQualify.Name = "dateTomarQualify";
             this.dateTomarQualify.Size = new System.Drawing.Size(96, 22);
-            this.dateTomarQualify.TabIndex = 19;
+            this.dateTomarQualify.TabIndex = 4;
             // 
             // label4
             // 
@@ -190,7 +190,7 @@
             this.datePropuestaDoct.Location = new System.Drawing.Point(206, 94);
             this.datePropuestaDoct.Name = "datePropuestaDoct";
             this.datePropuestaDoct.Size = new System.Drawing.Size(96, 22);
-            this.datePropuestaDoct.TabIndex = 21;
+            this.datePropuestaDoct.TabIndex = 5;
             // 
             // label6
             // 
@@ -206,7 +206,7 @@
             this.datePropuestaMaes.Location = new System.Drawing.Point(206, 135);
             this.datePropuestaMaes.Name = "datePropuestaMaes";
             this.datePropuestaMaes.Size = new System.Drawing.Size(96, 22);
-            this.datePropuestaMaes.TabIndex = 23;
+            this.datePropuestaMaes.TabIndex = 6;
             // 
             // label7
             // 
@@ -222,7 +222,7 @@
             this.datePedirQualify.Location = new System.Drawing.Point(206, 176);
             this.datePedirQualify.Name = "datePedirQualify";
             this.datePedirQualify.Size = new System.Drawing.Size(96, 22);
-            this.datePedirQualify.TabIndex = 25;
+            this.datePedirQualify.TabIndex = 7;
             // 
             // label8
             // 
@@ -238,7 +238,7 @@
             this.dateTema.Location = new System.Drawing.Point(206, 225);
             this.dateTema.Name = "dateTema";
             this.dateTema.Size = new System.Drawing.Size(96, 22);
-            this.dateTema.TabIndex = 27;
+            this.dateTema.TabIndex = 8;
             // 
             // AddSemestresForm
             // 

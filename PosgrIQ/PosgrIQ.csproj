@@ -52,6 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddEstudiantesDoctForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEstudiantesDoctForm.Designer.cs">
+      <DependentUpon>AddEstudiantesDoctForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EstudiantesDoctForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EstudiantesDoctForm.Designer.cs">
+      <DependentUpon>EstudiantesDoctForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddReglamentosForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +132,12 @@
     <Compile Include="Forms\ReglamentosForm.Designer.cs">
       <DependentUpon>ReglamentosForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AddEstudiantesDoctForm.resx">
+      <DependentUpon>AddEstudiantesDoctForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EstudiantesDoctForm.resx">
+      <DependentUpon>EstudiantesDoctForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddReglamentosForm.resx">
       <DependentUpon>AddReglamentosForm.cs</DependentUpon>
     </EmbeddedResource>

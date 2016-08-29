@@ -57,7 +57,7 @@
             this.btnAdd.Location = new System.Drawing.Point(231, 234);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 12;
+            this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -71,7 +71,7 @@
             this.btnCancel.Location = new System.Drawing.Point(150, 234);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 11;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -91,15 +91,15 @@
             this.numCod.Font = new System.Drawing.Font("Calibri", 9F);
             this.numCod.Location = new System.Drawing.Point(89, 5);
             this.numCod.Maximum = new decimal(new int[] {
-            999,
+            10000000,
             0,
             0,
             0});
             this.numCod.Name = "numCod";
-            this.numCod.Size = new System.Drawing.Size(45, 22);
-            this.numCod.TabIndex = 9;
+            this.numCod.Size = new System.Drawing.Size(70, 22);
+            this.numCod.TabIndex = 1;
             this.numCod.Value = new decimal(new int[] {
-            999,
+            9999999,
             0,
             0,
             0});
@@ -110,7 +110,7 @@
             this.txtNombre.Location = new System.Drawing.Point(89, 33);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(217, 22);
-            this.txtNombre.TabIndex = 8;
+            this.txtNombre.TabIndex = 2;
             this.txtNombre.Text = "Ingenieria de Sistemas e Informatica";
             // 
             // label1
@@ -139,7 +139,7 @@
             this.cmbColegiatura.Location = new System.Drawing.Point(89, 61);
             this.cmbColegiatura.Name = "cmbColegiatura";
             this.cmbColegiatura.Size = new System.Drawing.Size(121, 22);
-            this.cmbColegiatura.TabIndex = 13;
+            this.cmbColegiatura.TabIndex = 3;
             // 
             // label4
             // 
@@ -157,7 +157,7 @@
             this.cmbEscuela.Location = new System.Drawing.Point(89, 89);
             this.cmbEscuela.Name = "cmbEscuela";
             this.cmbEscuela.Size = new System.Drawing.Size(217, 22);
-            this.cmbEscuela.TabIndex = 13;
+            this.cmbEscuela.TabIndex = 4;
             // 
             // txtCorreo
             // 
@@ -165,7 +165,7 @@
             this.txtCorreo.Location = new System.Drawing.Point(89, 146);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(217, 22);
-            this.txtCorreo.TabIndex = 8;
+            this.txtCorreo.TabIndex = 6;
             this.txtCorreo.Text = "Ingenieria de Sistemas e Informatica";
             // 
             // label5
@@ -184,7 +184,7 @@
             this.txtTelefono.Location = new System.Drawing.Point(89, 174);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(217, 22);
-            this.txtTelefono.TabIndex = 8;
+            this.txtTelefono.TabIndex = 7;
             this.txtTelefono.Text = "Ingenieria de Sistemas e Informatica";
             // 
             // label6
@@ -224,7 +224,7 @@
             this.btnAddEscuela.Location = new System.Drawing.Point(201, 117);
             this.btnAddEscuela.Name = "btnAddEscuela";
             this.btnAddEscuela.Size = new System.Drawing.Size(105, 23);
-            this.btnAddEscuela.TabIndex = 12;
+            this.btnAddEscuela.TabIndex = 5;
             this.btnAddEscuela.Text = "Agregar Escuela";
             this.btnAddEscuela.UseVisualStyleBackColor = false;
             this.btnAddEscuela.Click += new System.EventHandler(this.btnAddEscuela_Click);

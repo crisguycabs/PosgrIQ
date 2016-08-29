@@ -59,7 +59,7 @@
             0});
             this.numCod.Name = "numCod";
             this.numCod.Size = new System.Drawing.Size(45, 22);
-            this.numCod.TabIndex = 6;
+            this.numCod.TabIndex = 1;
             this.numCod.Value = new decimal(new int[] {
             999,
             0,
@@ -72,7 +72,7 @@
             this.txtNombre.Location = new System.Drawing.Point(61, 35);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(83, 22);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.TabIndex = 2;
             this.txtNombre.Text = "No 90 2010";
             // 
             // label1
@@ -93,7 +93,7 @@
             this.btnAdd.Location = new System.Drawing.Point(89, 68);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 9;
+            this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -107,7 +107,7 @@
             this.btnCancel.Location = new System.Drawing.Point(8, 68);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 8;
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
