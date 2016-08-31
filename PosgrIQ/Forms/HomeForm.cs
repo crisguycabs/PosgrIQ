@@ -47,5 +47,10 @@ namespace PosgrIQ
         {
             padre.AbrirEstudiantesDoctForm();
         }
+
+        private void btnPropuestasDoct_Click(object sender, EventArgs e)
+        {
+            padre.AbrirPropuestasDoctForm();
+        }
     }
 }

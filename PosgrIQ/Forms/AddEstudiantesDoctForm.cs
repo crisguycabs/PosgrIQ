@@ -57,6 +57,7 @@ namespace PosgrIQ
         public DataTable dtEstudiantes;
 
         #endregion
+
         public AddEstudiantesDoctForm()
         {
             InitializeComponent();
@@ -219,13 +220,96 @@ namespace PosgrIQ
                 {
                     case true: // se agrega un nuevo estudiante de doctorado
 
-                        cmbConceptoTema.SelectedIndex = -1;
+                        numCod.Value = dtEstudiantes.Rows.Count + 1;
+                        txtNombre.Text = "";
+                        txtCorreo.Text = "";
+                        numCedula.Value = 0;
+                        txtCiudad.Text = "";
                         cmbCondicion.SelectedIndex = 0;
+                        cmbDirector.SelectedIndex = -1;
+                        cmbCodirector1.SelectedIndex = -1;
+                        cmbCodirector2.SelectedIndex = -1;
                         cmbReglamentos.SelectedIndex = cmbReglamentos.Items.Count - 1;
+                        txtTema.Text = "";
+                        dateTema.Value = DateTime.Today;
+                        cmbConceptoTema.SelectedIndex = -1;
+                        txtRutaTema.Text = "";
+                        cmbSolicitarQualify.SelectedIndex = 0;
+                        cmbAprobarQualify.SelectedIndex = 0;
 
+                        this.Text = "AGREGAR ESTUDIANTE DOCTORADO";
+                        
                         break;
 
                     case false: // se modifica un estudiante de doctorado
+
+                        DataRow[] seleccionado = dtEstudiantes.Select("codigo=" + codigo.ToString());
+
+                        // codigo
+                        numCod.Value = codigo;
+
+                        // nombre
+                        txtNombre.Text = Convert.ToString(seleccionado[0][1]);
+
+                        // correo
+                        txtCorreo.Text = Convert.ToString(seleccionado[0][2]);
+
+                        // cedula
+                        numCedula.Value = Convert.ToInt32(seleccionado[0][3]);
+
+                        // ciudad
+                        txtCiudad.Text = Convert.ToString(seleccionado[0][4]);
+
+                        // condicion
+                        cmbCondicion.SelectedIndex = Convert.ToInt32(seleccionado[0][5]) - 1;
+
+                        // nivel
+                        txtNivel.Text = Convert.ToString(seleccionado[0][6]);
+
+                        // director
+                        for (int i = 0; i < dtProfesores.Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(seleccionado[0][7]) == Convert.ToInt32(dtProfesores.Rows[i][0])) cmbDirector.SelectedIndex=i;
+                        }
+
+                        // codirector 1
+                        for (int i = 0; i < dtProfesores.Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(seleccionado[0][8]) == Convert.ToInt32(dtProfesores.Rows[i][0])) this.cmbCodirector1.SelectedIndex = i;
+                        }
+
+                        // codirector 2
+                        for (int i = 0; i < dtProfesores.Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(seleccionado[0][9]) == Convert.ToInt32(dtProfesores.Rows[i][0])) this.cmbCodirector2.SelectedIndex = i;
+                        }
+
+                        // reglamento
+                        cmbReglamentos.SelectedIndex = Convert.ToInt32(seleccionado[0][10]) - 1;
+
+                        // tema
+                        txtTema.Text = Convert.ToString(seleccionado[0][11]);
+                        if ((!string.IsNullOrEmpty(txtTema.Text)) & (!string.IsNullOrWhiteSpace(txtTema.Text))) chkTema.Checked = true;
+
+                        // fecha
+                        dateTema.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][12]));
+
+                        // concepto
+                        cmbConceptoTema.SelectedIndex = Convert.ToInt32(seleccionado[0][13]) - 1;
+
+                        // ruta
+                        txtRutaTema.Text = Convert.ToString(seleccionado[0][14]);
+
+                        // solicito qualify
+                        if (Convert.ToString(seleccionado[0][15]) == "No") cmbSolicitarQualify.SelectedIndex = 0;
+                        else cmbSolicitarQualify.SelectedIndex = 1;
+
+                        // aprobo qualify
+                        if (Convert.ToString(seleccionado[0][16]) == "No") this.cmbAprobarQualify.SelectedIndex = 0;
+                        else cmbSolicitarQualify.SelectedIndex = 1;
+
+                        btnAdd.Text = "Modificar";
+                        this.Text = "MODIFICAR ESTUDIANTE DOCTORADO";
 
                         break;
                 }
@@ -250,6 +334,20 @@ namespace PosgrIQ
             txtRutaTema.Enabled = chkTema.Checked;
             btnRutaTema.Enabled = chkTema.Checked;
             btnVerArchivoTema.Enabled = chkTema.Checked;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddReglamento_Click(object sender, EventArgs e)
+        {
+            AddReglamentosForm agregar = new AddReglamentosForm();
+            agregar.padre = this.padre;
+            agregar.modo = true;
+
+            if (agregar.ShowDialog() == DialogResult.OK) this.LlenarReglamentos();
         }
     }
 }

@@ -97,7 +97,6 @@ namespace PosgrIQ
                 dt.Columns.Add("Tema", typeof(string));
                 dt.Columns.Add("Fecha Entrega Tema", typeof(string));
                 dt.Columns.Add("Concepto Tema", typeof(string));
-                dt.Columns.Add("Ruta Tema", typeof(string));
                 dt.Columns.Add("Solicito Qualify", typeof(string));
                 dt.Columns.Add("Aprobo Qualify", typeof(string));
 
@@ -148,14 +147,11 @@ namespace PosgrIQ
                     // concepto del tema
                     fila[13] = dtConceptos.Select("codigo=" + dtEstudiantesDoct.Rows[i][13].ToString())[0][1];
 
-                    // ruta fisica del pdf del tema
-                    fila[14] = dtEstudiantesDoct.Rows[i][14];
-
                     // solicito qualify
-                    fila[15] = dtEstudiantesDoct.Rows[i][15];
+                    fila[14] = dtEstudiantesDoct.Rows[i][15];
 
                     // aprobo qualify
-                    fila[16] = dtEstudiantesDoct.Rows[i][16];
+                    fila[15] = dtEstudiantesDoct.Rows[i][16];
 
                     dt.Rows.Add(fila);
                 }

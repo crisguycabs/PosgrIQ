@@ -75,6 +75,16 @@ namespace PosgrIQ
         /// </summary>
         public bool abiertoEstudiantesDoctForm=false;
 
+        /// <summary>
+        /// Instancia de la ventana PropuestaDoctForm
+        /// </summary>
+        public PropuestaDoctForm propuestaDoctForm = null;
+
+        /// <summary>
+        /// Indica si la ventana PropuestaDoctForm esta abierta, o no
+        /// </summary>
+        public bool abiertoPropuestaDoctForm = false;
+
         #endregion
 
         public MainForm()
@@ -140,6 +150,31 @@ namespace PosgrIQ
             estudiantesDoctForm.Close();
             estudiantesDoctForm = null;
             abiertoEstudiantesDoctForm = false;
+        }
+
+        public void AbrirPropuestasDoctForm()
+        {
+            if (!abiertoPropuestaDoctForm)
+            {
+                propuestaDoctForm = new PropuestaDoctForm();
+                propuestaDoctForm.padre = this;
+                propuestaDoctForm.MdiParent = this;
+
+                abiertoPropuestaDoctForm = true;
+
+                propuestaDoctForm.Show();
+            }
+            else
+            {
+                propuestaDoctForm.Select();
+            }
+        }
+
+        public void CerrarPropuestasDoctForm()
+        {
+            propuestaDoctForm.Close();
+            propuestaDoctForm = null;
+            abiertoPropuestaDoctForm = false;
         }
 
         public void AbrirEscuelasForm()
