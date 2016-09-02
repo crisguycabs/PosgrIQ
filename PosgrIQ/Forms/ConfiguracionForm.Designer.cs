@@ -186,6 +186,7 @@
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConfiguracionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

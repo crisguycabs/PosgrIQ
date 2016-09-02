@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PropuestaDoctForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnVer = new System.Windows.Forms.Button();
+            this.cmbVer = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMod = new System.Windows.Forms.Button();
             this.dataGridPropuestas = new System.Windows.Forms.DataGridView();
-            this.cmbVer = new System.Windows.Forms.ComboBox();
-            this.btnVer = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPropuestas)).BeginInit();
@@ -58,7 +58,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1168, 416);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1168, 438);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // panel1
@@ -69,10 +69,38 @@
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Controls.Add(this.btnMod);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(8, 385);
+            this.panel1.Location = new System.Drawing.Point(8, 407);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1152, 23);
             this.panel1.TabIndex = 4;
+            // 
+            // btnVer
+            // 
+            this.btnVer.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVer.Location = new System.Drawing.Point(161, 0);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Size = new System.Drawing.Size(168, 23);
+            this.btnVer.TabIndex = 6;
+            this.btnVer.Text = "Abrir Documento Propuesta";
+            this.btnVer.UseVisualStyleBackColor = false;
+            // 
+            // cmbVer
+            // 
+            this.cmbVer.FormattingEnabled = true;
+            this.cmbVer.Items.AddRange(new object[] {
+            "Propuesta",
+            "Concepto 1 Calificador 1",
+            "Concepto 1 Calificador 2",
+            "Concepto 1 Calificador 3",
+            "Concepto 2 Calificador 1",
+            "Concepto 2 Calificador 2",
+            "Concepto 2 Calificador 3",
+            "Concepto Final"});
+            this.cmbVer.Location = new System.Drawing.Point(0, 0);
+            this.cmbVer.Name = "cmbVer";
+            this.cmbVer.Size = new System.Drawing.Size(155, 22);
+            this.cmbVer.TabIndex = 5;
             // 
             // btnAdd
             // 
@@ -127,46 +155,19 @@
             this.dataGridPropuestas.MultiSelect = false;
             this.dataGridPropuestas.Name = "dataGridPropuestas";
             this.dataGridPropuestas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridPropuestas.Size = new System.Drawing.Size(1152, 371);
+            this.dataGridPropuestas.Size = new System.Drawing.Size(1152, 393);
             this.dataGridPropuestas.TabIndex = 1;
-            // 
-            // cmbVer
-            // 
-            this.cmbVer.FormattingEnabled = true;
-            this.cmbVer.Items.AddRange(new object[] {
-            "Propuesta",
-            "Concepto 1 Calificador 1",
-            "Concepto 1 Calificador 2",
-            "Concepto 1 Calificador 3",
-            "Concepto 2 Calificador 1",
-            "Concepto 2 Calificador 2",
-            "Concepto 2 Calificador 3",
-            "Concepto Final"});
-            this.cmbVer.Location = new System.Drawing.Point(0, 0);
-            this.cmbVer.Name = "cmbVer";
-            this.cmbVer.Size = new System.Drawing.Size(155, 22);
-            this.cmbVer.TabIndex = 5;
-            // 
-            // btnVer
-            // 
-            this.btnVer.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVer.Location = new System.Drawing.Point(161, 0);
-            this.btnVer.Name = "btnVer";
-            this.btnVer.Size = new System.Drawing.Size(168, 23);
-            this.btnVer.TabIndex = 6;
-            this.btnVer.Text = "Abrir Documento Propuesta";
-            this.btnVer.UseVisualStyleBackColor = false;
             // 
             // PropuestaDoctForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1168, 416);
+            this.ClientSize = new System.Drawing.Size(1168, 438);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Calibri", 9F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1184, 454);
             this.Name = "PropuestaDoctForm";

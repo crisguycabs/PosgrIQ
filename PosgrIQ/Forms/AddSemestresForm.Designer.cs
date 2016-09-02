@@ -268,7 +268,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
             this.Font = new System.Drawing.Font("Calibri", 9F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddSemestresForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

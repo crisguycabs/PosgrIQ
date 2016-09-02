@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstudiantesDoctForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnVerTema = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMod = new System.Windows.Forms.Button();
             this.dataGridEstudiantes = new System.Windows.Forms.DataGridView();
-            this.btnVerTema = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEstudiantes)).BeginInit();
@@ -72,6 +72,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1168, 23);
             this.panel1.TabIndex = 4;
+            // 
+            // btnVerTema
+            // 
+            this.btnVerTema.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVerTema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerTema.Location = new System.Drawing.Point(0, 0);
+            this.btnVerTema.Name = "btnVerTema";
+            this.btnVerTema.Size = new System.Drawing.Size(132, 23);
+            this.btnVerTema.TabIndex = 5;
+            this.btnVerTema.Text = "Ver Documento Tema";
+            this.btnVerTema.UseVisualStyleBackColor = false;
+            this.btnVerTema.Click += new System.EventHandler(this.btnVerTema_Click);
             // 
             // btnAdd
             // 
@@ -129,18 +141,6 @@
             this.dataGridEstudiantes.Size = new System.Drawing.Size(1168, 200);
             this.dataGridEstudiantes.TabIndex = 1;
             // 
-            // btnVerTema
-            // 
-            this.btnVerTema.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnVerTema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerTema.Location = new System.Drawing.Point(0, 0);
-            this.btnVerTema.Name = "btnVerTema";
-            this.btnVerTema.Size = new System.Drawing.Size(132, 23);
-            this.btnVerTema.TabIndex = 5;
-            this.btnVerTema.Text = "Ver Documento Tema";
-            this.btnVerTema.UseVisualStyleBackColor = false;
-            this.btnVerTema.Click += new System.EventHandler(this.btnVerTema_Click);
-            // 
             // EstudiantesDoctForm
             // 
             this.AcceptButton = this.btnMod;
@@ -152,6 +152,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Calibri", 9F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EstudiantesDoctForm";
             this.Text = "LISTADO DE ESTUDIANTES DE DOCTORADO";
