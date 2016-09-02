@@ -52,5 +52,10 @@ namespace PosgrIQ
         {
             padre.AbrirPropuestasDoctForm();
         }
+
+        private void btnConfiguracion_Click(object sender, EventArgs e)
+        {
+            padre.AbrirConfiguracionForm(false);
+        }        
     }
 }

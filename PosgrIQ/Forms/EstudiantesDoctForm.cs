@@ -30,7 +30,7 @@ namespace PosgrIQ
 
         private void EstudiantesDoctForm_Load(object sender, EventArgs e)
         {
-            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
                 conection.Open();
@@ -204,7 +204,7 @@ namespace PosgrIQ
         private void btnVerTema_Click(object sender, EventArgs e)
         {
             int codigo = Convert.ToInt32(dataGridEstudiantes.SelectedRows[0].Cells[0].Value);
-            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
                 conection.Open();

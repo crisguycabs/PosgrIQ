@@ -56,7 +56,7 @@ namespace PosgrIQ
         private void LlenarEscuelas()
         {
             // se pide la informacion de las escuelas
-            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
                 conection.Open();
@@ -86,7 +86,7 @@ namespace PosgrIQ
         private void LlenarColegiatura()
         {
             // se pide la informacion de las escuelas
-            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
                 conection.Open();
@@ -116,7 +116,7 @@ namespace PosgrIQ
         private void AddProfesoresForm_Load(object sender, EventArgs e)
         {
             // se lee desde la BD la cantidad de Profesores, Colegiatura y Escuelas que existen actualmente
-            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
                 conection.Open();

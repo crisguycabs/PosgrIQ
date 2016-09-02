@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.OleDb;
+using GemBox.Spreadsheet;
 
 namespace PosgrIQ
 {
@@ -85,6 +86,21 @@ namespace PosgrIQ
         /// </summary>
         public bool abiertoPropuestaDoctForm = false;
 
+        /// <summary>
+        /// Instancia de la ventana ConfiguracionForm
+        /// </summary>
+        public ConfiguracionForm configuracionForm = null;
+
+        /// <summary>
+        /// Indica si la ventana ConfiguracionForm esta abierta, o no
+        /// </summary>
+        public bool abiertoConfiguracionForm = false;
+
+        /// <summary>
+        /// Ruta fisica de la BD
+        /// </summary>
+        public string sourceBD = "";
+
         #endregion
 
         public MainForm()
@@ -99,7 +115,382 @@ namespace PosgrIQ
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            AbrirHomeForm();
+            if (!GetSource())
+            {
+                MessageBox.Show("No se encuentra la ruta de la base de datos.\r\n\r\nLa aplicacion se cerrara.", "Error de archivo de configuracion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            if (!TestSource())
+            {
+                MessageBox.Show("No se encuentra la base de datos en la ruta indicada.\r\n\r\nSe debe cambiar la configuracion de la aplicacion.", "Error de archivo de configuracion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AbrirConfiguracionForm(true);
+            }
+            else AbrirHomeForm();
+        }
+
+        /// <summary>
+        /// Se toma la base de datos desde el archivo source
+        /// </summary>
+        /// <returns></returns>
+        public bool GetSource()
+        {
+            try
+            {
+                System.IO.StreamReader sr = new System.IO.StreamReader("source");
+                this.sourceBD = sr.ReadLine();
+                sr.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Se escribe la base de datos en el archivo source
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public bool SetSource(string source)
+        {
+            try
+            {
+                System.IO.StreamWriter sw = new System.IO.StreamWriter("source",false);
+                sw.WriteLine(source);
+                sw.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Se prueba que la base de datos escogida contenga todas las tablas requeridas
+        /// </summary>
+        /// <returns></returns>
+        public bool TestSource()
+        {
+            try
+            {
+                var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
+                
+                conection.Open();
+
+                // algunas variables
+                string query, query2;
+                OleDbCommand command;
+                OleDbDataAdapter da;
+
+                query2 = "Colegiatura";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "Colegiatura";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "Conceptos";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "Condicion";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "Configuracion";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "Escuelas";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "EstudiantesDoct";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "EstudiantesMaes";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "MatriculaDoct";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "MatriculaMaes";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "PonenciasDoct";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "PonenciasMaes";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "Profesores";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "PropuestaDoct";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "PropuestaMaes";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "PublicacionesDoct";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "PublicacionesMaes";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "Reglamentos";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "Semestres";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "TesisDoct";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                query2 = "TesisMaes";
+                query = "SELECT * FROM " + query2 + " ORDER BY codigo ASC";
+                try
+                {
+                    command = new OleDbCommand(query, conection);
+                    da = new OleDbDataAdapter(command);
+                }
+                catch
+                {
+                    MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                conection.Close();
+                
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public void AbrirConfiguracionForm(bool conf)
+        {
+            if (!abiertoConfiguracionForm)
+            {
+                configuracionForm = new ConfiguracionForm();
+                configuracionForm.padre = this;
+                configuracionForm.MdiParent = this;
+                configuracionForm.conf = conf;
+
+                abiertoConfiguracionForm = true;
+
+                configuracionForm.Show();
+            }
+            else
+            {
+                configuracionForm.Select();
+            }
+        }
+
+        public void CerrarConfiguracionForm()
+        {
+            configuracionForm.Close();
+            configuracionForm = null;
+            abiertoConfiguracionForm = false;
         }
 
         public void AbrirReglamentosForm()

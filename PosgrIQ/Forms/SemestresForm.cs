@@ -32,7 +32,7 @@ namespace PosgrIQ
 
         private void SemestresForm_Load(object sender, EventArgs e)
         {
-            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
                 conection.Open();

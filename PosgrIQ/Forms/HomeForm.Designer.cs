@@ -35,6 +35,7 @@
             this.btnReglamentos = new System.Windows.Forms.Button();
             this.btnEstudiantesDoct = new System.Windows.Forms.Button();
             this.btnPropuestasDoct = new System.Windows.Forms.Button();
+            this.btnConfiguracion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProfesores
@@ -109,6 +110,18 @@
             this.btnPropuestasDoct.UseVisualStyleBackColor = false;
             this.btnPropuestasDoct.Click += new System.EventHandler(this.btnPropuestasDoct_Click);
             // 
+            // btnConfiguracion
+            // 
+            this.btnConfiguracion.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfiguracion.Location = new System.Drawing.Point(94, 230);
+            this.btnConfiguracion.Name = "btnConfiguracion";
+            this.btnConfiguracion.Size = new System.Drawing.Size(96, 39);
+            this.btnConfiguracion.TabIndex = 2;
+            this.btnConfiguracion.Text = "Configuracion PosgrIQ";
+            this.btnConfiguracion.UseVisualStyleBackColor = false;
+            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -116,6 +129,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(284, 282);
             this.ControlBox = false;
+            this.Controls.Add(this.btnConfiguracion);
             this.Controls.Add(this.btnPropuestasDoct);
             this.Controls.Add(this.btnEstudiantesDoct);
             this.Controls.Add(this.btnReglamentos);
@@ -140,5 +154,6 @@
         private System.Windows.Forms.Button btnReglamentos;
         private System.Windows.Forms.Button btnEstudiantesDoct;
         private System.Windows.Forms.Button btnPropuestasDoct;
+        private System.Windows.Forms.Button btnConfiguracion;
     }
 }
