@@ -280,6 +280,7 @@
             this.btnAddProfesor.TabIndex = 13;
             this.btnAddProfesor.Text = "Agregar Profesor";
             this.btnAddProfesor.UseVisualStyleBackColor = false;
+            this.btnAddProfesor.Click += new System.EventHandler(this.btnAddProfesor_Click);
             // 
             // label10
             // 
@@ -437,6 +438,7 @@
             this.btnRutaTema.TabIndex = 19;
             this.btnRutaTema.Text = "Seleccionar Archivo";
             this.btnRutaTema.UseVisualStyleBackColor = false;
+            this.btnRutaTema.Click += new System.EventHandler(this.btnRutaTema_Click);
             // 
             // label17
             // 
@@ -508,6 +510,7 @@
             this.btnVerArchivoTema.TabIndex = 20;
             this.btnVerArchivoTema.Text = "Ver Archivo";
             this.btnVerArchivoTema.UseVisualStyleBackColor = false;
+            this.btnVerArchivoTema.Click += new System.EventHandler(this.btnVerArchivoTema_Click);
             // 
             // chkTema
             // 

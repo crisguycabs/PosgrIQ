@@ -64,7 +64,7 @@ namespace PosgrIQ
                 string query = "SELECT * FROM Escuelas ORDER BY codigo ASC";
                 OleDbCommand command = new OleDbCommand(query, conection);
                 OleDbDataAdapter da = new OleDbDataAdapter(command);
-                
+
                 dtEscuelas = new DataTable();
                 da.Fill(dtEscuelas);
 
@@ -149,7 +149,7 @@ namespace PosgrIQ
                         txtCorreo.Text = "";
                         txtTelefono.Text = "";
                         txtUniversidad.Text = "";
-                        
+
                         this.Text = "AGREGAR NUEVO PROFESOR";
 
                         break;
@@ -159,7 +159,7 @@ namespace PosgrIQ
                         // se escriben en los controles la informacion de la escuela seleccionada
 
                         DataRow[] seleccionado = dtProfesores.Select("codigo=" + codigo.ToString());
-                        DataRow[] listaEscuelas= dtEscuelas.Select("codigo=" + seleccionado[0][3]);
+                        DataRow[] listaEscuelas = dtEscuelas.Select("codigo=" + seleccionado[0][3]);
                         numCod.Value = codigo;
                         txtNombre.Text = Convert.ToString(seleccionado[0][1]);
                         cmbColegiatura.SelectedIndex = Convert.ToInt32(seleccionado[0][2]) - 1;
@@ -190,6 +190,7 @@ namespace PosgrIQ
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // se realizan algunas comprobaciones de seguridad
+            DataRow[] busqueda;
 
             // nombre vacio
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
@@ -201,7 +202,7 @@ namespace PosgrIQ
             // existe un profesor con ese codigo. Solo revisar en modo insercion
             if (modo)
             {
-                DataRow[] busqueda = dtProfesores.Select("codigo=" + numCod.Value.ToString());
+                busqueda = dtProfesores.Select("codigo=" + numCod.Value.ToString());
                 if (busqueda.Length > 0)
                 {
                     MessageBox.Show("Ya existe un profesor con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -245,8 +246,8 @@ namespace PosgrIQ
                         conection.Open();
 
                         // se prepara la cadena SQL
-                        DataRow[] busqueda = dtEscuelas.Select("escuela='" + cmbEscuela.Items[cmbEscuela.SelectedIndex] + "'");
-                        query = "INSERT INTO Profesores VALUES(" + numCod.Value.ToString() + ",'" + txtNombre.Text + "',"+(cmbColegiatura.SelectedIndex+1).ToString()+"," + busqueda[0][0] +",'"+ txtCorreo.Text +"','"+ txtTelefono.Text +"','"+ txtUniversidad.Text + "')";
+                        busqueda = dtEscuelas.Select("escuela='" + cmbEscuela.Items[cmbEscuela.SelectedIndex] + "'");
+                        query = "INSERT INTO Profesores VALUES(" + numCod.Value.ToString() + ",'" + txtNombre.Text + "'," + (cmbColegiatura.SelectedIndex + 1).ToString() + "," + busqueda[0][0] + ",'" + txtCorreo.Text + "','" + txtTelefono.Text + "','" + txtUniversidad.Text + "')";
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
@@ -268,7 +269,7 @@ namespace PosgrIQ
                         conection.Open();
 
                         // se prepara la cadena SQL
-                        DataRow[] busqueda = dtEscuelas.Select("escuela='" + cmbEscuela.Items[cmbEscuela.SelectedIndex] + "'");
+                        busqueda = dtEscuelas.Select("escuela='" + cmbEscuela.Items[cmbEscuela.SelectedIndex] + "'");
                         query = "UPDATE Profesores SET codigo=" + numCod.Value.ToString() + ", nombre='" + txtNombre.Text + "', colegiatura=" + (cmbColegiatura.SelectedIndex + 1).ToString() + ", escuela=" + busqueda[0][0] + ", correo='" + txtCorreo.Text + "', telefono='" + txtTelefono.Text + "', universidad='" + txtUniversidad.Text + "' WHERE codigo=" + codigo.ToString();
                         command = new OleDbCommand(query, conection);
 
@@ -287,7 +288,7 @@ namespace PosgrIQ
 
                 default:
                     break;
-            }            
+            }
         }
 
         private void btnAddEscuela_Click(object sender, EventArgs e)

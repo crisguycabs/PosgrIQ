@@ -139,6 +139,7 @@
             this.btnVerTema.TabIndex = 5;
             this.btnVerTema.Text = "Ver Documento Tema";
             this.btnVerTema.UseVisualStyleBackColor = false;
+            this.btnVerTema.Click += new System.EventHandler(this.btnVerTema_Click);
             // 
             // EstudiantesDoctForm
             // 

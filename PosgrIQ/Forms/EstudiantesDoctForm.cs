@@ -126,14 +126,17 @@ namespace PosgrIQ
                     // nivel del estudiante
                     fila[6] = dtEstudiantesDoct.Rows[i][6];
 
-                    // director
-                    fila[7] = dtProfesores.Select("codigo=" + dtEstudiantesDoct.Rows[i][7].ToString())[0][1];
+                    // director. es posible que no haya informacion
+                    if (string.IsNullOrWhiteSpace(dtEstudiantesDoct.Rows[i][7].ToString())) fila[7] = "";
+                    else fila[7] = dtProfesores.Select("codigo=" + dtEstudiantesDoct.Rows[i][7].ToString())[0][1];
 
-                    // codirector1
-                    fila[8] = dtProfesores.Select("codigo=" + dtEstudiantesDoct.Rows[i][8].ToString())[0][1];
+                    // codirector1. es posible que no haya informacion
+                    if (string.IsNullOrWhiteSpace(dtEstudiantesDoct.Rows[i][8].ToString())) fila[8] = "";
+                    else fila[8] = dtProfesores.Select("codigo=" + dtEstudiantesDoct.Rows[i][8].ToString())[0][1];
 
-                    // codirector2
-                    fila[9] = dtProfesores.Select("codigo=" + dtEstudiantesDoct.Rows[i][9].ToString())[0][1];
+                    // codirector2. es posible que no haya informacion
+                    if (string.IsNullOrWhiteSpace(dtEstudiantesDoct.Rows[i][9].ToString())) fila[9] = "";
+                    else fila[9] = dtProfesores.Select("codigo=" + dtEstudiantesDoct.Rows[i][9].ToString())[0][1];
 
                     // reglamento
                     fila[10] = dtReglamentos.Select("codigo=" + dtEstudiantesDoct.Rows[i][10].ToString())[0][1];
@@ -144,8 +147,9 @@ namespace PosgrIQ
                     // fecha de entrega del tema
                     fila[12] = dtEstudiantesDoct.Rows[i][12];
 
-                    // concepto del tema
-                    fila[13] = dtConceptos.Select("codigo=" + dtEstudiantesDoct.Rows[i][13].ToString())[0][1];
+                    // concepto del tema, sensible a valores vacios
+                    if (string.IsNullOrWhiteSpace(dtEstudiantesDoct.Rows[i][13].ToString())) fila[13] = "";
+                    else fila[13] = dtConceptos.Select("codigo=" + dtEstudiantesDoct.Rows[i][13].ToString())[0][1];
 
                     // solicito qualify
                     fila[14] = dtEstudiantesDoct.Rows[i][15];
@@ -168,7 +172,8 @@ namespace PosgrIQ
             }
             catch
             {
-                MessageBox.Show("No se puede acceder a la base de datos, tabla Profesores", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                padre.CerrarEstudiantesDoctForm();
             }
         }
 
@@ -194,6 +199,45 @@ namespace PosgrIQ
             modificar.codigo = Convert.ToInt32(dataGridEstudiantes.SelectedRows[0].Cells[0].Value);
 
             if (modificar.ShowDialog() == DialogResult.OK) this.EstudiantesDoctForm_Load(sender, e);
+        }
+
+        private void btnVerTema_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(dataGridEstudiantes.SelectedRows[0].Cells[0].Value);
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
+            try
+            {
+                conection.Open();
+
+                // algunas variables
+                string query;
+                OleDbCommand command;
+                DataTable dtEstudiantesDoct;
+                OleDbDataAdapter da;
+
+                // se pide la informacion de los estudiantes de doctorad
+                query = "SELECT * FROM EstudiantesDoct WHERE codigo=" + codigo.ToString() + " ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                dtEstudiantesDoct = new DataTable();
+                da.Fill(dtEstudiantesDoct);
+
+                conection.Close();
+
+                try
+                {
+                    System.Diagnostics.Process.Start(Convert.ToString(dtEstudiantesDoct.Rows[0][14]));
+                }
+                catch
+                {
+                    MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

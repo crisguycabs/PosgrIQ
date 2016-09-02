@@ -120,6 +120,7 @@ namespace PosgrIQ
                 }
             }
 
+
             // se prepara la conexion
             OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
             string query;

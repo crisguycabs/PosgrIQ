@@ -297,6 +297,7 @@ namespace PosgrIQ
         {
             string[] texto2 = texto.Split('/');
 
+            if (texto2.Length < 3) return DateTime.Now;
             return new DateTime(Convert.ToInt32(texto2[2]), Convert.ToInt32(texto2[1]), Convert.ToInt32(texto2[0]));
         }
 

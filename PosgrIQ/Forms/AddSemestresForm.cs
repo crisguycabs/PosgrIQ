@@ -199,7 +199,7 @@ namespace PosgrIQ
             {
                 MessageBox.Show("Las fechas de tomar el Qualify y la entrega del tema son iguales", "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            } 
+            }
             // ------------------------------------------------------
             if (datePropuestaDoct.Value == datePropuestaMaes.Value)
             {
@@ -217,7 +217,7 @@ namespace PosgrIQ
                 return;
             }
             // ------------------------------------------------------
-            if(datePropuestaMaes.Value==datePedirQualify.Value)
+            if (datePropuestaMaes.Value == datePedirQualify.Value)
             {
                 MessageBox.Show("Las fechas de la entrega de propuesta de maestria y solicitar el Qualify son iguales", "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -305,7 +305,7 @@ namespace PosgrIQ
                     try
                     {
                         datePropuestaDoct.Format = DateTimePickerFormat.Short;
-                        
+
                         conection.Open();
 
                         // se prepara la cadena SQL
@@ -319,14 +319,14 @@ namespace PosgrIQ
                         query += "'" + MainForm.Fecha2Texto(datePropuestaMaes.Value) + "',";
                         query += "'" + MainForm.Fecha2Texto(datePedirQualify.Value) + "',";
                         query += "'" + MainForm.Fecha2Texto(dateTema.Value) + "')";
-                        
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
 
                         conection.Close();
 
-                        this.DialogResult = DialogResult.OK;                        
+                        this.DialogResult = DialogResult.OK;
                     }
                     catch
                     {
@@ -342,7 +342,7 @@ namespace PosgrIQ
                         conection.Open();
 
                         // se prepara la cadena SQL
-                        
+
                         query = "UPDATE Semestres SET ";
                         query += "codigo=" + numCod.Value.ToString() + ", ";
                         query += "nombre='" + numAno.Value.ToString() + "-" + cmbPeriodo.Items[cmbPeriodo.SelectedIndex] + "', ";
