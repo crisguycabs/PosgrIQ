@@ -33,12 +33,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.numCod = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTema = new System.Windows.Forms.TextBox();
+            this.txtPropuesta = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtRutaTema = new System.Windows.Forms.TextBox();
+            this.txtRutaPropuesta = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.dateTema = new System.Windows.Forms.DateTimePicker();
+            this.datePropuesta = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.btnRutaTema = new System.Windows.Forms.Button();
             this.btnVerArchivoTema = new System.Windows.Forms.Button();
@@ -156,14 +156,14 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Codigo:";
             // 
-            // txtTema
+            // txtPropuesta
             // 
-            this.txtTema.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtTema.Location = new System.Drawing.Point(91, 64);
-            this.txtTema.Multiline = true;
-            this.txtTema.Name = "txtTema";
-            this.txtTema.Size = new System.Drawing.Size(533, 51);
-            this.txtTema.TabIndex = 20;
+            this.txtPropuesta.Font = new System.Drawing.Font("Calibri", 9F);
+            this.txtPropuesta.Location = new System.Drawing.Point(91, 64);
+            this.txtPropuesta.Multiline = true;
+            this.txtPropuesta.Name = "txtPropuesta";
+            this.txtPropuesta.Size = new System.Drawing.Size(533, 51);
+            this.txtPropuesta.TabIndex = 20;
             // 
             // label13
             // 
@@ -175,13 +175,13 @@
             this.label13.TabIndex = 19;
             this.label13.Text = "Titulo:";
             // 
-            // txtRutaTema
+            // txtRutaPropuesta
             // 
-            this.txtRutaTema.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtRutaTema.Location = new System.Drawing.Point(91, 121);
-            this.txtRutaTema.Name = "txtRutaTema";
-            this.txtRutaTema.Size = new System.Drawing.Size(533, 22);
-            this.txtRutaTema.TabIndex = 25;
+            this.txtRutaPropuesta.Font = new System.Drawing.Font("Calibri", 9F);
+            this.txtRutaPropuesta.Location = new System.Drawing.Point(91, 121);
+            this.txtRutaPropuesta.Name = "txtRutaPropuesta";
+            this.txtRutaPropuesta.Size = new System.Drawing.Size(533, 22);
+            this.txtRutaPropuesta.TabIndex = 25;
             // 
             // label16
             // 
@@ -203,13 +203,13 @@
             this.label14.TabIndex = 21;
             this.label14.Text = "Fecha:";
             // 
-            // dateTema
+            // datePropuesta
             // 
-            this.dateTema.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTema.Location = new System.Drawing.Point(89, 5);
-            this.dateTema.Name = "dateTema";
-            this.dateTema.Size = new System.Drawing.Size(96, 22);
-            this.dateTema.TabIndex = 23;
+            this.datePropuesta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePropuesta.Location = new System.Drawing.Point(89, 5);
+            this.datePropuesta.Name = "datePropuesta";
+            this.datePropuesta.Size = new System.Drawing.Size(96, 22);
+            this.datePropuesta.TabIndex = 23;
             // 
             // label15
             // 
@@ -232,6 +232,7 @@
             this.btnRutaTema.TabIndex = 27;
             this.btnRutaTema.Text = "Seleccionar Archivo";
             this.btnRutaTema.UseVisualStyleBackColor = false;
+            this.btnRutaTema.Click += new System.EventHandler(this.btnRutaTema_Click);
             // 
             // btnVerArchivoTema
             // 
@@ -244,6 +245,7 @@
             this.btnVerArchivoTema.TabIndex = 28;
             this.btnVerArchivoTema.Text = "Ver Archivo";
             this.btnVerArchivoTema.UseVisualStyleBackColor = false;
+            this.btnVerArchivoTema.Click += new System.EventHandler(this.btnVerArchivoTema_Click);
             // 
             // cmbConcepto1Calificador1
             // 
@@ -290,6 +292,7 @@
             this.btnVerConcepto1Calificador1.TabIndex = 28;
             this.btnVerConcepto1Calificador1.Text = "Ver Archivo";
             this.btnVerConcepto1Calificador1.UseVisualStyleBackColor = false;
+            this.btnVerConcepto1Calificador1.Click += new System.EventHandler(this.btnVerConcepto1Calificador1_Click);
             // 
             // btnSelConcepto1Calificador1
             // 
@@ -302,6 +305,7 @@
             this.btnSelConcepto1Calificador1.TabIndex = 27;
             this.btnSelConcepto1Calificador1.Text = "Seleccionar Archivo";
             this.btnSelConcepto1Calificador1.UseVisualStyleBackColor = false;
+            this.btnSelConcepto1Calificador1.Click += new System.EventHandler(this.btnSelConcepto1Calificador1_Click);
             // 
             // cmbConcepto1Calificador2
             // 
@@ -322,6 +326,7 @@
             this.btnVerConcepto1Calificador2.TabIndex = 28;
             this.btnVerConcepto1Calificador2.Text = "Ver Archivo";
             this.btnVerConcepto1Calificador2.UseVisualStyleBackColor = false;
+            this.btnVerConcepto1Calificador2.Click += new System.EventHandler(this.btnVerConcepto1Calificador2_Click);
             // 
             // btnSelConcepto1Calificador2
             // 
@@ -334,6 +339,7 @@
             this.btnSelConcepto1Calificador2.TabIndex = 27;
             this.btnSelConcepto1Calificador2.Text = "Seleccionar Archivo";
             this.btnSelConcepto1Calificador2.UseVisualStyleBackColor = false;
+            this.btnSelConcepto1Calificador2.Click += new System.EventHandler(this.btnSelConcepto1Calificador2_Click);
             // 
             // label2
             // 
@@ -382,6 +388,7 @@
             this.btnVerConcepto1Calificador3.TabIndex = 28;
             this.btnVerConcepto1Calificador3.Text = "Ver Archivo";
             this.btnVerConcepto1Calificador3.UseVisualStyleBackColor = false;
+            this.btnVerConcepto1Calificador3.Click += new System.EventHandler(this.btnVerConcepto1Calificador3_Click);
             // 
             // btnSelConcepto1Calificador3
             // 
@@ -394,6 +401,7 @@
             this.btnSelConcepto1Calificador3.TabIndex = 27;
             this.btnSelConcepto1Calificador3.Text = "Seleccionar Archivo";
             this.btnSelConcepto1Calificador3.UseVisualStyleBackColor = false;
+            this.btnSelConcepto1Calificador3.Click += new System.EventHandler(this.btnSelConcepto1Calificador3_Click);
             // 
             // label6
             // 
@@ -450,6 +458,7 @@
             this.btnVerConcepto2Calificador1.TabIndex = 28;
             this.btnVerConcepto2Calificador1.Text = "Ver Archivo";
             this.btnVerConcepto2Calificador1.UseVisualStyleBackColor = false;
+            this.btnVerConcepto2Calificador1.Click += new System.EventHandler(this.btnVerConcepto2Calificador1_Click);
             // 
             // cmbConcepto2Calificador3
             // 
@@ -470,6 +479,7 @@
             this.btnVerConcepto2Calificador2.TabIndex = 28;
             this.btnVerConcepto2Calificador2.Text = "Ver Archivo";
             this.btnVerConcepto2Calificador2.UseVisualStyleBackColor = false;
+            this.btnVerConcepto2Calificador2.Click += new System.EventHandler(this.btnVerConcepto2Calificador2_Click);
             // 
             // btnSelConcepto2Calificador1
             // 
@@ -482,6 +492,7 @@
             this.btnSelConcepto2Calificador1.TabIndex = 27;
             this.btnSelConcepto2Calificador1.Text = "Seleccionar Archivo";
             this.btnSelConcepto2Calificador1.UseVisualStyleBackColor = false;
+            this.btnSelConcepto2Calificador1.Click += new System.EventHandler(this.btnSelConcepto2Calificador1_Click);
             // 
             // btnVerConcepto2Calificador3
             // 
@@ -494,6 +505,7 @@
             this.btnVerConcepto2Calificador3.TabIndex = 28;
             this.btnVerConcepto2Calificador3.Text = "Ver Archivo";
             this.btnVerConcepto2Calificador3.UseVisualStyleBackColor = false;
+            this.btnVerConcepto2Calificador3.Click += new System.EventHandler(this.btnVerConcepto2Calificador3_Click);
             // 
             // label8
             // 
@@ -516,6 +528,7 @@
             this.btnSelConcepto3Calificador1.TabIndex = 27;
             this.btnSelConcepto3Calificador1.Text = "Seleccionar Archivo";
             this.btnSelConcepto3Calificador1.UseVisualStyleBackColor = false;
+            this.btnSelConcepto3Calificador1.Click += new System.EventHandler(this.btnSelConcepto3Calificador1_Click);
             // 
             // label10
             // 
@@ -538,6 +551,7 @@
             this.btnSelConcepto4Calificador1.TabIndex = 27;
             this.btnSelConcepto4Calificador1.Text = "Seleccionar Archivo";
             this.btnSelConcepto4Calificador1.UseVisualStyleBackColor = false;
+            this.btnSelConcepto4Calificador1.Click += new System.EventHandler(this.btnSelConcepto4Calificador1_Click);
             // 
             // label11
             // 
@@ -640,6 +654,7 @@
             this.btnVerSustentacion.TabIndex = 28;
             this.btnVerSustentacion.Text = "Ver Archivo";
             this.btnVerSustentacion.UseVisualStyleBackColor = false;
+            this.btnVerSustentacion.Click += new System.EventHandler(this.btnVerSustentacion_Click);
             // 
             // btnSelSustentacion
             // 
@@ -652,6 +667,7 @@
             this.btnSelSustentacion.TabIndex = 27;
             this.btnSelSustentacion.Text = "Seleccionar Archivo";
             this.btnSelSustentacion.UseVisualStyleBackColor = false;
+            this.btnSelSustentacion.Click += new System.EventHandler(this.btnSelSustentacion_Click);
             // 
             // label21
             // 
@@ -710,6 +726,7 @@
             this.btnAdd.TabIndex = 32;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCancel
             // 
@@ -761,7 +778,7 @@
             this.tabPage1.Controls.Add(this.btnSelConcepto1Calificador3);
             this.tabPage1.Controls.Add(this.txtRutaConcepto1Calificador2);
             this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.dateTema);
+            this.tabPage1.Controls.Add(this.datePropuesta);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.txtRutaConcepto1Calificador1);
             this.tabPage1.Controls.Add(this.label3);
@@ -886,6 +903,7 @@
             this.btnAddProfesor.TabIndex = 34;
             this.btnAddProfesor.Text = "Agregar Profesor";
             this.btnAddProfesor.UseVisualStyleBackColor = false;
+            this.btnAddProfesor.Click += new System.EventHandler(this.btnAddProfesor_Click);
             // 
             // label26
             // 
@@ -911,11 +929,11 @@
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtRutaTema);
+            this.Controls.Add(this.txtRutaPropuesta);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.btnRutaTema);
             this.Controls.Add(this.btnVerArchivoTema);
-            this.Controls.Add(this.txtTema);
+            this.Controls.Add(this.txtPropuesta);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cmbCalificador3);
             this.Controls.Add(this.label27);
@@ -951,12 +969,12 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numCod;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtTema;
+        private System.Windows.Forms.TextBox txtPropuesta;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtRutaTema;
+        private System.Windows.Forms.TextBox txtRutaPropuesta;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DateTimePicker dateTema;
+        private System.Windows.Forms.DateTimePicker datePropuesta;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnRutaTema;
         private System.Windows.Forms.Button btnVerArchivoTema;

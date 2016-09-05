@@ -125,6 +125,8 @@ namespace PosgrIQ
 
         private void btnMod_Click(object sender, EventArgs e)
         {
+            if (dataGridSemestres.Rows.Count < 1) return;
+
             AddSemestresForm modificar = new AddSemestresForm();
             modificar.padre = this.padre;
             modificar.modo = false;

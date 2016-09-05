@@ -78,6 +78,8 @@ namespace PosgrIQ
 
         private void btnMod_Click(object sender, EventArgs e)
         {
+            if (dataGridReglamentos.Rows.Count < 1) return;
+            
             AddReglamentosForm modificar = new AddReglamentosForm();
             modificar.padre = this.padre;
             modificar.modo = false;

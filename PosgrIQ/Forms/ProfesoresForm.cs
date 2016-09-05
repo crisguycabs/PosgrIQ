@@ -250,6 +250,8 @@ namespace PosgrIQ
 
         private void btnMod_Click(object sender, EventArgs e)
         {
+            if (dataGridProfesores.Rows.Count < 1) return;
+            
             AddProfesoresForm modificar = new AddProfesoresForm();
             modificar.padre = this.padre;
             modificar.modo = false;

@@ -108,7 +108,7 @@ namespace PosgrIQ
                     fila[2] = dtPropuestasDoct.Rows[i][2];
 
                     // fecha de entrega
-                    fila[3] = dtPropuestasDoct.Rows[i][7];
+                    fila[3] = Convert.ToString(dtPropuestasDoct.Rows[i][7].ToString());
 
                     // calificador 1
                     fila[4] = dtProfesores.Select("codigo=" + dtPropuestasDoct.Rows[i][4].ToString())[0][1];
@@ -181,6 +181,8 @@ namespace PosgrIQ
 
         private void btnMod_Click(object sender, EventArgs e)
         {
+            if (dataGridPropuestas.Rows.Count < 1) return;
+
             AddPropuestaDoctForm modificar = new AddPropuestaDoctForm();
             modificar.padre = this.padre;
             modificar.modo = false;
