@@ -80,10 +80,11 @@
             this.btnVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVer.Location = new System.Drawing.Point(161, 0);
             this.btnVer.Name = "btnVer";
-            this.btnVer.Size = new System.Drawing.Size(168, 23);
+            this.btnVer.Size = new System.Drawing.Size(112, 23);
             this.btnVer.TabIndex = 6;
-            this.btnVer.Text = "Abrir Documento Propuesta";
+            this.btnVer.Text = "Abrir Documento";
             this.btnVer.UseVisualStyleBackColor = false;
+            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
             // 
             // cmbVer
             // 

@@ -172,12 +172,86 @@ namespace PosgrIQ
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            AddPropuestaDoctForm agregar = new AddPropuestaDoctForm();
+            agregar.padre = this.padre;
+            agregar.modo = true;
 
+            if (agregar.ShowDialog() == DialogResult.OK) this.PropuestaDoctForm_Load(sender, e);
         }
 
         private void btnMod_Click(object sender, EventArgs e)
         {
+            AddPropuestaDoctForm modificar = new AddPropuestaDoctForm();
+            modificar.padre = this.padre;
+            modificar.modo = false;
+            modificar.codigo = Convert.ToInt32(dataGridPropuestas.SelectedRows[0].Cells[0].Value);
 
+            if (modificar.ShowDialog() == DialogResult.OK) this.PropuestaDoctForm_Load(sender, e);
+        }
+
+        private void btnVer_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(dataGridPropuestas.SelectedRows[0].Cells[0].Value);
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
+            try
+            {
+                conection.Open();
+
+                // algunas variables
+                string query;
+                OleDbCommand command;
+                DataTable dtPropuestaDoct;
+                OleDbDataAdapter da;
+
+                // se pide la informacion de la propuesta de doct
+                query = "SELECT * FROM PropuestaDoct WHERE codigo=" + codigo.ToString() + " ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                dtPropuestaDoct = new DataTable();
+                da.Fill(dtPropuestaDoct);
+
+                conection.Close();
+
+                try
+                {
+                    switch (cmbVer.SelectedIndex)
+                    {
+                        case 0: // propuesta
+                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][3]));
+                            break;
+                        case 1: // concepto 1 calificador 1
+                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][8]));
+                            break;
+                        case 2: // concepto 1 calificador 2
+                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][9]));
+                            break;
+                        case 3: // concepto 1 calificador 3
+                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][10]));
+                            break;
+                        case 4: // concepto 2 calificador 1
+                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][15]));
+                            break;
+                        case 5: // concepto 2 calificador 2
+                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][16]));
+                            break;
+                        case 6: // concepto 2 calificador 3
+                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][17]));
+                            break;
+                        case 7: // sustentacion
+                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][23]));
+                            break;
+                    }                    
+                }
+                catch
+                {
+                    MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
