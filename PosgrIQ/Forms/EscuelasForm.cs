@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using GemBox.Spreadsheet;
+using System.Runtime.InteropServices;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace PosgrIQ
 {
@@ -24,7 +27,7 @@ namespace PosgrIQ
         {
             InitializeComponent();
         }
-
+        
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             padre.CerrarEscuelasForm();
