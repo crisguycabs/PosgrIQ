@@ -175,7 +175,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TesisDoctForm";
-            this.Text = "TesisDoctForm";
+            this.Text = "TESIS DOCTORALES";
             this.Load += new System.EventHandler(this.TesisDoctForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

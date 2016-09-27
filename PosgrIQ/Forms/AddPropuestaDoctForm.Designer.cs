@@ -40,8 +40,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.datePropuesta = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
-            this.btnRutaTema = new System.Windows.Forms.Button();
-            this.btnVerArchivoTema = new System.Windows.Forms.Button();
+            this.btnRutaPropuesta = new System.Windows.Forms.Button();
+            this.btnVerArchivoPropuesta = new System.Windows.Forms.Button();
             this.cmbConcepto1Calificador1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -68,9 +68,9 @@
             this.btnSelConcepto2Calificador1 = new System.Windows.Forms.Button();
             this.btnVerConcepto2Calificador3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnSelConcepto3Calificador1 = new System.Windows.Forms.Button();
+            this.btnSelConcepto2Calificador2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnSelConcepto4Calificador1 = new System.Windows.Forms.Button();
+            this.btnSelConcepto2Calificador3 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.dateCorrecciones = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
@@ -221,31 +221,31 @@
             this.label15.TabIndex = 22;
             this.label15.Text = "Calificador 1:";
             // 
-            // btnRutaTema
+            // btnRutaPropuesta
             // 
-            this.btnRutaTema.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRutaTema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRutaTema.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnRutaTema.Location = new System.Drawing.Point(91, 149);
-            this.btnRutaTema.Name = "btnRutaTema";
-            this.btnRutaTema.Size = new System.Drawing.Size(128, 23);
-            this.btnRutaTema.TabIndex = 27;
-            this.btnRutaTema.Text = "Seleccionar Archivo";
-            this.btnRutaTema.UseVisualStyleBackColor = false;
-            this.btnRutaTema.Click += new System.EventHandler(this.btnRutaTema_Click);
+            this.btnRutaPropuesta.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRutaPropuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRutaPropuesta.Font = new System.Drawing.Font("Calibri", 9F);
+            this.btnRutaPropuesta.Location = new System.Drawing.Point(91, 149);
+            this.btnRutaPropuesta.Name = "btnRutaPropuesta";
+            this.btnRutaPropuesta.Size = new System.Drawing.Size(128, 23);
+            this.btnRutaPropuesta.TabIndex = 27;
+            this.btnRutaPropuesta.Text = "Seleccionar Archivo";
+            this.btnRutaPropuesta.UseVisualStyleBackColor = false;
+            this.btnRutaPropuesta.Click += new System.EventHandler(this.btnRutaTema_Click);
             // 
-            // btnVerArchivoTema
+            // btnVerArchivoPropuesta
             // 
-            this.btnVerArchivoTema.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnVerArchivoTema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerArchivoTema.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnVerArchivoTema.Location = new System.Drawing.Point(225, 149);
-            this.btnVerArchivoTema.Name = "btnVerArchivoTema";
-            this.btnVerArchivoTema.Size = new System.Drawing.Size(128, 23);
-            this.btnVerArchivoTema.TabIndex = 28;
-            this.btnVerArchivoTema.Text = "Ver Archivo";
-            this.btnVerArchivoTema.UseVisualStyleBackColor = false;
-            this.btnVerArchivoTema.Click += new System.EventHandler(this.btnVerArchivoTema_Click);
+            this.btnVerArchivoPropuesta.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVerArchivoPropuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerArchivoPropuesta.Font = new System.Drawing.Font("Calibri", 9F);
+            this.btnVerArchivoPropuesta.Location = new System.Drawing.Point(225, 149);
+            this.btnVerArchivoPropuesta.Name = "btnVerArchivoPropuesta";
+            this.btnVerArchivoPropuesta.Size = new System.Drawing.Size(128, 23);
+            this.btnVerArchivoPropuesta.TabIndex = 28;
+            this.btnVerArchivoPropuesta.Text = "Ver Archivo";
+            this.btnVerArchivoPropuesta.UseVisualStyleBackColor = false;
+            this.btnVerArchivoPropuesta.Click += new System.EventHandler(this.btnVerArchivoTema_Click);
             // 
             // cmbConcepto1Calificador1
             // 
@@ -517,18 +517,18 @@
             this.label8.TabIndex = 22;
             this.label8.Text = "Calificador 1:";
             // 
-            // btnSelConcepto3Calificador1
+            // btnSelConcepto2Calificador2
             // 
-            this.btnSelConcepto3Calificador1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSelConcepto3Calificador1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelConcepto3Calificador1.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnSelConcepto3Calificador1.Location = new System.Drawing.Point(244, 122);
-            this.btnSelConcepto3Calificador1.Name = "btnSelConcepto3Calificador1";
-            this.btnSelConcepto3Calificador1.Size = new System.Drawing.Size(128, 23);
-            this.btnSelConcepto3Calificador1.TabIndex = 27;
-            this.btnSelConcepto3Calificador1.Text = "Seleccionar Archivo";
-            this.btnSelConcepto3Calificador1.UseVisualStyleBackColor = false;
-            this.btnSelConcepto3Calificador1.Click += new System.EventHandler(this.btnSelConcepto3Calificador1_Click);
+            this.btnSelConcepto2Calificador2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSelConcepto2Calificador2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelConcepto2Calificador2.Font = new System.Drawing.Font("Calibri", 9F);
+            this.btnSelConcepto2Calificador2.Location = new System.Drawing.Point(244, 122);
+            this.btnSelConcepto2Calificador2.Name = "btnSelConcepto2Calificador2";
+            this.btnSelConcepto2Calificador2.Size = new System.Drawing.Size(128, 23);
+            this.btnSelConcepto2Calificador2.TabIndex = 27;
+            this.btnSelConcepto2Calificador2.Text = "Seleccionar Archivo";
+            this.btnSelConcepto2Calificador2.UseVisualStyleBackColor = false;
+            this.btnSelConcepto2Calificador2.Click += new System.EventHandler(this.btnSelConcepto3Calificador1_Click);
             // 
             // label10
             // 
@@ -540,18 +540,18 @@
             this.label10.TabIndex = 22;
             this.label10.Text = "Calificador 2:";
             // 
-            // btnSelConcepto4Calificador1
+            // btnSelConcepto2Calificador3
             // 
-            this.btnSelConcepto4Calificador1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSelConcepto4Calificador1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelConcepto4Calificador1.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnSelConcepto4Calificador1.Location = new System.Drawing.Point(244, 179);
-            this.btnSelConcepto4Calificador1.Name = "btnSelConcepto4Calificador1";
-            this.btnSelConcepto4Calificador1.Size = new System.Drawing.Size(128, 23);
-            this.btnSelConcepto4Calificador1.TabIndex = 27;
-            this.btnSelConcepto4Calificador1.Text = "Seleccionar Archivo";
-            this.btnSelConcepto4Calificador1.UseVisualStyleBackColor = false;
-            this.btnSelConcepto4Calificador1.Click += new System.EventHandler(this.btnSelConcepto4Calificador1_Click);
+            this.btnSelConcepto2Calificador3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSelConcepto2Calificador3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelConcepto2Calificador3.Font = new System.Drawing.Font("Calibri", 9F);
+            this.btnSelConcepto2Calificador3.Location = new System.Drawing.Point(244, 179);
+            this.btnSelConcepto2Calificador3.Name = "btnSelConcepto2Calificador3";
+            this.btnSelConcepto2Calificador3.Size = new System.Drawing.Size(128, 23);
+            this.btnSelConcepto2Calificador3.TabIndex = 27;
+            this.btnSelConcepto2Calificador3.Text = "Seleccionar Archivo";
+            this.btnSelConcepto2Calificador3.UseVisualStyleBackColor = false;
+            this.btnSelConcepto2Calificador3.Click += new System.EventHandler(this.btnSelConcepto4Calificador1_Click);
             // 
             // label11
             // 
@@ -804,10 +804,10 @@
             this.tabPage2.Controls.Add(this.btnVerConcepto2Calificador3);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.txtRutaConcepto2Calificador3);
-            this.tabPage2.Controls.Add(this.btnSelConcepto3Calificador1);
+            this.tabPage2.Controls.Add(this.btnSelConcepto2Calificador2);
             this.tabPage2.Controls.Add(this.txtRutaConcepto2Calificador2);
             this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.btnSelConcepto4Calificador1);
+            this.tabPage2.Controls.Add(this.btnSelConcepto2Calificador3);
             this.tabPage2.Controls.Add(this.txtRutaConcepto2Calificador1);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label19);
@@ -931,8 +931,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtRutaPropuesta);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.btnRutaTema);
-            this.Controls.Add(this.btnVerArchivoTema);
+            this.Controls.Add(this.btnRutaPropuesta);
+            this.Controls.Add(this.btnVerArchivoPropuesta);
             this.Controls.Add(this.txtPropuesta);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cmbCalificador3);
@@ -946,6 +946,7 @@
             this.Controls.Add(this.numCod);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Calibri", 9F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddPropuestaDoctForm";
             this.Text = "AGREGAR PROPUESTA DE DOCTORADO";
@@ -976,8 +977,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker datePropuesta;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnRutaTema;
-        private System.Windows.Forms.Button btnVerArchivoTema;
+        private System.Windows.Forms.Button btnRutaPropuesta;
+        private System.Windows.Forms.Button btnVerArchivoPropuesta;
         private System.Windows.Forms.ComboBox cmbConcepto1Calificador1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -1004,9 +1005,9 @@
         private System.Windows.Forms.Button btnSelConcepto2Calificador1;
         private System.Windows.Forms.Button btnVerConcepto2Calificador3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnSelConcepto3Calificador1;
+        private System.Windows.Forms.Button btnSelConcepto2Calificador2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnSelConcepto4Calificador1;
+        private System.Windows.Forms.Button btnSelConcepto2Calificador3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker dateCorrecciones;
         private System.Windows.Forms.Label label12;

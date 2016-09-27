@@ -461,7 +461,7 @@ namespace PosgrIQ
                         query2 += ", '" + txtPropuesta.Text + "'";
 
                         query += ", ruta";
-                        query2 += ", '" + txtPropuesta.Text + "'";
+                        query2 += ", '" + txtRutaPropuesta.Text + "'";
 
                         query += ", calificador1";
                         query2 += ", " + (cmbCalificador1.SelectedIndex + 1).ToString();
@@ -685,7 +685,6 @@ namespace PosgrIQ
                     }
                     break;                    
             }
-
         }
 
         private void btnSelConcepto1Calificador1_Click(object sender, EventArgs e)

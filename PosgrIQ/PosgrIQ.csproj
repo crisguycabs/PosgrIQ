@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddTesisDoctForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddTesisDoctForm.Designer.cs">
+      <DependentUpon>AddTesisDoctForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddPropuestaDoctForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,8 +156,17 @@
     <Compile Include="Forms\PropuestaDoctForm.Designer.cs">
       <DependentUpon>PropuestaDoctForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TesisDoctForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TesisDoctForm.Designer.cs">
+      <DependentUpon>TesisDoctForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\AddPropuestaDoctForm.resx">
       <DependentUpon>AddPropuestaDoctForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddTesisDoctForm.resx">
+      <DependentUpon>AddTesisDoctForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConfiguracionForm.resx">
       <DependentUpon>ConfiguracionForm.cs</DependentUpon>
@@ -188,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PropuestaDoctForm.resx">
       <DependentUpon>PropuestaDoctForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TesisDoctForm.resx">
+      <DependentUpon>TesisDoctForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
