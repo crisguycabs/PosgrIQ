@@ -117,6 +117,7 @@
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCerrar
             // 
@@ -141,6 +142,7 @@
             this.btnMod.TabIndex = 3;
             this.btnMod.Text = "Modificar";
             this.btnMod.UseVisualStyleBackColor = false;
+            this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
             // 
             // dataGridTesis
             // 
@@ -174,6 +176,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TesisDoctForm";
             this.Text = "TesisDoctForm";
+            this.Load += new System.EventHandler(this.TesisDoctForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTesis)).EndInit();
