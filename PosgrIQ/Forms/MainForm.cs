@@ -27,6 +27,16 @@ namespace PosgrIQ
         public bool abiertoProfesoresForm = false;
 
         /// <summary>
+        /// Instancia de la ventana TesisDoctForm
+        /// </summary>
+        public TesisDoctForm tesisDoctForm = null;
+
+        /// <summary>
+        /// Indica si la ventana esta abierta o no
+        /// </summary>
+        public bool abiertoTesisDoctForm = false;
+
+        /// <summary>
         /// Instancia de la ventana HomeForm
         /// </summary>
         public HomeForm homeForm = null;
@@ -541,6 +551,31 @@ namespace PosgrIQ
             estudiantesDoctForm.Close();
             estudiantesDoctForm = null;
             abiertoEstudiantesDoctForm = false;
+        }
+
+        public void AbrirTesisDoctForm()
+        {
+            if(!abiertoTesisDoctForm)
+            {
+                tesisDoctForm=new TesisDoctForm();
+                tesisDoctForm.padre=this;
+                tesisDoctForm.MdiParent=this;
+
+                abiertoTesisDoctForm=true;
+
+                tesisDoctForm.Show();
+            }
+            else
+            {
+                tesisDoctForm.Select();
+            }
+        }
+
+        public void CerrarTesisDoctForm()
+        {
+            tesisDoctForm.Close();
+            tesisDoctForm = null;
+            abiertoTesisDoctForm = false;
         }
 
         public void AbrirPropuestasDoctForm()
