@@ -162,6 +162,12 @@
     <Compile Include="Forms\TesisDoctForm.Designer.cs">
       <DependentUpon>TesisDoctForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PublicacionesDoctForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PublicacionesDoctForm.Designer.cs">
+      <DependentUpon>PublicacionesDoctForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\AddPropuestaDoctForm.resx">
       <DependentUpon>AddPropuestaDoctForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PropuestaDoctForm.resx">
       <DependentUpon>PropuestaDoctForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PublicacionesDoctForm.resx">
+      <DependentUpon>PublicacionesDoctForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TesisDoctForm.resx">
       <DependentUpon>TesisDoctForm.cs</DependentUpon>
