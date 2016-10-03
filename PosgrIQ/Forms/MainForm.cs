@@ -19,6 +19,16 @@ namespace PosgrIQ
         /// <summary>
         /// Instancia de la ventana PublicacionesDoctForm
         /// </summary>
+        public PonenciasDoctForm ponenciasDoctForm = null;
+
+        /// <summary>
+        /// Indica si la ventana PonenciasDoctForm esta abierta o no
+        /// </summary>
+        public bool abiertoPonenciasDoctForm = false;
+
+        /// <summary>
+        /// Instancia de la ventana PublicacionesDoctForm
+        /// </summary>
         public PublicacionesDoctForm publicacionesDoctForm = null;
 
         /// <summary>
@@ -661,6 +671,31 @@ namespace PosgrIQ
             publicacionesDoctForm.Close();
             publicacionesDoctForm = null;
             abiertoPublicacionesDoctForm = false;
+        }
+
+        public void AbrirPonenciasDoctForm()
+        {
+            if (!abiertoPonenciasDoctForm)
+            {
+                ponenciasDoctForm = new PonenciasDoctForm();
+                ponenciasDoctForm.padre = this;
+                ponenciasDoctForm.MdiParent = this;
+
+                abiertoPonenciasDoctForm = true;
+
+                ponenciasDoctForm.Show();
+            }
+            else
+            {
+                ponenciasDoctForm.Select();
+            }
+        }
+
+        public void CerrarPonenciasDoctForm()
+        {
+            ponenciasDoctForm.Close();
+            ponenciasDoctForm = null;
+            abiertoPonenciasDoctForm = false;
         }
 
         public void AbrirSemestresForm()

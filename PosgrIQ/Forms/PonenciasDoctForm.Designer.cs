@@ -1,6 +1,6 @@
 ﻿namespace PosgrIQ
 {
-    partial class PublicacionesDoctForm
+    partial class PonenciasDoctForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PublicacionesDoctForm));
-            this.dataGridPublicaciones = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PonenciasDoctForm));
+            this.dataGridPonencias = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMod = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPublicaciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPonencias)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridPublicaciones
+            // dataGridPonencias
             // 
-            this.dataGridPublicaciones.AllowUserToAddRows = false;
-            this.dataGridPublicaciones.AllowUserToDeleteRows = false;
-            this.dataGridPublicaciones.AllowUserToResizeRows = false;
-            this.dataGridPublicaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridPublicaciones.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridPublicaciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridPublicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPublicaciones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridPublicaciones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridPublicaciones.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridPublicaciones.Location = new System.Drawing.Point(8, 8);
-            this.dataGridPublicaciones.MultiSelect = false;
-            this.dataGridPublicaciones.Name = "dataGridPublicaciones";
-            this.dataGridPublicaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridPublicaciones.Size = new System.Drawing.Size(763, 217);
-            this.dataGridPublicaciones.TabIndex = 1;
+            this.dataGridPonencias.AllowUserToAddRows = false;
+            this.dataGridPonencias.AllowUserToDeleteRows = false;
+            this.dataGridPonencias.AllowUserToResizeRows = false;
+            this.dataGridPonencias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridPonencias.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridPonencias.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridPonencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPonencias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridPonencias.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridPonencias.GridColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridPonencias.Location = new System.Drawing.Point(8, 8);
+            this.dataGridPonencias.MultiSelect = false;
+            this.dataGridPonencias.Name = "dataGridPonencias";
+            this.dataGridPonencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridPonencias.Size = new System.Drawing.Size(763, 217);
+            this.dataGridPonencias.TabIndex = 1;
             // 
             // btnAdd
             // 
@@ -103,7 +103,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridPublicaciones, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridPonencias, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -113,7 +113,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(779, 262);
-            this.tableLayoutPanel1.TabIndex = 4;
+            this.tableLayoutPanel1.TabIndex = 5;
             // 
             // panel1
             // 
@@ -126,20 +126,21 @@
             this.panel1.Size = new System.Drawing.Size(237, 23);
             this.panel1.TabIndex = 4;
             // 
-            // PublicacionesDoctForm
+            // PonenciasDoctForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(779, 262);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "PublicacionesDoctForm";
-            this.Text = "PUBLICACIONES DE DOCTORADO";
-            this.Load += new System.EventHandler(this.PublicacionesDoctForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPublicaciones)).EndInit();
+            this.Name = "PonenciasDoctForm";
+            this.Text = "PONENCIAS DOCTORADO";
+            this.Load += new System.EventHandler(this.PonenciasDoctForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPonencias)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -148,7 +149,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridPublicaciones;
+        private System.Windows.Forms.DataGridView dataGridPonencias;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnMod;

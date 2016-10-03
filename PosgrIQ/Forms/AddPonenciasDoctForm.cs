@@ -12,7 +12,7 @@ using GemBox.Spreadsheet;
 
 namespace PosgrIQ
 {
-    public partial class AddPublicacionesDoctForm : Form
+    public partial class AddPonenciasDoctForm : Form
     {
         #region variables de clase
 
@@ -39,94 +39,13 @@ namespace PosgrIQ
         /// <summary>
         /// Guarda la informacion de la tabla PublicacionesDoct antes de hacer cualquier modificacion
         /// </summary>
-        public DataTable dtPublicaciones;        
+        public DataTable dtPonencias;
 
         #endregion
 
-        public AddPublicacionesDoctForm()
+        public AddPonenciasDoctForm()
         {
             InitializeComponent();
-        }
-
-        private void AddPublicacionesDoctForm_Load(object sender, EventArgs e)
-        {
-            cmbAlcance.SelectedIndex = 0;
-
-            // se lee desde la BD la cantidad de Profesores, Colegiatura y Escuelas que existen actualmente
-            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
-            try
-            {
-                conection.Open();
-
-                // algunas variables
-                string query;
-                OleDbCommand command;
-                OleDbDataAdapter da;
-
-                // se pide la informacion de las propuestas de doctorado
-                query = "SELECT * FROM PublicacionesDoct ORDER BY codigo ASC";
-                command = new OleDbCommand(query, conection);
-
-                da = new OleDbDataAdapter(command);
-                this.dtPublicaciones = new DataTable();
-                da.Fill(dtPublicaciones);
-
-                conection.Close();
-
-                // se llenan los combobox
-                LlenarEstudiantes();
-
-                switch (modo)
-                {
-                    case true: // se agrega una nueva publicacion de doctorado
-
-                        numCod.Value = dtPublicaciones.Rows.Count + 1;
-                        cmbEstudiante.SelectedIndex = -1;
-                        txtTitulo.Text = "";
-                        txtRevista.Text = "";
-                        cmbAlcance.SelectedIndex = 0;
-                        txtCategoria.Text = "";
-                        dateAceptado.Value = DateTime.Today;
-
-                        this.Text = "AGREGAR PUBLICACION DE DOCTORADO";
-
-                        break;
-
-                    case false: // se modifica una nueva publicacion de doctorado
-
-                        DataRow[] seleccionado = dtPublicaciones.Select("codigo=" + codigo.ToString());
-
-                        // codigo
-                        numCod.Value = codigo;
-
-                        // estudiante
-                        cmbEstudiante.SelectedIndex = Convert.ToInt32(seleccionado[0][1]) - 1;
-
-                        // titulo
-                        txtTitulo.Text = Convert.ToString(seleccionado[0][2]);
-
-                        // revista
-                        txtRevista.Text = Convert.ToString(seleccionado[0][3]);
-
-                        // fecha aceptado
-                        dateAceptado.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][4]));
-
-                        // alcance
-                        if (Convert.ToString(seleccionado[0][5]) == "Nacional") cmbAlcance.SelectedIndex = 0;
-                        else cmbAlcance.SelectedIndex = 1;
-
-                        // categoria
-                        txtCategoria.Text = Convert.ToString(seleccionado[0][6]);
-
-                        this.Text = "MODIFICAR PUBLICACION DE DOCTORADO";
-
-                        break;
-                }
-            }
-            catch
-            {
-                MessageBox.Show("No se puede acceder a la base de datos, tabla PublicacionesDoct", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void LlenarEstudiantes()
@@ -159,6 +78,83 @@ namespace PosgrIQ
             }
         }
 
+        private void AddPonenciasDoctForm_Load(object sender, EventArgs e)
+        {
+            cmbAlcance.SelectedIndex = 0;
+
+            // se lee desde la BD la cantidad de Profesores, Colegiatura y Escuelas que existen actualmente
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
+            try
+            {
+                conection.Open();
+
+                // algunas variables
+                string query;
+                OleDbCommand command;
+                OleDbDataAdapter da;
+
+                // se pide la informacion de las propuestas de doctorado
+                query = "SELECT * FROM PonenciasDoct ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                this.dtPonencias = new DataTable();
+                da.Fill(dtPonencias);
+
+                conection.Close();
+
+                // se llenan los combobox
+                LlenarEstudiantes();
+
+                switch (modo)
+                {
+                    case true: // se agrega una nueva publicacion de doctorado
+
+                        numCod.Value = dtPonencias.Rows.Count + 1;
+                        cmbEstudiante.SelectedIndex = -1;
+                        txtTitulo.Text = "";
+                        txtRevista.Text = "";
+                        cmbAlcance.SelectedIndex = 0;
+                        dateAceptado.Value = DateTime.Today;
+
+                        this.Text = "AGREGAR PONENCIA DE DOCTORADO";
+
+                        break;
+
+                    case false: // se modifica una nueva publicacion de doctorado
+
+                        DataRow[] seleccionado = dtPonencias.Select("codigo=" + codigo.ToString());
+
+                        // codigo
+                        numCod.Value = codigo;
+
+                        // estudiante
+                        cmbEstudiante.SelectedIndex = Convert.ToInt32(seleccionado[0][1]) - 1;
+
+                        // titulo
+                        txtTitulo.Text = Convert.ToString(seleccionado[0][2]);
+
+                        // revista
+                        txtRevista.Text = Convert.ToString(seleccionado[0][3]);
+
+                        // fecha aceptado
+                        dateAceptado.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][4]));
+
+                        // alcance
+                        if (Convert.ToString(seleccionado[0][5]) == "Nacional") cmbAlcance.SelectedIndex = 0;
+                        else cmbAlcance.SelectedIndex = 1;                        
+
+                        this.Text = "MODIFICAR PONENCIAS DE DOCTORADO";
+
+                        break;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No se puede acceder a la base de datos, tabla PonenciasDoct", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
@@ -173,10 +169,10 @@ namespace PosgrIQ
             // existe una propuesta con ese codigo. Solo revisar en modo insercion
             if (modo)
             {
-                busqueda = dtPublicaciones.Select("codigo=" + numCod.Value.ToString());
+                busqueda = dtPonencias.Select("codigo=" + numCod.Value.ToString());
                 if (busqueda.Length > 0)
                 {
-                    MessageBox.Show("Ya existe una publicacion con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe una ponencia con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -191,7 +187,7 @@ namespace PosgrIQ
             // titulo vacio
             if (string.IsNullOrWhiteSpace(txtTitulo.Text))
             {
-                MessageBox.Show("No se ha ingresado el nombre de la publicacion de doctorado", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se ha ingresado el nombre de la ponencia de doctorado", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -199,7 +195,7 @@ namespace PosgrIQ
                 // titulo demasiado largo
                 if (txtTitulo.Text.Length >= 255)
                 {
-                    MessageBox.Show("El titulo de la publicacion de doctorado es demasiado.\r\n\r\nMaximo 255 caractereres", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El titulo de la ponencia de doctorado es demasiado.\r\n\r\nMaximo 255 caractereres", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -207,7 +203,7 @@ namespace PosgrIQ
             // revista vacia
             if (string.IsNullOrWhiteSpace(txtRevista.Text))
             {
-                MessageBox.Show("No se ha ingresado el nombre de la revista de la publicacion de doctorado", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se ha ingresado el nombre del evento de la ponencia de doctorado", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -215,22 +211,15 @@ namespace PosgrIQ
                 // titulo demasiado largo
                 if (txtRevista.Text.Length >= 255)
                 {
-                    MessageBox.Show("El titulo de la revista de la publicacion de doctorado es demasiado.\r\n\r\nMaximo 255 caractereres", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El titulo del evento de la ponencia de doctorado es demasiado.\r\n\r\nMaximo 255 caractereres", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
 
-            // categoria vacia
-            if (string.IsNullOrWhiteSpace(txtCategoria.Text))
-            {
-                MessageBox.Show("No se ha ingresado la categoria de la publicacion de doctorado", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }           
-
             // alcance vacio
             if (cmbAlcance.SelectedIndex < 0)
             {
-                MessageBox.Show("No se ha ingresado el alcance de la publicacion de doctorado", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se ha ingresado el alcance de la ponencia de doctorado", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -269,9 +258,6 @@ namespace PosgrIQ
                         if (cmbAlcance.SelectedIndex == 1) query2 += ", 'Nacional'";
                         else query2 += ", 'Internacional'";
 
-                        query += ", categoria";
-                        query2 += ", '" + txtCategoria.Text + "'";
-
                         query += ")";
                         query2 += ")";
                         query += query2;
@@ -286,7 +272,7 @@ namespace PosgrIQ
                     }
                     catch
                     {
-                        MessageBox.Show("No se puede acceder a la base de datos, tabla Publicaciones Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se puede acceder a la base de datos, tabla Ponencias Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     break;
 
@@ -307,8 +293,6 @@ namespace PosgrIQ
                         if (cmbAlcance.SelectedIndex == 1) query += ", alcance='Nacional'";
                         else query += ", alcance='Internacional'";
 
-                        query += ", categoria='" + txtCategoria.Text + "'";
-
                         query += " WHERE codigo=" + codigo.ToString();
 
                         command = new OleDbCommand(query, conection);
@@ -321,7 +305,7 @@ namespace PosgrIQ
                     }
                     catch
                     {
-                        MessageBox.Show("No se puede acceder a la base de datos, tabla Publicaciones Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se puede acceder a la base de datos, tabla Ponencias Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                     break;

@@ -61,6 +61,11 @@ namespace PosgrIQ
         private void btnPublicacionesDoct_Click(object sender, EventArgs e)
         {
             padre.AbrirPublicacionesDoctForm();
+        }
+
+        private void btnPonenciasDoct_Click(object sender, EventArgs e)
+        {
+            padre.AbrirPonenciasDoctForm();
         }        
     }
 }
