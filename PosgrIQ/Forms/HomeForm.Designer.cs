@@ -131,7 +131,7 @@
             this.btnPublicacionesDoct.Name = "btnPublicacionesDoct";
             this.btnPublicacionesDoct.Size = new System.Drawing.Size(89, 39);
             this.btnPublicacionesDoct.TabIndex = 2;
-            this.btnPublicacionesDoct.Text = "Propuestas Doctorado";
+            this.btnPublicacionesDoct.Text = "Publicaciones Doctorado";
             this.btnPublicacionesDoct.UseVisualStyleBackColor = false;
             this.btnPublicacionesDoct.Click += new System.EventHandler(this.btnPublicacionesDoct_Click);
             // 

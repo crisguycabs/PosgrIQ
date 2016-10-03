@@ -54,7 +54,7 @@
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAdd.Location = new System.Drawing.Point(231, 234);
+            this.btnAdd.Location = new System.Drawing.Point(222, 234);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 10;
@@ -68,7 +68,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnCancel.Location = new System.Drawing.Point(150, 234);
+            this.btnCancel.Location = new System.Drawing.Point(141, 234);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 9;
@@ -80,7 +80,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label2.Location = new System.Drawing.Point(12, 37);
+            this.label2.Location = new System.Drawing.Point(3, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 14);
             this.label2.TabIndex = 10;
@@ -89,7 +89,7 @@
             // numCod
             // 
             this.numCod.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numCod.Location = new System.Drawing.Point(89, 5);
+            this.numCod.Location = new System.Drawing.Point(80, 5);
             this.numCod.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -107,7 +107,7 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtNombre.Location = new System.Drawing.Point(89, 33);
+            this.txtNombre.Location = new System.Drawing.Point(80, 33);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(217, 22);
             this.txtNombre.TabIndex = 2;
@@ -117,7 +117,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 14);
             this.label1.TabIndex = 7;
@@ -127,7 +127,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label3.Location = new System.Drawing.Point(12, 64);
+            this.label3.Location = new System.Drawing.Point(3, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 14);
             this.label3.TabIndex = 10;
@@ -136,7 +136,7 @@
             // cmbColegiatura
             // 
             this.cmbColegiatura.FormattingEnabled = true;
-            this.cmbColegiatura.Location = new System.Drawing.Point(89, 61);
+            this.cmbColegiatura.Location = new System.Drawing.Point(80, 61);
             this.cmbColegiatura.Name = "cmbColegiatura";
             this.cmbColegiatura.Size = new System.Drawing.Size(121, 22);
             this.cmbColegiatura.TabIndex = 3;
@@ -145,7 +145,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label4.Location = new System.Drawing.Point(12, 92);
+            this.label4.Location = new System.Drawing.Point(3, 92);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 14);
             this.label4.TabIndex = 10;
@@ -154,7 +154,7 @@
             // cmbEscuela
             // 
             this.cmbEscuela.FormattingEnabled = true;
-            this.cmbEscuela.Location = new System.Drawing.Point(89, 89);
+            this.cmbEscuela.Location = new System.Drawing.Point(80, 89);
             this.cmbEscuela.Name = "cmbEscuela";
             this.cmbEscuela.Size = new System.Drawing.Size(217, 22);
             this.cmbEscuela.TabIndex = 4;
@@ -162,7 +162,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtCorreo.Location = new System.Drawing.Point(89, 146);
+            this.txtCorreo.Location = new System.Drawing.Point(80, 146);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(217, 22);
             this.txtCorreo.TabIndex = 6;
@@ -172,7 +172,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label5.Location = new System.Drawing.Point(12, 150);
+            this.label5.Location = new System.Drawing.Point(3, 150);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 14);
             this.label5.TabIndex = 10;
@@ -181,7 +181,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtTelefono.Location = new System.Drawing.Point(89, 174);
+            this.txtTelefono.Location = new System.Drawing.Point(80, 174);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(217, 22);
             this.txtTelefono.TabIndex = 7;
@@ -191,7 +191,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label6.Location = new System.Drawing.Point(12, 178);
+            this.label6.Location = new System.Drawing.Point(3, 178);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 14);
             this.label6.TabIndex = 10;
@@ -200,7 +200,7 @@
             // txtUniversidad
             // 
             this.txtUniversidad.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtUniversidad.Location = new System.Drawing.Point(89, 202);
+            this.txtUniversidad.Location = new System.Drawing.Point(80, 202);
             this.txtUniversidad.Name = "txtUniversidad";
             this.txtUniversidad.Size = new System.Drawing.Size(217, 22);
             this.txtUniversidad.TabIndex = 8;
@@ -210,7 +210,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label7.Location = new System.Drawing.Point(12, 206);
+            this.label7.Location = new System.Drawing.Point(3, 206);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 14);
             this.label7.TabIndex = 10;
@@ -221,7 +221,7 @@
             this.btnAddEscuela.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAddEscuela.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddEscuela.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAddEscuela.Location = new System.Drawing.Point(201, 117);
+            this.btnAddEscuela.Location = new System.Drawing.Point(192, 117);
             this.btnAddEscuela.Name = "btnAddEscuela";
             this.btnAddEscuela.Size = new System.Drawing.Size(105, 23);
             this.btnAddEscuela.TabIndex = 5;
@@ -236,7 +236,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(313, 264);
+            this.ClientSize = new System.Drawing.Size(305, 264);
             this.ControlBox = false;
             this.Controls.Add(this.cmbEscuela);
             this.Controls.Add(this.cmbColegiatura);

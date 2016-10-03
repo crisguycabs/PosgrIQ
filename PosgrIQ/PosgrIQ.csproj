@@ -177,6 +177,9 @@
     <EmbeddedResource Include="Forms\AddPropuestaDoctForm.resx">
       <DependentUpon>AddPropuestaDoctForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddPublicacionesDoctForm.resx">
+      <DependentUpon>AddPublicacionesDoctForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddTesisDoctForm.resx">
       <DependentUpon>AddTesisDoctForm.cs</DependentUpon>
     </EmbeddedResource>

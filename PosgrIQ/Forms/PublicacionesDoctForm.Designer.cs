@@ -56,7 +56,7 @@
             this.dataGridPublicaciones.MultiSelect = false;
             this.dataGridPublicaciones.Name = "dataGridPublicaciones";
             this.dataGridPublicaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridPublicaciones.Size = new System.Drawing.Size(910, 217);
+            this.dataGridPublicaciones.Size = new System.Drawing.Size(763, 217);
             this.dataGridPublicaciones.TabIndex = 1;
             // 
             // btnAdd
@@ -112,7 +112,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(926, 262);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(779, 262);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // panel1
@@ -121,7 +121,7 @@
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Controls.Add(this.btnMod);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(681, 231);
+            this.panel1.Location = new System.Drawing.Point(534, 231);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(237, 23);
             this.panel1.TabIndex = 4;
@@ -131,7 +131,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(926, 262);
+            this.ClientSize = new System.Drawing.Size(779, 262);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
