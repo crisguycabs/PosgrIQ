@@ -36,6 +36,7 @@
             this.btnEstudiantesDoct = new System.Windows.Forms.Button();
             this.btnPropuestasDoct = new System.Windows.Forms.Button();
             this.btnConfiguracion = new System.Windows.Forms.Button();
+            this.btnPublicacionesDoct = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProfesores
@@ -122,14 +123,27 @@
             this.btnConfiguracion.UseVisualStyleBackColor = false;
             this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
             // 
+            // btnPublicacionesDoct
+            // 
+            this.btnPublicacionesDoct.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPublicacionesDoct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPublicacionesDoct.Location = new System.Drawing.Point(240, 77);
+            this.btnPublicacionesDoct.Name = "btnPublicacionesDoct";
+            this.btnPublicacionesDoct.Size = new System.Drawing.Size(89, 39);
+            this.btnPublicacionesDoct.TabIndex = 2;
+            this.btnPublicacionesDoct.Text = "Propuestas Doctorado";
+            this.btnPublicacionesDoct.UseVisualStyleBackColor = false;
+            this.btnPublicacionesDoct.Click += new System.EventHandler(this.btnPublicacionesDoct_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(284, 282);
+            this.ClientSize = new System.Drawing.Size(424, 282);
             this.ControlBox = false;
             this.Controls.Add(this.btnConfiguracion);
+            this.Controls.Add(this.btnPublicacionesDoct);
             this.Controls.Add(this.btnPropuestasDoct);
             this.Controls.Add(this.btnEstudiantesDoct);
             this.Controls.Add(this.btnReglamentos);
@@ -155,5 +169,6 @@
         private System.Windows.Forms.Button btnEstudiantesDoct;
         private System.Windows.Forms.Button btnPropuestasDoct;
         private System.Windows.Forms.Button btnConfiguracion;
+        private System.Windows.Forms.Button btnPublicacionesDoct;
     }
 }

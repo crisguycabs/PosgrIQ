@@ -56,6 +56,11 @@ namespace PosgrIQ
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
             padre.AbrirConfiguracionForm(false);
+        }
+
+        private void btnPublicacionesDoct_Click(object sender, EventArgs e)
+        {
+            padre.AbrirPublicacionesDoctForm();
         }        
     }
 }
