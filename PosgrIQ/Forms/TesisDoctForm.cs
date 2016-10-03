@@ -189,7 +189,8 @@ namespace PosgrIQ
                     fila[0] = dtTesisDoct.Rows[i][0];
 
                     // nombre del estudiante
-                    fila[1] = dtTesisDoct.Rows[i][1];
+                    DataRow[] seleccionado = dtEstudiantesDoct.Select("codigo=" + dtTesisDoct.Rows[i][1]);
+                    fila[1] = Convert.ToString(seleccionado[0][1]);
 
                     // titulo de la propuesta
                     fila[2] = dtTesisDoct.Rows[i][2];

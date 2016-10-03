@@ -38,6 +38,7 @@
             this.btnConfiguracion = new System.Windows.Forms.Button();
             this.btnPublicacionesDoct = new System.Windows.Forms.Button();
             this.btnPonenciasDoct = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProfesores
@@ -148,6 +149,18 @@
             this.btnPonenciasDoct.UseVisualStyleBackColor = false;
             this.btnPonenciasDoct.Click += new System.EventHandler(this.btnPonenciasDoct_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(240, 167);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 39);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Matricula Doctorado";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -156,6 +169,7 @@
             this.ClientSize = new System.Drawing.Size(424, 282);
             this.ControlBox = false;
             this.Controls.Add(this.btnConfiguracion);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnPonenciasDoct);
             this.Controls.Add(this.btnPublicacionesDoct);
             this.Controls.Add(this.btnPropuestasDoct);
@@ -185,5 +199,6 @@
         private System.Windows.Forms.Button btnConfiguracion;
         private System.Windows.Forms.Button btnPublicacionesDoct;
         private System.Windows.Forms.Button btnPonenciasDoct;
+        private System.Windows.Forms.Button button1;
     }
 }

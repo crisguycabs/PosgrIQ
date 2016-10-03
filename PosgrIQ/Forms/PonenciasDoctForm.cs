@@ -75,7 +75,8 @@ namespace PosgrIQ
                     fila[0] = dtPonenciasDoct.Rows[i][0];
 
                     // nombre del estudiante
-                    fila[1] = dtPonenciasDoct.Rows[i][1];
+                    DataRow[] seleccionado = dtEstudiantesDoct.Select("codigo=" + dtPonenciasDoct.Rows[i][1]);
+                    fila[1] = Convert.ToString(seleccionado[0][1]);
 
                     // titulo de la publicacion
                     fila[2] = dtPonenciasDoct.Rows[i][2];
