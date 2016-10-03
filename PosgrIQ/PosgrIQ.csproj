@@ -52,10 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddMatriculaDoctForm.cs">
+    <Compile Include="Forms\AddMatriculaDoctForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddMatriculaDoctForm.Designer.cs">
+    <Compile Include="Forms\AddMatriculaDoctForm.Designer.cs">
       <DependentUpon>AddMatriculaDoctForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddPonenciasDoctForm.cs">
@@ -154,10 +154,10 @@
     <Compile Include="Forms\PonenciasDoctForm.Designer.cs">
       <DependentUpon>PonenciasDoctForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MatriculaDoctForm.cs">
+    <Compile Include="Forms\MatriculaDoctForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MatriculaDoctForm.Designer.cs">
+    <Compile Include="Forms\MatriculaDoctForm.Designer.cs">
       <DependentUpon>MatriculaDoctForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -198,6 +198,9 @@
     <Compile Include="Forms\PublicacionesDoctForm.Designer.cs">
       <DependentUpon>PublicacionesDoctForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AddMatriculaDoctForm.resx">
+      <DependentUpon>AddMatriculaDoctForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddPonenciasDoctForm.resx">
       <DependentUpon>AddPonenciasDoctForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,7 +258,7 @@
     <EmbeddedResource Include="Forms\PonenciasDoctForm.resx">
       <DependentUpon>PonenciasDoctForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MatriculaDoctForm.resx">
+    <EmbeddedResource Include="Forms\MatriculaDoctForm.resx">
       <DependentUpon>MatriculaDoctForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
