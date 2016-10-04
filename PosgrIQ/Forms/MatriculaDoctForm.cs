@@ -215,7 +215,7 @@ namespace PosgrIQ
         {
             if (dataGridMatricula.Rows.Count < 1) return;
 
-            AddPropuestaDoctForm modificar = new AddPropuestaDoctForm();
+            AddMatriculaDoctForm modificar = new AddMatriculaDoctForm();
             modificar.padre = this.padre;
             modificar.modo = false;
             modificar.codigo = Convert.ToInt32(dataGridMatricula.SelectedRows[0].Cells[0].Value);
