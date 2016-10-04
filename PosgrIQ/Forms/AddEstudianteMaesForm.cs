@@ -12,7 +12,7 @@ using GemBox.Spreadsheet;
 
 namespace PosgrIQ
 {
-    public partial class AddEstudiantesDoctForm : Form
+    public partial class AddEstudianteMaesForm : Form
     {
         #region variables de clase
 
@@ -52,15 +52,150 @@ namespace PosgrIQ
         public DataTable dtConceptos;
 
         /// <summary>
-        /// Guarda la información de la tabla EstudiantesDoct antes de hacer cualquier modificacion
+        /// Guarda la información de la tabla EstudiantesMaes antes de hacer cualquier modificacion
         /// </summary>
         public DataTable dtEstudiantes;
 
         #endregion
 
-        public AddEstudiantesDoctForm()
+        public AddEstudianteMaesForm()
         {
             InitializeComponent();
+        }
+
+        private void AddEstudianteMaesForm_Load(object sender, EventArgs e)
+        {
+            // se lee desde la BD la cantidad de Profesores, Colegiatura y Escuelas que existen actualmente
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
+            try
+            {
+                conection.Open();
+
+                // algunas variables
+                string query;
+                OleDbCommand command;
+                OleDbDataAdapter da;
+
+                // se pide la informacion de los estudiantes de doctorado
+                query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                this.dtEstudiantes = new DataTable();
+                da.Fill(dtEstudiantes);
+
+                conection.Close();
+
+                // se llenan los comboBox
+                LlenarConceptos();
+                LlenarCondicion();
+                LlenarProfesores();
+                LlenarReglamentos();
+
+                switch (modo)
+                {
+                    case true: // se agrega un nuevo estudiante de doctorado
+
+                        numCod.Value = dtEstudiantes.Rows.Count + 1;
+                        txtNombre.Text = "";
+                        txtCorreo.Text = "";
+                        numCedula.Value = 0;
+                        txtCiudad.Text = "";
+                        cmbCondicion.SelectedIndex = 0;
+                        cmbDirector.SelectedIndex = -1;
+                        cmbCodirector1.SelectedIndex = -1;
+                        cmbCodirector2.SelectedIndex = -1;
+                        cmbReglamentos.SelectedIndex = cmbReglamentos.Items.Count - 1;
+                        txtTema.Text = "";
+                        dateTema.Value = DateTime.Today;
+                        cmbConceptoTema.SelectedIndex = -1;
+                        txtRutaTema.Text = "";                        
+
+                        this.Text = "AGREGAR ESTUDIANTE MAESTRIA";
+
+                        break;
+
+                    case false: // se modifica un estudiante de doctorado
+
+                        DataRow[] seleccionado = dtEstudiantes.Select("codigo=" + codigo.ToString());
+
+                        // codigo
+                        numCod.Value = codigo;
+
+                        // nombre
+                        txtNombre.Text = Convert.ToString(seleccionado[0][1]);
+
+                        // correo
+                        txtCorreo.Text = Convert.ToString(seleccionado[0][2]);
+
+                        // cedula
+                        numCedula.Value = Convert.ToInt32(seleccionado[0][3]);
+
+                        // ciudad
+                        txtCiudad.Text = Convert.ToString(seleccionado[0][4]);
+
+                        // condicion
+                        cmbCondicion.SelectedIndex = Convert.ToInt32(seleccionado[0][5]) - 1;
+
+                        // nivel
+                        txtNivel.Text = Convert.ToString(seleccionado[0][6]);
+
+                        // director, es sensible a datos vacios
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][7].ToString()))
+                        {
+                            for (int i = 0; i < dtProfesores.Rows.Count; i++)
+                            {
+                                if (Convert.ToInt32(seleccionado[0][7]) == Convert.ToInt32(dtProfesores.Rows[i][0])) cmbDirector.SelectedIndex = i;
+                            }
+                        }
+
+                        // codirector 1, es sensible a datos vacios
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][8].ToString()))
+                        {
+                            for (int i = 0; i < dtProfesores.Rows.Count; i++)
+                            {
+                                if (Convert.ToInt32(seleccionado[0][8]) == Convert.ToInt32(dtProfesores.Rows[i][0])) this.cmbCodirector1.SelectedIndex = i;
+                            }
+                        }
+
+                        // codirector 2, es sensible a datos vacios
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][9].ToString()))
+                        {
+                            for (int i = 0; i < dtProfesores.Rows.Count; i++)
+                            {
+                                if (Convert.ToInt32(seleccionado[0][9]) == Convert.ToInt32(dtProfesores.Rows[i][0])) this.cmbCodirector2.SelectedIndex = i;
+                            }
+                        }
+
+                        // reglamento
+                        cmbReglamentos.SelectedIndex = Convert.ToInt32(seleccionado[0][10]) - 1;
+
+                        // tema
+                        txtTema.Text = Convert.ToString(seleccionado[0][11]);
+                        if ((!string.IsNullOrEmpty(txtTema.Text)) & (!string.IsNullOrWhiteSpace(txtTema.Text))) chkTema.Checked = true;
+
+                        // fecha
+                        dateTema.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][12]));
+
+                        // concepto, sensible a valores vacios
+                        if (string.IsNullOrWhiteSpace(seleccionado[0][13].ToString())) cmbConceptoTema.SelectedIndex = -1;
+                        else cmbConceptoTema.SelectedIndex = Convert.ToInt32(seleccionado[0][13]) - 1;
+
+                        // ruta
+                        txtRutaTema.Text = Convert.ToString(seleccionado[0][14]);
+                        
+
+                        btnAdd.Text = "Modificar";
+                        this.Text = "MODIFICAR ESTUDIANTE MAESTRIA";
+
+                        break;
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes Maes", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LlenarProfesores()
@@ -187,163 +322,51 @@ namespace PosgrIQ
             }
         }
 
-        private void AddEstudiantesDoctForm_Load(object sender, EventArgs e)
-        {
-            // se lee desde la BD la cantidad de Profesores, Colegiatura y Escuelas que existen actualmente
-            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
-            try
-            {
-                conection.Open();
-
-                // algunas variables
-                string query;
-                OleDbCommand command;
-                OleDbDataAdapter da;
-
-                // se pide la informacion de los estudiantes de doctorado
-                query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
-                command = new OleDbCommand(query, conection);
-
-                da = new OleDbDataAdapter(command);
-                this.dtEstudiantes = new DataTable();
-                da.Fill(dtEstudiantes);
-
-                conection.Close();
-
-                // se llenan los comboBox
-                LlenarConceptos();
-                LlenarCondicion();
-                LlenarProfesores();
-                LlenarReglamentos();
-
-                switch (modo)
-                {
-                    case true: // se agrega un nuevo estudiante de doctorado
-
-                        numCod.Value = dtEstudiantes.Rows.Count + 1;
-                        txtNombre.Text = "";
-                        txtCorreo.Text = "";
-                        numCedula.Value = 0;
-                        txtCiudad.Text = "";
-                        cmbCondicion.SelectedIndex = 0;
-                        cmbDirector.SelectedIndex = -1;
-                        cmbCodirector1.SelectedIndex = -1;
-                        cmbCodirector2.SelectedIndex = -1;
-                        cmbReglamentos.SelectedIndex = cmbReglamentos.Items.Count - 1;
-                        txtTema.Text = "";
-                        dateTema.Value = DateTime.Today;
-                        cmbConceptoTema.SelectedIndex = -1;
-                        txtRutaTema.Text = "";
-                        cmbSolicitarQualify.SelectedIndex = 0;
-                        cmbAprobarQualify.SelectedIndex = 0;
-
-                        this.Text = "AGREGAR ESTUDIANTE DOCTORADO";
-
-                        break;
-
-                    case false: // se modifica un estudiante de doctorado
-
-                        DataRow[] seleccionado = dtEstudiantes.Select("codigo=" + codigo.ToString());
-
-                        // codigo
-                        numCod.Value = codigo;
-
-                        // nombre
-                        txtNombre.Text = Convert.ToString(seleccionado[0][1]);
-
-                        // correo
-                        txtCorreo.Text = Convert.ToString(seleccionado[0][2]);
-
-                        // cedula
-                        numCedula.Value = Convert.ToInt32(seleccionado[0][3]);
-
-                        // ciudad
-                        txtCiudad.Text = Convert.ToString(seleccionado[0][4]);
-
-                        // condicion
-                        cmbCondicion.SelectedIndex = Convert.ToInt32(seleccionado[0][5]) - 1;
-
-                        // nivel
-                        txtNivel.Text = Convert.ToString(seleccionado[0][6]);
-
-                        // director, es sensible a datos vacios
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][7].ToString()))
-                        {
-                            for (int i = 0; i < dtProfesores.Rows.Count; i++)
-                            {
-                                if (Convert.ToInt32(seleccionado[0][7]) == Convert.ToInt32(dtProfesores.Rows[i][0])) cmbDirector.SelectedIndex = i;
-                            }
-                        }
-
-                        // codirector 1, es sensible a datos vacios
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][8].ToString()))
-                        {
-                            for (int i = 0; i < dtProfesores.Rows.Count; i++)
-                            {
-                                if (Convert.ToInt32(seleccionado[0][8]) == Convert.ToInt32(dtProfesores.Rows[i][0])) this.cmbCodirector1.SelectedIndex = i;
-                            }
-                        }
-
-                        // codirector 2, es sensible a datos vacios
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][9].ToString()))
-                        {
-                            for (int i = 0; i < dtProfesores.Rows.Count; i++)
-                            {
-                                if (Convert.ToInt32(seleccionado[0][9]) == Convert.ToInt32(dtProfesores.Rows[i][0])) this.cmbCodirector2.SelectedIndex = i;
-                            }
-                        }
-
-                        // reglamento
-                        cmbReglamentos.SelectedIndex = Convert.ToInt32(seleccionado[0][10]) - 1;
-
-                        // tema
-                        txtTema.Text = Convert.ToString(seleccionado[0][11]);
-                        if ((!string.IsNullOrEmpty(txtTema.Text)) & (!string.IsNullOrWhiteSpace(txtTema.Text))) chkTema.Checked = true;
-
-                        // fecha
-                        dateTema.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][12]));
-
-                        // concepto, sensible a valores vacios
-                        if (string.IsNullOrWhiteSpace(seleccionado[0][13].ToString())) cmbConceptoTema.SelectedIndex = -1;
-                        else cmbConceptoTema.SelectedIndex = Convert.ToInt32(seleccionado[0][13]) - 1;
-
-                        // ruta
-                        txtRutaTema.Text = Convert.ToString(seleccionado[0][14]);
-
-                        // solicito qualify
-                        if (Convert.ToString(seleccionado[0][15]) == "Si") cmbSolicitarQualify.SelectedIndex = 1;
-                        else cmbSolicitarQualify.SelectedIndex = 0;
-
-                        // aprobo qualify
-                        if (Convert.ToString(seleccionado[0][16]) == "Si") this.cmbAprobarQualify.SelectedIndex = 1;
-                        else cmbSolicitarQualify.SelectedIndex = 0;
-
-                        btnAdd.Text = "Modificar";
-                        this.Text = "MODIFICAR ESTUDIANTE DOCTORADO";
-
-                        break;
-                }
-
-            }
-            catch
-            {
-                MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }
 
-        private void chkTema_CheckedChanged(object sender, EventArgs e)
+        private void btnAddReglamento_Click(object sender, EventArgs e)
         {
-            txtTema.Enabled = chkTema.Checked;
-            dateTema.Enabled = chkTema.Checked;
-            cmbConceptoTema.Enabled = chkTema.Checked;
-            txtRutaTema.Enabled = chkTema.Checked;
-            btnRutaTema.Enabled = chkTema.Checked;
-            btnVerArchivoTema.Enabled = chkTema.Checked;
+            AddReglamentosForm agregar = new AddReglamentosForm();
+            agregar.padre = this.padre;
+            agregar.modo = true;
+
+            if (agregar.ShowDialog() == DialogResult.OK) this.LlenarReglamentos();
+        }
+
+        private void btnAddProfesor_Click(object sender, EventArgs e)
+        {
+            AddProfesoresForm agregar = new AddProfesoresForm();
+            agregar.padre = this.padre;
+            agregar.modo = true;
+
+            if (agregar.ShowDialog() == DialogResult.OK) this.LlenarProfesores();
+        }
+
+        private void btnRutaTema_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc|Archivos PDF (.pdf)|*.pdf";
+            open.FilterIndex = 0;
+
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                txtRutaTema.Text = open.FileName;
+            }
+        }
+
+        private void btnVerArchivoTema_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(txtRutaTema.Text);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -358,7 +381,7 @@ namespace PosgrIQ
             }
 
             DataRow[] busqueda;
-            
+
             // existe un estudiante con ese codigo. Solo revisar en modo insercion
             if (modo)
             {
@@ -383,7 +406,7 @@ namespace PosgrIQ
             {
                 MessageBox.Show("No se ha introducido el correo del estudiante", "Falta Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }            
+            }
 
             // ciudad vacia
             if (string.IsNullOrWhiteSpace(txtCiudad.Text))
@@ -406,39 +429,6 @@ namespace PosgrIQ
                 return;
             }
 
-            // el director debe ser de doctorado o superior
-            if (cmbDirector.SelectedIndex >= 0)
-            {
-                busqueda = dtProfesores.Select("nombre='" + cmbDirector.Items[cmbDirector.SelectedIndex] + "'");
-                if (Convert.ToInt32(busqueda[0][2]) < 2)
-                {
-                    MessageBox.Show("El director debe ser un Doctor, o superior", "Falta Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-
-            // el codirector1 debe ser de doctorado o superior
-            if (cmbCodirector1.SelectedIndex >= 0)
-            {
-                busqueda = dtProfesores.Select("nombre='" + cmbCodirector1.Items[cmbCodirector1.SelectedIndex] + "'");
-                if (Convert.ToInt32(busqueda[0][2]) < 2)
-                {
-                    MessageBox.Show("El codirector 1 debe ser un Doctor, o superior", "Falta Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-
-            // el codirector2 debe ser de doctorado o superior
-            if (cmbCodirector2.SelectedIndex >= 0)
-            {
-                busqueda = dtProfesores.Select("nombre='" + cmbCodirector2.Items[cmbCodirector2.SelectedIndex] + "'");
-                if (Convert.ToInt32(busqueda[0][2]) < 2)
-                {
-                    MessageBox.Show("El codirector 2 debe ser un Doctor, o superior", "Falta Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-            
             // que Director y Codirector1 no sean el mismo
             if ((cmbDirector.SelectedIndex >= 0) & (cmbDirector.SelectedIndex == cmbCodirector1.SelectedIndex))
             {
@@ -463,7 +453,7 @@ namespace PosgrIQ
             // se marco el Tema como NO ENTREGADO pero existe informacion del Tema en la ventana
             if (!chkTema.Checked & !string.IsNullOrWhiteSpace(txtTema.Text))
             {
-                if (MessageBox.Show("Ha indicado que no existe aun un Tema de Doctorado pero existe un Titulo de Tema.\r\n\r\nPresione SI para desechar esta información y continuar.\r\n\r\nPresione NO para no continuar.","Error en el Tema",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.No) return;
+                if (MessageBox.Show("Ha indicado que no existe aun un Tema de Maestria pero existe un Titulo de Tema.\r\n\r\nPresione SI para desechar esta información y continuar.\r\n\r\nPresione NO para no continuar.", "Error en el Tema", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
             }
 
             if (cmbCondicion.SelectedIndex < 0)
@@ -478,34 +468,34 @@ namespace PosgrIQ
                 // nombre del tema vacío
                 if (string.IsNullOrWhiteSpace(txtTema.Text))
                 {
-                    MessageBox.Show("No ha indicado un nombre de Tema doctoral", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No ha indicado un nombre de Tema de maestria", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 // sin concepto del tema
                 if (cmbConceptoTema.SelectedIndex < 0)
                 {
-                    MessageBox.Show("No ha indicado un concepto para el Tema doctoral", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No ha indicado un concepto para el Tema de maestria", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 // no hay archivo de soporte
-                if(string.IsNullOrWhiteSpace(txtRutaTema.Text))
+                if (string.IsNullOrWhiteSpace(txtRutaTema.Text))
                 {
-                    MessageBox.Show("No ha indicado un archivo de soporte del Tema doctoral", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No ha indicado un archivo de soporte del Tema de maestria", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 // no hay director
                 if (cmbDirector.SelectedIndex < 0)
                 {
-                    MessageBox.Show("No se ha indicado un director para el Tema doctoral", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se ha indicado un director para el Tema de maestria", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
-                }                
+                }
             }
 
             // se prepara la conexion
-            OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
+            OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             string query, query2;
             OleDbCommand command;
 
@@ -519,7 +509,7 @@ namespace PosgrIQ
                         conection.Open();
 
                         // se prepara la cadena SQL
-                        query = "INSERT INTO EstudiantesDoct (";
+                        query = "INSERT INTO EstudiantesMaes (";
                         query2 = " VALUES (";
 
                         query += "codigo";
@@ -576,7 +566,7 @@ namespace PosgrIQ
                             query2 += ", " + (cmbConceptoTema.SelectedIndex + 1).ToString();
 
                             query += ", ruta";
-                            query2 += ", '" + btnRutaTema.Text + "'";                            
+                            query2 += ", '" + btnRutaTema.Text + "'";
                         }
                         else
                         {
@@ -584,16 +574,10 @@ namespace PosgrIQ
                             query2 += ", 1";
                         }
 
-                        query += ", solicitoqualify";
-                        query2 += ", '" + cmbSolicitarQualify.Items[cmbSolicitarQualify.SelectedIndex] + "'";
-
-                        query += ", aproboqualify";
-                        query2 += ", '" + cmbAprobarQualify.Items[cmbAprobarQualify.SelectedIndex] + "'";
-                        
                         query += ")";
                         query2 += ")";
                         query += query2;
-                        
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
@@ -604,7 +588,7 @@ namespace PosgrIQ
                     }
                     catch
                     {
-                        MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     break;
 
@@ -616,7 +600,7 @@ namespace PosgrIQ
                         conection.Open();
 
                         // se prepara la cadena SQL
-                        query = "UPDATE EstudiantesDoct SET ";
+                        query = "UPDATE EstudiantesMaes SET ";
                         query += "codigo=" + numCod.Value.ToString();
                         query += ", nombre='" + txtNombre.Text + "'";
                         query += ", correo='" + txtCorreo.Text + "'";
@@ -652,12 +636,8 @@ namespace PosgrIQ
 
                         query += ", ruta='" + txtRutaTema.Text + "'";
 
-                        query += ", solicitoqualify='" + cmbSolicitarQualify.Items[cmbSolicitarQualify.SelectedIndex] + "'";
-
-                        query += ", aproboqualify='" + cmbAprobarQualify.Items[cmbAprobarQualify.SelectedIndex] + "'";
-                        
                         query += " WHERE codigo=" + codigo.ToString();
-                        
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
@@ -668,53 +648,11 @@ namespace PosgrIQ
                     }
                     catch
                     {
-                        MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     break;
             }
 
-        }
-
-        private void btnAddReglamento_Click(object sender, EventArgs e)
-        {
-            AddReglamentosForm agregar = new AddReglamentosForm();
-            agregar.padre = this.padre;
-            agregar.modo = true;
-
-            if (agregar.ShowDialog() == DialogResult.OK) this.LlenarReglamentos();
-        }
-
-        private void btnAddProfesor_Click(object sender, EventArgs e)
-        {
-            AddProfesoresForm agregar = new AddProfesoresForm();
-            agregar.padre = this.padre;
-            agregar.modo = true;
-
-            if (agregar.ShowDialog() == DialogResult.OK) this.LlenarProfesores();
-        }
-
-        private void btnRutaTema_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc|Archivos PDF (.pdf)|*.pdf";
-            open.FilterIndex = 0;
-
-            if (open.ShowDialog() == DialogResult.OK)
-            {
-                txtRutaTema.Text = open.FileName;
-            }
-        }
-
-        private void btnVerArchivoTema_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaTema.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        }    
     }
 }

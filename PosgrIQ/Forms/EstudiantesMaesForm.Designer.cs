@@ -102,6 +102,7 @@
             this.btnVerTema.TabIndex = 5;
             this.btnVerTema.Text = "Ver Documento Tema";
             this.btnVerTema.UseVisualStyleBackColor = false;
+            this.btnVerTema.Click += new System.EventHandler(this.btnVerTema_Click);
             // 
             // btnAdd
             // 
@@ -113,6 +114,7 @@
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCerrar
             // 
@@ -125,6 +127,7 @@
             this.btnCerrar.TabIndex = 4;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnMod
             // 
@@ -136,6 +139,7 @@
             this.btnMod.TabIndex = 3;
             this.btnMod.Text = "Modificar";
             this.btnMod.UseVisualStyleBackColor = false;
+            this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
             // 
             // EstudiantesMaesForm
             // 
@@ -150,6 +154,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EstudiantesMaesForm";
             this.Text = "ESTUDIANTES DE MAESTRIA";
+            this.Load += new System.EventHandler(this.EstudiantesMaesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEstudiantes)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

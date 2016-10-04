@@ -71,6 +71,11 @@ namespace PosgrIQ
         private void button1_Click_1(object sender, EventArgs e)
         {
             padre.AbrirMatriculaDoctForm();
+        }
+
+        private void btnEstudiantesMaes_Click(object sender, EventArgs e)
+        {
+            padre.AbrirEstudiantesMaesForm();
         }        
     }
 }

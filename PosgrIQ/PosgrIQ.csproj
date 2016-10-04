@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddEstudianteMaesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEstudianteMaesForm.Designer.cs">
+      <DependentUpon>AddEstudianteMaesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EstudiantesMaesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     <Compile Include="Forms\PublicacionesDoctForm.Designer.cs">
       <DependentUpon>PublicacionesDoctForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AddEstudianteMaesForm.resx">
+      <DependentUpon>AddEstudianteMaesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EstudiantesMaesForm.resx">
       <DependentUpon>EstudiantesMaesForm.cs</DependentUpon>
     </EmbeddedResource>

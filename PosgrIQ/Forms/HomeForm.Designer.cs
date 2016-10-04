@@ -39,6 +39,7 @@
             this.btnPublicacionesDoct = new System.Windows.Forms.Button();
             this.btnPonenciasDoct = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnEstudiantesMaes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProfesores
@@ -57,7 +58,7 @@
             // 
             this.btnEscuelas.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEscuelas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEscuelas.Location = new System.Drawing.Point(12, 57);
+            this.btnEscuelas.Location = new System.Drawing.Point(202, 12);
             this.btnEscuelas.Name = "btnEscuelas";
             this.btnEscuelas.Size = new System.Drawing.Size(89, 39);
             this.btnEscuelas.TabIndex = 1;
@@ -69,7 +70,7 @@
             // 
             this.btnSemestres.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnSemestres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSemestres.Location = new System.Drawing.Point(12, 102);
+            this.btnSemestres.Location = new System.Drawing.Point(297, 12);
             this.btnSemestres.Name = "btnSemestres";
             this.btnSemestres.Size = new System.Drawing.Size(89, 39);
             this.btnSemestres.TabIndex = 2;
@@ -93,7 +94,7 @@
             // 
             this.btnEstudiantesDoct.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEstudiantesDoct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstudiantesDoct.Location = new System.Drawing.Point(107, 57);
+            this.btnEstudiantesDoct.Location = new System.Drawing.Point(12, 75);
             this.btnEstudiantesDoct.Name = "btnEstudiantesDoct";
             this.btnEstudiantesDoct.Size = new System.Drawing.Size(89, 39);
             this.btnEstudiantesDoct.TabIndex = 2;
@@ -105,7 +106,7 @@
             // 
             this.btnPropuestasDoct.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPropuestasDoct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPropuestasDoct.Location = new System.Drawing.Point(107, 102);
+            this.btnPropuestasDoct.Location = new System.Drawing.Point(202, 75);
             this.btnPropuestasDoct.Name = "btnPropuestasDoct";
             this.btnPropuestasDoct.Size = new System.Drawing.Size(89, 39);
             this.btnPropuestasDoct.TabIndex = 2;
@@ -117,7 +118,7 @@
             // 
             this.btnConfiguracion.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracion.Location = new System.Drawing.Point(316, 335);
+            this.btnConfiguracion.Location = new System.Drawing.Point(397, 12);
             this.btnConfiguracion.Name = "btnConfiguracion";
             this.btnConfiguracion.Size = new System.Drawing.Size(96, 39);
             this.btnConfiguracion.TabIndex = 2;
@@ -129,7 +130,7 @@
             // 
             this.btnPublicacionesDoct.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPublicacionesDoct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPublicacionesDoct.Location = new System.Drawing.Point(202, 12);
+            this.btnPublicacionesDoct.Location = new System.Drawing.Point(297, 75);
             this.btnPublicacionesDoct.Name = "btnPublicacionesDoct";
             this.btnPublicacionesDoct.Size = new System.Drawing.Size(95, 39);
             this.btnPublicacionesDoct.TabIndex = 2;
@@ -141,7 +142,7 @@
             // 
             this.btnPonenciasDoct.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPonenciasDoct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPonenciasDoct.Location = new System.Drawing.Point(202, 57);
+            this.btnPonenciasDoct.Location = new System.Drawing.Point(398, 75);
             this.btnPonenciasDoct.Name = "btnPonenciasDoct";
             this.btnPonenciasDoct.Size = new System.Drawing.Size(95, 39);
             this.btnPonenciasDoct.TabIndex = 2;
@@ -153,26 +154,39 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(202, 102);
+            this.button1.Location = new System.Drawing.Point(107, 75);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 39);
+            this.button1.Size = new System.Drawing.Size(89, 39);
             this.button1.TabIndex = 2;
             this.button1.Text = "Matricula Doctorado";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnEstudiantesMaes
+            // 
+            this.btnEstudiantesMaes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEstudiantesMaes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstudiantesMaes.Location = new System.Drawing.Point(12, 140);
+            this.btnEstudiantesMaes.Name = "btnEstudiantesMaes";
+            this.btnEstudiantesMaes.Size = new System.Drawing.Size(89, 39);
+            this.btnEstudiantesMaes.TabIndex = 2;
+            this.btnEstudiantesMaes.Text = "Estudiantes Maestria";
+            this.btnEstudiantesMaes.UseVisualStyleBackColor = false;
+            this.btnEstudiantesMaes.Click += new System.EventHandler(this.btnEstudiantesMaes_Click);
             // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(424, 386);
+            this.ClientSize = new System.Drawing.Size(584, 386);
             this.ControlBox = false;
             this.Controls.Add(this.btnConfiguracion);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnPonenciasDoct);
             this.Controls.Add(this.btnPublicacionesDoct);
             this.Controls.Add(this.btnPropuestasDoct);
+            this.Controls.Add(this.btnEstudiantesMaes);
             this.Controls.Add(this.btnEstudiantesDoct);
             this.Controls.Add(this.btnReglamentos);
             this.Controls.Add(this.btnSemestres);
@@ -200,5 +214,6 @@
         private System.Windows.Forms.Button btnPublicacionesDoct;
         private System.Windows.Forms.Button btnPonenciasDoct;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEstudiantesMaes;
     }
 }
