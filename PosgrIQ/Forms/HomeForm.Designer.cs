@@ -45,7 +45,7 @@
             // 
             this.btnProfesores.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnProfesores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfesores.Location = new System.Drawing.Point(50, 77);
+            this.btnProfesores.Location = new System.Drawing.Point(12, 12);
             this.btnProfesores.Name = "btnProfesores";
             this.btnProfesores.Size = new System.Drawing.Size(89, 39);
             this.btnProfesores.TabIndex = 0;
@@ -57,7 +57,7 @@
             // 
             this.btnEscuelas.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEscuelas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEscuelas.Location = new System.Drawing.Point(50, 122);
+            this.btnEscuelas.Location = new System.Drawing.Point(12, 57);
             this.btnEscuelas.Name = "btnEscuelas";
             this.btnEscuelas.Size = new System.Drawing.Size(89, 39);
             this.btnEscuelas.TabIndex = 1;
@@ -69,7 +69,7 @@
             // 
             this.btnSemestres.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnSemestres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSemestres.Location = new System.Drawing.Point(50, 167);
+            this.btnSemestres.Location = new System.Drawing.Point(12, 102);
             this.btnSemestres.Name = "btnSemestres";
             this.btnSemestres.Size = new System.Drawing.Size(89, 39);
             this.btnSemestres.TabIndex = 2;
@@ -81,7 +81,7 @@
             // 
             this.btnReglamentos.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnReglamentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReglamentos.Location = new System.Drawing.Point(145, 77);
+            this.btnReglamentos.Location = new System.Drawing.Point(107, 12);
             this.btnReglamentos.Name = "btnReglamentos";
             this.btnReglamentos.Size = new System.Drawing.Size(89, 39);
             this.btnReglamentos.TabIndex = 2;
@@ -93,7 +93,7 @@
             // 
             this.btnEstudiantesDoct.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEstudiantesDoct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstudiantesDoct.Location = new System.Drawing.Point(145, 122);
+            this.btnEstudiantesDoct.Location = new System.Drawing.Point(107, 57);
             this.btnEstudiantesDoct.Name = "btnEstudiantesDoct";
             this.btnEstudiantesDoct.Size = new System.Drawing.Size(89, 39);
             this.btnEstudiantesDoct.TabIndex = 2;
@@ -105,7 +105,7 @@
             // 
             this.btnPropuestasDoct.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPropuestasDoct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPropuestasDoct.Location = new System.Drawing.Point(145, 167);
+            this.btnPropuestasDoct.Location = new System.Drawing.Point(107, 102);
             this.btnPropuestasDoct.Name = "btnPropuestasDoct";
             this.btnPropuestasDoct.Size = new System.Drawing.Size(89, 39);
             this.btnPropuestasDoct.TabIndex = 2;
@@ -117,7 +117,7 @@
             // 
             this.btnConfiguracion.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracion.Location = new System.Drawing.Point(94, 230);
+            this.btnConfiguracion.Location = new System.Drawing.Point(316, 335);
             this.btnConfiguracion.Name = "btnConfiguracion";
             this.btnConfiguracion.Size = new System.Drawing.Size(96, 39);
             this.btnConfiguracion.TabIndex = 2;
@@ -129,7 +129,7 @@
             // 
             this.btnPublicacionesDoct.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPublicacionesDoct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPublicacionesDoct.Location = new System.Drawing.Point(240, 77);
+            this.btnPublicacionesDoct.Location = new System.Drawing.Point(202, 12);
             this.btnPublicacionesDoct.Name = "btnPublicacionesDoct";
             this.btnPublicacionesDoct.Size = new System.Drawing.Size(95, 39);
             this.btnPublicacionesDoct.TabIndex = 2;
@@ -141,7 +141,7 @@
             // 
             this.btnPonenciasDoct.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPonenciasDoct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPonenciasDoct.Location = new System.Drawing.Point(240, 122);
+            this.btnPonenciasDoct.Location = new System.Drawing.Point(202, 57);
             this.btnPonenciasDoct.Name = "btnPonenciasDoct";
             this.btnPonenciasDoct.Size = new System.Drawing.Size(95, 39);
             this.btnPonenciasDoct.TabIndex = 2;
@@ -153,7 +153,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(240, 167);
+            this.button1.Location = new System.Drawing.Point(202, 102);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 39);
             this.button1.TabIndex = 2;
@@ -166,7 +166,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(424, 282);
+            this.ClientSize = new System.Drawing.Size(424, 386);
             this.ControlBox = false;
             this.Controls.Add(this.btnConfiguracion);
             this.Controls.Add(this.button1);
