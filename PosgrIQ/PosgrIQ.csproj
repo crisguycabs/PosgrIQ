@@ -52,10 +52,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddPublicacionesMaesForm.cs">
+    <Compile Include="AddPonenciasMaesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddPublicacionesMaesForm.Designer.cs">
+    <Compile Include="AddPonenciasMaesForm.Designer.cs">
+      <DependentUpon>AddPonenciasMaesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddPublicacionesMaesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddPublicacionesMaesForm.Designer.cs">
       <DependentUpon>AddPublicacionesMaesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddMatriculaMaesForm.cs">
@@ -190,6 +196,12 @@
     <Compile Include="Forms\MatriculaMaesForm.Designer.cs">
       <DependentUpon>MatriculaMaesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PonenciasMaesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PonenciasMaesForm.Designer.cs">
+      <DependentUpon>PonenciasMaesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\SplashForm.cs">
@@ -228,13 +240,16 @@
     <Compile Include="Forms\PublicacionesDoctForm.Designer.cs">
       <DependentUpon>PublicacionesDoctForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PublicacionesMaesForm.cs">
+    <Compile Include="Forms\PublicacionesMaesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PublicacionesMaesForm.Designer.cs">
+    <Compile Include="Forms\PublicacionesMaesForm.Designer.cs">
       <DependentUpon>PublicacionesMaesForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddPublicacionesMaesForm.resx">
+    <EmbeddedResource Include="AddPonenciasMaesForm.resx">
+      <DependentUpon>AddPonenciasMaesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddPublicacionesMaesForm.resx">
       <DependentUpon>AddPublicacionesMaesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddMatriculaMaesForm.resx">
@@ -312,6 +327,9 @@
     <EmbeddedResource Include="Forms\MatriculaMaesForm.resx">
       <DependentUpon>MatriculaMaesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PonenciasMaesForm.resx">
+      <DependentUpon>PonenciasMaesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -331,7 +349,7 @@
     <EmbeddedResource Include="Forms\ReglamentosForm.resx">
       <DependentUpon>ReglamentosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PublicacionesMaesForm.resx">
+    <EmbeddedResource Include="Forms\PublicacionesMaesForm.resx">
       <DependentUpon>PublicacionesMaesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

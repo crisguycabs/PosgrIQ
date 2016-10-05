@@ -86,6 +86,11 @@ namespace PosgrIQ
         private void btnPublicacionesMaes_Click(object sender, EventArgs e)
         {
             padre.AbrirPublicacionesMaesForm();
+        }
+
+        private void btnPonenciasMaes_Click(object sender, EventArgs e)
+        {
+            padre.AbrirPonenciasMaesForm();
         }        
     }
 }

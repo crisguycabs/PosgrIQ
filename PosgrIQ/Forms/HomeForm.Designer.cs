@@ -42,6 +42,7 @@
             this.btnEstudiantesMaes = new System.Windows.Forms.Button();
             this.btnMatriculaMaes = new System.Windows.Forms.Button();
             this.btnPublicacionesMaes = new System.Windows.Forms.Button();
+            this.btnPonenciasMaes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProfesores
@@ -200,6 +201,18 @@
             this.btnPublicacionesMaes.UseVisualStyleBackColor = false;
             this.btnPublicacionesMaes.Click += new System.EventHandler(this.btnPublicacionesMaes_Click);
             // 
+            // btnPonenciasMaes
+            // 
+            this.btnPonenciasMaes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPonenciasMaes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPonenciasMaes.Location = new System.Drawing.Point(398, 140);
+            this.btnPonenciasMaes.Name = "btnPonenciasMaes";
+            this.btnPonenciasMaes.Size = new System.Drawing.Size(95, 39);
+            this.btnPonenciasMaes.TabIndex = 2;
+            this.btnPonenciasMaes.Text = "Ponencias Maestria";
+            this.btnPonenciasMaes.UseVisualStyleBackColor = false;
+            this.btnPonenciasMaes.Click += new System.EventHandler(this.btnPonenciasMaes_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -210,6 +223,7 @@
             this.Controls.Add(this.btnConfiguracion);
             this.Controls.Add(this.btnMatriculaMaes);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPonenciasMaes);
             this.Controls.Add(this.btnPonenciasDoct);
             this.Controls.Add(this.btnPublicacionesMaes);
             this.Controls.Add(this.btnPublicacionesDoct);
@@ -245,5 +259,6 @@
         private System.Windows.Forms.Button btnEstudiantesMaes;
         private System.Windows.Forms.Button btnMatriculaMaes;
         private System.Windows.Forms.Button btnPublicacionesMaes;
+        private System.Windows.Forms.Button btnPonenciasMaes;
     }
 }

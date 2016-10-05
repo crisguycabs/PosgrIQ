@@ -17,6 +17,16 @@ namespace PosgrIQ
         #region variables de clase
 
         /// <summary>
+        /// Instancia de la ventana PonenciasMaesForm
+        /// </summary>
+        public PonenciasMaesForm ponenciasMaesForm = null;
+
+        /// <summary>
+        /// Indica si la ventana PonenciasMaesForm esta abierta o no
+        /// </summary>
+        public bool abiertoPonenciasMaesForm = false;
+
+        /// <summary>
         /// Instancia de la ventana PublicacionesMaesForm
         /// </summary>
         public PublicacionesMaesForm publicacionesMaesForm = null;
@@ -836,6 +846,31 @@ namespace PosgrIQ
             ponenciasDoctForm.Close();
             ponenciasDoctForm = null;
             abiertoPonenciasDoctForm = false;
+        }
+
+        public void AbrirPonenciasMaesForm()
+        {
+            if (!abiertoPonenciasMaesForm)
+            {
+                ponenciasMaesForm = new PonenciasMaesForm();
+                ponenciasMaesForm.padre = this;
+                ponenciasMaesForm.MdiParent = this;
+
+                abiertoPonenciasMaesForm = true;
+
+                ponenciasMaesForm.Show();
+            }
+            else
+            {
+                ponenciasDoctForm.Select();
+            }
+        }
+
+        public void CerrarPonenciasMaesForm()
+        {
+            ponenciasMaesForm.Close();
+            ponenciasMaesForm = null;
+            abiertoPonenciasMaesForm = false;
         }
 
         public void AbrirSemestresForm()
