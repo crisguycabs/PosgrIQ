@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddMatriculaMaesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMatriculaMaesForm.Designer.cs">
+      <DependentUpon>AddMatriculaMaesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddEstudianteMaesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,12 @@
     <Compile Include="Forms\MatriculaDoctForm.Designer.cs">
       <DependentUpon>MatriculaDoctForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MatriculaMaesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatriculaMaesForm.Designer.cs">
+      <DependentUpon>MatriculaMaesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\SplashForm.cs">
@@ -210,6 +222,9 @@
     <Compile Include="Forms\PublicacionesDoctForm.Designer.cs">
       <DependentUpon>PublicacionesDoctForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddMatriculaMaesForm.resx">
+      <DependentUpon>AddMatriculaMaesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddEstudianteMaesForm.resx">
       <DependentUpon>AddEstudianteMaesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MatriculaDoctForm.resx">
       <DependentUpon>MatriculaDoctForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatriculaMaesForm.resx">
+      <DependentUpon>MatriculaMaesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

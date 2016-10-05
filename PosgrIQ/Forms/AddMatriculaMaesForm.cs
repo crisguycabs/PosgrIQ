@@ -12,7 +12,7 @@ using GemBox.Spreadsheet;
 
 namespace PosgrIQ
 {
-    public partial class AddMatriculaDoctForm : Form
+    public partial class AddMatriculaMaesForm : Form
     {
         #region variables de clase
 
@@ -39,7 +39,7 @@ namespace PosgrIQ
         /// <summary>
         /// Guarda la informacion de la tabla MatriculaDoct antes de hacer cualquier modificacion
         /// </summary>
-        public DataTable dtMatriculaDoct;
+        public DataTable dtMatriculaMaes;
 
         /// <summary>
         /// Guarda la informacion de la tabla Semestres antes de hacer cualquier modificacion
@@ -48,7 +48,7 @@ namespace PosgrIQ
 
         #endregion
 
-        public AddMatriculaDoctForm()
+        public AddMatriculaMaesForm()
         {
             InitializeComponent();
         }
@@ -78,10 +78,10 @@ namespace PosgrIQ
                 this.cmbSemestre6.Items.Clear();
                 this.cmbSemestre7.Items.Clear();
                 this.cmbSemestre8.Items.Clear();
-                this.cmbSemestre9.Items.Clear();
-                this.cmbSemestre10.Items.Clear();
-                this.cmbSemestre11.Items.Clear();
-                this.cmbSemestre12.Items.Clear();
+                this.cmbSemestre5.Items.Clear();
+                this.cmbSemestre6.Items.Clear();
+                this.cmbSemestre7.Items.Clear();
+                this.cmbSemestre8.Items.Clear();
 
                 foreach (DataRow row in dtSemestres.Rows)
                 {
@@ -93,10 +93,10 @@ namespace PosgrIQ
                     this.cmbSemestre6.Items.Add(row[1]);
                     this.cmbSemestre7.Items.Add(row[1]);
                     this.cmbSemestre8.Items.Add(row[1]);
-                    this.cmbSemestre9.Items.Add(row[1]);
-                    this.cmbSemestre10.Items.Add(row[1]);
-                    this.cmbSemestre11.Items.Add(row[1]);
-                    this.cmbSemestre12.Items.Add(row[1]);
+                    this.cmbSemestre5.Items.Add(row[1]);
+                    this.cmbSemestre6.Items.Add(row[1]);
+                    this.cmbSemestre7.Items.Add(row[1]);
+                    this.cmbSemestre8.Items.Add(row[1]);
                 }
             }
             catch
@@ -113,7 +113,7 @@ namespace PosgrIQ
             {
                 conection.Open();
 
-                string query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
+                string query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
                 OleDbCommand command = new OleDbCommand(query, conection);
                 OleDbDataAdapter da = new OleDbDataAdapter(command);
 
@@ -131,11 +131,11 @@ namespace PosgrIQ
             }
             catch
             {
-                MessageBox.Show("No se puede acceder a la base de datos, tabla EstudiantesDoct", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede acceder a la base de datos, tabla EstudiantesMaes", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void AddMatriculaDoctForm_Load(object sender, EventArgs e)
+        private void AddMatriculaMaesForm_Load(object sender, EventArgs e)
         {
             // se lee desde la BD la cantidad de Profesores, Colegiatura y Escuelas que existen actualmente
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
@@ -149,12 +149,12 @@ namespace PosgrIQ
                 OleDbDataAdapter da;
 
                 // se pide la informacion de la matricula de doctorado
-                query = "SELECT * FROM MatriculaDoct ORDER BY codigo ASC";
+                query = "SELECT * FROM MatriculaMaes ORDER BY codigo ASC";
                 command = new OleDbCommand(query, conection);
 
                 da = new OleDbDataAdapter(command);
-                this.dtMatriculaDoct = new DataTable();
-                da.Fill(dtMatriculaDoct);
+                this.dtMatriculaMaes = new DataTable();
+                da.Fill(dtMatriculaMaes);
 
                 conection.Close();
 
@@ -166,16 +166,16 @@ namespace PosgrIQ
                 {
                     case true: // se agrega una nueva matricula de doctorado
 
-                        numCod.Value = dtMatriculaDoct.Rows.Count + 1;
+                        numCod.Value = dtMatriculaMaes.Rows.Count + 1;
                         cmbEstudiante.SelectedIndex = -1;
 
-                        this.Text = "AGREGAR MATRICULA DE DOCTORADO";
+                        this.Text = "AGREGAR MATRICULA DE MAESTRIAS";
 
                         break;
 
                     case false: // se modifica una matricula de doctorado
 
-                        DataRow[] seleccionado = dtMatriculaDoct.Select("codigo=" + codigo.ToString());
+                        DataRow[] seleccionado = dtMatriculaMaes.Select("codigo=" + codigo.ToString());
 
                         // codigo
                         numCod.Value = codigo;
@@ -210,51 +210,27 @@ namespace PosgrIQ
                         // semestre5
                         cmbSemestre5.SelectedIndex = Convert.ToInt32(seleccionado[0][14]) - 1;
                         numPromedio5.Value = Convert.ToDecimal(seleccionado[0][15]);
-                        if (Convert.ToString(seleccionado[0][16]) == "Si") cmbBeca5.SelectedIndex = 0;
-                        else cmbBeca5.SelectedIndex = 1;
 
                         // semestre6
-                        cmbSemestre6.SelectedIndex = Convert.ToInt32(seleccionado[0][17]) - 1;
-                        numPromedio6.Value = Convert.ToDecimal(seleccionado[0][18]);
-                        if (Convert.ToString(seleccionado[0][19]) == "Si") cmbBeca6.SelectedIndex = 0;
-                        else cmbBeca6.SelectedIndex = 1;
+                        cmbSemestre6.SelectedIndex = Convert.ToInt32(seleccionado[0][16]) - 1;
+                        numPromedio6.Value = Convert.ToDecimal(seleccionado[0][17]);
 
                         // semestre7
-                        cmbSemestre7.SelectedIndex = Convert.ToInt32(seleccionado[0][20]) - 1;
-                        numPromedio7.Value = Convert.ToDecimal(seleccionado[0][21]);
-                        if (Convert.ToString(seleccionado[0][22]) == "Si") cmbBeca7.SelectedIndex = 0;
-                        else cmbBeca7.SelectedIndex = 1;
+                        cmbSemestre7.SelectedIndex = Convert.ToInt32(seleccionado[0][18]) - 1;
+                        numPromedio7.Value = Convert.ToDecimal(seleccionado[0][19]);
 
                         // semestre8
-                        cmbSemestre8.SelectedIndex = Convert.ToInt32(seleccionado[0][23]) - 1;
-                        numPromedio8.Value = Convert.ToDecimal(seleccionado[0][24]);
-                        if (Convert.ToString(seleccionado[0][25]) == "Si") cmbBeca8.SelectedIndex = 0;
-                        else cmbBeca8.SelectedIndex = 1;
+                        cmbSemestre8.SelectedIndex = Convert.ToInt32(seleccionado[0][20]) - 1;
+                        numPromedio8.Value = Convert.ToDecimal(seleccionado[0][21]);
 
-                        // semestre9
-                        cmbSemestre9.SelectedIndex = Convert.ToInt32(seleccionado[0][26]) - 1;
-                        numPromedio9.Value = Convert.ToDecimal(seleccionado[0][27]);
-
-                        // semestre10
-                        cmbSemestre10.SelectedIndex = Convert.ToInt32(seleccionado[0][28]) - 1;
-                        numPromedio10.Value = Convert.ToDecimal(seleccionado[0][29]);
-
-                        // semestre11
-                        cmbSemestre11.SelectedIndex = Convert.ToInt32(seleccionado[0][30]) - 1;
-                        numPromedio11.Value = Convert.ToDecimal(seleccionado[0][31]);
-
-                        // semestre12
-                        cmbSemestre12.SelectedIndex = Convert.ToInt32(seleccionado[0][32]) - 1;
-                        numPromedio12.Value = Convert.ToDecimal(seleccionado[0][33]);
-
-                        this.Text = "MODIFICAR MATRICULA DE DOCTORADO";
+                        this.Text = "MODIFICAR MATRICULA DE MAESTRIA";
 
                         break;
                 }
             }
             catch
             {
-                MessageBox.Show("No se puede acceder a la base de datos, tabla MatriculaDoct", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede acceder a la base de datos, tabla MatriculaMaes", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -272,7 +248,7 @@ namespace PosgrIQ
             // existe una propuesta con ese codigo. Solo revisar en modo insercion
             if (modo)
             {
-                busqueda = dtMatriculaDoct.Select("codigo=" + numCod.Value.ToString());
+                busqueda = dtMatriculaMaes.Select("codigo=" + numCod.Value.ToString());
                 if (busqueda.Length > 0)
                 {
                     MessageBox.Show("Ya existe una matricula con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -283,7 +259,7 @@ namespace PosgrIQ
             // no se ha escogido un estudiante
             if (cmbEstudiante.SelectedIndex < 0)
             {
-                MessageBox.Show("No ha seleccionado un estudiante de doctorado", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No ha seleccionado un estudiante de maestria", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -295,7 +271,7 @@ namespace PosgrIQ
             }
 
             // se comprueba que no se dupliquen los semestres seleccionados
-            
+
             #region 1
             if ((cmbSemestre1.SelectedIndex >= 0) & (cmbSemestre2.SelectedIndex >= 0) & (cmbSemestre1.SelectedIndex == cmbSemestre2.SelectedIndex))
             {
@@ -332,26 +308,6 @@ namespace PosgrIQ
                 MessageBox.Show("El semestre 1 y el semestre 2 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if ((cmbSemestre1.SelectedIndex >= 0) & (cmbSemestre9.SelectedIndex >= 0) & (cmbSemestre1.SelectedIndex == cmbSemestre9.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 1 y el semestre 9 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre1.SelectedIndex >= 0) & (cmbSemestre10.SelectedIndex >= 0) & (cmbSemestre1.SelectedIndex == cmbSemestre10.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 1 y el semestre 10 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre1.SelectedIndex >= 0) & (cmbSemestre11.SelectedIndex >= 0) & (cmbSemestre1.SelectedIndex == cmbSemestre11.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 1 y el semestre 11 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre1.SelectedIndex >= 0) & (cmbSemestre12.SelectedIndex >= 0) & (cmbSemestre1.SelectedIndex == cmbSemestre12.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 1 y el semestre 12 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             #endregion
             #region 2
             if ((cmbSemestre2.SelectedIndex >= 0) & (cmbSemestre3.SelectedIndex >= 0) & (cmbSemestre2.SelectedIndex == cmbSemestre3.SelectedIndex))
@@ -384,26 +340,6 @@ namespace PosgrIQ
                 MessageBox.Show("El semestre 2 y el semestre 8 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if ((cmbSemestre2.SelectedIndex >= 0) & (cmbSemestre9.SelectedIndex >= 0) & (cmbSemestre2.SelectedIndex == cmbSemestre9.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 2 y el semestre 9 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre2.SelectedIndex >= 0) & (cmbSemestre10.SelectedIndex >= 0) & (cmbSemestre2.SelectedIndex == cmbSemestre10.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 2 y el semestre 10 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre2.SelectedIndex >= 0) & (cmbSemestre11.SelectedIndex >= 0) & (cmbSemestre2.SelectedIndex == cmbSemestre11.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 2 y el semestre 11 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre2.SelectedIndex >= 0) & (cmbSemestre12.SelectedIndex >= 0) & (cmbSemestre2.SelectedIndex == cmbSemestre12.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 2 y el semestre 12 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             #endregion
             #region 3
             if ((cmbSemestre3.SelectedIndex >= 0) & (cmbSemestre4.SelectedIndex >= 0) & (cmbSemestre3.SelectedIndex == cmbSemestre4.SelectedIndex))
@@ -431,26 +367,6 @@ namespace PosgrIQ
                 MessageBox.Show("El semestre 3 y el semestre 8 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if ((cmbSemestre3.SelectedIndex >= 0) & (cmbSemestre9.SelectedIndex >= 0) & (cmbSemestre3.SelectedIndex == cmbSemestre9.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 3 y el semestre 9 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre3.SelectedIndex >= 0) & (cmbSemestre10.SelectedIndex >= 0) & (cmbSemestre3.SelectedIndex == cmbSemestre10.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 3 y el semestre 10 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre3.SelectedIndex >= 0) & (cmbSemestre11.SelectedIndex >= 0) & (cmbSemestre3.SelectedIndex == cmbSemestre11.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 3 y el semestre 11 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre3.SelectedIndex >= 0) & (cmbSemestre12.SelectedIndex >= 0) & (cmbSemestre3.SelectedIndex == cmbSemestre12.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 3 y el semestre 12 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             #endregion
             #region 4
             if ((cmbSemestre4.SelectedIndex >= 0) & (cmbSemestre5.SelectedIndex >= 0) & (cmbSemestre4.SelectedIndex == cmbSemestre5.SelectedIndex))
@@ -473,26 +389,6 @@ namespace PosgrIQ
                 MessageBox.Show("El semestre 4 y el semestre 8 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if ((cmbSemestre4.SelectedIndex >= 0) & (cmbSemestre9.SelectedIndex >= 0) & (cmbSemestre4.SelectedIndex == cmbSemestre9.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 4 y el semestre 9 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre4.SelectedIndex >= 0) & (cmbSemestre10.SelectedIndex >= 0) & (cmbSemestre4.SelectedIndex == cmbSemestre10.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 4 y el semestre 10 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre4.SelectedIndex >= 0) & (cmbSemestre11.SelectedIndex >= 0) & (cmbSemestre4.SelectedIndex == cmbSemestre11.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 4 y el semestre 11 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre4.SelectedIndex >= 0) & (cmbSemestre12.SelectedIndex >= 0) & (cmbSemestre4.SelectedIndex == cmbSemestre12.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 4 y el semestre 12 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             #endregion
             #region 5
             if ((cmbSemestre5.SelectedIndex >= 0) & (cmbSemestre6.SelectedIndex >= 0) & (cmbSemestre5.SelectedIndex == cmbSemestre6.SelectedIndex))
@@ -510,26 +406,6 @@ namespace PosgrIQ
                 MessageBox.Show("El semestre 5 y el semestre 8 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if ((cmbSemestre5.SelectedIndex >= 0) & (cmbSemestre9.SelectedIndex >= 0) & (cmbSemestre5.SelectedIndex == cmbSemestre9.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 5 y el semestre 9 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre5.SelectedIndex >= 0) & (cmbSemestre10.SelectedIndex >= 0) & (cmbSemestre5.SelectedIndex == cmbSemestre10.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 5 y el semestre 10 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre5.SelectedIndex >= 0) & (cmbSemestre11.SelectedIndex >= 0) & (cmbSemestre5.SelectedIndex == cmbSemestre11.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 5 y el semestre 11 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre5.SelectedIndex >= 0) & (cmbSemestre12.SelectedIndex >= 0) & (cmbSemestre5.SelectedIndex == cmbSemestre12.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 5 y el semestre 12 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             #endregion
             #region 6
             if ((cmbSemestre6.SelectedIndex >= 0) & (cmbSemestre7.SelectedIndex >= 0) & (cmbSemestre6.SelectedIndex == cmbSemestre7.SelectedIndex))
@@ -542,26 +418,6 @@ namespace PosgrIQ
                 MessageBox.Show("El semestre 6 y el semestre 8 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if ((cmbSemestre6.SelectedIndex >= 0) & (cmbSemestre9.SelectedIndex >= 0) & (cmbSemestre6.SelectedIndex == cmbSemestre9.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 6 y el semestre 9 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre6.SelectedIndex >= 0) & (cmbSemestre10.SelectedIndex >= 0) & (cmbSemestre6.SelectedIndex == cmbSemestre10.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 6 y el semestre 10 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre6.SelectedIndex >= 0) & (cmbSemestre11.SelectedIndex >= 0) & (cmbSemestre6.SelectedIndex == cmbSemestre11.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 6 y el semestre 11 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre6.SelectedIndex >= 0) & (cmbSemestre12.SelectedIndex >= 0) & (cmbSemestre6.SelectedIndex == cmbSemestre12.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 6 y el semestre 12 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             #endregion
             #region 7
             if ((cmbSemestre7.SelectedIndex >= 0) & (cmbSemestre8.SelectedIndex >= 0) & (cmbSemestre7.SelectedIndex == cmbSemestre8.SelectedIndex))
@@ -569,86 +425,7 @@ namespace PosgrIQ
                 MessageBox.Show("El semestre 7 y el semestre 8 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if ((cmbSemestre7.SelectedIndex >= 0) & (cmbSemestre9.SelectedIndex >= 0) & (cmbSemestre7.SelectedIndex == cmbSemestre9.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 7 y el semestre 9 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre7.SelectedIndex >= 0) & (cmbSemestre10.SelectedIndex >= 0) & (cmbSemestre7.SelectedIndex == cmbSemestre10.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 7 y el semestre 10 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre7.SelectedIndex >= 0) & (cmbSemestre11.SelectedIndex >= 0) & (cmbSemestre7.SelectedIndex == cmbSemestre11.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 7 y el semestre 11 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre7.SelectedIndex >= 0) & (cmbSemestre12.SelectedIndex >= 0) & (cmbSemestre7.SelectedIndex == cmbSemestre12.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 7 y el semestre 12 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             #endregion
-            #region 8
-            if ((cmbSemestre8.SelectedIndex >= 0) & (cmbSemestre9.SelectedIndex >= 0) & (cmbSemestre8.SelectedIndex == cmbSemestre9.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 8 y el semestre 9 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre8.SelectedIndex >= 0) & (cmbSemestre10.SelectedIndex >= 0) & (cmbSemestre8.SelectedIndex == cmbSemestre10.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 8 y el semestre 10 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre8.SelectedIndex >= 0) & (cmbSemestre11.SelectedIndex >= 0) & (cmbSemestre8.SelectedIndex == cmbSemestre11.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 8 y el semestre 11 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre8.SelectedIndex >= 0) & (cmbSemestre12.SelectedIndex >= 0) & (cmbSemestre8.SelectedIndex == cmbSemestre12.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 8 y el semestre 12 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            #endregion
-            #region 9
-            if ((cmbSemestre9.SelectedIndex >= 0) & (cmbSemestre10.SelectedIndex >= 0) & (cmbSemestre9.SelectedIndex == cmbSemestre10.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 9 y el semestre 10 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre9.SelectedIndex >= 0) & (cmbSemestre11.SelectedIndex >= 0) & (cmbSemestre9.SelectedIndex == cmbSemestre11.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 9 y el semestre 11 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre9.SelectedIndex >= 0) & (cmbSemestre12.SelectedIndex >= 0) & (cmbSemestre9.SelectedIndex == cmbSemestre12.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 9 y el semestre 12 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            #endregion
-            #region 10
-            if ((cmbSemestre10.SelectedIndex >= 0) & (cmbSemestre11.SelectedIndex >= 0) & (cmbSemestre10.SelectedIndex == cmbSemestre11.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 10 y el semestre 11 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if ((cmbSemestre10.SelectedIndex >= 0) & (cmbSemestre12.SelectedIndex >= 0) & (cmbSemestre10.SelectedIndex == cmbSemestre12.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 10 y el semestre 12 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            #endregion
-            #region 11
-            if ((cmbSemestre11.SelectedIndex >= 0) & (cmbSemestre12.SelectedIndex >= 0) & (cmbSemestre11.SelectedIndex == cmbSemestre12.SelectedIndex))
-            {
-                MessageBox.Show("El semestre 11 y el semestre 12 estan duplicados.\r\n\r\nPor favor, seleccione semestres diferentes", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            #endregion
-            
 
             // se prepara la conexion
             OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
@@ -664,7 +441,7 @@ namespace PosgrIQ
                         conection.Open();
 
                         // se prepara la cadena SQL
-                        query = "INSERT INTO MatriculaDoct (";
+                        query = "INSERT INTO MatriculaMaes (";
                         query2 = " VALUES (";
 
                         query += "codigo";
@@ -709,53 +486,21 @@ namespace PosgrIQ
                         query2 += ", " + (cmbSemestre5.SelectedIndex + 1).ToString();
                         query += ", promedio5";
                         query2 += ", " + (numPromedio5.Value).ToString();
-                        query += ", beca5";
-                        if (cmbBeca5.SelectedIndex == 0) query2 += ", 'Si'";
-                        else query2 += ", 'No'";
-
+                        
                         query += ", semestre6";
                         query2 += ", " + (cmbSemestre6.SelectedIndex + 1).ToString();
                         query += ", promedio6";
                         query2 += ", " + (numPromedio6.Value).ToString();
-                        query += ", beca6";
-                        if (cmbBeca6.SelectedIndex == 0) query2 += ", 'Si'";
-                        else query2 += ", 'No'";
-
+                        
                         query += ", semestre7";
                         query2 += ", " + (cmbSemestre7.SelectedIndex + 1).ToString();
                         query += ", promedio7";
                         query2 += ", " + (numPromedio7.Value).ToString();
-                        query += ", beca7";
-                        if (cmbBeca7.SelectedIndex == 0) query2 += ", 'Si'";
-                        else query2 += ", 'No'";
-
+                        
                         query += ", semestre8";
                         query2 += ", " + (cmbSemestre8.SelectedIndex + 1).ToString();
                         query += ", promedio8";
-                        query2 += ", " + (numPromedio8.Value).ToString();
-                        query += ", beca8";
-                        if (cmbBeca8.SelectedIndex == 0) query2 += ", 'Si'";
-                        else query2 += ", 'No'";
-
-                        query += ", semestre9";
-                        query2 += ", " + (cmbSemestre9.SelectedIndex + 1).ToString();
-                        query += ", promedio9";
-                        query2 += ", " + (numPromedio9.Value).ToString();
-
-                        query += ", semestre10";
-                        query2 += ", " + (cmbSemestre10.SelectedIndex + 1).ToString();
-                        query += ", promedio10";
-                        query2 += ", " + (numPromedio10.Value).ToString();
-
-                        query += ", semestre11";
-                        query2 += ", " + (cmbSemestre11.SelectedIndex + 1).ToString();
-                        query += ", promedio11";
-                        query2 += ", " + (numPromedio11.Value).ToString();
-
-                        query += ", semestre12";
-                        query2 += ", " + (cmbSemestre12.SelectedIndex + 1).ToString();
-                        query += ", promedio12";
-                        query2 += ", " + (numPromedio12.Value).ToString();
+                        query2 += ", " + (numPromedio8.Value).ToString();  
 
                         query += ")";
                         query2 += ")";
@@ -771,7 +516,7 @@ namespace PosgrIQ
                     }
                     catch
                     {
-                        MessageBox.Show("No se puede acceder a la base de datos, tabla Matricula Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se puede acceder a la base de datos, tabla Matricula Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     break;
 
@@ -808,36 +553,16 @@ namespace PosgrIQ
 
                         query += ", semestre5=" + (this.cmbSemestre5.SelectedIndex + 1).ToString();
                         query += ", promedio5=" + (this.numPromedio5.Value).ToString();
-                        if (cmbBeca5.SelectedIndex == 0) query += ", beca5='Si'";
-                        else query += ", 'No'";
-
+                        
                         query += ", semestre6=" + (this.cmbSemestre6.SelectedIndex + 1).ToString();
                         query += ", promedio6=" + (this.numPromedio6.Value).ToString();
-                        if (cmbBeca6.SelectedIndex == 0) query += ", beca6='Si'";
-                        else query += ", 'No'";
-
+                        
                         query += ", semestre7=" + (this.cmbSemestre7.SelectedIndex + 1).ToString();
                         query += ", promedio7=" + (this.numPromedio7.Value).ToString();
-                        if (cmbBeca7.SelectedIndex == 0) query += ", beca7='Si'";
-                        else query += ", 'No'";
-
+                        
                         query += ", semestre8=" + (this.cmbSemestre8.SelectedIndex + 1).ToString();
                         query += ", promedio8=" + (this.numPromedio8.Value).ToString();
-                        if (cmbBeca8.SelectedIndex == 0) query += ", beca8='Si'";
-                        else query += ", 'No'";
-
-                        query += ", semestre9=" + (this.cmbSemestre9.SelectedIndex + 1).ToString();
-                        query += ", promedio9=" + (this.numPromedio9.Value).ToString();
-
-                        query += ", semestre10=" + (this.cmbSemestre10.SelectedIndex + 1).ToString();
-                        query += ", promedio10=" + (this.numPromedio10.Value).ToString();
-
-                        query += ", semestre11=" + (this.cmbSemestre11.SelectedIndex + 1).ToString();
-                        query += ", promedio11=" + (this.numPromedio11.Value).ToString();
-
-                        query += ", semestre12=" + (this.cmbSemestre12.SelectedIndex + 1).ToString();
-                        query += ", promedio12=" + (this.numPromedio12.Value).ToString();
-
+                        
                         query += " WHERE codigo=" + codigo.ToString();
 
                         command = new OleDbCommand(query, conection);
@@ -848,9 +573,9 @@ namespace PosgrIQ
 
                         this.DialogResult = DialogResult.OK;
                     }
-                    catch 
+                    catch
                     {
-                        MessageBox.Show("No se puede acceder a la base de datos, tabla Matricula Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se puede acceder a la base de datos, tabla Matricula Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     break;
             }
