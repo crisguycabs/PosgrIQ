@@ -40,6 +40,8 @@
             this.btnPonenciasDoct = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnEstudiantesMaes = new System.Windows.Forms.Button();
+            this.btnMatriculaMaes = new System.Windows.Forms.Button();
+            this.btnPublicacionesMaes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProfesores
@@ -174,6 +176,30 @@
             this.btnEstudiantesMaes.UseVisualStyleBackColor = false;
             this.btnEstudiantesMaes.Click += new System.EventHandler(this.btnEstudiantesMaes_Click);
             // 
+            // btnMatriculaMaes
+            // 
+            this.btnMatriculaMaes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnMatriculaMaes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMatriculaMaes.Location = new System.Drawing.Point(107, 140);
+            this.btnMatriculaMaes.Name = "btnMatriculaMaes";
+            this.btnMatriculaMaes.Size = new System.Drawing.Size(89, 39);
+            this.btnMatriculaMaes.TabIndex = 2;
+            this.btnMatriculaMaes.Text = "Matricula Maestria";
+            this.btnMatriculaMaes.UseVisualStyleBackColor = false;
+            this.btnMatriculaMaes.Click += new System.EventHandler(this.btnMatriculaMaes_Click);
+            // 
+            // btnPublicacionesMaes
+            // 
+            this.btnPublicacionesMaes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPublicacionesMaes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPublicacionesMaes.Location = new System.Drawing.Point(297, 140);
+            this.btnPublicacionesMaes.Name = "btnPublicacionesMaes";
+            this.btnPublicacionesMaes.Size = new System.Drawing.Size(95, 39);
+            this.btnPublicacionesMaes.TabIndex = 2;
+            this.btnPublicacionesMaes.Text = "Publicaciones Maestria";
+            this.btnPublicacionesMaes.UseVisualStyleBackColor = false;
+            this.btnPublicacionesMaes.Click += new System.EventHandler(this.btnPublicacionesMaes_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -182,8 +208,10 @@
             this.ClientSize = new System.Drawing.Size(584, 386);
             this.ControlBox = false;
             this.Controls.Add(this.btnConfiguracion);
+            this.Controls.Add(this.btnMatriculaMaes);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnPonenciasDoct);
+            this.Controls.Add(this.btnPublicacionesMaes);
             this.Controls.Add(this.btnPublicacionesDoct);
             this.Controls.Add(this.btnPropuestasDoct);
             this.Controls.Add(this.btnEstudiantesMaes);
@@ -215,5 +243,7 @@
         private System.Windows.Forms.Button btnPonenciasDoct;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnEstudiantesMaes;
+        private System.Windows.Forms.Button btnMatriculaMaes;
+        private System.Windows.Forms.Button btnPublicacionesMaes;
     }
 }
