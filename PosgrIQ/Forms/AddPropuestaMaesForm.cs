@@ -443,5 +443,280 @@ namespace PosgrIQ
                 MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            // se realizan algunas comprobaciones de seguridad
+
+            DataRow[] busqueda;
+
+            // existe una propuesta con ese codigo. Solo revisar en modo insercion
+            if (modo)
+            {
+                busqueda = dtPropuestas.Select("codigo=" + numCod.Value.ToString());
+                if (busqueda.Length > 0)
+                {
+                    MessageBox.Show("Ya existe una propuesta con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            // no se ha escogido un estudiante
+            if (cmbEstudiante.SelectedIndex < 0)
+            {
+                MessageBox.Show("No ha seleccionado un estudiante de maestria", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // titulo vacio
+            if (string.IsNullOrWhiteSpace(txtPropuesta.Text))
+            {
+                MessageBox.Show("No se ha ingresado el nombre de la propuesta de maestria", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                // titulo demasiado largo
+                if (txtPropuesta.Text.Length >= 255)
+                {
+                    MessageBox.Show("El titulo de la propuesta de maestria es demasiado.\r\n\r\nMaximo 255 caractereres", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            // ruta vacia
+            if (string.IsNullOrWhiteSpace(txtRutaPropuesta.Text))
+            {
+                MessageBox.Show("No se ha seleccionado el documento de la propuesta de maestria", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // no hay calificador1
+            if (cmbCalificador1.SelectedIndex < 0)
+            {
+                MessageBox.Show("No se ha seleccionado el calificador 1 de la propuesta de maestria", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
+            // no hay calificador2
+            if (cmbCalificador2.SelectedIndex < 0)
+            {
+                MessageBox.Show("No se ha seleccionado el calificador 2 de la propuesta de doctorado", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
+            if ((cmbCalificador1.SelectedIndex >= 0) & (cmbCalificador2.SelectedIndex >= 0) & (cmbCalificador1.SelectedIndex == cmbCalificador2.SelectedIndex))
+            {
+                MessageBox.Show("Se asigno el mismo profesor a calificador 1 y calificador 2", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se prepara la conexion
+            OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
+            string query, query2;
+            OleDbCommand command;
+
+            switch (modo)
+            {
+                case true:
+
+                    // se agrega la propuesta
+                    try
+                    {
+                        conection.Open();
+
+                        // se prepara la cadena SQL
+                        query = "INSERT INTO PropuestaMaes (";
+                        query2 = " VALUES (";
+
+                        query += "codigo";
+                        query2 += numCod.Value.ToString();
+
+                        query += ", estudiante";
+                        query2 += ", " + (cmbEstudiante.SelectedIndex + 1).ToString();
+
+                        query += ", titulo";
+                        query2 += ", '" + txtPropuesta.Text + "'";
+
+                        query += ", ruta";
+                        query2 += ", '" + txtRutaPropuesta.Text + "'";
+
+                        query += ", calificador1";
+                        query2 += ", " + (cmbCalificador1.SelectedIndex + 1).ToString();
+
+                        query += ", calificador2";
+                        query2 += ", " + (cmbCalificador2.SelectedIndex + 1).ToString();
+
+                        query += ", entrega1";
+                        query2 += ", '" + MainForm.Fecha2Texto(this.datePropuesta.Value) + "'";
+
+                        if (cmbConcepto1Calificador1.SelectedIndex >= 0)
+                        {
+                            query += ", concepto1calificador1";
+                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+                        }
+                        else
+                        {
+                            query += ", concepto1calificador1";
+                            query2 += ", 1";
+                        }
+
+                        if (cmbConcepto1Calificador2.SelectedIndex >= 0)
+                        {
+                            query += ", concepto1calificador2";
+                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
+                        }
+                        else
+                        {
+                            query += ", concepto1calificador2";
+                            query2 += ", 1";
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text))
+                        {
+                            query += ", rutaconcepto1calificador1";
+                            query2 += ", '" + txtRutaConcepto1Calificador1.Text + "'";
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador2.Text))
+                        {
+                            query += ", rutaconcepto1calificador2";
+                            query2 += ", '" + txtRutaConcepto1Calificador2.Text + "'";
+                        }
+
+                        query += ", correcciones";
+                        query2 += ", '" + MainForm.Fecha2Texto(dateCorrecciones.Value) + "'";
+
+                        if (cmbConcepto2Calificador1.SelectedIndex >= 0)
+                        {
+                            query += ", concepto2calificador1";
+                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+                        }
+                        else
+                        {
+                            query += ", concepto2calificador1";
+                            query2 += ", 1";
+                        }
+
+                        if (cmbConcepto2Calificador2.SelectedIndex >= 0)
+                        {
+                            query += ", concepto2calificador2";
+                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
+                        }
+                        else
+                        {
+                            query += ", concepto2calificador2";
+                            query2 += ", 1";
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text))
+                        {
+                            query += ", rutaconcepto2calificador1";
+                            query2 += ", '" + txtRutaConcepto2Calificador1.Text + "'";
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text))
+                        {
+                            query += ", rutaconcepto2calificador2";
+                            query2 += ", '" + txtRutaConcepto2Calificador2.Text + "'";
+                        }
+
+                        query += ", sustentacion";
+                        query2 += " ,'" + MainForm.Fecha2Texto(dateSustentacion.Value) + "'";
+
+                        if (cmbSustentacion.SelectedIndex >= 0)
+                        {
+                            query += ", conceptofinal";
+                            query2 += ", " + (cmbSustentacion.SelectedIndex + 1).ToString();
+                        }
+                        else
+                        {
+                            query += ", conceptofinal";
+                            query2 += ", 1";
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text))
+                        {
+                            query += ", rutaconceptofinal";
+                            query2 += ", '" + txtRutaSustentacion.Text + "'";
+                        }
+
+                        query += ")";
+                        query2 += ")";
+                        query += query2;
+
+                        command = new OleDbCommand(query, conection);
+
+                        command.ExecuteNonQuery();
+
+                        conection.Close();
+
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se puede acceder a la base de datos, tabla Propuestas Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    break;
+
+                case false:
+
+                    // se modifica la propuesta
+
+                    try
+                    {
+                        conection.Open();
+
+                        // se prepara la cadena SQL
+                        query = "UPDATE PropuestaMaes SET ";
+                        query += "codigo=" + numCod.Value.ToString();
+                        query += ", estudiante=" + (this.cmbEstudiante.SelectedIndex + 1).ToString();
+                        query += ", titulo='" + txtPropuesta.Text + "'";
+                        query += ", ruta='" + txtRutaPropuesta.Text + "'";
+                        query += ", calificador1=" + (cmbCalificador1.SelectedIndex + 1).ToString();
+                        query += ", calificador2=" + (cmbCalificador2.SelectedIndex + 1).ToString();
+                        query += ", entrega1='" + MainForm.Fecha2Texto(datePropuesta.Value) + "'";
+
+                        if (cmbConcepto1Calificador1.SelectedIndex >= 0) query += ", concepto1calificador1=" + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+
+                        if (cmbConcepto1Calificador2.SelectedIndex >= 0) query += ", concepto1calificador2=" + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
+
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text)) query += ", rutaconcepto1calificador1='" + txtRutaConcepto1Calificador1.Text + "'";
+
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador2.Text)) query += ", rutaconcepto1calificador2='" + txtRutaConcepto1Calificador2.Text + "'";
+
+                        query += ", correcciones='" + MainForm.Fecha2Texto(dateCorrecciones.Value) + "'";
+
+                        if (cmbConcepto2Calificador1.SelectedIndex >= 0) query += ", concepto2calificador1=" + (cmbConcepto2Calificador1.SelectedIndex + 1).ToString();
+
+                        if (cmbConcepto2Calificador2.SelectedIndex >= 0) query += ", concepto2calificador2=" + (cmbConcepto2Calificador2.SelectedIndex + 1).ToString();
+
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text)) query += ", rutaconcepto2calificador1='" + txtRutaConcepto2Calificador1.Text + "'";
+
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text)) query += ", rutaconcepto2calificador2='" + txtRutaConcepto2Calificador2.Text + "'";
+
+                        query += ", sustentacion='" + MainForm.Fecha2Texto(dateSustentacion.Value) + "'";
+
+                        if (cmbSustentacion.SelectedIndex >= 0) query += ", conceptofinal=" + (cmbSustentacion.SelectedIndex + 1).ToString();
+
+                        if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text)) query += ", rutaconceptofinal='" + txtRutaSustentacion.Text + "'";
+
+                        query += " WHERE codigo=" + codigo.ToString();
+
+                        command = new OleDbCommand(query, conection);
+
+                        command.ExecuteNonQuery();
+
+                        conection.Close();
+
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se puede acceder a la base de datos, tabla Propuestas Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    break;
+            }
+        }
     }
 }
