@@ -113,6 +113,11 @@ namespace PosgrIQ
             // ControlPaint.DrawBorder(e.Graphics, e.ClipRectangle, Color.DarkRed, 2, ButtonBorderStyle.Solid, Color.DarkRed, 2, ButtonBorderStyle.Solid, Color.DarkRed, 2, ButtonBorderStyle.Solid, Color.DarkRed, 2, ButtonBorderStyle.Solid);
         }
 
+        private void HomeForm_Load(object sender, EventArgs e)
+        {
+            label1.BackColor = label3.BackColor = Color.DarkRed;
+        }
+
              
     }
 }

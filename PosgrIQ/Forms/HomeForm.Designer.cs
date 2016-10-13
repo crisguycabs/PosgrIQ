@@ -421,6 +421,7 @@
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BIENVENIDO A POSGRIQ";
+            this.Load += new System.EventHandler(this.HomeForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.HomeForm_Paint);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
