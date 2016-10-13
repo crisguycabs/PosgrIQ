@@ -284,7 +284,7 @@ namespace PosgrIQ
         {
             if (dataGridTesis.Rows.Count < 1) return;
 
-            AddPropuestaDoctForm modificar = new AddPropuestaDoctForm();
+            AddTesisDoctForm modificar = new AddTesisDoctForm();
             modificar.padre = this.padre;
             modificar.modo = false;
             modificar.codigo = Convert.ToInt32(dataGridTesis.SelectedRows[0].Cells[0].Value);

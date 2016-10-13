@@ -91,6 +91,21 @@ namespace PosgrIQ
         private void btnPonenciasMaes_Click(object sender, EventArgs e)
         {
             padre.AbrirPonenciasMaesForm();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            padre.AbrirPropuestasMaesForm();
+        }
+
+        private void btnTesisDoct_Click(object sender, EventArgs e)
+        {
+            padre.AbrirTesisDoctForm();
+        }
+
+        private void btnTesisMaes_Click(object sender, EventArgs e)
+        {
+            padre.AbrirTesisMaesForm();
         }        
     }
 }

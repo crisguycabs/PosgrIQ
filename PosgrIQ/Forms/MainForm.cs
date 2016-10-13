@@ -17,6 +17,16 @@ namespace PosgrIQ
         #region variables de clase
 
         /// <summary>
+        /// Instancia de la ventana TesisMaesForm
+        /// </summary>
+        public TesisMaes tesisMaesForm = null;
+
+        /// <summary>
+        /// Indica si la ventana TesisMaesForm esta abierta o no
+        /// </summary>
+        public bool abiertoTesisMaesForm = false;
+
+        /// <summary>
         /// Instancia de la ventana de PropuestaMaesForm
         /// </summary>
         public PropuestaMaesForm propuestaMaesForm = null;
@@ -681,6 +691,31 @@ namespace PosgrIQ
             tesisDoctForm.Close();
             tesisDoctForm = null;
             abiertoTesisDoctForm = false;
+        }
+
+        public void AbrirTesisMaesForm()
+        {
+            if (!abiertoTesisMaesForm)
+            {
+                tesisMaesForm = new TesisMaes();
+                tesisMaesForm.padre = this;
+                tesisMaesForm.MdiParent = this;
+
+                abiertoTesisMaesForm = true;
+
+                tesisMaesForm.Show();
+            }
+            else
+            {
+                tesisDoctForm.Select();
+            }
+        }
+
+        public void CerrarTesisMaesForm()
+        {
+            tesisMaesForm.Close();
+            tesisMaesForm = null;
+            abiertoTesisMaesForm = false;
         }
 
         public void AbrirPropuestasDoctForm()

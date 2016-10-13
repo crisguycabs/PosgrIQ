@@ -47,7 +47,7 @@ namespace PosgrIQ
         public DataTable dtConceptos;
 
         /// <summary>
-        /// Guarda la informacion de la tabla PropuestasDoct antes de hacer cualquier modificacion
+        /// Guarda la informacion de la tabla TesisDoct antes de hacer cualquier modificacion
         /// </summary>
         public DataTable dtTesis;
 
@@ -142,9 +142,13 @@ namespace PosgrIQ
                 cmbConcepto1Calificador1.Items.Clear();
                 cmbConcepto1Calificador2.Items.Clear();
                 cmbConcepto1Calificador3.Items.Clear();
+                cmbConcepto1Calificador4.Items.Clear();
+                cmbConcepto1Calificador5.Items.Clear();
                 cmbConcepto2Calificador1.Items.Clear();
                 cmbConcepto2Calificador2.Items.Clear();
                 cmbConcepto2Calificador3.Items.Clear();
+                cmbConcepto2Calificador4.Items.Clear();
+                cmbConcepto2Calificador5.Items.Clear();
                 cmbSustentacion.Items.Clear();
 
                 foreach (DataRow row in dtConceptos.Rows)
@@ -152,9 +156,13 @@ namespace PosgrIQ
                     cmbConcepto1Calificador1.Items.Add(row[1]);
                     cmbConcepto1Calificador2.Items.Add(row[1]);
                     cmbConcepto1Calificador3.Items.Add(row[1]);
+                    cmbConcepto1Calificador4.Items.Add(row[1]);
+                    cmbConcepto1Calificador5.Items.Add(row[1]);
                     cmbConcepto2Calificador1.Items.Add(row[1]);
                     cmbConcepto2Calificador2.Items.Add(row[1]);
                     cmbConcepto2Calificador3.Items.Add(row[1]);
+                    cmbConcepto2Calificador4.Items.Add(row[1]);
+                    cmbConcepto2Calificador5.Items.Add(row[1]);
                     cmbSustentacion.Items.Add(row[1]);
                 }
             }
@@ -353,7 +361,7 @@ namespace PosgrIQ
             }
             catch
             {
-                MessageBox.Show("No se puede acceder a la base de datos, tabla PropuestasDoct", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede acceder a la base de datos, tabla TesisDoct", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -369,7 +377,7 @@ namespace PosgrIQ
                 busqueda = dtTesis.Select("codigo=" + numCod.Value.ToString());
                 if (busqueda.Length > 0)
                 {
-                    MessageBox.Show("Ya existe una propuesta con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe una tesis con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -384,7 +392,7 @@ namespace PosgrIQ
             // titulo vacio
             if (string.IsNullOrWhiteSpace(txtTesis.Text))
             {
-                MessageBox.Show("No se ha ingresado el nombre de la propuesta de doctorado", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se ha ingresado el nombre de la tesis de doctorado", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -392,7 +400,7 @@ namespace PosgrIQ
                 // titulo demasiado largo
                 if (txtTesis.Text.Length >= 255)
                 {
-                    MessageBox.Show("El titulo de la propuesta de doctorado es demasiado.\r\n\r\nMaximo 255 caractereres", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El titulo de la tesis de doctorado es demasiado.\r\n\r\nMaximo 255 caractereres", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -400,7 +408,7 @@ namespace PosgrIQ
             // ruta vacia
             if (string.IsNullOrWhiteSpace(txtRutaTesis.Text))
             {
-                MessageBox.Show("No se ha seleccionado el documento de la propuesta de doctorado", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se ha seleccionado el documento de la tesis de doctorado", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

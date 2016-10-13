@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddTesisMaesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTesisMaesForm.Designer.cs">
+      <DependentUpon>AddTesisMaesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddPropuestaMaesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,6 +264,15 @@
     <Compile Include="Forms\PropuestaMaesForm.Designer.cs">
       <DependentUpon>PropuestaMaesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TesisMaes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TesisMaes.Designer.cs">
+      <DependentUpon>TesisMaes.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddTesisMaesForm.resx">
+      <DependentUpon>AddTesisMaesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddPropuestaMaesForm.resx">
       <DependentUpon>AddPropuestaMaesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -369,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PropuestaMaesForm.resx">
       <DependentUpon>PropuestaMaesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TesisMaes.resx">
+      <DependentUpon>TesisMaes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
