@@ -190,7 +190,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConfiguracionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ConfiguracionForm";
+            this.Text = "CONFIGURACION POSGRIQ";
             this.Load += new System.EventHandler(this.ConfiguracionForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

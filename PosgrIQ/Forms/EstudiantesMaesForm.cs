@@ -164,7 +164,7 @@ namespace PosgrIQ
             }
             catch
             {
-                MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes de Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 padre.CerrarEstudiantesDoctForm();
             }
         }
@@ -209,7 +209,7 @@ namespace PosgrIQ
             }
             catch
             {
-                MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes de Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -74,7 +74,7 @@ namespace PosgrIQ
             }
             catch
             {
-                MessageBox.Show("No se puede acceder a la base de datos, tabla EstudiantesDoct", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes de Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -155,7 +155,7 @@ namespace PosgrIQ
             }
             catch
             {
-                MessageBox.Show("No se puede acceder a la base de datos, tabla PublicacionesMaes", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede acceder a la base de datos, tabla Publicaciones de Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -286,7 +286,7 @@ namespace PosgrIQ
                     }
                     catch
                     {
-                        MessageBox.Show("No se puede acceder a la base de datos, tabla Publicaciones Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se puede acceder a la base de datos, tabla Publicaciones de Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     break;
 
@@ -321,7 +321,7 @@ namespace PosgrIQ
                     }
                     catch
                     {
-                        MessageBox.Show("No se puede acceder a la base de datos, tabla Publicaciones Maes", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se puede acceder a la base de datos, tabla Publicaciones de Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                     break;

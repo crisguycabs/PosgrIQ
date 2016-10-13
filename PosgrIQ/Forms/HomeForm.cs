@@ -106,6 +106,13 @@ namespace PosgrIQ
         private void btnTesisMaes_Click(object sender, EventArgs e)
         {
             padre.AbrirTesisMaesForm();
-        }        
+        }
+
+        private void HomeForm_Paint(object sender, PaintEventArgs e)
+        {
+            // ControlPaint.DrawBorder(e.Graphics, e.ClipRectangle, Color.DarkRed, 2, ButtonBorderStyle.Solid, Color.DarkRed, 2, ButtonBorderStyle.Solid, Color.DarkRed, 2, ButtonBorderStyle.Solid, Color.DarkRed, 2, ButtonBorderStyle.Solid);
+        }
+
+             
     }
 }

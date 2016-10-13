@@ -61,12 +61,42 @@ namespace PosgrIQ.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoEscuela {
+            get {
+                object obj = ResourceManager.GetObject("logoEscuela", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoPQ {
+            get {
+                object obj = ResourceManager.GetObject("logoPQ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon posgriq {
             get {
                 object obj = ResourceManager.GetObject("posgriq", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UISLogo {
+            get {
+                object obj = ResourceManager.GetObject("UISLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

@@ -105,7 +105,7 @@ namespace PosgrIQ
             }
             catch
             {
-                MessageBox.Show("No se puede acceder a la base de datos, tabla Ponencias Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede acceder a la base de datos, tabla Ponencias de Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -56,7 +56,7 @@
             this.dataGridEscuelas.MultiSelect = false;
             this.dataGridEscuelas.Name = "dataGridEscuelas";
             this.dataGridEscuelas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridEscuelas.Size = new System.Drawing.Size(265, 222);
+            this.dataGridEscuelas.Size = new System.Drawing.Size(265, 240);
             this.dataGridEscuelas.TabIndex = 1;
             // 
             // btnCerrar
@@ -112,7 +112,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(281, 267);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(281, 285);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // panel1
@@ -121,7 +121,7 @@
             this.panel1.Controls.Add(this.btnMod);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(36, 236);
+            this.panel1.Location = new System.Drawing.Point(36, 254);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(237, 23);
             this.panel1.TabIndex = 6;
@@ -133,7 +133,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCerrar;
-            this.ClientSize = new System.Drawing.Size(281, 267);
+            this.ClientSize = new System.Drawing.Size(281, 285);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Calibri", 9F);

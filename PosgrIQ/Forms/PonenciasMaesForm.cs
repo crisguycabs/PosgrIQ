@@ -110,7 +110,7 @@ namespace PosgrIQ
             }
             catch
             {
-                MessageBox.Show("No se puede acceder a la base de datos, tabla Ponencias Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede acceder a la base de datos, tabla Ponencias de Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

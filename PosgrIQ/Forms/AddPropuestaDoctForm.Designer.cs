@@ -763,6 +763,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.cmbConcepto1Calificador1);
             this.tabPage1.Controls.Add(this.cmbConcepto1Calificador2);
@@ -789,7 +790,6 @@
             this.tabPage1.Size = new System.Drawing.Size(608, 211);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ENTREGA";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 

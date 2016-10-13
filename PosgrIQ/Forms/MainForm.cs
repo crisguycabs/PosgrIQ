@@ -215,6 +215,8 @@ namespace PosgrIQ
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            
+
             if (!GetSource())
             {
                 MessageBox.Show("No se encuentra la ruta de la base de datos.\r\n\r\nLa aplicacion se cerrara.", "Error de archivo de configuracion", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1057,5 +1059,130 @@ namespace PosgrIQ
 
             return (dia + "/" + mes + "/" + fecha.Year.ToString());
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void cerrarTodoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (abiertoEstudiantesDoctForm) CerrarEstudiantesDoctForm();
+            if (abiertoEstudiantesMaesForm) CerrarEstudiantesMaesForm();
+
+            if (abiertoMatriculaDoctForm) CerrarMatriculaDoctForm();
+            if (abiertoMatriculaMaesForm) CerrarMatriculaMaesForm();
+
+            if (abiertoPonenciasDoctForm) CerrarPonenciasDoctForm();
+            if (abiertoPonenciasMaesForm) CerrarPonenciasMaesForm();
+
+            if (abiertoPropuestaDoctForm) CerrarPropuestasDoctForm();
+            if (abiertoPropuestaMaesForm) CerrarPropuestasMaesForm();
+
+            if (abiertoPublicacionesDoctForm) CerrarPublicacionesDoctForm();
+            if (abiertoPublicacionesDoctForm) CerrarPublicacionesMaesForm();
+
+            if (abiertoTesisDoctForm) CerrarPublicacionesDoctForm();
+            if (abiertoTesisMaesForm) CerrarPublicacionesMaesForm();
+
+            if (abiertoEscuelasForm) CerrarEscuelasForm();
+            if (abiertoProfesoresForm) CerrarProfesoresForm();
+            if (abiertoProfesoresForm) CerrarProfesoresForm();
+            if (abiertoReglamentosForm) CerrarReglamentosForm();
+            if (abiertoSemestresForm) CerrarSemestresForm();
+
+            if (abiertoConfiguracionForm) CerrarConfiguracionForm();
+        }
+
+        private void menuAcerca_Click(object sender, EventArgs e)
+        {
+            AboutForm acercaForm = new AboutForm();
+            acercaForm.ShowDialog();
+        }
+
+        private void menuConfiguracion_Click(object sender, EventArgs e)
+        {
+            AbrirConfiguracionForm(false);
+        }
+
+        private void menuEstudiantesDoct_Click(object sender, EventArgs e)
+        {
+            AbrirEstudiantesDoctForm();
+        }
+
+        private void menuMatriculaDoct_Click(object sender, EventArgs e)
+        {
+            AbrirMatriculaDoctForm();
+        }
+
+        private void menuPonenciasDoct_Click(object sender, EventArgs e)
+        {
+            AbrirPonenciasDoctForm();
+        }
+
+        private void menuPropuestasDoct_Click(object sender, EventArgs e)
+        {
+            AbrirPropuestasDoctForm();
+        }
+
+        private void menuPublicacionesDoct_Click(object sender, EventArgs e)
+        {
+            AbrirPublicacionesDoctForm();
+        }
+
+        private void menuTesisDoct_Click(object sender, EventArgs e)
+        {
+            AbrirTesisDoctForm();
+        }
+
+        private void menuEstudiantesMaes_Click(object sender, EventArgs e)
+        {
+            AbrirEstudiantesMaesForm();
+        }
+
+        private void menuMatriculaMaes_Click(object sender, EventArgs e)
+        {
+            AbrirMatriculaMaesForm();
+        }
+
+        private void menuPonenciasMaes_Click(object sender, EventArgs e)
+        {
+            AbrirPonenciasMaesForm();
+        }
+
+        private void menuPropuestasMaes_Click(object sender, EventArgs e)
+        {
+            AbrirPropuestasMaesForm();
+        }
+
+        private void menuPublicacionesMaes_Click(object sender, EventArgs e)
+        {
+            AbrirPublicacionesMaesForm();
+        }
+
+        private void menuTesisMaes_Click(object sender, EventArgs e)
+        {
+            AbrirPublicacionesMaesForm();
+        }
+
+        private void escuelasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirEscuelasForm();
+        }
+
+        private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirProfesoresForm();
+        }
+
+        private void reglamentosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirReglamentosForm();
+        }
+
+        private void semestresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirSemestresForm();
+        }          
     }
 }
