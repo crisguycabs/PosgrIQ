@@ -116,8 +116,6 @@ namespace PosgrIQ
         private void HomeForm_Load(object sender, EventArgs e)
         {
             label1.BackColor = label3.BackColor = Color.DarkRed;
-        }
-
-             
+        }             
     }
 }
