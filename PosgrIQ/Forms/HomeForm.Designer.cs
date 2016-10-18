@@ -69,6 +69,7 @@
             // btnProfesores
             // 
             this.btnProfesores.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnProfesores.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnProfesores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfesores.Location = new System.Drawing.Point(32, 10);
             this.btnProfesores.Name = "btnProfesores";
@@ -81,6 +82,7 @@
             // btnEscuelas
             // 
             this.btnEscuelas.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEscuelas.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnEscuelas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEscuelas.Location = new System.Drawing.Point(230, 10);
             this.btnEscuelas.Name = "btnEscuelas";
@@ -93,6 +95,7 @@
             // btnSemestres
             // 
             this.btnSemestres.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSemestres.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnSemestres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSemestres.Location = new System.Drawing.Point(32, 55);
             this.btnSemestres.Name = "btnSemestres";
@@ -105,6 +108,7 @@
             // btnReglamentos
             // 
             this.btnReglamentos.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnReglamentos.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnReglamentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReglamentos.Location = new System.Drawing.Point(128, 10);
             this.btnReglamentos.Name = "btnReglamentos";
@@ -143,6 +147,7 @@
             // btnConfiguracion
             // 
             this.btnConfiguracion.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnConfiguracion.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfiguracion.Location = new System.Drawing.Point(230, 55);
             this.btnConfiguracion.Name = "btnConfiguracion";
@@ -194,6 +199,7 @@
             // btnEstudiantesMaes
             // 
             this.btnEstudiantesMaes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEstudiantesMaes.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnEstudiantesMaes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstudiantesMaes.Location = new System.Drawing.Point(33, 10);
             this.btnEstudiantesMaes.Name = "btnEstudiantesMaes";
@@ -206,6 +212,7 @@
             // btnMatriculaMaes
             // 
             this.btnMatriculaMaes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnMatriculaMaes.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnMatriculaMaes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMatriculaMaes.Location = new System.Drawing.Point(129, 10);
             this.btnMatriculaMaes.Name = "btnMatriculaMaes";
@@ -218,6 +225,7 @@
             // btnPublicacionesMaes
             // 
             this.btnPublicacionesMaes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPublicacionesMaes.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnPublicacionesMaes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPublicacionesMaes.Location = new System.Drawing.Point(129, 55);
             this.btnPublicacionesMaes.Name = "btnPublicacionesMaes";
@@ -230,6 +238,7 @@
             // btnPonenciasMaes
             // 
             this.btnPonenciasMaes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPonenciasMaes.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnPonenciasMaes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPonenciasMaes.Location = new System.Drawing.Point(231, 55);
             this.btnPonenciasMaes.Name = "btnPonenciasMaes";
@@ -242,6 +251,7 @@
             // btnPropuestasMaes
             // 
             this.btnPropuestasMaes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPropuestasMaes.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnPropuestasMaes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPropuestasMaes.Location = new System.Drawing.Point(231, 10);
             this.btnPropuestasMaes.Name = "btnPropuestasMaes";
@@ -267,6 +277,7 @@
             // btnTesisMaes
             // 
             this.btnTesisMaes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnTesisMaes.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnTesisMaes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTesisMaes.Location = new System.Drawing.Point(33, 55);
             this.btnTesisMaes.Name = "btnTesisMaes";
