@@ -63,6 +63,7 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnClose.Location = new System.Drawing.Point(553, 213);
@@ -113,6 +114,7 @@
             // 
             this.btnRutaOne.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnRutaOne.Enabled = false;
+            this.btnRutaOne.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnRutaOne.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRutaOne.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnRutaOne.Location = new System.Drawing.Point(98, 183);
@@ -156,6 +158,7 @@
             // 
             this.btnRutaBD.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnRutaBD.Enabled = false;
+            this.btnRutaBD.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnRutaBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRutaBD.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnRutaBD.Location = new System.Drawing.Point(98, 126);

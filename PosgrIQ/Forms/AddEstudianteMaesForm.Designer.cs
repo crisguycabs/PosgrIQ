@@ -187,6 +187,7 @@
             // 
             this.btnRutaTema.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnRutaTema.Enabled = false;
+            this.btnRutaTema.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnRutaTema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRutaTema.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnRutaTema.Location = new System.Drawing.Point(83, 327);
@@ -209,6 +210,7 @@
             // 
             this.btnVerArchivoTema.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnVerArchivoTema.Enabled = false;
+            this.btnVerArchivoTema.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnVerArchivoTema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerArchivoTema.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnVerArchivoTema.Location = new System.Drawing.Point(217, 327);
@@ -247,6 +249,7 @@
             // btnAddReglamento
             // 
             this.btnAddReglamento.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAddReglamento.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAddReglamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddReglamento.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnAddReglamento.Location = new System.Drawing.Point(179, 88);
@@ -260,6 +263,7 @@
             // btnAddProfesor
             // 
             this.btnAddProfesor.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAddProfesor.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAddProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProfesor.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnAddProfesor.Location = new System.Drawing.Point(179, 154);
@@ -273,6 +277,7 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnAdd.Location = new System.Drawing.Point(528, 364);
@@ -287,6 +292,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnCancel.Location = new System.Drawing.Point(447, 364);

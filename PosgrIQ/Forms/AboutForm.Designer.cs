@@ -71,6 +71,7 @@
             // 
             this.btnCerrar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Location = new System.Drawing.Point(254, 220);
             this.btnCerrar.Name = "btnCerrar";

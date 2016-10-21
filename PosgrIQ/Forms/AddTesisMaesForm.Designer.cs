@@ -110,6 +110,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnCancel.Location = new System.Drawing.Point(467, 444);
@@ -176,6 +177,7 @@
             // btnVerSustentacion
             // 
             this.btnVerSustentacion.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVerSustentacion.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnVerSustentacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerSustentacion.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnVerSustentacion.Location = new System.Drawing.Point(378, 64);
@@ -189,6 +191,7 @@
             // btnSelSustentacion
             // 
             this.btnSelSustentacion.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSelSustentacion.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnSelSustentacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelSustentacion.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnSelSustentacion.Location = new System.Drawing.Point(244, 64);
@@ -228,6 +231,7 @@
             // btnSelConcepto2Calificador2
             // 
             this.btnSelConcepto2Calificador2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSelConcepto2Calificador2.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnSelConcepto2Calificador2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelConcepto2Calificador2.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnSelConcepto2Calificador2.Location = new System.Drawing.Point(244, 122);
@@ -305,6 +309,7 @@
             // btnVerArchivoTesis
             // 
             this.btnVerArchivoTesis.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVerArchivoTesis.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnVerArchivoTesis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerArchivoTesis.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnVerArchivoTesis.Location = new System.Drawing.Point(224, 149);
@@ -344,6 +349,7 @@
             // btnVerConcepto1Calificador1
             // 
             this.btnVerConcepto1Calificador1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVerConcepto1Calificador1.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnVerConcepto1Calificador1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerConcepto1Calificador1.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnVerConcepto1Calificador1.Location = new System.Drawing.Point(378, 64);
@@ -357,6 +363,7 @@
             // btnVerConcepto1Calificador2
             // 
             this.btnVerConcepto1Calificador2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVerConcepto1Calificador2.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnVerConcepto1Calificador2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerConcepto1Calificador2.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnVerConcepto1Calificador2.Location = new System.Drawing.Point(378, 122);
@@ -370,6 +377,7 @@
             // btnSelConcepto1Calificador1
             // 
             this.btnSelConcepto1Calificador1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSelConcepto1Calificador1.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnSelConcepto1Calificador1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelConcepto1Calificador1.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnSelConcepto1Calificador1.Location = new System.Drawing.Point(244, 64);
@@ -393,6 +401,7 @@
             // btnSelConcepto1Calificador2
             // 
             this.btnSelConcepto1Calificador2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSelConcepto1Calificador2.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnSelConcepto1Calificador2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelConcepto1Calificador2.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnSelConcepto1Calificador2.Location = new System.Drawing.Point(244, 122);
@@ -569,6 +578,7 @@
             // btnRutaTesis
             // 
             this.btnRutaTesis.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRutaTesis.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnRutaTesis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRutaTesis.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnRutaTesis.Location = new System.Drawing.Point(90, 149);
@@ -582,6 +592,7 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnAdd.Location = new System.Drawing.Point(548, 444);
@@ -619,6 +630,7 @@
             // btnVerConcepto2Calificador2
             // 
             this.btnVerConcepto2Calificador2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVerConcepto2Calificador2.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnVerConcepto2Calificador2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerConcepto2Calificador2.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnVerConcepto2Calificador2.Location = new System.Drawing.Point(378, 122);
@@ -650,6 +662,7 @@
             // btnVerConcepto2Calificador1
             // 
             this.btnVerConcepto2Calificador1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVerConcepto2Calificador1.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnVerConcepto2Calificador1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerConcepto2Calificador1.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnVerConcepto2Calificador1.Location = new System.Drawing.Point(378, 64);
@@ -663,6 +676,7 @@
             // btnSelConcepto2Calificador1
             // 
             this.btnSelConcepto2Calificador1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSelConcepto2Calificador1.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnSelConcepto2Calificador1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelConcepto2Calificador1.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnSelConcepto2Calificador1.Location = new System.Drawing.Point(244, 64);
@@ -735,6 +749,7 @@
             // btnAddProfesor
             // 
             this.btnAddProfesor.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAddProfesor.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAddProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProfesor.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnAddProfesor.Location = new System.Drawing.Point(496, 215);

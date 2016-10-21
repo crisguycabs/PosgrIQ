@@ -76,6 +76,7 @@
             // btnVerTema
             // 
             this.btnVerTema.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVerTema.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnVerTema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerTema.Location = new System.Drawing.Point(0, 0);
             this.btnVerTema.Name = "btnVerTema";
@@ -88,6 +89,7 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Location = new System.Drawing.Point(931, 0);
             this.btnAdd.Name = "btnAdd";
@@ -101,6 +103,7 @@
             // 
             this.btnCerrar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Location = new System.Drawing.Point(1093, 0);
             this.btnCerrar.Name = "btnCerrar";
@@ -113,6 +116,7 @@
             // btnMod
             // 
             this.btnMod.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnMod.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMod.Location = new System.Drawing.Point(1012, 0);
             this.btnMod.Name = "btnMod";

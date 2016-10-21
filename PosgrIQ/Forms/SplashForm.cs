@@ -30,6 +30,8 @@ namespace PosgrIQ
         {
             timeleft = 1;
             timer1.Start();
+
+            label2.BackColor = Color.DarkRed;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
