@@ -88,6 +88,8 @@ namespace PosgrIQ
                     txtCorreo.Text = dt.Rows[0][0].ToString();
                     txtClave.Text = dt.Rows[0][1].ToString();
                     txtRutaOne.Text = dt.Rows[0][2].ToString();
+                    txtDirector.Text = dt.Rows[0][3].ToString();
+                    txtCoordinador.Text = dt.Rows[0][4].ToString();
 
                     txtRutaBD.Text = padre.sourceBD;
                 }
@@ -125,7 +127,7 @@ namespace PosgrIQ
                     OleDbCommand command;
                     
                     // se prepara la cadena SQL
-                    query = "UPDATE Configuracion SET correo='" + txtCorreo.Text + "', clave='" + txtClave.Text + "', rutaone='" + txtRutaOne.Text + "'";
+                    query = "UPDATE Configuracion SET correo='" + txtCorreo.Text + "', clave='" + txtClave.Text + "', rutaone='" + txtRutaOne.Text + "', director='" + txtDirector.Text + "', coordinador='" + txtCoordinador.Text + "'";
                     command = new OleDbCommand(query, conection);
 
                     command.ExecuteNonQuery();

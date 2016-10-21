@@ -41,6 +41,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtRutaBD = new System.Windows.Forms.TextBox();
             this.btnRutaBD = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtDirector = new System.Windows.Forms.TextBox();
+            this.txtCoordinador = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -66,7 +70,7 @@
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnClose.Location = new System.Drawing.Point(553, 213);
+            this.btnClose.Location = new System.Drawing.Point(553, 241);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 25;
@@ -169,20 +173,58 @@
             this.btnRutaBD.UseVisualStyleBackColor = false;
             this.btnRutaBD.Click += new System.EventHandler(this.btnRutaBD_Click);
             // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(4, 211);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 32);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Director de Escuela:";
+            // 
+            // txtDirector
+            // 
+            this.txtDirector.Enabled = false;
+            this.txtDirector.Location = new System.Drawing.Point(98, 212);
+            this.txtDirector.Name = "txtDirector";
+            this.txtDirector.Size = new System.Drawing.Size(200, 22);
+            this.txtDirector.TabIndex = 1;
+            this.txtDirector.Text = "C:\\Users\\Hdsp\\OneDrive\\OneDrive - Universidad Industrial de Santander";
+            // 
+            // txtCoordinador
+            // 
+            this.txtCoordinador.Enabled = false;
+            this.txtCoordinador.Location = new System.Drawing.Point(428, 211);
+            this.txtCoordinador.Name = "txtCoordinador";
+            this.txtCoordinador.Size = new System.Drawing.Size(200, 22);
+            this.txtCoordinador.TabIndex = 28;
+            this.txtCoordinador.Text = "C:\\Users\\Hdsp\\OneDrive\\OneDrive - Universidad Industrial de Santander";
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(339, 211);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 32);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Coordinador de Posgrado:";
+            // 
             // ConfiguracionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(635, 244);
+            this.ClientSize = new System.Drawing.Size(635, 274);
             this.ControlBox = false;
+            this.Controls.Add(this.txtCoordinador);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.chkCambios);
             this.Controls.Add(this.btnRutaBD);
             this.Controls.Add(this.btnRutaOne);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtRutaBD);
+            this.Controls.Add(this.txtDirector);
             this.Controls.Add(this.txtRutaOne);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -214,5 +256,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtRutaBD;
         private System.Windows.Forms.Button btnRutaBD;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtDirector;
+        private System.Windows.Forms.TextBox txtCoordinador;
+        private System.Windows.Forms.Label label6;
     }
 }
