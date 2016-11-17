@@ -144,6 +144,8 @@ namespace PosgrIQ
                         conection.Close();
 
                         this.DialogResult = DialogResult.OK;
+
+                        padre.escuelasForm.EscuelasForm_Load(sender, e);
                     }
                     catch
                     {

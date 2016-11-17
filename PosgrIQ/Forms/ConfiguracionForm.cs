@@ -42,13 +42,13 @@ namespace PosgrIQ
                         if (MessageBox.Show("Puede ser una muy mala idea, en serio esta seguro?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             MessageBox.Show("Aun esta a tiempo de evitar daños.\n\r\n\rVuelva a desmarcar la casilla.");
-                            txtRutaBD.Enabled = btnRutaBD.Enabled = txtClave.Enabled = txtCorreo.Enabled = txtRutaOne.Enabled = btnRutaOne.Enabled = chkCambios.Checked;
+                            txtRutaBD.Enabled = btnRutaBD.Enabled = txtClave.Enabled = txtCorreo.Enabled = txtRutaOne.Enabled = btnRutaOne.Enabled = txtDirector.Enabled = txtCoordinador.Enabled = chkCambios.Checked;
                         }
                     }
                 }
-                else txtRutaBD.Enabled = btnRutaBD.Enabled = txtClave.Enabled = txtCorreo.Enabled = txtRutaOne.Enabled = btnRutaOne.Enabled = chkCambios.Checked;
+                else txtRutaBD.Enabled = btnRutaBD.Enabled = txtClave.Enabled = txtCorreo.Enabled = txtRutaOne.Enabled = btnRutaOne.Enabled = txtDirector.Enabled = txtCoordinador.Enabled = chkCambios.Checked;
             }
-            else txtRutaBD.Enabled = btnRutaBD.Enabled = txtClave.Enabled = txtCorreo.Enabled = txtRutaOne.Enabled = btnRutaOne.Enabled = chkCambios.Checked;
+            else txtRutaBD.Enabled = btnRutaBD.Enabled = txtClave.Enabled = txtCorreo.Enabled = txtRutaOne.Enabled = btnRutaOne.Enabled = txtDirector.Enabled = txtCoordinador.Enabled = chkCambios.Checked;
         }
 
         private void ConfiguracionForm_Load(object sender, EventArgs e)
@@ -87,9 +87,10 @@ namespace PosgrIQ
 
                     txtCorreo.Text = dt.Rows[0][0].ToString();
                     txtClave.Text = dt.Rows[0][1].ToString();
-                    txtRutaOne.Text = dt.Rows[0][2].ToString();
-                    txtDirector.Text = dt.Rows[0][3].ToString();
-                    txtCoordinador.Text = dt.Rows[0][4].ToString();
+                    txtDirector.Text = dt.Rows[0][2].ToString();
+                    txtCoordinador.Text = dt.Rows[0][3].ToString();
+
+                    txtRutaOne.Text = padre.sourceONE;
 
                     txtRutaBD.Text = padre.sourceBD;
                 }
@@ -127,12 +128,15 @@ namespace PosgrIQ
                     OleDbCommand command;
                     
                     // se prepara la cadena SQL
-                    query = "UPDATE Configuracion SET correo='" + txtCorreo.Text + "', clave='" + txtClave.Text + "', rutaone='" + txtRutaOne.Text + "', director='" + txtDirector.Text + "', coordinador='" + txtCoordinador.Text + "'";
+                    query = "UPDATE Configuracion SET correo='" + txtCorreo.Text + "', clave='" + txtClave.Text + "', director='" + txtDirector.Text + "', coordinador='" + txtCoordinador.Text + "'";
                     command = new OleDbCommand(query, conection);
 
                     command.ExecuteNonQuery();
 
                     conection.Close();
+
+                    padre.sourceONE = txtRutaOne.Text;
+                    padre.SetSourceOne(txtRutaOne.Text);
                 }
                 catch
                 {

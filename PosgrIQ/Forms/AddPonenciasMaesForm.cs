@@ -268,7 +268,8 @@ namespace PosgrIQ
 
                         conection.Close();
 
-                        this.DialogResult = DialogResult.OK;
+                        //this.DialogResult = DialogResult.OK;
+                        padre.ponenciasMaesForm.PonenciasMaesForm_Load(sender, e);
                     }
                     catch
                     {

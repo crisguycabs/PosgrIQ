@@ -653,7 +653,8 @@ namespace PosgrIQ
 
                         conection.Close();
 
-                        this.DialogResult = DialogResult.OK;
+                        //this.DialogResult = DialogResult.OK;
+                        padre.tesisMaesForm.TesisMaes_Load(sender, e);
                     }
                     catch
                     {

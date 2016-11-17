@@ -201,6 +201,11 @@ namespace PosgrIQ
         /// </summary>
         public string sourceBD = "";
 
+        /// <summary>
+        /// Ruta fisica de la carpeta de OneDrive
+        /// </summary>
+        public string sourceONE = "";
+
         #endregion
 
         public MainForm()
@@ -215,11 +220,14 @@ namespace PosgrIQ
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
-
             if (!GetSource())
             {
                 MessageBox.Show("No se encuentra la ruta de la base de datos.\r\n\r\nLa aplicacion se cerrara.", "Error de archivo de configuracion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            if (!GetOne())
+            {
+                MessageBox.Show("No se encuentra la ruta de la carpeta de OneDrive.\r\n\r\nLa aplicacion se cerrara.", "Error de archivo de configuracion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
             if (!TestSource())
@@ -228,6 +236,25 @@ namespace PosgrIQ
                 AbrirConfiguracionForm(true);
             }
             else AbrirHomeForm();
+        }
+
+        /// <summary>
+        /// Se toma la ruta del OneDrive desde el archivo sourceone
+        /// </summary>
+        /// <returns></returns>
+        public bool GetOne()
+        {
+            try
+            {
+                System.IO.StreamReader sr = new System.IO.StreamReader("sourceone");
+                this.sourceONE = sr.ReadLine();
+                sr.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -260,6 +287,26 @@ namespace PosgrIQ
             {
                 System.IO.StreamWriter sw = new System.IO.StreamWriter("source",false);
                 sw.WriteLine(source);
+                sw.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Se escribe la ruta de OneDrive en el archivo sourceone
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public bool SetSourceOne(string sourceone)
+        {
+            try
+            {
+                System.IO.StreamWriter sw = new System.IO.StreamWriter("sourceone", false);
+                sw.WriteLine(sourceone);
                 sw.Close();
                 return true;
             }

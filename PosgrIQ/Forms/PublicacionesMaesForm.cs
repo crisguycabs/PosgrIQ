@@ -33,7 +33,7 @@ namespace PosgrIQ
             this.padre.CerrarPublicacionesMaesForm();
         }
 
-        private void PublicacionesMaesForm_Load(object sender, EventArgs e)
+        public void PublicacionesMaesForm_Load(object sender, EventArgs e)
         {
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try

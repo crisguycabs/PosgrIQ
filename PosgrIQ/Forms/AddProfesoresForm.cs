@@ -144,7 +144,7 @@ namespace PosgrIQ
                 {
                     case true: // se agrega un nuevo profesor
 
-                        numCod.Value = 0;
+                        numCod.Value = dtProfesores.Rows.Count+1;
                         txtNombre.Text = "";
                         txtCorreo.Text = "";
                         txtTelefono.Text = "";
@@ -253,6 +253,15 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+
+                        // AutoClosingMessageBox.Show("Profesor " + txtNombre.Text + " agregado con exito", "Inclusion exitosa", 1500);
+                        padre.profesoresForm.ProfesoresForm_Load(sender, e);
+
+                        numCod.Value++;
+                        txtNombre.Text = "";
+                        cmbColegiatura.SelectedIndex = -1;
+                        cmbEscuela.SelectedIndex = -1;
+
                     }
                     catch
                     {

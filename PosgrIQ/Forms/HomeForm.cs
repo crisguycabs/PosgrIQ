@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
+using GemBox.Spreadsheet;
 
 namespace PosgrIQ
 {
@@ -116,6 +118,203 @@ namespace PosgrIQ
         private void HomeForm_Load(object sender, EventArgs e)
         {
             label1.BackColor = label3.BackColor = Color.DarkRed;
-        }             
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
+
+            // algunas variables
+            string query;
+            OleDbCommand command;
+            DataTable dt = new DataTable();
+            OleDbDataAdapter da;
+
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los profesores
+                query = "SELECT * FROM Configuracion";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);                
+                da.Fill(dt);
+
+                conection.Close();                
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Configuracion");
+            }
+
+            // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
+            string final = dt.Rows[0][2].ToString() + "\\EstudiantesMaes.xlsx";
+
+            // se extrae la ruta inicial
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string inicial = System.IO.Path.GetDirectoryName(path) + "\\templates\\templateEstudiantesMaes.xlsx";
+
+            // se verifica que existan los archivos
+            bool existeIni = System.IO.File.Exists(inicial);
+            bool existeFin = System.IO.File.Exists(final);
+            if (existeFin) System.IO.File.Delete(final);
+
+            try
+            {
+                // se duplica el archivo
+                System.IO.File.Copy(inicial, final);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede mover el archivo");
+            }
+
+            // se carga la informacion de los estudiantes de maestria
+            dt = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los profesores
+                query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dt);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla EstudiantesMaes");
+            }
+
+            // se abre el archivo excel
+            DateTime start = DateTime.Now;
+            SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
+            ExcelFile ef = ExcelFile.Load(final);
+            ExcelWorksheet ws = ef.Worksheets[0];
+
+            // se empieza a llenar el archivo de excel
+            int inipos = 9;
+
+            /*  CODIGO
+                NOMBRE 
+                CORREO
+                CEDULA
+                CIUDAD
+                CONDICION
+                NIVEL
+                DIRECTOR
+                CODIRECTOR 1
+                CODIRECTOR 2
+                REGLAMENTO
+                TEMA
+                FECHA
+                CONCEPTO
+            */
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                ws.Cells[inipos, 1].Value = "CODIGO";
+                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[inipos, 2].Value = dt.Rows[i][0].ToString();
+
+                inipos++;
+
+                ws.Cells[inipos, 1].Value = "NOMBRE";
+                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[inipos, 2].Value = dt.Rows[i][1].ToString();
+
+                inipos++;
+
+                ws.Cells[inipos, 1].Value = "CORREO";
+                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[inipos, 2].Value = dt.Rows[i][2].ToString();
+
+                inipos++;
+
+                ws.Cells[inipos, 1].Value = "CEDULA";
+                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[inipos, 2].Value = dt.Rows[i][3].ToString();
+
+                inipos++;
+
+                ws.Cells[inipos, 1].Value = "CIUDAD";
+                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[inipos, 2].Value = dt.Rows[i][4].ToString();
+
+                inipos++;
+
+                ws.Cells[inipos, 1].Value = "CONDICION";
+                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[inipos, 2].Value = dt.Rows[i][5].ToString();
+
+                inipos++;
+
+                ws.Cells[inipos, 1].Value = "DIRECTOR";
+                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[inipos, 2].Value = dt.Rows[i][6].ToString();
+
+                inipos++;
+
+                ws.Cells[inipos, 1].Value = "CODIRECTOR 1";
+                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[inipos, 2].Value = dt.Rows[i][7].ToString();
+
+                inipos++;
+
+                ws.Cells[inipos, 1].Value = "CODIRECTOR 2";
+                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[inipos, 2].Value = dt.Rows[i][8].ToString();
+
+                inipos++;
+
+                ws.Cells[inipos, 1].Value = "REGLAMENTO";
+                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[inipos, 2].Value = dt.Rows[i][9].ToString();
+
+                inipos++;
+
+                ws.Cells[inipos, 1].Value = "TEMA";
+                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[inipos, 2].Value = dt.Rows[i][10].ToString();
+                ws.Cells[inipos, 2].Style.WrapText = true;
+
+                inipos++;
+
+                ws.Cells[inipos, 1].Value = "FECHA";
+                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[inipos, 2].Value = dt.Rows[i][11].ToString();
+
+                inipos++;
+
+                ws.Cells[inipos, 1].Value = "CONCEPTO";
+                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[inipos, 2].Value = dt.Rows[i][12].ToString();
+
+                inipos++;
+                ws.Cells[inipos, 1].Value = "";
+                inipos++;
+                ws.Cells[inipos, 1].Value = "";
+            }
+
+            ef.Save(final);
+
+            ws.PrintOptions.Portrait=true;
+            ws.PrintOptions.FitToPage = true;
+            ws.PrintOptions.FitWorksheetWidthToPages = 1;            
+
+            //ws.NamedRanges.SetPrintArea(ws.Cells.GetSubrange("A1", "C" + inipos.ToString()));
+
+            
+            string pathFinal=System.IO.Path.GetDirectoryName(final);
+            ExcelFile.Load(final).Save(pathFinal + "\\EstudiantesMaes.pdf");
+            DateTime end = DateTime.Now;
+
+            MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
+        }
+
     }
 }

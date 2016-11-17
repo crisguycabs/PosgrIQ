@@ -110,7 +110,7 @@ namespace PosgrIQ
             padre.CerrarTesisDoctForm();
         }
 
-        private void TesisDoctForm_Load(object sender, EventArgs e)
+        public void TesisDoctForm_Load(object sender, EventArgs e)
         {
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
