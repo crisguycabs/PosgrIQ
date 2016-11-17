@@ -71,7 +71,7 @@ namespace PosgrIQ
         {
             AddReglamentosForm agregar = new AddReglamentosForm();
             agregar.padre = this.padre;
-            agregar.modo = true;
+            agregar.modo = 1;
 
             if (agregar.ShowDialog() == DialogResult.OK) this.ReglamentosForm_Load(sender, e);
         }
@@ -82,7 +82,7 @@ namespace PosgrIQ
             
             AddReglamentosForm modificar = new AddReglamentosForm();
             modificar.padre = this.padre;
-            modificar.modo = false;
+            modificar.modo = 0;
             modificar.codigo = Convert.ToInt32(dataGridReglamentos.SelectedRows[0].Cells[0].Value);
 
             if (modificar.ShowDialog() == DialogResult.OK) this.ReglamentosForm_Load(sender, e);

@@ -22,7 +22,7 @@ namespace PosgrIQ
         public MainForm padre;
 
         /// <summary>
-        /// Valores posibles: 'true' para agregar, 'false' para modificar
+        /// Valores posibles: 'true para agregar, 'false' para modificar
         /// </summary>
         public bool modo;
 
@@ -333,7 +333,7 @@ namespace PosgrIQ
         {
             AddReglamentosForm agregar = new AddReglamentosForm();
             agregar.padre = this.padre;
-            agregar.modo = true;
+            agregar.modo = 2;
 
             if (agregar.ShowDialog() == DialogResult.OK) this.LlenarReglamentos();
         }
@@ -342,7 +342,7 @@ namespace PosgrIQ
         {
             AddProfesoresForm agregar = new AddProfesoresForm();
             agregar.padre = this.padre;
-            agregar.modo = true;
+            agregar.modo = 2;
 
             if (agregar.ShowDialog() == DialogResult.OK) this.LlenarProfesores();
         }

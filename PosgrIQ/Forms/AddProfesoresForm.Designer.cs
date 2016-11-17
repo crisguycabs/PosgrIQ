@@ -221,6 +221,7 @@
             // btnAddEscuela
             // 
             this.btnAddEscuela.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAddEscuela.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAddEscuela.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddEscuela.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnAddEscuela.Location = new System.Drawing.Point(192, 117);

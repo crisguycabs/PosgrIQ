@@ -22,9 +22,9 @@ namespace PosgrIQ
         public MainForm padre;
 
         /// <summary>
-        /// Valores posibles: 'true' para agregar, 'false' para modificar
+        /// Valores posibles: '1' para agregar, '0' para modificar, '2' para agregar invocado desde otra ventana
         /// </summary>
-        public bool modo;
+        public int modo;
 
         /// <summary>
         /// Codigo de la escuela a modificar
@@ -68,7 +68,8 @@ namespace PosgrIQ
 
                 switch (modo)
                 {
-                    case true: // se agrega un nuevo reglamento
+                    case 1:
+                    case 2: // se agrega un nuevo reglamento
 
                         // se genera el nuevo codigo para el nuevo reglamento
                         numCod.Value = dt.Rows.Count + 1;
@@ -78,7 +79,7 @@ namespace PosgrIQ
 
                         break;
 
-                    case false: // se modifica un reglamento
+                    case 0: // se modifica un reglamento
 
                         // se escriben en los controles la informacion del reglamento a modificar
                         numCod.Value = codigo;
@@ -110,7 +111,7 @@ namespace PosgrIQ
             }
 
             // existe un reglamento con ese codigo. Solo revisar en modo insercion
-            if (modo)
+            if (modo>=1)
             {
                 DataRow[] busqueda = dt.Select("codigo=" + numCod.Value.ToString());
                 if (busqueda.Length > 0)
@@ -128,7 +129,8 @@ namespace PosgrIQ
 
             switch (modo)
             {
-                case true:
+                case 1:
+                case 2:
 
                     // se agrega el reglamento
                     try
@@ -142,11 +144,16 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
-                        //this.DialogResult = DialogResult.OK;
-                        try { 
-                        padre.reglamentosForm.ReglamentosForm_Load(sender, e);
+
+                        if (modo == 2) this.DialogResult = DialogResult.OK;
+                        else
+                        {
+                            try
+                            {
+                                padre.reglamentosForm.ReglamentosForm_Load(sender, e);
+                            }
+                            catch { }
                         }
-                        catch { }
                     }
                     catch
                     {
@@ -155,7 +162,7 @@ namespace PosgrIQ
 
                     break;
 
-                case false:
+                case 0:
 
                     // se modifica la escuela
                     try

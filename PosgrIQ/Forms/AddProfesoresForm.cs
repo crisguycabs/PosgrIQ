@@ -22,9 +22,9 @@ namespace PosgrIQ
         public MainForm padre;
 
         /// <summary>
-        /// Valores posibles: 'true' para agregar, 'false' para modificar
+        /// Valores posibles: '1' para agregar, '0' para modificar, '2' para agregar invocado desde otra ventana
         /// </summary>
-        public bool modo;
+        public int modo;
 
         /// <summary>
         /// Codigo del profesor a modificar
@@ -142,7 +142,8 @@ namespace PosgrIQ
 
                 switch (modo)
                 {
-                    case true: // se agrega un nuevo profesor
+                    case 1:
+                    case 2: // se agrega un nuevo profesor
 
                         numCod.Value = dtProfesores.Rows.Count+1;
                         txtNombre.Text = "";
@@ -154,7 +155,7 @@ namespace PosgrIQ
 
                         break;
 
-                    case false: // se modifica una escuela
+                    case 0: // se modifica una escuela
 
                         // se escriben en los controles la informacion de la escuela seleccionada
 
@@ -200,7 +201,7 @@ namespace PosgrIQ
             }
 
             // existe un profesor con ese codigo. Solo revisar en modo insercion
-            if (modo)
+            if (modo>=1)
             {
                 busqueda = dtProfesores.Select("codigo=" + numCod.Value.ToString());
                 if (busqueda.Length > 0)
@@ -238,7 +239,8 @@ namespace PosgrIQ
 
             switch (modo)
             {
-                case true:
+                case 1:
+                case 2:
 
                     // se agrega el profesor
                     try
@@ -254,11 +256,15 @@ namespace PosgrIQ
 
                         conection.Close();
 
-                        // AutoClosingMessageBox.Show("Profesor " + txtNombre.Text + " agregado con exito", "Inclusion exitosa", 1500);
-                        try { 
-                        padre.profesoresForm.ProfesoresForm_Load(sender, e);
+                        if (modo == 2) this.DialogResult = DialogResult.OK;
+                        else
+                        {
+                            try
+                            {
+                                padre.profesoresForm.ProfesoresForm_Load(sender, e);
+                            }
+                            catch { }
                         }
-                        catch { }
 
                         numCod.Value++;
                         txtNombre.Text = "";
@@ -273,7 +279,7 @@ namespace PosgrIQ
 
                     break;
 
-                case false:
+                case 0:
 
                     // se modifica el profesor
                     try
@@ -307,7 +313,7 @@ namespace PosgrIQ
         {
             AddEscuelasForm agregar = new AddEscuelasForm();
             agregar.padre = this.padre;
-            agregar.modo = true;
+            agregar.modo = 2;
 
             if (agregar.ShowDialog() == DialogResult.OK)
             {

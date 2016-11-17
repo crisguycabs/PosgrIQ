@@ -889,7 +889,7 @@ namespace PosgrIQ
         {
             AddProfesoresForm agregar = new AddProfesoresForm();
             agregar.padre = this.padre;
-            agregar.modo = true;
+            agregar.modo = 2;
 
             if (agregar.ShowDialog() == DialogResult.OK) this.LlenarProfesores();
         }

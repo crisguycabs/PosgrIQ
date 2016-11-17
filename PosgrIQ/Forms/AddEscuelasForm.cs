@@ -22,9 +22,9 @@ namespace PosgrIQ
         public MainForm padre;
 
         /// <summary>
-        /// Valores posibles: 'true' para agregar, 'false' para modificar
+        /// Valores posibles: '1' para agregar, '0' para modificar, '2' para agregar invocado desde otra ventana
         /// </summary>
-        public bool modo;
+        public int modo;
 
         /// <summary>
         /// Codigo de la escuela a modificar
@@ -68,7 +68,8 @@ namespace PosgrIQ
 
                 switch (modo)
                 {
-                    case true: // se agrega una nueva escuela
+                    case 1:
+                    case 2:// se agrega una nueva escuela
 
                         // se genera el nuevo codigo para la nueva escuela
                         numCod.Value = dt.Rows.Count + 1;
@@ -78,7 +79,7 @@ namespace PosgrIQ
 
                         break;
 
-                    case false: // se modifica una escuela
+                    case 0: // se modifica una escuela
 
                         // se escriben en los controles la informacion de la escuela seleccionada
                         numCod.Value = codigo;
@@ -110,7 +111,7 @@ namespace PosgrIQ
             }
 
             // existe una escuela con ese codigo. Solo revisar en modo insercion
-            if (modo)
+            if (modo>=1)
             {
                 DataRow[] busqueda = dt.Select("codigo=" + numCod.Value.ToString());
                 if (busqueda.Length > 0)
@@ -128,7 +129,8 @@ namespace PosgrIQ
 
             switch (modo)
             {
-                case true:
+                case 1:
+                case 2:
 
                     // se agrega la escuela
                     try
@@ -143,13 +145,12 @@ namespace PosgrIQ
 
                         conection.Close();
 
-                        this.DialogResult = DialogResult.OK;
-
-                        try
+                        if (modo == 2) this.DialogResult = DialogResult.OK;
+                        else
                         {
-                            padre.escuelasForm.EscuelasForm_Load(sender, e);
+                            try { padre.escuelasForm.EscuelasForm_Load(sender, e); }
+                            catch { }
                         }
-                        catch { }
                     }
                     catch
                     {
@@ -158,7 +159,7 @@ namespace PosgrIQ
 
                     break;
 
-                case false:
+                case 0:
 
                     // se modifica la escuela
                     try
