@@ -421,7 +421,7 @@
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(76, 14);
             this.label32.TabIndex = 35;
-            this.label32.Text = "Calificador 3:";
+            this.label32.Text = "Calificador 5:";
             // 
             // label33
             // 
@@ -485,7 +485,7 @@
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(76, 14);
             this.label30.TabIndex = 29;
-            this.label30.Text = "Calificador 3:";
+            this.label30.Text = "Calificador 4:";
             // 
             // label31
             // 
@@ -801,7 +801,7 @@
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(76, 14);
             this.label34.TabIndex = 47;
-            this.label34.Text = "Calificador 3:";
+            this.label34.Text = "Calificador 5:";
             // 
             // label35
             // 
@@ -865,7 +865,7 @@
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(76, 14);
             this.label36.TabIndex = 41;
-            this.label36.Text = "Calificador 3:";
+            this.label36.Text = "Calificador 4:";
             // 
             // label37
             // 

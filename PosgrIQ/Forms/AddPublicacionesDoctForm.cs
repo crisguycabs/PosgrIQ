@@ -282,6 +282,13 @@ namespace PosgrIQ
 
                         conection.Close();
 
+                        txtCategoria.Text = "";
+                        txtRevista.Text = "";
+                        txtTitulo.Text = "";
+                        cmbAlcance.SelectedIndex = -1;
+                        cmbEstudiante.SelectedIndex = -1;
+                        numCod.Value = 0;
+
                         //this.DialogResult = DialogResult.OK;
                         try { 
                         padre.publicacionesDoctForm.PublicacionesDoctForm_Load(sender, e);

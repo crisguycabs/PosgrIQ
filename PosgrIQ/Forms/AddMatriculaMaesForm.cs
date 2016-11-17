@@ -514,6 +514,29 @@ namespace PosgrIQ
 
                         conection.Close();
 
+                        this.numCod.Value = 0;
+                        this.numPromedio1.Value = 0;                        
+                        this.numPromedio2.Value = 0;
+                        this.numPromedio3.Value = 0;
+                        this.numPromedio4.Value = 0;
+                        numPromedio5.Value = 0;
+                        numPromedio6.Value = 0;
+                        numPromedio7.Value = 0;
+                        numPromedio8.Value = 0;
+                        cmbBeca1.SelectedIndex = -1;
+                        cmbBeca2.SelectedIndex = -1;
+                        cmbBeca3.SelectedIndex = -1;
+                        cmbBeca4.SelectedIndex = -1;
+                        cmbEstudiante.SelectedIndex = -1;
+                        cmbSemestre1.SelectedIndex = -1;
+                        cmbSemestre2.SelectedIndex = -1;
+                        cmbSemestre3.SelectedIndex = -1;
+                        cmbSemestre4.SelectedIndex = -1;
+                        cmbSemestre5.SelectedIndex = -1;
+                        cmbSemestre6.SelectedIndex = -1;
+                        cmbSemestre7.SelectedIndex = -1;
+                        cmbSemestre8.SelectedIndex = -1;
+                        
                         //this.DialogResult = DialogResult.OK;
                         try { 
                         padre.matriculaMaesForm.MatriculaMaesForm_Load(sender, e);

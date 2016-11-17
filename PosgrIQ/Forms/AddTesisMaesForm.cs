@@ -653,6 +653,23 @@ namespace PosgrIQ
 
                         conection.Close();
 
+                        this.txtRutaConcepto1Calificador1.Text = "";
+                        this.txtRutaConcepto1Calificador2.Text = "";
+                        this.txtRutaConcepto2Calificador1.Text = "";
+                        this.txtRutaConcepto2Calificador2.Text = "";                        
+                        this.txtRutaSustentacion.Text = "";
+                        this.txtRutaTesis.Text = "";
+                        this.txtTesis.Text = "";
+                        cmbCalificador1.SelectedIndex = -1;
+                        cmbCalificador2.SelectedIndex = -1;
+                        cmbConcepto1Calificador1.SelectedIndex = -1;
+                        cmbConcepto1Calificador2.SelectedIndex = -1;
+                        cmbConcepto2Calificador1.SelectedIndex = -1;
+                        cmbConcepto2Calificador2.SelectedIndex = -1;
+                        cmbEstudiante.SelectedIndex = -1;
+                        cmbSustentacion.SelectedIndex = -1;
+                        numCod.Value = 0;
+
                         //this.DialogResult = DialogResult.OK;
                         try { 
                         padre.tesisMaesForm.TesisMaes_Load(sender, e);

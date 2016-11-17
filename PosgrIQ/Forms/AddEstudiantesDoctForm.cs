@@ -602,6 +602,23 @@ namespace PosgrIQ
 
                         conection.Close();
 
+                        txtCiudad.Text = "";
+                        txtCorreo.Text = "";
+                        txtNivel.Text = "";
+                        txtNombre.Text = "";
+                        txtRutaTema.Text = "";
+                        txtTema.Text = "";
+                        cmbAprobarQualify.SelectedIndex = -1;
+                        cmbCodirector1.SelectedIndex = -1;
+                        cmbCodirector2.SelectedIndex = -1;
+                        cmbConceptoTema.SelectedIndex = -1;
+                        cmbCondicion.SelectedIndex = -1;
+                        cmbDirector.SelectedIndex = -1;
+                        cmbReglamentos.SelectedIndex = -1;
+                        cmbSolicitarQualify.SelectedIndex = -1;
+                        numCedula.Value = 0;
+                        numCod.Value = 0;
+
                         //this.DialogResult = DialogResult.OK;
                         try { 
                         padre.estudiantesDoctForm.EstudiantesDoctForm_Load(sender,e);

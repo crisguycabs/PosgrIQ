@@ -145,6 +145,9 @@ namespace PosgrIQ
 
                         conection.Close();
 
+                        this.txtNombre.Text = "";
+                        this.numCod.Value = 0;
+
                         if (modo == 2) this.DialogResult = DialogResult.OK;
                         else
                         {

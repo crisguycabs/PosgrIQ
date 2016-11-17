@@ -266,10 +266,13 @@ namespace PosgrIQ
                             catch { }
                         }
 
-                        numCod.Value++;
+                        numCod.Value = 0;
                         txtNombre.Text = "";
                         cmbColegiatura.SelectedIndex = -1;
                         cmbEscuela.SelectedIndex = -1;
+                        txtCorreo.Text = "";
+                        txtTelefono.Text = "";
+                        txtUniversidad.Text = "";
 
                     }
                     catch

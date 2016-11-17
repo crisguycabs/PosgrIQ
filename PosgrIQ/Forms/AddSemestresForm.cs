@@ -326,6 +326,10 @@ namespace PosgrIQ
 
                         conection.Close();
 
+                        numAno.Value = 0;
+                        numCod.Value = 0;
+                        cmbPeriodo.SelectedIndex = -1;
+
                         //this.DialogResult = DialogResult.OK;
                         try { 
                         padre.semestresForm.SemestresForm_Load(sender, e);

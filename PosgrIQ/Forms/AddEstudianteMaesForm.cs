@@ -586,6 +586,22 @@ namespace PosgrIQ
 
                         conection.Close();
 
+                        numCod.Value = 0;
+                        numCedula.Value = 0;
+                        txtCiudad.Text = "";
+                        txtCorreo.Text = "";
+                        txtNivel.Text = "";
+                        txtNombre.Text = "";
+                        txtRutaTema.Text = "";
+                        txtTema.Text = "";
+                        cmbCodirector1.SelectedIndex = -1;
+                        cmbCodirector2.SelectedIndex = -1;
+                        cmbConceptoTema.SelectedIndex = -1;
+                        cmbCondicion.SelectedIndex = -1;
+                        cmbDirector.SelectedIndex = -1;
+                        cmbReglamentos.SelectedIndex = -1;
+                        chkTema.Checked = false;
+
                         //this.DialogResult = DialogResult.OK;
                         try{
                         padre.estudiantesMaesForm.EstudiantesMaesForm_Load(sender,e);

@@ -653,6 +653,23 @@ namespace PosgrIQ
 
                         conection.Close();
 
+                        txtPropuesta.Text = "";
+                        txtRutaConcepto1Calificador1.Text = "";
+                        txtRutaConcepto1Calificador2.Text = "";
+                        txtRutaConcepto2Calificador1.Text = "";
+                        txtRutaConcepto2Calificador2.Text = "";
+                        txtRutaPropuesta.Text = "";
+                        txtRutaSustentacion.Text = "";
+                        numCod.Value = 0;
+                        cmbCalificador1.SelectedIndex = -1;
+                        cmbCalificador2.SelectedIndex = -1;
+                        cmbConcepto1Calificador1.SelectedIndex = -1;
+                        cmbConcepto1Calificador2.SelectedIndex = -1;
+                        cmbConcepto2Calificador1.SelectedIndex = -1;
+                        cmbConcepto2Calificador2.SelectedIndex = -1;
+                        cmbEstudiante.SelectedIndex = -1;
+                        cmbSustentacion.SelectedIndex = -1;
+
                         //this.DialogResult = DialogResult.OK;
                         try { 
                         padre.propuestaMaesForm.PropuestaMaesForm_Load(sender, e);

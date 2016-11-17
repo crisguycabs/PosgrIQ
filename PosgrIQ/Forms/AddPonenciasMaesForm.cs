@@ -268,6 +268,12 @@ namespace PosgrIQ
 
                         conection.Close();
 
+                        txtRevista.Text = "";
+                        txtTitulo.Text = "";
+                        numCod.Value = 0;
+                        cmbAlcance.SelectedIndex = -1;
+                        cmbEstudiante.SelectedIndex = -1;
+
                         //this.DialogResult = DialogResult.OK;
                         try { 
                         padre.ponenciasMaesForm.PonenciasMaesForm_Load(sender, e);
