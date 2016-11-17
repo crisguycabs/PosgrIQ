@@ -603,7 +603,10 @@ namespace PosgrIQ
                         conection.Close();
 
                         //this.DialogResult = DialogResult.OK;
+                        try { 
                         padre.estudiantesDoctForm.EstudiantesDoctForm_Load(sender,e);
+                        }
+                        catch { }
                     }
                     catch
                     {

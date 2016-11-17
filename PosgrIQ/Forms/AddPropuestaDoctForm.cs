@@ -613,7 +613,10 @@ namespace PosgrIQ
                         conection.Close();
 
                         //this.DialogResult = DialogResult.OK;
+                        try { 
                         padre.propuestaDoctForm.PropuestaDoctForm_Load(sender, e);
+                        }
+                        catch { }
                     }
                     catch
                     {

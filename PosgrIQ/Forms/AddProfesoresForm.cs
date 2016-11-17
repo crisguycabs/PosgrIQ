@@ -255,7 +255,10 @@ namespace PosgrIQ
                         conection.Close();
 
                         // AutoClosingMessageBox.Show("Profesor " + txtNombre.Text + " agregado con exito", "Inclusion exitosa", 1500);
+                        try { 
                         padre.profesoresForm.ProfesoresForm_Load(sender, e);
+                        }
+                        catch { }
 
                         numCod.Value++;
                         txtNombre.Text = "";

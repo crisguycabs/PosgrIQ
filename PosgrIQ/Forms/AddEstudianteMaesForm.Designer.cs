@@ -90,6 +90,7 @@
             this.chkTema.TabIndex = 51;
             this.chkTema.Text = "Tema Entregado";
             this.chkTema.UseVisualStyleBackColor = true;
+            this.chkTema.CheckedChanged += new System.EventHandler(this.chkTema_CheckedChanged);
             // 
             // txtTema
             // 

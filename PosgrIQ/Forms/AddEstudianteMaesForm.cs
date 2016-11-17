@@ -587,7 +587,10 @@ namespace PosgrIQ
                         conection.Close();
 
                         //this.DialogResult = DialogResult.OK;
+                        try{
                         padre.estudiantesMaesForm.EstudiantesMaesForm_Load(sender,e);
+                        }
+                        catch { }
                     }
                     catch
                     {
@@ -656,6 +659,11 @@ namespace PosgrIQ
                     break;
             }
 
+        }
+
+        private void chkTema_CheckedChanged(object sender, EventArgs e)
+        {
+            txtTema.Enabled = dateTema.Enabled = cmbConceptoTema.Enabled = txtRutaTema.Enabled = btnVerArchivoTema.Enabled = btnRutaTema.Enabled = chkTema.Checked;
         }    
     }
 }

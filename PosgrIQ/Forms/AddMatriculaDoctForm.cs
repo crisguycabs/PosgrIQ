@@ -770,7 +770,10 @@ namespace PosgrIQ
                         conection.Close();
 
                         //this.DialogResult = DialogResult.OK;
+                        try { 
                         padre.matriculaDoctForm.MatriculaDoctForm_Load(sender, e);
+                        }
+                        catch { }
                     }
                     catch
                     {

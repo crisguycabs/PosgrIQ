@@ -145,7 +145,11 @@ namespace PosgrIQ
 
                         this.DialogResult = DialogResult.OK;
 
-                        padre.escuelasForm.EscuelasForm_Load(sender, e);
+                        try
+                        {
+                            padre.escuelasForm.EscuelasForm_Load(sender, e);
+                        }
+                        catch { }
                     }
                     catch
                     {

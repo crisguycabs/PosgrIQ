@@ -269,7 +269,10 @@ namespace PosgrIQ
                         conection.Close();
 
                         //this.DialogResult = DialogResult.OK;
+                        try { 
                         padre.ponenciasDoctForm.PonenciasDoctForm_Load(sender, e);
+                        }
+                        catch { }
                     }
                     catch
                     {

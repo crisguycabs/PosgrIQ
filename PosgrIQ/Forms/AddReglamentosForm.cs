@@ -143,7 +143,10 @@ namespace PosgrIQ
 
                         conection.Close();
                         //this.DialogResult = DialogResult.OK;
+                        try { 
                         padre.reglamentosForm.ReglamentosForm_Load(sender, e);
+                        }
+                        catch { }
                     }
                     catch
                     {

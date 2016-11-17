@@ -811,7 +811,10 @@ namespace PosgrIQ
                         conection.Close();
 
                         //this.DialogResult = DialogResult.OK;
+                        try { 
                         padre.tesisDoctForm.TesisDoctForm_Load(sender, e);
+                        }
+                        catch { }
                     }
                     catch
                     {

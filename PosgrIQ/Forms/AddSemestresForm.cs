@@ -327,7 +327,10 @@ namespace PosgrIQ
                         conection.Close();
 
                         //this.DialogResult = DialogResult.OK;
+                        try { 
                         padre.semestresForm.SemestresForm_Load(sender, e);
+                        }
+                        catch { }
                     }
                     catch
                     {

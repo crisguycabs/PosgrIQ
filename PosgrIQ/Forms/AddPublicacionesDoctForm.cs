@@ -283,7 +283,10 @@ namespace PosgrIQ
                         conection.Close();
 
                         //this.DialogResult = DialogResult.OK;
+                        try { 
                         padre.publicacionesDoctForm.PublicacionesDoctForm_Load(sender, e);
+                        }
+                        catch { }
                     }
                     catch
                     {

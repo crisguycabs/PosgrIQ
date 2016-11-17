@@ -515,7 +515,10 @@ namespace PosgrIQ
                         conection.Close();
 
                         //this.DialogResult = DialogResult.OK;
+                        try { 
                         padre.matriculaMaesForm.MatriculaMaesForm_Load(sender, e);
+                        }
+                        catch { }
                     }
                     catch
                     {
