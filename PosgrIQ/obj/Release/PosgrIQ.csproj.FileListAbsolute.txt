@@ -1,3 +1,4 @@
+C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.EstudiantesDoctForm.resources
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.exe.config
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.exe
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.pdb
@@ -18,7 +19,6 @@ C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddTesisDoctForm.resources
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.ConfiguracionForm.resources
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddEstudiantesDoctForm.resources
-C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.EstudiantesDoctForm.resources
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddReglamentosForm.resources
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddSemestresForm.resources
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddProfesoresForm.resources
@@ -44,4 +44,3 @@ C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csproj.GenerateResource.Cache
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.exe
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.pdb
-C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csprojResolveAssemblyReference.cache
