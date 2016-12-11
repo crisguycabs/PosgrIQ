@@ -132,7 +132,10 @@
             this.Font = new System.Drawing.Font("Calibri", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(186, 137);
+            this.MinimumSize = new System.Drawing.Size(186, 137);
             this.Name = "AddReglamentosForm";
+            this.Size = new System.Drawing.Size(186, 137);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AGREGAR REGLAMENTOS";
             this.Load += new System.EventHandler(this.AddReglamentosForm_Load);

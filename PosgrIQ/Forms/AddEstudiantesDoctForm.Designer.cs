@@ -74,6 +74,9 @@
             this.chkTema = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.txtNivel = new System.Windows.Forms.TextBox();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numCod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCedula)).BeginInit();
             this.SuspendLayout();
@@ -126,10 +129,11 @@
             // 
             // label5
             // 
+            this.label5.BackColor = System.Drawing.Color.DarkRed;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Location = new System.Drawing.Point(8, 119);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(595, 2);
+            this.label5.Size = new System.Drawing.Size(595, 3);
             this.label5.TabIndex = 15;
             // 
             // btnAdd
@@ -138,7 +142,7 @@
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAdd.Location = new System.Drawing.Point(528, 400);
+            this.btnAdd.Location = new System.Drawing.Point(528, 465);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 24;
@@ -153,7 +157,7 @@
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnCancel.Location = new System.Drawing.Point(447, 400);
+            this.btnCancel.Location = new System.Drawing.Point(447, 465);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 23;
@@ -447,18 +451,20 @@
             // 
             // label17
             // 
+            this.label17.BackColor = System.Drawing.Color.DarkRed;
             this.label17.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label17.Location = new System.Drawing.Point(8, 358);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(595, 2);
+            this.label17.Size = new System.Drawing.Size(595, 3);
             this.label17.TabIndex = 20;
             // 
             // label18
             // 
+            this.label18.BackColor = System.Drawing.Color.DarkRed;
             this.label18.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label18.Location = new System.Drawing.Point(8, 393);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(595, 2);
+            this.label18.Size = new System.Drawing.Size(595, 3);
             this.label18.TabIndex = 15;
             // 
             // label19
@@ -531,10 +537,11 @@
             // 
             // label21
             // 
+            this.label21.BackColor = System.Drawing.Color.DarkRed;
             this.label21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label21.Location = new System.Drawing.Point(8, 185);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(595, 2);
+            this.label21.Size = new System.Drawing.Size(595, 3);
             this.label21.TabIndex = 21;
             // 
             // txtNivel
@@ -546,6 +553,35 @@
             this.txtNivel.Size = new System.Drawing.Size(43, 22);
             this.txtNivel.TabIndex = 2;
             // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.Font = new System.Drawing.Font("Calibri", 9F);
+            this.txtObservaciones.Location = new System.Drawing.Point(101, 400);
+            this.txtObservaciones.MaxLength = 250;
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(500, 51);
+            this.txtObservaciones.TabIndex = 66;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Calibri", 9F);
+            this.label22.Location = new System.Drawing.Point(5, 405);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(90, 14);
+            this.label22.TabIndex = 65;
+            this.label22.Text = "Observaciones:";
+            // 
+            // label23
+            // 
+            this.label23.BackColor = System.Drawing.Color.DarkRed;
+            this.label23.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label23.Location = new System.Drawing.Point(8, 458);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(595, 3);
+            this.label23.TabIndex = 67;
+            // 
             // AddEstudiantesDoctForm
             // 
             this.AcceptButton = this.btnAdd;
@@ -553,8 +589,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(608, 429);
+            this.ClientSize = new System.Drawing.Size(608, 494);
             this.ControlBox = false;
+            this.Controls.Add(this.txtObservaciones);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label23);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.chkTema);
             this.Controls.Add(this.txtTema);
@@ -603,7 +642,10 @@
             this.Font = new System.Drawing.Font("Calibri", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(624, 533);
+            this.MinimumSize = new System.Drawing.Size(624, 533);
             this.Name = "AddEstudiantesDoctForm";
+            this.Size = new System.Drawing.Size(624, 533);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AGREGAR ESTUDIANTE DE DOCTORADO";
             this.Load += new System.EventHandler(this.AddEstudiantesDoctForm_Load);
@@ -661,5 +703,8 @@
         private System.Windows.Forms.CheckBox chkTema;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtNivel;
+        private System.Windows.Forms.TextBox txtObservaciones;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
     }
 }

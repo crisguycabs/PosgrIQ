@@ -99,6 +99,7 @@ namespace PosgrIQ
                 dt.Columns.Add("Concepto Tema", typeof(string));
                 dt.Columns.Add("Solicito Qualify", typeof(string));
                 dt.Columns.Add("Aprobo Qualify", typeof(string));
+                dt.Columns.Add("Observaciones", typeof(string));
 
                 // se llena el nuevo datatable
                 for (int i = 0; i < dtEstudiantesDoct.Rows.Count; i++)
@@ -157,6 +158,9 @@ namespace PosgrIQ
                     // aprobo qualify
                     fila[15] = dtEstudiantesDoct.Rows[i][16];
 
+                    // observaciones
+                    fila[16] = dtEstudiantesDoct.Rows[i][17];
+
                     dt.Rows.Add(fila);
                 }
 
@@ -173,7 +177,7 @@ namespace PosgrIQ
             catch
             {
                 MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes de Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                padre.CerrarEstudiantesDoctForm();
+                
             }
         }
 

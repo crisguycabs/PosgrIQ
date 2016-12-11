@@ -121,48 +121,48 @@
             this.menuPublicacionesDoct,
             this.menuTesisDoct});
             this.menuDoct.Name = "menuDoct";
-            this.menuDoct.Size = new System.Drawing.Size(152, 22);
+            this.menuDoct.Size = new System.Drawing.Size(143, 22);
             this.menuDoct.Text = "&Doctorado";
             // 
             // menuEstudiantesDoct
             // 
             this.menuEstudiantesDoct.Name = "menuEstudiantesDoct";
-            this.menuEstudiantesDoct.Size = new System.Drawing.Size(152, 22);
+            this.menuEstudiantesDoct.Size = new System.Drawing.Size(147, 22);
             this.menuEstudiantesDoct.Text = "&Estudiantes";
             this.menuEstudiantesDoct.Click += new System.EventHandler(this.menuEstudiantesDoct_Click);
             // 
             // menuMatriculaDoct
             // 
             this.menuMatriculaDoct.Name = "menuMatriculaDoct";
-            this.menuMatriculaDoct.Size = new System.Drawing.Size(152, 22);
+            this.menuMatriculaDoct.Size = new System.Drawing.Size(147, 22);
             this.menuMatriculaDoct.Text = "&Matrícula";
             this.menuMatriculaDoct.Click += new System.EventHandler(this.menuMatriculaDoct_Click);
             // 
             // menuPonenciasDoct
             // 
             this.menuPonenciasDoct.Name = "menuPonenciasDoct";
-            this.menuPonenciasDoct.Size = new System.Drawing.Size(152, 22);
+            this.menuPonenciasDoct.Size = new System.Drawing.Size(147, 22);
             this.menuPonenciasDoct.Text = "&Ponencias";
             this.menuPonenciasDoct.Click += new System.EventHandler(this.menuPonenciasDoct_Click);
             // 
             // menuPropuestasDoct
             // 
             this.menuPropuestasDoct.Name = "menuPropuestasDoct";
-            this.menuPropuestasDoct.Size = new System.Drawing.Size(152, 22);
+            this.menuPropuestasDoct.Size = new System.Drawing.Size(147, 22);
             this.menuPropuestasDoct.Text = "P&ropuestas";
             this.menuPropuestasDoct.Click += new System.EventHandler(this.menuPropuestasDoct_Click);
             // 
             // menuPublicacionesDoct
             // 
             this.menuPublicacionesDoct.Name = "menuPublicacionesDoct";
-            this.menuPublicacionesDoct.Size = new System.Drawing.Size(152, 22);
+            this.menuPublicacionesDoct.Size = new System.Drawing.Size(147, 22);
             this.menuPublicacionesDoct.Text = "P&ublicaciones";
             this.menuPublicacionesDoct.Click += new System.EventHandler(this.menuPublicacionesDoct_Click);
             // 
             // menuTesisDoct
             // 
             this.menuTesisDoct.Name = "menuTesisDoct";
-            this.menuTesisDoct.Size = new System.Drawing.Size(152, 22);
+            this.menuTesisDoct.Size = new System.Drawing.Size(147, 22);
             this.menuTesisDoct.Text = "&Tesis";
             this.menuTesisDoct.Click += new System.EventHandler(this.menuTesisDoct_Click);
             // 
@@ -176,81 +176,81 @@
             this.menuPublicacionesMaes,
             this.menuTesisMaes});
             this.menuMaes.Name = "menuMaes";
-            this.menuMaes.Size = new System.Drawing.Size(152, 22);
+            this.menuMaes.Size = new System.Drawing.Size(143, 22);
             this.menuMaes.Text = "&Maestría";
             // 
             // menuEstudiantesMaes
             // 
             this.menuEstudiantesMaes.Name = "menuEstudiantesMaes";
-            this.menuEstudiantesMaes.Size = new System.Drawing.Size(152, 22);
+            this.menuEstudiantesMaes.Size = new System.Drawing.Size(147, 22);
             this.menuEstudiantesMaes.Text = "&Estudiantes";
             this.menuEstudiantesMaes.Click += new System.EventHandler(this.menuEstudiantesMaes_Click);
             // 
             // menuMatriculaMaes
             // 
             this.menuMatriculaMaes.Name = "menuMatriculaMaes";
-            this.menuMatriculaMaes.Size = new System.Drawing.Size(152, 22);
+            this.menuMatriculaMaes.Size = new System.Drawing.Size(147, 22);
             this.menuMatriculaMaes.Text = "&Matrícula";
             this.menuMatriculaMaes.Click += new System.EventHandler(this.menuMatriculaMaes_Click);
             // 
             // menuPonenciasMaes
             // 
             this.menuPonenciasMaes.Name = "menuPonenciasMaes";
-            this.menuPonenciasMaes.Size = new System.Drawing.Size(152, 22);
+            this.menuPonenciasMaes.Size = new System.Drawing.Size(147, 22);
             this.menuPonenciasMaes.Text = "&Ponencias";
             this.menuPonenciasMaes.Click += new System.EventHandler(this.menuPonenciasMaes_Click);
             // 
             // menuPropuestasMaes
             // 
             this.menuPropuestasMaes.Name = "menuPropuestasMaes";
-            this.menuPropuestasMaes.Size = new System.Drawing.Size(152, 22);
+            this.menuPropuestasMaes.Size = new System.Drawing.Size(147, 22);
             this.menuPropuestasMaes.Text = "P&ropuestas";
             this.menuPropuestasMaes.Click += new System.EventHandler(this.menuPropuestasMaes_Click);
             // 
             // menuPublicacionesMaes
             // 
             this.menuPublicacionesMaes.Name = "menuPublicacionesMaes";
-            this.menuPublicacionesMaes.Size = new System.Drawing.Size(152, 22);
+            this.menuPublicacionesMaes.Size = new System.Drawing.Size(147, 22);
             this.menuPublicacionesMaes.Text = "P&ublicaciones";
             this.menuPublicacionesMaes.Click += new System.EventHandler(this.menuPublicacionesMaes_Click);
             // 
             // menuTesisMaes
             // 
             this.menuTesisMaes.Name = "menuTesisMaes";
-            this.menuTesisMaes.Size = new System.Drawing.Size(152, 22);
+            this.menuTesisMaes.Size = new System.Drawing.Size(147, 22);
             this.menuTesisMaes.Text = "&Tesis";
             this.menuTesisMaes.Click += new System.EventHandler(this.menuTesisMaes_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(140, 6);
             // 
             // escuelasToolStripMenuItem
             // 
             this.escuelasToolStripMenuItem.Name = "escuelasToolStripMenuItem";
-            this.escuelasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.escuelasToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.escuelasToolStripMenuItem.Text = "&Escuelas";
             this.escuelasToolStripMenuItem.Click += new System.EventHandler(this.escuelasToolStripMenuItem_Click);
             // 
             // profesoresToolStripMenuItem
             // 
             this.profesoresToolStripMenuItem.Name = "profesoresToolStripMenuItem";
-            this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.profesoresToolStripMenuItem.Text = "&Profesores";
             this.profesoresToolStripMenuItem.Click += new System.EventHandler(this.profesoresToolStripMenuItem_Click);
             // 
             // reglamentosToolStripMenuItem
             // 
             this.reglamentosToolStripMenuItem.Name = "reglamentosToolStripMenuItem";
-            this.reglamentosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reglamentosToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.reglamentosToolStripMenuItem.Text = "&Reglamentos";
             this.reglamentosToolStripMenuItem.Click += new System.EventHandler(this.reglamentosToolStripMenuItem_Click);
             // 
             // semestresToolStripMenuItem
             // 
             this.semestresToolStripMenuItem.Name = "semestresToolStripMenuItem";
-            this.semestresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.semestresToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.semestresToolStripMenuItem.Text = "&Semestres";
             this.semestresToolStripMenuItem.Click += new System.EventHandler(this.semestresToolStripMenuItem_Click);
             // 
@@ -288,6 +288,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuMain;
             this.Name = "MainForm";
+            this.Size = new System.Drawing.Size(1024, 769);
             this.Text = "POSGRIQ: ADMINISTRADOR DE INFORMACION DE POSGRADO DE INQ QUIMICA";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);

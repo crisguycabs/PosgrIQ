@@ -239,7 +239,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(305, 264);
+            this.ClientSize = new System.Drawing.Size(302, 264);
             this.ControlBox = false;
             this.Controls.Add(this.cmbEscuela);
             this.Controls.Add(this.cmbColegiatura);
@@ -261,7 +261,10 @@
             this.Font = new System.Drawing.Font("Calibri", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(318, 303);
+            this.MinimumSize = new System.Drawing.Size(318, 303);
             this.Name = "AddProfesoresForm";
+            this.Size = new System.Drawing.Size(318, 303);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddProfesoresForm";
             this.Load += new System.EventHandler(this.AddProfesoresForm_Load);

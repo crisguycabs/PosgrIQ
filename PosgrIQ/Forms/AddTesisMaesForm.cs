@@ -514,7 +514,7 @@ namespace PosgrIQ
             }            
 
             // se prepara la conexion
-            OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
+            OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             string query, query2;
             OleDbCommand command;
 

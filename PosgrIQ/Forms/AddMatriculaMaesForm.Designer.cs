@@ -120,10 +120,11 @@
             // 
             // label37
             // 
+            this.label37.BackColor = System.Drawing.Color.DarkRed;
             this.label37.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label37.Location = new System.Drawing.Point(12, 195);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(842, 2);
+            this.label37.Size = new System.Drawing.Size(842, 3);
             this.label37.TabIndex = 105;
             // 
             // label25
@@ -168,18 +169,20 @@
             // 
             // label28
             // 
+            this.label28.BackColor = System.Drawing.Color.DarkRed;
             this.label28.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label28.Location = new System.Drawing.Point(10, 130);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(842, 2);
+            this.label28.Size = new System.Drawing.Size(842, 3);
             this.label28.TabIndex = 95;
             // 
             // label5
             // 
+            this.label5.BackColor = System.Drawing.Color.DarkRed;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Location = new System.Drawing.Point(10, 64);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(842, 2);
+            this.label5.Size = new System.Drawing.Size(842, 3);
             this.label5.TabIndex = 96;
             // 
             // cmbBeca4
@@ -655,7 +658,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(860, 233);
+            this.ClientSize = new System.Drawing.Size(861, 232);
             this.ControlBox = false;
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
@@ -709,7 +712,10 @@
             this.Font = new System.Drawing.Font("Calibri", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(877, 271);
+            this.MinimumSize = new System.Drawing.Size(877, 271);
             this.Name = "AddMatriculaMaesForm";
+            this.Size = new System.Drawing.Size(877, 271);
             this.Text = "AGREGAR MATRICULA DE MAESTRIA";
             this.Load += new System.EventHandler(this.AddMatriculaMaesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numPromedio8)).EndInit();

@@ -238,6 +238,7 @@ namespace PosgrIQ
                         txtRutaTema.Text = "";
                         cmbSolicitarQualify.SelectedIndex = 0;
                         cmbAprobarQualify.SelectedIndex = 0;
+                        txtObservaciones.Text = "";
 
                         this.Text = "AGREGAR ESTUDIANTE DOCTORADO";
 
@@ -319,6 +320,9 @@ namespace PosgrIQ
                         // aprobo qualify
                         if (Convert.ToString(seleccionado[0][16]) == "Si") this.cmbAprobarQualify.SelectedIndex = 1;
                         else cmbSolicitarQualify.SelectedIndex = 0;
+
+                        // observaciones
+                        txtObservaciones.Text = Convert.ToString(seleccionado[0][17]);
 
                         btnAdd.Text = "Modificar";
                         this.Text = "MODIFICAR ESTUDIANTE DOCTORADO";
@@ -507,7 +511,7 @@ namespace PosgrIQ
             }
 
             // se prepara la conexion
-            OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=database\\dbposgriq.mdb");
+            OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             string query, query2;
             OleDbCommand command;
 
@@ -587,10 +591,17 @@ namespace PosgrIQ
                         }
 
                         query += ", solicitoqualify";
-                        query2 += ", '" + cmbSolicitarQualify.Items[cmbSolicitarQualify.SelectedIndex] + "'";
-
+                        // control de valor de indice -1
+                        if (cmbSolicitarQualify.SelectedIndex < 0) query2 += ", 'No'";
+                        else query2 += ", '" + cmbSolicitarQualify.Items[cmbSolicitarQualify.SelectedIndex] + "'";
+                        
                         query += ", aproboqualify";
-                        query2 += ", '" + cmbAprobarQualify.Items[cmbAprobarQualify.SelectedIndex] + "'";
+                        // control de valor de indice -1
+                        if (cmbAprobarQualify.SelectedIndex < 0) query2 += ", 'No'";
+                        else query2 += ", '" + cmbAprobarQualify.Items[cmbAprobarQualify.SelectedIndex] + "'";
+
+                        query += ", observaciones";
+                        query2 += ", '" + txtObservaciones.Text + "'";
                         
                         query += ")";
                         query2 += ")";
@@ -618,6 +629,7 @@ namespace PosgrIQ
                         cmbSolicitarQualify.SelectedIndex = -1;
                         numCedula.Value = 0;
                         numCod.Value = 0;
+                        txtObservaciones.Text = "";
 
                         //this.DialogResult = DialogResult.OK;
                         try { 
@@ -675,12 +687,16 @@ namespace PosgrIQ
 
                         query += ", ruta='" + txtRutaTema.Text + "'";
 
+                        if (cmbSolicitarQualify.SelectedIndex < 0) cmbSolicitarQualify.SelectedIndex = 0;
                         query += ", solicitoqualify='" + cmbSolicitarQualify.Items[cmbSolicitarQualify.SelectedIndex] + "'";
 
+                        if (cmbAprobarQualify.SelectedIndex < 0) cmbAprobarQualify.SelectedIndex = 0;
                         query += ", aproboqualify='" + cmbAprobarQualify.Items[cmbAprobarQualify.SelectedIndex] + "'";
-                        
+
+                        query += ", observaciones='" + txtObservaciones.Text + "'";
+
                         query += " WHERE codigo=" + codigo.ToString();
-                        
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();

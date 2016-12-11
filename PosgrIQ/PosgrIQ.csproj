@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>posgriq.ico</ApplicationIcon>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GemBox.Spreadsheet">
@@ -416,6 +416,7 @@
     <None Include="Resources\posgriq.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon.ico" />
     <Content Include="posgriq.ico" />
     <None Include="Resources\UISLogo.png" />
     <None Include="Resources\logoEscuela.png" />

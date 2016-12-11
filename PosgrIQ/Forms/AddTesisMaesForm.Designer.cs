@@ -123,10 +123,11 @@
             // 
             // label26
             // 
+            this.label26.BackColor = System.Drawing.Color.DarkRed;
             this.label26.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label26.Location = new System.Drawing.Point(7, 244);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(616, 2);
+            this.label26.Size = new System.Drawing.Size(616, 3);
             this.label26.TabIndex = 78;
             // 
             // label21
@@ -507,10 +508,11 @@
             // 
             // label5
             // 
+            this.label5.BackColor = System.Drawing.Color.DarkRed;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Location = new System.Drawing.Point(7, 179);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(616, 2);
+            this.label5.Size = new System.Drawing.Size(616, 3);
             this.label5.TabIndex = 79;
             // 
             // txtRutaTesis
@@ -605,10 +607,11 @@
             // 
             // label25
             // 
+            this.label25.BackColor = System.Drawing.Color.DarkRed;
             this.label25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label25.Location = new System.Drawing.Point(8, 437);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(616, 2);
+            this.label25.Size = new System.Drawing.Size(616, 3);
             this.label25.TabIndex = 80;
             // 
             // cmbConcepto2Calificador2
@@ -767,7 +770,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(631, 476);
+            this.ClientSize = new System.Drawing.Size(630, 475);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label26);
@@ -793,7 +796,10 @@
             this.Font = new System.Drawing.Font("Calibri", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(646, 514);
+            this.MinimumSize = new System.Drawing.Size(646, 514);
             this.Name = "AddTesisMaesForm";
+            this.Size = new System.Drawing.Size(646, 514);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AGREGAR TESIS DE MAESTRIA";
             this.Load += new System.EventHandler(this.AddTesisMaesForm_Load);

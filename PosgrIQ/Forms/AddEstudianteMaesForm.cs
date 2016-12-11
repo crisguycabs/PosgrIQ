@@ -96,7 +96,7 @@ namespace PosgrIQ
 
                 switch (modo)
                 {
-                    case true: // se agrega un nuevo estudiante de doctorado
+                    case true: // se agrega un nuevo estudiante de maestria
 
                         numCod.Value = dtEstudiantes.Rows.Count + 1;
                         txtNombre.Text = "";
@@ -111,13 +111,14 @@ namespace PosgrIQ
                         txtTema.Text = "";
                         dateTema.Value = DateTime.Today;
                         cmbConceptoTema.SelectedIndex = -1;
-                        txtRutaTema.Text = "";                        
+                        txtRutaTema.Text = "";
+                        txtObservaciones.Text = "";
 
                         this.Text = "AGREGAR ESTUDIANTE MAESTRIA";
 
                         break;
 
-                    case false: // se modifica un estudiante de doctorado
+                    case false: // se modifica un estudiante de maestria
 
                         DataRow[] seleccionado = dtEstudiantes.Select("codigo=" + codigo.ToString());
 
@@ -186,6 +187,8 @@ namespace PosgrIQ
                         // ruta
                         txtRutaTema.Text = Convert.ToString(seleccionado[0][14]);
                         
+                        // observaciones
+                        txtObservaciones.Text = Convert.ToString(seleccionado[0][15]);
 
                         btnAdd.Text = "Modificar";
                         this.Text = "MODIFICAR ESTUDIANTE MAESTRIA";
@@ -576,6 +579,9 @@ namespace PosgrIQ
                             query2 += ", 1";
                         }
 
+                        query += ", observaciones";
+                        query2 += ", '" + txtObservaciones.Text + "'";
+
                         query += ")";
                         query2 += ")";
                         query += query2;
@@ -601,6 +607,7 @@ namespace PosgrIQ
                         cmbDirector.SelectedIndex = -1;
                         cmbReglamentos.SelectedIndex = -1;
                         chkTema.Checked = false;
+                        txtObservaciones.Text = "";
 
                         //this.DialogResult = DialogResult.OK;
                         try{
@@ -657,6 +664,8 @@ namespace PosgrIQ
                         else query += ", concepto=1";
 
                         query += ", ruta='" + txtRutaTema.Text + "'";
+
+                        query += ", observaciones='" + txtObservaciones.Text + "'";
 
                         query += " WHERE codigo=" + codigo.ToString();
 

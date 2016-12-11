@@ -249,7 +249,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(310, 297);
+            this.ClientSize = new System.Drawing.Size(308, 296);
             this.ControlBox = false;
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dateTema);
@@ -272,7 +272,10 @@
             this.Font = new System.Drawing.Font("Calibri", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(324, 335);
+            this.MinimumSize = new System.Drawing.Size(324, 335);
             this.Name = "AddSemestresForm";
+            this.Size = new System.Drawing.Size(324, 335);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddSemestresForm";
             this.Load += new System.EventHandler(this.AddSemestresForm_Load);

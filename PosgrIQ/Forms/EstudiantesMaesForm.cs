@@ -96,7 +96,8 @@ namespace PosgrIQ
                 dt.Columns.Add("Reglamento", typeof(string));
                 dt.Columns.Add("Tema", typeof(string));
                 dt.Columns.Add("Fecha Entrega Tema", typeof(string));
-                dt.Columns.Add("Concepto Tema", typeof(string));                
+                dt.Columns.Add("Concepto Tema", typeof(string));
+                dt.Columns.Add("Observaciones", typeof(string));
 
                 // se llena el nuevo datatable
                 for (int i = 0; i < dtEstudiantesMaes.Rows.Count; i++)
@@ -147,7 +148,10 @@ namespace PosgrIQ
 
                     // concepto del tema, sensible a valores vacios
                     if (string.IsNullOrWhiteSpace(dtEstudiantesMaes.Rows[i][13].ToString())) fila[13] = "";
-                    else fila[13] = dtConceptos.Select("codigo=" + dtEstudiantesMaes.Rows[i][13].ToString())[0][1];                    
+                    else fila[13] = dtConceptos.Select("codigo=" + dtEstudiantesMaes.Rows[i][13].ToString())[0][1];   
+                 
+                    // observaciones 
+                    fila[14] = dtEstudiantesMaes.Rows[i][15];
 
                     dt.Rows.Add(fila);
                 }
@@ -165,7 +169,6 @@ namespace PosgrIQ
             catch
             {
                 MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes de Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                padre.CerrarEstudiantesDoctForm();
             }
         }
 

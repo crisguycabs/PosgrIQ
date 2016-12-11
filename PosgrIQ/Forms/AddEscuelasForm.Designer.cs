@@ -132,7 +132,10 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(303, 147);
+            this.MinimumSize = new System.Drawing.Size(303, 147);
             this.Name = "AddEscuelasForm";
+            this.Size = new System.Drawing.Size(303, 147);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Escuelas";
             this.Load += new System.EventHandler(this.AddEscuelasForm_Load);

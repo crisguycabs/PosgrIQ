@@ -202,7 +202,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(629, 232);
+            this.ClientSize = new System.Drawing.Size(629, 233);
             this.ControlBox = false;
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
@@ -221,7 +221,10 @@
             this.Font = new System.Drawing.Font("Calibri", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(645, 272);
+            this.MinimumSize = new System.Drawing.Size(645, 272);
             this.Name = "AddPonenciasDoctForm";
+            this.Size = new System.Drawing.Size(645, 272);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AGREGAR PONENCIAS DE DOCTORADO";
             this.Load += new System.EventHandler(this.AddPonenciasDoctForm_Load);

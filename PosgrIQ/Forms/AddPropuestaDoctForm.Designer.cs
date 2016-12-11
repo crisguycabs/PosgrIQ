@@ -259,10 +259,11 @@
             // 
             // label5
             // 
+            this.label5.BackColor = System.Drawing.Color.DarkRed;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Location = new System.Drawing.Point(8, 179);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(616, 2);
+            this.label5.Size = new System.Drawing.Size(616, 3);
             this.label5.TabIndex = 29;
             // 
             // label4
@@ -762,10 +763,11 @@
             // 
             // label25
             // 
+            this.label25.BackColor = System.Drawing.Color.DarkRed;
             this.label25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label25.Location = new System.Drawing.Point(9, 498);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(616, 2);
+            this.label25.Size = new System.Drawing.Size(616, 3);
             this.label25.TabIndex = 30;
             // 
             // tabControl1
@@ -926,10 +928,11 @@
             // 
             // label26
             // 
+            this.label26.BackColor = System.Drawing.Color.DarkRed;
             this.label26.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label26.Location = new System.Drawing.Point(8, 246);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(616, 2);
+            this.label26.Size = new System.Drawing.Size(616, 3);
             this.label26.TabIndex = 29;
             // 
             // AddPropuestaDoctForm
@@ -939,7 +942,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(631, 536);
+            this.ClientSize = new System.Drawing.Size(631, 537);
             this.ControlBox = false;
             this.Controls.Add(this.btnAddProfesor);
             this.Controls.Add(this.tabControl1);
@@ -967,7 +970,10 @@
             this.Font = new System.Drawing.Font("Calibri", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(647, 576);
+            this.MinimumSize = new System.Drawing.Size(647, 576);
             this.Name = "AddPropuestaDoctForm";
+            this.Size = new System.Drawing.Size(647, 576);
             this.Text = "AGREGAR PROPUESTA DE DOCTORADO";
             this.Load += new System.EventHandler(this.AddPropuestaDoctForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCod)).EndInit();

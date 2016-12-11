@@ -50,10 +50,11 @@
             // 
             // label2
             // 
+            this.label2.BackColor = System.Drawing.Color.DarkRed;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.Location = new System.Drawing.Point(9, 133);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(266, 2);
+            this.label2.Size = new System.Drawing.Size(266, 3);
             this.label2.TabIndex = 12;
             // 
             // label7
@@ -132,6 +133,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SplashForm";
+            this.Size = new System.Drawing.Size(285, 241);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SplashForm";
             this.Load += new System.EventHandler(this.SplashForm_Load);

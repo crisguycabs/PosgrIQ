@@ -130,35 +130,44 @@ namespace PosgrIQ
             DataTable dt = new DataTable();
             OleDbDataAdapter da;
 
+            // se lee desde el archivo oneSource la ruta a donde se deben guardar el archivo excel
+            System.IO.StreamReader sr;
+
             try
             {
-                conection.Open();
-
-                // se pide la informacion de los profesores
-                query = "SELECT * FROM Configuracion";
-                command = new OleDbCommand(query, conection);
-
-                da = new OleDbDataAdapter(command);                
-                da.Fill(dt);
-
-                conection.Close();                
+                sr = new System.IO.StreamReader("sourceone");
             }
             catch
             {
-                MessageBox.Show("No se encuentra la tabla Configuracion");
+                MessageBox.Show("No se puede encontrar el archivo sourceone.\r\n\r\nPor favor verifique la ubicacion del archivo en la ventana de Configuracion e intentelo de nuevo.","Error de lectura",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
             }
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
-            string final = dt.Rows[0][2].ToString() + "\\EstudiantesMaes.xlsx";
+            string final = sr.ReadLine() + "\\EstudiantesMaes.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string inicial = System.IO.Path.GetDirectoryName(path) + "\\templates\\templateEstudiantesMaes.xlsx";
 
             // se verifica que existan los archivos
-            bool existeIni = System.IO.File.Exists(inicial);
-            bool existeFin = System.IO.File.Exists(final);
-            if (existeFin) System.IO.File.Delete(final);
+            bool existeInicial = false;
+            existeInicial = System.IO.File.Exists(inicial);
+            bool existeFin = false;
+            existeFin = System.IO.File.Exists(final);
+
+            System.Diagnostics.Process.Start("explorer.exe", final);
+
+            // si el archivo final existe entonces se debe borrar
+            try
+            {
+                if (existeFin) System.IO.File.Delete(final);
+            }
+            catch
+            {
+                MessageBox.Show("El archivo " + final + "esta siendo utilizado y no se puede modificar.\r\n\r\nPor favor cierre el archivo e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             try
             {
@@ -167,7 +176,8 @@ namespace PosgrIQ
             }
             catch
             {
-                MessageBox.Show("No se puede mover el archivo");
+                MessageBox.Show("No se puede crear el nuevo archivo excel","Error de escritura",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
             }
 
             // se carga la informacion de los estudiantes de maestria
@@ -176,7 +186,7 @@ namespace PosgrIQ
             {
                 conection.Open();
 
-                // se pide la informacion de los profesores
+                // se pide la informacion de los estudiantes de maestria
                 query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
                 command = new OleDbCommand(query, conection);
 
@@ -187,7 +197,8 @@ namespace PosgrIQ
             }
             catch
             {
-                MessageBox.Show("No se encuentra la tabla EstudiantesMaes");
+                MessageBox.Show("No se encuentra la tabla EstudiantesMaes","Error en la Base de Datos",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
             }
 
             // se abre el archivo excel
@@ -213,6 +224,7 @@ namespace PosgrIQ
                 TEMA
                 FECHA
                 CONCEPTO
+                OBSERVACIONES
             */
 
             for (int i = 0; i < dt.Rows.Count; i++)

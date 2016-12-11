@@ -292,10 +292,11 @@
             // 
             // label25
             // 
+            this.label25.BackColor = System.Drawing.Color.DarkRed;
             this.label25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label25.Location = new System.Drawing.Point(8, 632);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(616, 2);
+            this.label25.Size = new System.Drawing.Size(616, 3);
             this.label25.TabIndex = 53;
             // 
             // label23
@@ -1061,10 +1062,11 @@
             // 
             // label26
             // 
+            this.label26.BackColor = System.Drawing.Color.DarkRed;
             this.label26.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label26.Location = new System.Drawing.Point(7, 271);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(616, 2);
+            this.label26.Size = new System.Drawing.Size(616, 3);
             this.label26.TabIndex = 51;
             // 
             // cmbCalificador3
@@ -1123,10 +1125,11 @@
             // 
             // label5
             // 
+            this.label5.BackColor = System.Drawing.Color.DarkRed;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Location = new System.Drawing.Point(7, 179);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(616, 2);
+            this.label5.Size = new System.Drawing.Size(616, 3);
             this.label5.TabIndex = 52;
             // 
             // txtRutaTesis
@@ -1314,7 +1317,10 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(647, 709);
+            this.MinimumSize = new System.Drawing.Size(647, 709);
             this.Name = "AddTesisDoctForm";
+            this.Size = new System.Drawing.Size(647, 709);
             this.Text = "AGREGAR TESIS DE DOCTORADO";
             this.Load += new System.EventHandler(this.AddTesisDoctForm_Load);
             this.tabControl1.ResumeLayout(false);

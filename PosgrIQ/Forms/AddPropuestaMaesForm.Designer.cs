@@ -242,10 +242,11 @@
             // 
             // label25
             // 
+            this.label25.BackColor = System.Drawing.Color.DarkRed;
             this.label25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label25.Location = new System.Drawing.Point(8, 438);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(616, 2);
+            this.label25.Size = new System.Drawing.Size(616, 3);
             this.label25.TabIndex = 53;
             // 
             // label23
@@ -599,10 +600,11 @@
             // 
             // label26
             // 
+            this.label26.BackColor = System.Drawing.Color.DarkRed;
             this.label26.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label26.Location = new System.Drawing.Point(7, 246);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(616, 2);
+            this.label26.Size = new System.Drawing.Size(616, 3);
             this.label26.TabIndex = 51;
             // 
             // cmbCalificador2
@@ -643,10 +645,11 @@
             // 
             // label5
             // 
+            this.label5.BackColor = System.Drawing.Color.DarkRed;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Location = new System.Drawing.Point(7, 179);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(616, 2);
+            this.label5.Size = new System.Drawing.Size(616, 3);
             this.label5.TabIndex = 52;
             // 
             // txtRutaPropuesta
@@ -767,7 +770,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(631, 477);
+            this.ClientSize = new System.Drawing.Size(629, 476);
             this.ControlBox = false;
             this.Controls.Add(this.btnAddProfesor);
             this.Controls.Add(this.btnAdd);
@@ -793,7 +796,10 @@
             this.Font = new System.Drawing.Font("Calibri", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(645, 515);
+            this.MinimumSize = new System.Drawing.Size(645, 515);
             this.Name = "AddPropuestaMaesForm";
+            this.Size = new System.Drawing.Size(645, 515);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddPropuestaMaesForm";
             this.Load += new System.EventHandler(this.AddPropuestaMaesForm_Load);
