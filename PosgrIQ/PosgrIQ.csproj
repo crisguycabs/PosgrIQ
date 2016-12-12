@@ -418,6 +418,7 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="posgriq.ico" />
+    <Content Include="Resources\Header.png" />
     <None Include="Resources\UISLogo.png" />
     <None Include="Resources\logoEscuela.png" />
     <None Include="Resources\logoPQ.png" />

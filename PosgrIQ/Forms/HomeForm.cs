@@ -144,7 +144,8 @@ namespace PosgrIQ
             }
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
-            string final = sr.ReadLine() + "\\EstudiantesMaes.xlsx";
+            string leido = @sr.ReadLine();
+            string final = leido + "\\EstudiantesMaes.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -155,8 +156,6 @@ namespace PosgrIQ
             existeInicial = System.IO.File.Exists(inicial);
             bool existeFin = false;
             existeFin = System.IO.File.Exists(final);
-
-            System.Diagnostics.Process.Start("explorer.exe", final);
 
             // si el archivo final existe entonces se debe borrar
             try
@@ -187,7 +186,7 @@ namespace PosgrIQ
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
-                query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
+                query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
                 command = new OleDbCommand(query, conection);
 
                 da = new OleDbDataAdapter(command);
@@ -208,7 +207,8 @@ namespace PosgrIQ
             ExcelWorksheet ws = ef.Worksheets[0];
 
             // se empieza a llenar el archivo de excel
-            int inipos = 9;
+            int rowpos;
+            int colpos;
 
             /*  CODIGO
                 NOMBRE 
@@ -229,98 +229,157 @@ namespace PosgrIQ
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                ws.Cells[inipos, 1].Value = "CODIGO";
-                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
-                ws.Cells[inipos, 2].Value = dt.Rows[i][0].ToString();
+                rowpos = 9;
+                colpos = (3 * i) + 1;
 
-                inipos++;
+                ws.Columns[colpos - 1].Width = 5 * 300;
+                ws.Columns[colpos].Width = 15 * 300;
+                ws.Columns[colpos + 1].Width = 42 * 300;
 
-                ws.Cells[inipos, 1].Value = "NOMBRE";
-                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
-                ws.Cells[inipos, 2].Value = dt.Rows[i][1].ToString();
+                ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(i + 1) + "/" + dt.Rows.Count.ToString();
+                ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.BoldWeight;
 
-                inipos++;
+                rowpos++;
 
-                ws.Cells[inipos, 1].Value = "CORREO";
-                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
-                ws.Cells[inipos, 2].Value = dt.Rows[i][2].ToString();
+                ws.Cells[rowpos, colpos].Value = "CODIGO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][0].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
 
-                inipos++;
+                rowpos++;
 
-                ws.Cells[inipos, 1].Value = "CEDULA";
-                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
-                ws.Cells[inipos, 2].Value = dt.Rows[i][3].ToString();
+                ws.Cells[rowpos, colpos].Value = "NOMBRE";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][1].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
 
-                inipos++;
+                rowpos++;
 
-                ws.Cells[inipos, 1].Value = "CIUDAD";
-                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
-                ws.Cells[inipos, 2].Value = dt.Rows[i][4].ToString();
+                ws.Cells[rowpos, colpos].Value = "CORREO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][2].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
 
-                inipos++;
+                rowpos++;
 
-                ws.Cells[inipos, 1].Value = "CONDICION";
-                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
-                ws.Cells[inipos, 2].Value = dt.Rows[i][5].ToString();
+                ws.Cells[rowpos, colpos].Value = "CEDULA";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][3].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
 
-                inipos++;
+                rowpos++;
 
-                ws.Cells[inipos, 1].Value = "DIRECTOR";
-                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
-                ws.Cells[inipos, 2].Value = dt.Rows[i][6].ToString();
+                ws.Cells[rowpos, colpos].Value = "CIUDAD";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][4].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
 
-                inipos++;
+                rowpos++;
 
-                ws.Cells[inipos, 1].Value = "CODIRECTOR 1";
-                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
-                ws.Cells[inipos, 2].Value = dt.Rows[i][7].ToString();
+                ws.Cells[rowpos, colpos].Value = "CONDICION";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][5].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
 
-                inipos++;
+                rowpos++;
 
-                ws.Cells[inipos, 1].Value = "CODIRECTOR 2";
-                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
-                ws.Cells[inipos, 2].Value = dt.Rows[i][8].ToString();
+                ws.Cells[rowpos, colpos].Value = "NIVEL";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][6].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
 
-                inipos++;
+                rowpos++;
 
-                ws.Cells[inipos, 1].Value = "REGLAMENTO";
-                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
-                ws.Cells[inipos, 2].Value = dt.Rows[i][9].ToString();
+                ws.Cells[rowpos, colpos].Value = "DIRECTOR";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][7].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
 
-                inipos++;
+                rowpos++;
 
-                ws.Cells[inipos, 1].Value = "TEMA";
-                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
-                ws.Cells[inipos, 2].Value = dt.Rows[i][10].ToString();
-                ws.Cells[inipos, 2].Style.WrapText = true;
+                ws.Cells[rowpos, colpos].Value = "CODIRECTOR 1";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][8].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
 
-                inipos++;
+                rowpos++;
 
-                ws.Cells[inipos, 1].Value = "FECHA";
-                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
-                ws.Cells[inipos, 2].Value = dt.Rows[i][11].ToString();
+                ws.Cells[rowpos, colpos].Value = "CODIRECTOR 2";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][9].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
 
-                inipos++;
+                rowpos++;
 
-                ws.Cells[inipos, 1].Value = "CONCEPTO";
-                ws.Cells[inipos, 1].Style.Font.Weight = ExcelFont.BoldWeight;
-                ws.Cells[inipos, 2].Value = dt.Rows[i][12].ToString();
+                ws.Cells[rowpos, colpos].Value = "REGLAMENTO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][10].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
 
-                inipos++;
-                ws.Cells[inipos, 1].Value = "";
-                inipos++;
-                ws.Cells[inipos, 1].Value = "";
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "TEMA";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos+1].Value = dt.Rows[i][11].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos+1].Style.WrapText = true;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "FECHA";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][12].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CONCEPTO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][13].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "OSERVACIONES";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos+1].Value = dt.Rows[i][15].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Style.WrapText = true;
+
+                rowpos++;
+                ws.Cells[rowpos, colpos].Value = "";
+                rowpos++;
+                ws.Cells[rowpos, colpos].Value = "";
             }
 
-            ef.Save(final);
+            //ef.Save(final);
 
-            ws.PrintOptions.Portrait=true;
+            ws.PrintOptions.Portrait = false;
+            ws.PrintOptions.FitToPage = false;
+            
+            ef.Save(final);
+            /*
+            
             ws.PrintOptions.FitToPage = true;
             ws.PrintOptions.FitWorksheetWidthToPages = 1;            
-
+            */
             //ws.NamedRanges.SetPrintArea(ws.Cells.GetSubrange("A1", "C" + inipos.ToString()));
 
-            
             string pathFinal=System.IO.Path.GetDirectoryName(final);
             ExcelFile.Load(final).Save(pathFinal + "\\EstudiantesMaes.pdf");
             DateTime end = DateTime.Now;
