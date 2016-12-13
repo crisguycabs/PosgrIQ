@@ -326,8 +326,8 @@ namespace PosgrIQ
 
                         conection.Close();
 
-                        numAno.Value = 0;
-                        numCod.Value = 0;
+                        //numAno.Value = 0;
+                        numCod.Value++;
                         cmbPeriodo.SelectedIndex = -1;
 
                         //this.DialogResult = DialogResult.OK;
@@ -377,6 +377,26 @@ namespace PosgrIQ
 
                     break;
             }
+        }
+
+        private void numAno_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime actual;
+
+            actual = datePedirQualify.Value;
+            datePedirQualify.Value = new DateTime((int)numAno.Value, actual.Month, actual.Day);
+
+            actual = datePropuestaDoct.Value;
+            datePropuestaDoct.Value = new DateTime((int)numAno.Value, actual.Month, actual.Day);
+
+            actual = datePropuestaMaes.Value;
+            datePropuestaMaes.Value = new DateTime((int)numAno.Value, actual.Month, actual.Day);
+
+            actual = dateTema.Value;
+            dateTema.Value = new DateTime((int)numAno.Value, actual.Month, actual.Day);
+
+            actual = dateTomarQualify.Value;
+            dateTomarQualify.Value = new DateTime((int)numAno.Value, actual.Month, actual.Day);
         }
     }
 }

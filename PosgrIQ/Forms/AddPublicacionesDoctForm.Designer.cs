@@ -55,7 +55,7 @@
             this.txtTitulo.Multiline = true;
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(533, 51);
-            this.txtTitulo.TabIndex = 26;
+            this.txtTitulo.TabIndex = 3;
             // 
             // label13
             // 
@@ -69,11 +69,12 @@
             // 
             // cmbEstudiante
             // 
+            this.cmbEstudiante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbEstudiante.FormattingEnabled = true;
             this.cmbEstudiante.Location = new System.Drawing.Point(89, 35);
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(223, 22);
-            this.cmbEstudiante.TabIndex = 22;
+            this.cmbEstudiante.TabIndex = 2;
             // 
             // label9
             // 
@@ -96,7 +97,7 @@
             0});
             this.numCod.Name = "numCod";
             this.numCod.Size = new System.Drawing.Size(70, 22);
-            this.numCod.TabIndex = 21;
+            this.numCod.TabIndex = 1;
             this.numCod.Value = new decimal(new int[] {
             9999999,
             0,
@@ -128,7 +129,7 @@
             this.dateAceptado.Location = new System.Drawing.Point(89, 121);
             this.dateAceptado.Name = "dateAceptado";
             this.dateAceptado.Size = new System.Drawing.Size(96, 22);
-            this.dateAceptado.TabIndex = 28;
+            this.dateAceptado.TabIndex = 4;
             // 
             // label2
             // 
@@ -145,10 +146,11 @@
             this.txtRevista.Location = new System.Drawing.Point(89, 149);
             this.txtRevista.Name = "txtRevista";
             this.txtRevista.Size = new System.Drawing.Size(533, 22);
-            this.txtRevista.TabIndex = 29;
+            this.txtRevista.TabIndex = 5;
             // 
             // cmbAlcance
             // 
+            this.cmbAlcance.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbAlcance.FormattingEnabled = true;
             this.cmbAlcance.Items.AddRange(new object[] {
             "Nacional",
@@ -156,7 +158,7 @@
             this.cmbAlcance.Location = new System.Drawing.Point(89, 177);
             this.cmbAlcance.Name = "cmbAlcance";
             this.cmbAlcance.Size = new System.Drawing.Size(96, 22);
-            this.cmbAlcance.TabIndex = 30;
+            this.cmbAlcance.TabIndex = 6;
             // 
             // label3
             // 
@@ -185,7 +187,7 @@
             this.txtCategoria.Multiline = true;
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(96, 22);
-            this.txtCategoria.TabIndex = 26;
+            this.txtCategoria.TabIndex = 7;
             // 
             // btnAdd
             // 
@@ -196,7 +198,7 @@
             this.btnAdd.Location = new System.Drawing.Point(547, 229);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 34;
+            this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -211,7 +213,7 @@
             this.btnCancel.Location = new System.Drawing.Point(466, 229);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 33;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -247,7 +249,6 @@
             this.MaximumSize = new System.Drawing.Size(644, 299);
             this.MinimumSize = new System.Drawing.Size(644, 299);
             this.Name = "AddPublicacionesDoctForm";
-            this.Size = new System.Drawing.Size(644, 299);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AGREGAR PUBLICACIONES DOCTORADO";
             this.Load += new System.EventHandler(this.AddPublicacionesDoctForm_Load);

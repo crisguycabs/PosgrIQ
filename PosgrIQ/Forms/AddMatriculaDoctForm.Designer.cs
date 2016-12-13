@@ -119,11 +119,12 @@
             // 
             // cmbEstudiante
             // 
+            this.cmbEstudiante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbEstudiante.FormattingEnabled = true;
             this.cmbEstudiante.Location = new System.Drawing.Point(90, 35);
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(223, 22);
-            this.cmbEstudiante.TabIndex = 20;
+            this.cmbEstudiante.TabIndex = 2;
             // 
             // label9
             // 
@@ -146,7 +147,7 @@
             0});
             this.numCod.Name = "numCod";
             this.numCod.Size = new System.Drawing.Size(70, 22);
-            this.numCod.TabIndex = 19;
+            this.numCod.TabIndex = 1;
             this.numCod.Value = new decimal(new int[] {
             9999999,
             0,
@@ -184,11 +185,12 @@
             // 
             // cmbSemestre1
             // 
+            this.cmbSemestre1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSemestre1.FormattingEnabled = true;
             this.cmbSemestre1.Location = new System.Drawing.Point(90, 73);
             this.cmbSemestre1.Name = "cmbSemestre1";
             this.cmbSemestre1.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre1.TabIndex = 20;
+            this.cmbSemestre1.TabIndex = 3;
             // 
             // label3
             // 
@@ -217,7 +219,7 @@
             0});
             this.numPromedio1.Name = "numPromedio1";
             this.numPromedio1.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio1.TabIndex = 19;
+            this.numPromedio1.TabIndex = 4;
             // 
             // label4
             // 
@@ -231,6 +233,7 @@
             // 
             // cmbBeca1
             // 
+            this.cmbBeca1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbBeca1.FormattingEnabled = true;
             this.cmbBeca1.Items.AddRange(new object[] {
             "Si",
@@ -238,7 +241,7 @@
             this.cmbBeca1.Location = new System.Drawing.Point(355, 73);
             this.cmbBeca1.Name = "cmbBeca1";
             this.cmbBeca1.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca1.TabIndex = 20;
+            this.cmbBeca1.TabIndex = 5;
             // 
             // numPromedio3
             // 
@@ -257,7 +260,7 @@
             0});
             this.numPromedio3.Name = "numPromedio3";
             this.numPromedio3.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio3.TabIndex = 19;
+            this.numPromedio3.TabIndex = 10;
             // 
             // label6
             // 
@@ -281,14 +284,16 @@
             // 
             // cmbSemestre3
             // 
+            this.cmbSemestre3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSemestre3.FormattingEnabled = true;
             this.cmbSemestre3.Location = new System.Drawing.Point(90, 101);
             this.cmbSemestre3.Name = "cmbSemestre3";
             this.cmbSemestre3.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre3.TabIndex = 20;
+            this.cmbSemestre3.TabIndex = 9;
             // 
             // cmbBeca3
             // 
+            this.cmbBeca3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbBeca3.FormattingEnabled = true;
             this.cmbBeca3.Items.AddRange(new object[] {
             "Si",
@@ -296,7 +301,7 @@
             this.cmbBeca3.Location = new System.Drawing.Point(355, 101);
             this.cmbBeca3.Name = "cmbBeca3";
             this.cmbBeca3.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca3.TabIndex = 20;
+            this.cmbBeca3.TabIndex = 11;
             // 
             // label8
             // 
@@ -325,7 +330,7 @@
             0});
             this.numPromedio5.Name = "numPromedio5";
             this.numPromedio5.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio5.TabIndex = 19;
+            this.numPromedio5.TabIndex = 16;
             // 
             // label10
             // 
@@ -349,14 +354,16 @@
             // 
             // cmbSemestre5
             // 
+            this.cmbSemestre5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSemestre5.FormattingEnabled = true;
             this.cmbSemestre5.Location = new System.Drawing.Point(90, 129);
             this.cmbSemestre5.Name = "cmbSemestre5";
             this.cmbSemestre5.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre5.TabIndex = 20;
+            this.cmbSemestre5.TabIndex = 15;
             // 
             // cmbBeca5
             // 
+            this.cmbBeca5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbBeca5.FormattingEnabled = true;
             this.cmbBeca5.Items.AddRange(new object[] {
             "Si",
@@ -364,7 +371,7 @@
             this.cmbBeca5.Location = new System.Drawing.Point(355, 129);
             this.cmbBeca5.Name = "cmbBeca5";
             this.cmbBeca5.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca5.TabIndex = 20;
+            this.cmbBeca5.TabIndex = 17;
             // 
             // label12
             // 
@@ -393,7 +400,7 @@
             0});
             this.numPromedio7.Name = "numPromedio7";
             this.numPromedio7.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio7.TabIndex = 19;
+            this.numPromedio7.TabIndex = 22;
             // 
             // label13
             // 
@@ -417,14 +424,16 @@
             // 
             // cmbSemestre7
             // 
+            this.cmbSemestre7.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSemestre7.FormattingEnabled = true;
             this.cmbSemestre7.Location = new System.Drawing.Point(90, 157);
             this.cmbSemestre7.Name = "cmbSemestre7";
             this.cmbSemestre7.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre7.TabIndex = 20;
+            this.cmbSemestre7.TabIndex = 21;
             // 
             // cmbBeca7
             // 
+            this.cmbBeca7.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbBeca7.FormattingEnabled = true;
             this.cmbBeca7.Items.AddRange(new object[] {
             "Si",
@@ -432,7 +441,7 @@
             this.cmbBeca7.Location = new System.Drawing.Point(355, 157);
             this.cmbBeca7.Name = "cmbBeca7";
             this.cmbBeca7.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca7.TabIndex = 20;
+            this.cmbBeca7.TabIndex = 23;
             // 
             // label15
             // 
@@ -461,7 +470,7 @@
             0});
             this.numPromedio2.Name = "numPromedio2";
             this.numPromedio2.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio2.TabIndex = 19;
+            this.numPromedio2.TabIndex = 7;
             // 
             // numPromedio4
             // 
@@ -480,7 +489,7 @@
             0});
             this.numPromedio4.Name = "numPromedio4";
             this.numPromedio4.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio4.TabIndex = 19;
+            this.numPromedio4.TabIndex = 13;
             // 
             // label16
             // 
@@ -538,7 +547,7 @@
             0});
             this.numPromedio8.Name = "numPromedio8";
             this.numPromedio8.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio8.TabIndex = 19;
+            this.numPromedio8.TabIndex = 25;
             // 
             // label18
             // 
@@ -602,38 +611,43 @@
             // 
             // cmbSemestre2
             // 
+            this.cmbSemestre2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSemestre2.FormattingEnabled = true;
             this.cmbSemestre2.Location = new System.Drawing.Point(545, 73);
             this.cmbSemestre2.Name = "cmbSemestre2";
             this.cmbSemestre2.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre2.TabIndex = 20;
+            this.cmbSemestre2.TabIndex = 6;
             // 
             // cmbSemestre4
             // 
+            this.cmbSemestre4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSemestre4.FormattingEnabled = true;
             this.cmbSemestre4.Location = new System.Drawing.Point(545, 101);
             this.cmbSemestre4.Name = "cmbSemestre4";
             this.cmbSemestre4.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre4.TabIndex = 20;
+            this.cmbSemestre4.TabIndex = 12;
             // 
             // cmbSemestre6
             // 
+            this.cmbSemestre6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSemestre6.FormattingEnabled = true;
             this.cmbSemestre6.Location = new System.Drawing.Point(545, 129);
             this.cmbSemestre6.Name = "cmbSemestre6";
             this.cmbSemestre6.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre6.TabIndex = 20;
+            this.cmbSemestre6.TabIndex = 18;
             // 
             // cmbSemestre8
             // 
+            this.cmbSemestre8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSemestre8.FormattingEnabled = true;
             this.cmbSemestre8.Location = new System.Drawing.Point(545, 157);
             this.cmbSemestre8.Name = "cmbSemestre8";
             this.cmbSemestre8.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre8.TabIndex = 20;
+            this.cmbSemestre8.TabIndex = 24;
             // 
             // cmbBeca2
             // 
+            this.cmbBeca2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbBeca2.FormattingEnabled = true;
             this.cmbBeca2.Items.AddRange(new object[] {
             "Si",
@@ -641,10 +655,11 @@
             this.cmbBeca2.Location = new System.Drawing.Point(810, 73);
             this.cmbBeca2.Name = "cmbBeca2";
             this.cmbBeca2.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca2.TabIndex = 20;
+            this.cmbBeca2.TabIndex = 8;
             // 
             // cmbBeca4
             // 
+            this.cmbBeca4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbBeca4.FormattingEnabled = true;
             this.cmbBeca4.Items.AddRange(new object[] {
             "Si",
@@ -652,10 +667,11 @@
             this.cmbBeca4.Location = new System.Drawing.Point(810, 101);
             this.cmbBeca4.Name = "cmbBeca4";
             this.cmbBeca4.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca4.TabIndex = 20;
+            this.cmbBeca4.TabIndex = 14;
             // 
             // cmbBeca6
             // 
+            this.cmbBeca6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbBeca6.FormattingEnabled = true;
             this.cmbBeca6.Items.AddRange(new object[] {
             "Si",
@@ -667,6 +683,7 @@
             // 
             // cmbBeca8
             // 
+            this.cmbBeca8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbBeca8.FormattingEnabled = true;
             this.cmbBeca8.Items.AddRange(new object[] {
             "Si",
@@ -674,7 +691,7 @@
             this.cmbBeca8.Location = new System.Drawing.Point(810, 157);
             this.cmbBeca8.Name = "cmbBeca8";
             this.cmbBeca8.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca8.TabIndex = 20;
+            this.cmbBeca8.TabIndex = 26;
             // 
             // label24
             // 
@@ -742,7 +759,7 @@
             0});
             this.numPromedio9.Name = "numPromedio9";
             this.numPromedio9.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio9.TabIndex = 19;
+            this.numPromedio9.TabIndex = 28;
             // 
             // numPromedio10
             // 
@@ -761,7 +778,7 @@
             0});
             this.numPromedio10.Name = "numPromedio10";
             this.numPromedio10.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio10.TabIndex = 19;
+            this.numPromedio10.TabIndex = 30;
             // 
             // numPromedio11
             // 
@@ -780,7 +797,7 @@
             0});
             this.numPromedio11.Name = "numPromedio11";
             this.numPromedio11.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio11.TabIndex = 19;
+            this.numPromedio11.TabIndex = 32;
             // 
             // label29
             // 
@@ -809,7 +826,7 @@
             0});
             this.numPromedio12.Name = "numPromedio12";
             this.numPromedio12.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio12.TabIndex = 19;
+            this.numPromedio12.TabIndex = 34;
             // 
             // label30
             // 
@@ -883,35 +900,39 @@
             // 
             // cmbSemestre9
             // 
+            this.cmbSemestre9.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSemestre9.FormattingEnabled = true;
             this.cmbSemestre9.Location = new System.Drawing.Point(90, 194);
             this.cmbSemestre9.Name = "cmbSemestre9";
             this.cmbSemestre9.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre9.TabIndex = 20;
+            this.cmbSemestre9.TabIndex = 27;
             // 
             // cmbSemestre10
             // 
+            this.cmbSemestre10.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSemestre10.FormattingEnabled = true;
             this.cmbSemestre10.Location = new System.Drawing.Point(545, 194);
             this.cmbSemestre10.Name = "cmbSemestre10";
             this.cmbSemestre10.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre10.TabIndex = 20;
+            this.cmbSemestre10.TabIndex = 29;
             // 
             // cmbSemestre11
             // 
+            this.cmbSemestre11.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSemestre11.FormattingEnabled = true;
             this.cmbSemestre11.Location = new System.Drawing.Point(90, 222);
             this.cmbSemestre11.Name = "cmbSemestre11";
             this.cmbSemestre11.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre11.TabIndex = 20;
+            this.cmbSemestre11.TabIndex = 31;
             // 
             // cmbSemestre12
             // 
+            this.cmbSemestre12.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSemestre12.FormattingEnabled = true;
             this.cmbSemestre12.Location = new System.Drawing.Point(545, 222);
             this.cmbSemestre12.Name = "cmbSemestre12";
             this.cmbSemestre12.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre12.TabIndex = 20;
+            this.cmbSemestre12.TabIndex = 33;
             // 
             // label37
             // 
@@ -931,7 +952,7 @@
             this.btnAdd.Location = new System.Drawing.Point(779, 258);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 34;
+            this.btnAdd.TabIndex = 35;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -946,7 +967,7 @@
             this.btnCancel.Location = new System.Drawing.Point(698, 258);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 33;
+            this.btnCancel.TabIndex = 36;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -1039,7 +1060,6 @@
             this.MaximumSize = new System.Drawing.Size(876, 329);
             this.MinimumSize = new System.Drawing.Size(876, 329);
             this.Name = "AddMatriculaDoctForm";
-            this.Size = new System.Drawing.Size(876, 329);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AGREGAR MATRICULA DOCTORADO";
             this.Load += new System.EventHandler(this.AddMatriculaDoctForm_Load);

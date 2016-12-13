@@ -60,7 +60,7 @@
             this.btnAdd.Location = new System.Drawing.Point(227, 265);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 10;
+            this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -75,7 +75,7 @@
             this.btnCancel.Location = new System.Drawing.Point(146, 265);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 9;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -130,6 +130,7 @@
             0,
             0,
             0});
+            this.numAno.ValueChanged += new System.EventHandler(this.numAno_ValueChanged);
             // 
             // label2
             // 
@@ -275,7 +276,6 @@
             this.MaximumSize = new System.Drawing.Size(324, 335);
             this.MinimumSize = new System.Drawing.Size(324, 335);
             this.Name = "AddSemestresForm";
-            this.Size = new System.Drawing.Size(324, 335);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddSemestresForm";
             this.Load += new System.EventHandler(this.AddSemestresForm_Load);

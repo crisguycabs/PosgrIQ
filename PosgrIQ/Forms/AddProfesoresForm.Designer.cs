@@ -58,7 +58,7 @@
             this.btnAdd.Location = new System.Drawing.Point(222, 234);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 10;
+            this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -73,7 +73,7 @@
             this.btnCancel.Location = new System.Drawing.Point(141, 234);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 9;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -137,6 +137,7 @@
             // 
             // cmbColegiatura
             // 
+            this.cmbColegiatura.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbColegiatura.FormattingEnabled = true;
             this.cmbColegiatura.Location = new System.Drawing.Point(80, 61);
             this.cmbColegiatura.Name = "cmbColegiatura";
@@ -155,6 +156,7 @@
             // 
             // cmbEscuela
             // 
+            this.cmbEscuela.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbEscuela.FormattingEnabled = true;
             this.cmbEscuela.Location = new System.Drawing.Point(80, 89);
             this.cmbEscuela.Name = "cmbEscuela";
@@ -264,7 +266,6 @@
             this.MaximumSize = new System.Drawing.Size(318, 303);
             this.MinimumSize = new System.Drawing.Size(318, 303);
             this.Name = "AddProfesoresForm";
-            this.Size = new System.Drawing.Size(318, 303);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddProfesoresForm";
             this.Load += new System.EventHandler(this.AddProfesoresForm_Load);

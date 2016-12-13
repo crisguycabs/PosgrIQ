@@ -91,7 +91,7 @@
             this.chkTema.Location = new System.Drawing.Point(8, 192);
             this.chkTema.Name = "chkTema";
             this.chkTema.Size = new System.Drawing.Size(113, 18);
-            this.chkTema.TabIndex = 51;
+            this.chkTema.TabIndex = 11;
             this.chkTema.Text = "Tema Entregado";
             this.chkTema.UseVisualStyleBackColor = true;
             this.chkTema.CheckedChanged += new System.EventHandler(this.chkTema_CheckedChanged);
@@ -104,7 +104,7 @@
             this.txtTema.Multiline = true;
             this.txtTema.Name = "txtTema";
             this.txtTema.Size = new System.Drawing.Size(518, 51);
-            this.txtTema.TabIndex = 56;
+            this.txtTema.TabIndex = 12;
             // 
             // txtRutaTema
             // 
@@ -113,7 +113,7 @@
             this.txtRutaTema.Location = new System.Drawing.Point(83, 299);
             this.txtRutaTema.Name = "txtRutaTema";
             this.txtRutaTema.Size = new System.Drawing.Size(518, 22);
-            this.txtRutaTema.TabIndex = 60;
+            this.txtRutaTema.TabIndex = 15;
             // 
             // label17
             // 
@@ -161,7 +161,7 @@
             this.dateTema.Location = new System.Drawing.Point(83, 271);
             this.dateTema.Name = "dateTema";
             this.dateTema.Size = new System.Drawing.Size(96, 22);
-            this.dateTema.TabIndex = 58;
+            this.dateTema.TabIndex = 13;
             // 
             // cmbCodirector2
             // 
@@ -169,7 +169,7 @@
             this.cmbCodirector2.Location = new System.Drawing.Point(406, 155);
             this.cmbCodirector2.Name = "cmbCodirector2";
             this.cmbCodirector2.Size = new System.Drawing.Size(195, 22);
-            this.cmbCodirector2.TabIndex = 37;
+            this.cmbCodirector2.TabIndex = 10;
             // 
             // label15
             // 
@@ -187,7 +187,7 @@
             this.cmbCodirector1.Location = new System.Drawing.Point(406, 126);
             this.cmbCodirector1.Name = "cmbCodirector1";
             this.cmbCodirector1.Size = new System.Drawing.Size(195, 22);
-            this.cmbCodirector1.TabIndex = 36;
+            this.cmbCodirector1.TabIndex = 9;
             // 
             // btnRutaTema
             // 
@@ -210,7 +210,7 @@
             this.cmbDirector.Location = new System.Drawing.Point(84, 126);
             this.cmbDirector.Name = "cmbDirector";
             this.cmbDirector.Size = new System.Drawing.Size(223, 22);
-            this.cmbDirector.TabIndex = 34;
+            this.cmbDirector.TabIndex = 8;
             // 
             // btnVerArchivoTema
             // 
@@ -233,7 +233,7 @@
             this.cmbReglamentos.Location = new System.Drawing.Point(84, 88);
             this.cmbReglamentos.Name = "cmbReglamentos";
             this.cmbReglamentos.Size = new System.Drawing.Size(89, 22);
-            this.cmbReglamentos.TabIndex = 32;
+            this.cmbReglamentos.TabIndex = 7;
             // 
             // cmbConceptoTema
             // 
@@ -242,7 +242,7 @@
             this.cmbConceptoTema.Location = new System.Drawing.Point(263, 271);
             this.cmbConceptoTema.Name = "cmbConceptoTema";
             this.cmbConceptoTema.Size = new System.Drawing.Size(89, 22);
-            this.cmbConceptoTema.TabIndex = 59;
+            this.cmbConceptoTema.TabIndex = 14;
             // 
             // cmbCondicion
             // 
@@ -250,7 +250,7 @@
             this.cmbCondicion.Location = new System.Drawing.Point(512, 61);
             this.cmbCondicion.Name = "cmbCondicion";
             this.cmbCondicion.Size = new System.Drawing.Size(89, 22);
-            this.cmbCondicion.TabIndex = 31;
+            this.cmbCondicion.TabIndex = 6;
             // 
             // btnAddReglamento
             // 
@@ -289,7 +289,7 @@
             this.btnAdd.Location = new System.Drawing.Point(528, 431);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 69;
+            this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -304,7 +304,7 @@
             this.btnCancel.Location = new System.Drawing.Point(447, 431);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 68;
+            this.btnCancel.TabIndex = 18;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -429,7 +429,7 @@
             0});
             this.numCedula.Name = "numCedula";
             this.numCedula.Size = new System.Drawing.Size(82, 22);
-            this.numCedula.TabIndex = 29;
+            this.numCedula.TabIndex = 2;
             this.numCedula.Value = new decimal(new int[] {
             1410065407,
             2,
@@ -447,7 +447,7 @@
             0});
             this.numCod.Name = "numCod";
             this.numCod.Size = new System.Drawing.Size(70, 22);
-            this.numCod.TabIndex = 25;
+            this.numCod.TabIndex = 1;
             this.numCod.Value = new decimal(new int[] {
             9999999,
             0,
@@ -460,7 +460,7 @@
             this.txtCorreo.Location = new System.Drawing.Point(84, 61);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(223, 22);
-            this.txtCorreo.TabIndex = 28;
+            this.txtCorreo.TabIndex = 5;
             // 
             // txtCiudad
             // 
@@ -468,7 +468,7 @@
             this.txtCiudad.Location = new System.Drawing.Point(378, 34);
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(223, 22);
-            this.txtCiudad.TabIndex = 30;
+            this.txtCiudad.TabIndex = 4;
             // 
             // txtNivel
             // 
@@ -485,7 +485,7 @@
             this.txtNombre.Location = new System.Drawing.Point(84, 34);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(223, 22);
-            this.txtNombre.TabIndex = 26;
+            this.txtNombre.TabIndex = 3;
             // 
             // label1
             // 
@@ -515,7 +515,7 @@
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(500, 51);
-            this.txtObservaciones.TabIndex = 56;
+            this.txtObservaciones.TabIndex = 16;
             // 
             // label19
             // 
@@ -584,7 +584,6 @@
             this.MaximumSize = new System.Drawing.Size(624, 499);
             this.MinimumSize = new System.Drawing.Size(624, 499);
             this.Name = "AddEstudianteMaesForm";
-            this.Size = new System.Drawing.Size(624, 499);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AGREGAR ESTUDIANTE DE MAESTRIA";
             this.Load += new System.EventHandler(this.AddEstudianteMaesForm_Load);

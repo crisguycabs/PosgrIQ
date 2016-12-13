@@ -115,7 +115,7 @@
             this.txtNombre.Location = new System.Drawing.Point(84, 35);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(223, 22);
-            this.txtNombre.TabIndex = 2;
+            this.txtNombre.TabIndex = 3;
             // 
             // label1
             // 
@@ -145,7 +145,7 @@
             this.btnAdd.Location = new System.Drawing.Point(528, 465);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 24;
+            this.btnAdd.TabIndex = 19;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -160,7 +160,7 @@
             this.btnCancel.Location = new System.Drawing.Point(447, 465);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 23;
+            this.btnCancel.TabIndex = 20;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -171,7 +171,7 @@
             this.txtCorreo.Location = new System.Drawing.Point(84, 62);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(223, 22);
-            this.txtCorreo.TabIndex = 3;
+            this.txtCorreo.TabIndex = 5;
             // 
             // label3
             // 
@@ -199,7 +199,7 @@
             this.txtCiudad.Location = new System.Drawing.Point(378, 35);
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(223, 22);
-            this.txtCiudad.TabIndex = 5;
+            this.txtCiudad.TabIndex = 4;
             // 
             // label6
             // 
@@ -222,7 +222,7 @@
             0});
             this.numCedula.Name = "numCedula";
             this.numCedula.Size = new System.Drawing.Size(82, 22);
-            this.numCedula.TabIndex = 4;
+            this.numCedula.TabIndex = 2;
             this.numCedula.Value = new decimal(new int[] {
             1410065407,
             2,
@@ -231,11 +231,12 @@
             // 
             // cmbCondicion
             // 
+            this.cmbCondicion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCondicion.FormattingEnabled = true;
             this.cmbCondicion.Location = new System.Drawing.Point(512, 62);
             this.cmbCondicion.Name = "cmbCondicion";
             this.cmbCondicion.Size = new System.Drawing.Size(89, 22);
-            this.cmbCondicion.TabIndex = 7;
+            this.cmbCondicion.TabIndex = 6;
             // 
             // label7
             // 
@@ -269,11 +270,12 @@
             // 
             // cmbDirector
             // 
+            this.cmbDirector.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbDirector.FormattingEnabled = true;
             this.cmbDirector.Location = new System.Drawing.Point(84, 127);
             this.cmbDirector.Name = "cmbDirector";
             this.cmbDirector.Size = new System.Drawing.Size(223, 22);
-            this.cmbDirector.TabIndex = 10;
+            this.cmbDirector.TabIndex = 8;
             // 
             // btnAddProfesor
             // 
@@ -301,11 +303,12 @@
             // 
             // cmbCodirector1
             // 
+            this.cmbCodirector1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCodirector1.FormattingEnabled = true;
             this.cmbCodirector1.Location = new System.Drawing.Point(406, 127);
             this.cmbCodirector1.Name = "cmbCodirector1";
             this.cmbCodirector1.Size = new System.Drawing.Size(195, 22);
-            this.cmbCodirector1.TabIndex = 11;
+            this.cmbCodirector1.TabIndex = 9;
             // 
             // label11
             // 
@@ -319,11 +322,12 @@
             // 
             // cmbCodirector2
             // 
+            this.cmbCodirector2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCodirector2.FormattingEnabled = true;
             this.cmbCodirector2.Location = new System.Drawing.Point(406, 156);
             this.cmbCodirector2.Name = "cmbCodirector2";
             this.cmbCodirector2.Size = new System.Drawing.Size(195, 22);
-            this.cmbCodirector2.TabIndex = 12;
+            this.cmbCodirector2.TabIndex = 10;
             // 
             // label12
             // 
@@ -337,11 +341,12 @@
             // 
             // cmbReglamentos
             // 
+            this.cmbReglamentos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbReglamentos.FormattingEnabled = true;
             this.cmbReglamentos.Location = new System.Drawing.Point(84, 89);
             this.cmbReglamentos.Name = "cmbReglamentos";
             this.cmbReglamentos.Size = new System.Drawing.Size(89, 22);
-            this.cmbReglamentos.TabIndex = 8;
+            this.cmbReglamentos.TabIndex = 7;
             // 
             // btnAddReglamento
             // 
@@ -375,7 +380,7 @@
             this.txtTema.Multiline = true;
             this.txtTema.Name = "txtTema";
             this.txtTema.Size = new System.Drawing.Size(518, 51);
-            this.txtTema.TabIndex = 15;
+            this.txtTema.TabIndex = 12;
             // 
             // dateTema
             // 
@@ -384,16 +389,17 @@
             this.dateTema.Location = new System.Drawing.Point(83, 272);
             this.dateTema.Name = "dateTema";
             this.dateTema.Size = new System.Drawing.Size(96, 22);
-            this.dateTema.TabIndex = 16;
+            this.dateTema.TabIndex = 13;
             // 
             // cmbConceptoTema
             // 
+            this.cmbConceptoTema.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConceptoTema.Enabled = false;
             this.cmbConceptoTema.FormattingEnabled = true;
             this.cmbConceptoTema.Location = new System.Drawing.Point(263, 272);
             this.cmbConceptoTema.Name = "cmbConceptoTema";
             this.cmbConceptoTema.Size = new System.Drawing.Size(89, 22);
-            this.cmbConceptoTema.TabIndex = 17;
+            this.cmbConceptoTema.TabIndex = 14;
             // 
             // label14
             // 
@@ -432,7 +438,7 @@
             this.txtRutaTema.Location = new System.Drawing.Point(83, 300);
             this.txtRutaTema.Name = "txtRutaTema";
             this.txtRutaTema.Size = new System.Drawing.Size(518, 22);
-            this.txtRutaTema.TabIndex = 18;
+            this.txtRutaTema.TabIndex = 15;
             // 
             // btnRutaTema
             // 
@@ -489,6 +495,7 @@
             // 
             // cmbSolicitarQualify
             // 
+            this.cmbSolicitarQualify.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSolicitarQualify.FormattingEnabled = true;
             this.cmbSolicitarQualify.Items.AddRange(new object[] {
             "No",
@@ -496,10 +503,11 @@
             this.cmbSolicitarQualify.Location = new System.Drawing.Point(105, 365);
             this.cmbSolicitarQualify.Name = "cmbSolicitarQualify";
             this.cmbSolicitarQualify.Size = new System.Drawing.Size(38, 22);
-            this.cmbSolicitarQualify.TabIndex = 21;
+            this.cmbSolicitarQualify.TabIndex = 16;
             // 
             // cmbAprobarQualify
             // 
+            this.cmbAprobarQualify.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbAprobarQualify.FormattingEnabled = true;
             this.cmbAprobarQualify.Items.AddRange(new object[] {
             "No",
@@ -507,7 +515,7 @@
             this.cmbAprobarQualify.Location = new System.Drawing.Point(422, 365);
             this.cmbAprobarQualify.Name = "cmbAprobarQualify";
             this.cmbAprobarQualify.Size = new System.Drawing.Size(38, 22);
-            this.cmbAprobarQualify.TabIndex = 22;
+            this.cmbAprobarQualify.TabIndex = 17;
             // 
             // btnVerArchivoTema
             // 
@@ -530,7 +538,7 @@
             this.chkTema.Location = new System.Drawing.Point(8, 193);
             this.chkTema.Name = "chkTema";
             this.chkTema.Size = new System.Drawing.Size(113, 18);
-            this.chkTema.TabIndex = 14;
+            this.chkTema.TabIndex = 11;
             this.chkTema.Text = "Tema Entregado";
             this.chkTema.UseVisualStyleBackColor = true;
             this.chkTema.CheckedChanged += new System.EventHandler(this.chkTema_CheckedChanged);
@@ -561,7 +569,7 @@
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(500, 51);
-            this.txtObservaciones.TabIndex = 66;
+            this.txtObservaciones.TabIndex = 18;
             // 
             // label22
             // 
@@ -645,7 +653,6 @@
             this.MaximumSize = new System.Drawing.Size(624, 533);
             this.MinimumSize = new System.Drawing.Size(624, 533);
             this.Name = "AddEstudiantesDoctForm";
-            this.Size = new System.Drawing.Size(624, 533);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AGREGAR ESTUDIANTE DE DOCTORADO";
             this.Load += new System.EventHandler(this.AddEstudiantesDoctForm_Load);

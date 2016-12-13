@@ -116,7 +116,7 @@
             this.btnCancel.Location = new System.Drawing.Point(467, 444);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 81;
+            this.btnCancel.TabIndex = 18;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -173,7 +173,7 @@
             this.cmbSustentacion.Location = new System.Drawing.Point(89, 36);
             this.cmbSustentacion.Name = "cmbSustentacion";
             this.cmbSustentacion.Size = new System.Drawing.Size(96, 22);
-            this.cmbSustentacion.TabIndex = 24;
+            this.cmbSustentacion.TabIndex = 15;
             // 
             // btnVerSustentacion
             // 
@@ -227,7 +227,7 @@
             this.txtRutaSustentacion.Location = new System.Drawing.Point(244, 36);
             this.txtRutaSustentacion.Name = "txtRutaSustentacion";
             this.txtRutaSustentacion.Size = new System.Drawing.Size(357, 22);
-            this.txtRutaSustentacion.TabIndex = 25;
+            this.txtRutaSustentacion.TabIndex = 16;
             // 
             // btnSelConcepto2Calificador2
             // 
@@ -249,7 +249,7 @@
             this.txtRutaConcepto2Calificador2.Location = new System.Drawing.Point(244, 94);
             this.txtRutaConcepto2Calificador2.Name = "txtRutaConcepto2Calificador2";
             this.txtRutaConcepto2Calificador2.Size = new System.Drawing.Size(357, 22);
-            this.txtRutaConcepto2Calificador2.TabIndex = 25;
+            this.txtRutaConcepto2Calificador2.TabIndex = 14;
             // 
             // label10
             // 
@@ -267,7 +267,7 @@
             this.txtRutaConcepto2Calificador1.Location = new System.Drawing.Point(244, 36);
             this.txtRutaConcepto2Calificador1.Name = "txtRutaConcepto2Calificador1";
             this.txtRutaConcepto2Calificador1.Size = new System.Drawing.Size(357, 22);
-            this.txtRutaConcepto2Calificador1.TabIndex = 25;
+            this.txtRutaConcepto2Calificador1.TabIndex = 12;
             // 
             // label17
             // 
@@ -305,7 +305,7 @@
             this.cmbConcepto1Calificador1.Location = new System.Drawing.Point(89, 36);
             this.cmbConcepto1Calificador1.Name = "cmbConcepto1Calificador1";
             this.cmbConcepto1Calificador1.Size = new System.Drawing.Size(96, 22);
-            this.cmbConcepto1Calificador1.TabIndex = 24;
+            this.cmbConcepto1Calificador1.TabIndex = 7;
             // 
             // btnVerArchivoTesis
             // 
@@ -337,7 +337,7 @@
             this.cmbEstudiante.Location = new System.Drawing.Point(90, 36);
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(223, 22);
-            this.cmbEstudiante.TabIndex = 63;
+            this.cmbEstudiante.TabIndex = 2;
             // 
             // cmbConcepto1Calificador2
             // 
@@ -345,7 +345,7 @@
             this.cmbConcepto1Calificador2.Location = new System.Drawing.Point(89, 94);
             this.cmbConcepto1Calificador2.Name = "cmbConcepto1Calificador2";
             this.cmbConcepto1Calificador2.Size = new System.Drawing.Size(96, 22);
-            this.cmbConcepto1Calificador2.TabIndex = 24;
+            this.cmbConcepto1Calificador2.TabIndex = 9;
             // 
             // btnVerConcepto1Calificador1
             // 
@@ -434,7 +434,7 @@
             0});
             this.numCod.Name = "numCod";
             this.numCod.Size = new System.Drawing.Size(70, 22);
-            this.numCod.TabIndex = 62;
+            this.numCod.TabIndex = 1;
             this.numCod.Value = new decimal(new int[] {
             9999999,
             0,
@@ -476,7 +476,7 @@
             this.txtTesis.Multiline = true;
             this.txtTesis.Name = "txtTesis";
             this.txtTesis.Size = new System.Drawing.Size(533, 51);
-            this.txtTesis.TabIndex = 73;
+            this.txtTesis.TabIndex = 3;
             // 
             // txtRutaConcepto1Calificador2
             // 
@@ -484,7 +484,7 @@
             this.txtRutaConcepto1Calificador2.Location = new System.Drawing.Point(244, 94);
             this.txtRutaConcepto1Calificador2.Name = "txtRutaConcepto1Calificador2";
             this.txtRutaConcepto1Calificador2.Size = new System.Drawing.Size(357, 22);
-            this.txtRutaConcepto1Calificador2.TabIndex = 25;
+            this.txtRutaConcepto1Calificador2.TabIndex = 10;
             // 
             // label4
             // 
@@ -521,7 +521,7 @@
             this.txtRutaTesis.Location = new System.Drawing.Point(90, 121);
             this.txtRutaTesis.Name = "txtRutaTesis";
             this.txtRutaTesis.Size = new System.Drawing.Size(533, 22);
-            this.txtRutaTesis.TabIndex = 74;
+            this.txtRutaTesis.TabIndex = 4;
             // 
             // label16
             // 
@@ -539,7 +539,7 @@
             this.txtRutaConcepto1Calificador1.Location = new System.Drawing.Point(244, 36);
             this.txtRutaConcepto1Calificador1.Name = "txtRutaConcepto1Calificador1";
             this.txtRutaConcepto1Calificador1.Size = new System.Drawing.Size(357, 22);
-            this.txtRutaConcepto1Calificador1.TabIndex = 25;
+            this.txtRutaConcepto1Calificador1.TabIndex = 8;
             // 
             // label3
             // 
@@ -557,7 +557,7 @@
             this.cmbCalificador2.Location = new System.Drawing.Point(400, 187);
             this.cmbCalificador2.Name = "cmbCalificador2";
             this.cmbCalificador2.Size = new System.Drawing.Size(223, 22);
-            this.cmbCalificador2.TabIndex = 66;
+            this.cmbCalificador2.TabIndex = 6;
             // 
             // label24
             // 
@@ -575,7 +575,7 @@
             this.cmbCalificador1.Location = new System.Drawing.Point(90, 187);
             this.cmbCalificador1.Name = "cmbCalificador1";
             this.cmbCalificador1.Size = new System.Drawing.Size(223, 22);
-            this.cmbCalificador1.TabIndex = 64;
+            this.cmbCalificador1.TabIndex = 5;
             // 
             // btnRutaTesis
             // 
@@ -600,7 +600,7 @@
             this.btnAdd.Location = new System.Drawing.Point(548, 444);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 82;
+            this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -620,7 +620,7 @@
             this.cmbConcepto2Calificador2.Location = new System.Drawing.Point(89, 94);
             this.cmbConcepto2Calificador2.Name = "cmbConcepto2Calificador2";
             this.cmbConcepto2Calificador2.Size = new System.Drawing.Size(96, 22);
-            this.cmbConcepto2Calificador2.TabIndex = 24;
+            this.cmbConcepto2Calificador2.TabIndex = 13;
             // 
             // dateCorrecciones
             // 
@@ -660,7 +660,7 @@
             this.cmbConcepto2Calificador1.Location = new System.Drawing.Point(89, 36);
             this.cmbConcepto2Calificador1.Name = "cmbConcepto2Calificador1";
             this.cmbConcepto2Calificador1.Size = new System.Drawing.Size(96, 22);
-            this.cmbConcepto2Calificador1.TabIndex = 24;
+            this.cmbConcepto2Calificador1.TabIndex = 11;
             // 
             // btnVerConcepto2Calificador1
             // 
@@ -799,7 +799,6 @@
             this.MaximumSize = new System.Drawing.Size(646, 514);
             this.MinimumSize = new System.Drawing.Size(646, 514);
             this.Name = "AddTesisMaesForm";
-            this.Size = new System.Drawing.Size(646, 514);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AGREGAR TESIS DE MAESTRIA";
             this.Load += new System.EventHandler(this.AddTesisMaesForm_Load);

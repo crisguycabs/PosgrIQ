@@ -116,7 +116,7 @@
             this.cmbEstudiante.Location = new System.Drawing.Point(91, 36);
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(223, 22);
-            this.cmbEstudiante.TabIndex = 16;
+            this.cmbEstudiante.TabIndex = 2;
             // 
             // label9
             // 
@@ -139,7 +139,7 @@
             0});
             this.numCod.Name = "numCod";
             this.numCod.Size = new System.Drawing.Size(70, 22);
-            this.numCod.TabIndex = 15;
+            this.numCod.TabIndex = 1;
             this.numCod.Value = new decimal(new int[] {
             9999999,
             0,
@@ -163,7 +163,7 @@
             this.txtPropuesta.Multiline = true;
             this.txtPropuesta.Name = "txtPropuesta";
             this.txtPropuesta.Size = new System.Drawing.Size(533, 51);
-            this.txtPropuesta.TabIndex = 20;
+            this.txtPropuesta.TabIndex = 3;
             // 
             // label13
             // 
@@ -181,7 +181,7 @@
             this.txtRutaPropuesta.Location = new System.Drawing.Point(91, 121);
             this.txtRutaPropuesta.Name = "txtRutaPropuesta";
             this.txtRutaPropuesta.Size = new System.Drawing.Size(533, 22);
-            this.txtRutaPropuesta.TabIndex = 25;
+            this.txtRutaPropuesta.TabIndex = 4;
             // 
             // label16
             // 
@@ -209,7 +209,7 @@
             this.datePropuesta.Location = new System.Drawing.Point(89, 5);
             this.datePropuesta.Name = "datePropuesta";
             this.datePropuesta.Size = new System.Drawing.Size(96, 22);
-            this.datePropuesta.TabIndex = 23;
+            this.datePropuesta.TabIndex = 8;
             // 
             // label15
             // 
@@ -251,11 +251,12 @@
             // 
             // cmbConcepto1Calificador1
             // 
+            this.cmbConcepto1Calificador1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConcepto1Calificador1.FormattingEnabled = true;
             this.cmbConcepto1Calificador1.Location = new System.Drawing.Point(89, 36);
             this.cmbConcepto1Calificador1.Name = "cmbConcepto1Calificador1";
             this.cmbConcepto1Calificador1.Size = new System.Drawing.Size(96, 22);
-            this.cmbConcepto1Calificador1.TabIndex = 24;
+            this.cmbConcepto1Calificador1.TabIndex = 9;
             // 
             // label5
             // 
@@ -282,7 +283,7 @@
             this.txtRutaConcepto1Calificador1.Location = new System.Drawing.Point(244, 36);
             this.txtRutaConcepto1Calificador1.Name = "txtRutaConcepto1Calificador1";
             this.txtRutaConcepto1Calificador1.Size = new System.Drawing.Size(357, 22);
-            this.txtRutaConcepto1Calificador1.TabIndex = 25;
+            this.txtRutaConcepto1Calificador1.TabIndex = 10;
             // 
             // btnVerConcepto1Calificador1
             // 
@@ -314,11 +315,12 @@
             // 
             // cmbConcepto1Calificador2
             // 
+            this.cmbConcepto1Calificador2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConcepto1Calificador2.FormattingEnabled = true;
             this.cmbConcepto1Calificador2.Location = new System.Drawing.Point(89, 94);
             this.cmbConcepto1Calificador2.Name = "cmbConcepto1Calificador2";
             this.cmbConcepto1Calificador2.Size = new System.Drawing.Size(96, 22);
-            this.cmbConcepto1Calificador2.TabIndex = 24;
+            this.cmbConcepto1Calificador2.TabIndex = 11;
             // 
             // btnVerConcepto1Calificador2
             // 
@@ -374,15 +376,16 @@
             this.txtRutaConcepto1Calificador2.Location = new System.Drawing.Point(244, 94);
             this.txtRutaConcepto1Calificador2.Name = "txtRutaConcepto1Calificador2";
             this.txtRutaConcepto1Calificador2.Size = new System.Drawing.Size(357, 22);
-            this.txtRutaConcepto1Calificador2.TabIndex = 25;
+            this.txtRutaConcepto1Calificador2.TabIndex = 12;
             // 
             // cmbConcepto1Calificador3
             // 
+            this.cmbConcepto1Calificador3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConcepto1Calificador3.FormattingEnabled = true;
             this.cmbConcepto1Calificador3.Location = new System.Drawing.Point(89, 151);
             this.cmbConcepto1Calificador3.Name = "cmbConcepto1Calificador3";
             this.cmbConcepto1Calificador3.Size = new System.Drawing.Size(96, 22);
-            this.cmbConcepto1Calificador3.TabIndex = 24;
+            this.cmbConcepto1Calificador3.TabIndex = 13;
             // 
             // btnVerConcepto1Calificador3
             // 
@@ -438,23 +441,25 @@
             this.txtRutaConcepto1Calificador3.Location = new System.Drawing.Point(244, 151);
             this.txtRutaConcepto1Calificador3.Name = "txtRutaConcepto1Calificador3";
             this.txtRutaConcepto1Calificador3.Size = new System.Drawing.Size(357, 22);
-            this.txtRutaConcepto1Calificador3.TabIndex = 25;
+            this.txtRutaConcepto1Calificador3.TabIndex = 14;
             // 
             // cmbConcepto2Calificador1
             // 
+            this.cmbConcepto2Calificador1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConcepto2Calificador1.FormattingEnabled = true;
             this.cmbConcepto2Calificador1.Location = new System.Drawing.Point(89, 36);
             this.cmbConcepto2Calificador1.Name = "cmbConcepto2Calificador1";
             this.cmbConcepto2Calificador1.Size = new System.Drawing.Size(96, 22);
-            this.cmbConcepto2Calificador1.TabIndex = 24;
+            this.cmbConcepto2Calificador1.TabIndex = 15;
             // 
             // cmbConcepto2Calificador2
             // 
+            this.cmbConcepto2Calificador2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConcepto2Calificador2.FormattingEnabled = true;
             this.cmbConcepto2Calificador2.Location = new System.Drawing.Point(89, 94);
             this.cmbConcepto2Calificador2.Name = "cmbConcepto2Calificador2";
             this.cmbConcepto2Calificador2.Size = new System.Drawing.Size(96, 22);
-            this.cmbConcepto2Calificador2.TabIndex = 24;
+            this.cmbConcepto2Calificador2.TabIndex = 17;
             // 
             // btnVerConcepto2Calificador1
             // 
@@ -472,11 +477,12 @@
             // 
             // cmbConcepto2Calificador3
             // 
+            this.cmbConcepto2Calificador3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConcepto2Calificador3.FormattingEnabled = true;
             this.cmbConcepto2Calificador3.Location = new System.Drawing.Point(89, 151);
             this.cmbConcepto2Calificador3.Name = "cmbConcepto2Calificador3";
             this.cmbConcepto2Calificador3.Size = new System.Drawing.Size(96, 22);
-            this.cmbConcepto2Calificador3.TabIndex = 24;
+            this.cmbConcepto2Calificador3.TabIndex = 19;
             // 
             // btnVerConcepto2Calificador2
             // 
@@ -632,7 +638,7 @@
             this.txtRutaConcepto2Calificador1.Location = new System.Drawing.Point(244, 36);
             this.txtRutaConcepto2Calificador1.Name = "txtRutaConcepto2Calificador1";
             this.txtRutaConcepto2Calificador1.Size = new System.Drawing.Size(357, 22);
-            this.txtRutaConcepto2Calificador1.TabIndex = 25;
+            this.txtRutaConcepto2Calificador1.TabIndex = 16;
             // 
             // txtRutaConcepto2Calificador2
             // 
@@ -640,7 +646,7 @@
             this.txtRutaConcepto2Calificador2.Location = new System.Drawing.Point(244, 94);
             this.txtRutaConcepto2Calificador2.Name = "txtRutaConcepto2Calificador2";
             this.txtRutaConcepto2Calificador2.Size = new System.Drawing.Size(357, 22);
-            this.txtRutaConcepto2Calificador2.TabIndex = 25;
+            this.txtRutaConcepto2Calificador2.TabIndex = 18;
             // 
             // txtRutaConcepto2Calificador3
             // 
@@ -648,15 +654,16 @@
             this.txtRutaConcepto2Calificador3.Location = new System.Drawing.Point(244, 151);
             this.txtRutaConcepto2Calificador3.Name = "txtRutaConcepto2Calificador3";
             this.txtRutaConcepto2Calificador3.Size = new System.Drawing.Size(357, 22);
-            this.txtRutaConcepto2Calificador3.TabIndex = 25;
+            this.txtRutaConcepto2Calificador3.TabIndex = 20;
             // 
             // cmbSustentacion
             // 
+            this.cmbSustentacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSustentacion.FormattingEnabled = true;
             this.cmbSustentacion.Location = new System.Drawing.Point(89, 36);
             this.cmbSustentacion.Name = "cmbSustentacion";
             this.cmbSustentacion.Size = new System.Drawing.Size(96, 22);
-            this.cmbSustentacion.TabIndex = 24;
+            this.cmbSustentacion.TabIndex = 21;
             // 
             // btnVerSustentacion
             // 
@@ -722,7 +729,7 @@
             this.txtRutaSustentacion.Location = new System.Drawing.Point(244, 36);
             this.txtRutaSustentacion.Name = "txtRutaSustentacion";
             this.txtRutaSustentacion.Size = new System.Drawing.Size(357, 22);
-            this.txtRutaSustentacion.TabIndex = 25;
+            this.txtRutaSustentacion.TabIndex = 22;
             // 
             // dateSustentacion
             // 
@@ -741,7 +748,7 @@
             this.btnAdd.Location = new System.Drawing.Point(549, 505);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 32;
+            this.btnAdd.TabIndex = 23;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -756,7 +763,7 @@
             this.btnCancel.Location = new System.Drawing.Point(468, 505);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 31;
+            this.btnCancel.TabIndex = 24;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -870,11 +877,12 @@
             // 
             // cmbCalificador1
             // 
+            this.cmbCalificador1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCalificador1.FormattingEnabled = true;
             this.cmbCalificador1.Location = new System.Drawing.Point(91, 187);
             this.cmbCalificador1.Name = "cmbCalificador1";
             this.cmbCalificador1.Size = new System.Drawing.Size(223, 22);
-            this.cmbCalificador1.TabIndex = 16;
+            this.cmbCalificador1.TabIndex = 5;
             // 
             // label24
             // 
@@ -888,11 +896,12 @@
             // 
             // cmbCalificador2
             // 
+            this.cmbCalificador2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCalificador2.FormattingEnabled = true;
             this.cmbCalificador2.Location = new System.Drawing.Point(401, 187);
             this.cmbCalificador2.Name = "cmbCalificador2";
             this.cmbCalificador2.Size = new System.Drawing.Size(223, 22);
-            this.cmbCalificador2.TabIndex = 16;
+            this.cmbCalificador2.TabIndex = 6;
             // 
             // label27
             // 
@@ -906,11 +915,12 @@
             // 
             // cmbCalificador3
             // 
+            this.cmbCalificador3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCalificador3.FormattingEnabled = true;
             this.cmbCalificador3.Location = new System.Drawing.Point(401, 215);
             this.cmbCalificador3.Name = "cmbCalificador3";
             this.cmbCalificador3.Size = new System.Drawing.Size(223, 22);
-            this.cmbCalificador3.TabIndex = 16;
+            this.cmbCalificador3.TabIndex = 7;
             // 
             // btnAddProfesor
             // 
@@ -973,7 +983,6 @@
             this.MaximumSize = new System.Drawing.Size(647, 576);
             this.MinimumSize = new System.Drawing.Size(647, 576);
             this.Name = "AddPropuestaDoctForm";
-            this.Size = new System.Drawing.Size(647, 576);
             this.Text = "AGREGAR PROPUESTA DE DOCTORADO";
             this.Load += new System.EventHandler(this.AddPropuestaDoctForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCod)).EndInit();

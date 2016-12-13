@@ -94,7 +94,7 @@
             this.btnAdd.Location = new System.Drawing.Point(89, 68);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 4;
+            this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -109,7 +109,7 @@
             this.btnCancel.Location = new System.Drawing.Point(8, 68);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 3;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -135,7 +135,6 @@
             this.MaximumSize = new System.Drawing.Size(186, 137);
             this.MinimumSize = new System.Drawing.Size(186, 137);
             this.Name = "AddReglamentosForm";
-            this.Size = new System.Drawing.Size(186, 137);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AGREGAR REGLAMENTOS";
             this.Load += new System.EventHandler(this.AddReglamentosForm_Load);

@@ -55,7 +55,7 @@
             this.btnAdd.Location = new System.Drawing.Point(547, 202);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 64;
+            this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -70,13 +70,14 @@
             this.btnCancel.Location = new System.Drawing.Point(466, 202);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 63;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // cmbAlcance
             // 
+            this.cmbAlcance.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbAlcance.FormattingEnabled = true;
             this.cmbAlcance.Items.AddRange(new object[] {
             "Nacional",
@@ -84,14 +85,14 @@
             this.cmbAlcance.Location = new System.Drawing.Point(89, 178);
             this.cmbAlcance.Name = "cmbAlcance";
             this.cmbAlcance.Size = new System.Drawing.Size(96, 22);
-            this.cmbAlcance.TabIndex = 62;
+            this.cmbAlcance.TabIndex = 6;
             // 
             // txtRevista
             // 
             this.txtRevista.Location = new System.Drawing.Point(89, 150);
             this.txtRevista.Name = "txtRevista";
             this.txtRevista.Size = new System.Drawing.Size(533, 22);
-            this.txtRevista.TabIndex = 61;
+            this.txtRevista.TabIndex = 5;
             // 
             // label14
             // 
@@ -108,7 +109,7 @@
             this.dateAceptado.Location = new System.Drawing.Point(89, 122);
             this.dateAceptado.Name = "dateAceptado";
             this.dateAceptado.Size = new System.Drawing.Size(96, 22);
-            this.dateAceptado.TabIndex = 60;
+            this.dateAceptado.TabIndex = 4;
             // 
             // txtTitulo
             // 
@@ -117,7 +118,7 @@
             this.txtTitulo.Multiline = true;
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(533, 51);
-            this.txtTitulo.TabIndex = 58;
+            this.txtTitulo.TabIndex = 3;
             // 
             // label13
             // 
@@ -131,11 +132,12 @@
             // 
             // cmbEstudiante
             // 
+            this.cmbEstudiante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbEstudiante.FormattingEnabled = true;
             this.cmbEstudiante.Location = new System.Drawing.Point(89, 36);
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(223, 22);
-            this.cmbEstudiante.TabIndex = 52;
+            this.cmbEstudiante.TabIndex = 2;
             // 
             // label3
             // 
@@ -178,7 +180,7 @@
             0});
             this.numCod.Name = "numCod";
             this.numCod.Size = new System.Drawing.Size(70, 22);
-            this.numCod.TabIndex = 51;
+            this.numCod.TabIndex = 1;
             this.numCod.Value = new decimal(new int[] {
             9999999,
             0,
@@ -224,7 +226,6 @@
             this.MaximumSize = new System.Drawing.Size(644, 271);
             this.MinimumSize = new System.Drawing.Size(644, 271);
             this.Name = "AddPonenciasMaesForm";
-            this.Size = new System.Drawing.Size(644, 271);
             this.Text = "AGREGAR PONENCIAS DE MAESTRIA";
             this.Load += new System.EventHandler(this.AddPonenciasMaesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCod)).EndInit();

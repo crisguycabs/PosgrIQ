@@ -62,7 +62,7 @@
             this.txtCorreo.Location = new System.Drawing.Point(98, 42);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(212, 22);
-            this.txtCorreo.TabIndex = 1;
+            this.txtCorreo.TabIndex = 2;
             // 
             // btnClose
             // 
@@ -73,7 +73,7 @@
             this.btnClose.Location = new System.Drawing.Point(553, 241);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 25;
+            this.btnClose.TabIndex = 8;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -94,7 +94,7 @@
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(212, 22);
-            this.txtClave.TabIndex = 1;
+            this.txtClave.TabIndex = 3;
             // 
             // label3
             // 
@@ -111,7 +111,7 @@
             this.txtRutaOne.Location = new System.Drawing.Point(98, 155);
             this.txtRutaOne.Name = "txtRutaOne";
             this.txtRutaOne.Size = new System.Drawing.Size(530, 22);
-            this.txtRutaOne.TabIndex = 1;
+            this.txtRutaOne.TabIndex = 5;
             this.txtRutaOne.Text = "C:\\Users\\Hdsp\\OneDrive\\OneDrive - Universidad Industrial de Santander";
             // 
             // btnRutaOne
@@ -135,7 +135,7 @@
             this.chkCambios.Location = new System.Drawing.Point(7, 12);
             this.chkCambios.Name = "chkCambios";
             this.chkCambios.Size = new System.Drawing.Size(124, 18);
-            this.chkCambios.TabIndex = 26;
+            this.chkCambios.TabIndex = 1;
             this.chkCambios.Text = "Habilitar cambios";
             this.chkCambios.UseVisualStyleBackColor = true;
             this.chkCambios.CheckedChanged += new System.EventHandler(this.chkCambios_CheckedChanged);
@@ -155,7 +155,7 @@
             this.txtRutaBD.Location = new System.Drawing.Point(98, 98);
             this.txtRutaBD.Name = "txtRutaBD";
             this.txtRutaBD.Size = new System.Drawing.Size(530, 22);
-            this.txtRutaBD.TabIndex = 1;
+            this.txtRutaBD.TabIndex = 4;
             this.txtRutaBD.Text = "C:\\Users\\Hdsp\\OneDrive\\OneDrive - Universidad Industrial de Santander";
             // 
             // btnRutaBD
@@ -187,7 +187,7 @@
             this.txtDirector.Location = new System.Drawing.Point(98, 212);
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(200, 22);
-            this.txtDirector.TabIndex = 1;
+            this.txtDirector.TabIndex = 6;
             this.txtDirector.Text = "C:\\Users\\Hdsp\\OneDrive\\OneDrive - Universidad Industrial de Santander";
             // 
             // txtCoordinador
@@ -196,7 +196,7 @@
             this.txtCoordinador.Location = new System.Drawing.Point(428, 211);
             this.txtCoordinador.Name = "txtCoordinador";
             this.txtCoordinador.Size = new System.Drawing.Size(200, 22);
-            this.txtCoordinador.TabIndex = 28;
+            this.txtCoordinador.TabIndex = 7;
             this.txtCoordinador.Text = "C:\\Users\\Hdsp\\OneDrive\\OneDrive - Universidad Industrial de Santander";
             // 
             // label6
