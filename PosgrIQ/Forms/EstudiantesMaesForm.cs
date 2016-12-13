@@ -174,9 +174,20 @@ namespace PosgrIQ
 
                 dataGridEstudiantes.Sort(dataGridEstudiantes.Columns[0], ListSortDirection.Ascending);
             }
-            catch
+            catch(OleDbException ex)
             {
-                MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes de Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //string errorMessages = "";
+
+                //for (int i = 0; i < ex.Errors.Count; i++)
+                //{
+                //    errorMessages += "Index #" + i + "\n" +
+                //                     "Message: " + ex.Errors[i].Message + "\n" +
+                //                     "NativeError: " + ex.Errors[i].NativeError + "\n" +
+                //                     "Source: " + ex.Errors[i].Source + "\n" +
+                //                     "SQLState: " + ex.Errors[i].SQLState + "\n";
+                //}
+                //MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes de Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MainForm.ErrorOleDb("Estudiantes de Maestria",ex);
             }
         }
 

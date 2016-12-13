@@ -218,6 +218,18 @@ namespace PosgrIQ
             Application.Exit();
         }
 
+        static public void ErrorOleDb(string tabla, OleDbException ex)
+        {
+            string errorMessages = "No se puede acceder a la tabla " + tabla + "\r\n\r\n";
+
+            for (int i = 0; i < ex.Errors.Count; i++)
+            {
+                errorMessages += ex.Errors[i].Message + "\r\n\r\n";                
+            }
+
+            MessageBox.Show(errorMessages, "ERROR DE CONEXION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             if (!GetSource())

@@ -152,7 +152,7 @@ namespace PosgrIQ
                     fila[14] = dtPropuestasDoct.Rows[i][21];
 
                     // concepto sustentacion
-                    fila[15] = dtPropuestasDoct.Rows[i][22];
+                    fila[15] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][22].ToString())[0][1];
 
                     dt.Rows.Add(fila);
                 }

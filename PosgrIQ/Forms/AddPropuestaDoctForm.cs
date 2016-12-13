@@ -234,7 +234,17 @@ namespace PosgrIQ
                         numCod.Value = codigo;
 
                         // estudiante
-                        cmbEstudiante.SelectedIndex = Convert.ToInt32(seleccionado[0][1]) - 1;
+                        // se selecciona el indice en el cmbEstudiante segun el codigo de estudiante en la propuesta
+                        string est = seleccionado[0][1].ToString();
+                        for (int i = 0; i < dtEstudiantes.Rows.Count; i++)
+                        {
+                            if (dtEstudiantes.Rows[i][0].ToString() == est)
+                            {
+                                cmbEstudiante.SelectedIndex = i;
+                                break;
+                            }
+                        }
+                        //cmbEstudiante.SelectedIndex = Convert.ToInt32(seleccionado[0][1]) - 1;
 
                         // titulo
                         txtPropuesta.Text = Convert.ToString(seleccionado[0][2]);
@@ -455,7 +465,7 @@ namespace PosgrIQ
                         query2 += numCod.Value.ToString();
 
                         query += ", estudiante";
-                        query2 += ", " + (cmbEstudiante.SelectedIndex + 1).ToString();
+                        query2 += ", " + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
 
                         query += ", titulo";
                         query2 += ", '" + txtPropuesta.Text + "'";
@@ -464,13 +474,13 @@ namespace PosgrIQ
                         query2 += ", '" + txtRutaPropuesta.Text + "'";
 
                         query += ", calificador1";
-                        query2 += ", " + (cmbCalificador1.SelectedIndex + 1).ToString();
+                        query2 += ", " + (dtProfesores.Rows[cmbCalificador1.SelectedIndex][0]).ToString();
 
                         query += ", calificador2";
-                        query2 += ", " + (cmbCalificador2.SelectedIndex + 1).ToString();
+                        query2 += ", " + (dtProfesores.Rows[cmbCalificador2.SelectedIndex][0]).ToString();
 
                         query += ", calificador3";
-                        query2 += ", " + (cmbCalificador3.SelectedIndex + 1).ToString();
+                        query2 += ", " + (dtProfesores.Rows[cmbCalificador3.SelectedIndex][0]).ToString();
 
                         query += ", entrega1";
                         query2 += ", '" + MainForm.Fecha2Texto(this.datePropuesta.Value) + "'";
@@ -526,78 +536,101 @@ namespace PosgrIQ
                             query2 += ", '" + txtRutaConcepto1Calificador3.Text + "'";
                         }
 
-                        query += ", correcciones";
-                        query2 += ", '" + MainForm.Fecha2Texto(dateCorrecciones.Value) + "'";
-
-                        if (cmbConcepto2Calificador1.SelectedIndex >= 0)
+                        if (chkCorrecciones.Checked)
                         {
-                            query += ", concepto2calificador1";
-                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+                            query += ", correcciones";
+                            query2 += ", '" + MainForm.Fecha2Texto(dateCorrecciones.Value) + "'";
+
+                            if (cmbConcepto2Calificador1.SelectedIndex >= 0)
+                            {
+                                query += ", concepto2calificador1";
+                                query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+                            }
+                            else
+                            {
+                                query += ", concepto2calificador1";
+                                query2 += ", 1";
+                            }
+
+                            if (cmbConcepto2Calificador2.SelectedIndex >= 0)
+                            {
+                                query += ", concepto2calificador2";
+                                query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
+                            }
+                            else
+                            {
+                                query += ", concepto2calificador2";
+                                query2 += ", 1";
+                            }
+
+                            if (cmbConcepto2Calificador3.SelectedIndex >= 0)
+                            {
+                                query += ", concepto2calificador3";
+                                query2 += ", " + (cmbConcepto2Calificador3.SelectedIndex + 1).ToString();
+                            }
+                            else
+                            {
+                                query += ", concepto2calificador3";
+                                query2 += ", 1";
+                            }
+
+                            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text))
+                            {
+                                query += ", rutaconcepto2calificador1";
+                                query2 += ", '" + txtRutaConcepto2Calificador1.Text + "'";
+                            }
+
+                            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text))
+                            {
+                                query += ", rutaconcepto2calificador2";
+                                query2 += ", '" + txtRutaConcepto2Calificador2.Text + "'";
+                            }
+
+                            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador3.Text))
+                            {
+                                query += ", rutaconcepto2calificador3";
+                                query2 += ", '" + txtRutaConcepto2Calificador3.Text + "'";
+                            }
+
                         }
                         else
                         {
                             query += ", concepto2calificador1";
-                            query2 += ", 1";
-                        }
+                            query2 += ", 0";
 
-                        if (cmbConcepto2Calificador2.SelectedIndex >= 0)
-                        {
                             query += ", concepto2calificador2";
-                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
-                        }
-                        else
-                        {
-                            query += ", concepto2calificador2";
-                            query2 += ", 1";
-                        }
+                            query2 += ", 0";
 
-                        if (cmbConcepto2Calificador3.SelectedIndex >= 0)
-                        {
                             query += ", concepto2calificador3";
-                            query2 += ", " + (cmbConcepto2Calificador3.SelectedIndex + 1).ToString();
-                        }
-                        else
-                        {
-                            query += ", concepto2calificador3";
-                            query2 += ", 1";
+                            query2 += ", 0";
                         }
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text))
+                        if (chkSustentacion.Checked)
                         {
-                            query += ", rutaconcepto2calificador1";
-                            query2 += ", '" + txtRutaConcepto2Calificador1.Text + "'";
-                        }
+                            query += ", sustentacion";
+                            query2 += " ,'" + MainForm.Fecha2Texto(dateSustentacion.Value) + "'";
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text))
-                        {
-                            query += ", rutaconcepto2calificador2";
-                            query2 += ", '" + txtRutaConcepto2Calificador2.Text + "'";
-                        }
+                            if (cmbSustentacion.SelectedIndex >= 0)
+                            {
+                                query += ", conceptofinal";
+                                query2 += ", " + (cmbSustentacion.SelectedIndex + 1).ToString();
+                            }
+                            else
+                            {
+                                query += ", conceptofinal";
+                                query2 += ", 1";
+                            }
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador3.Text))
-                        {
-                            query += ", rutaconcepto2calificador3";
-                            query2 += ", '" + txtRutaConcepto2Calificador3.Text + "'";
-                        }
-
-                        query += ", sustentacion";
-                        query2 +=" ,'" + MainForm.Fecha2Texto(dateSustentacion.Value) + "'";
-
-                        if (cmbSustentacion.SelectedIndex >= 0)
-                        {
-                            query += ", conceptofinal";
-                            query2 += ", " + (cmbSustentacion.SelectedIndex + 1).ToString();
+                            if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text))
+                            {
+                                query += ", rutaconceptofinal";
+                                query2 += ", '" + txtRutaSustentacion.Text + "'";
+                            }
                         }
                         else
                         {
                             query += ", conceptofinal";
-                            query2 += ", 1";
-                        }
-
-                        if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text))
-                        {
-                            query += ", rutaconceptofinal";
-                            query2 += ", '" + txtRutaSustentacion.Text + "'";
+                            query2 += ", 0";
                         }
 
                         query += ")";
@@ -920,6 +953,8 @@ namespace PosgrIQ
         {
             // se selecciono un estudiante, por tanto se debe buscar el TEMA en la tabla de estudiantes
 
+            if (cmbEstudiante.SelectedIndex < 0) return; // no hacer nada en caso que se resetee el comboBox
+
             // se prepara la conexion
             OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             string query;
@@ -936,11 +971,11 @@ namespace PosgrIQ
 
                 command.ExecuteNonQuery();
 
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtEstudiantes = new DataTable();
                 da.Fill(dtEstudiantes);
+
+                conection.Close();
 
                 txtPropuesta.Text = Convert.ToString(dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][11]);
             }
@@ -948,6 +983,16 @@ namespace PosgrIQ
             {
                 MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void chkCorrecciones_CheckedChanged(object sender, EventArgs e)
+        {
+            dateCorrecciones.Enabled = cmbConcepto2Calificador1.Enabled = cmbConcepto2Calificador2.Enabled = cmbConcepto2Calificador3.Enabled = txtRutaConcepto2Calificador1.Enabled = txtRutaConcepto2Calificador2.Enabled = txtRutaConcepto2Calificador3.Enabled = btnSelConcepto2Calificador1.Enabled = btnSelConcepto2Calificador2.Enabled = btnSelConcepto2Calificador3.Enabled = btnVerConcepto2Calificador1.Enabled = btnVerConcepto2Calificador2.Enabled = btnVerConcepto2Calificador3.Enabled = chkCorrecciones.Checked;
+        }
+
+        private void chkSustentacion_CheckedChanged(object sender, EventArgs e)
+        {
+            dateSustentacion.Enabled = cmbSustentacion.Enabled = txtRutaSustentacion.Enabled = btnSelSustentacion.Enabled = btnVerSustentacion.Enabled = chkSustentacion.Checked;
         }
     }
 }

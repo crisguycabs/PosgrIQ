@@ -126,10 +126,10 @@ namespace PosgrIQ
                     fila[5] = dtProfesores.Select("codigo=" + dtPropuestasMaes.Rows[i][5].ToString())[0][1];
 
                     // concepto 1 calificador 1
-                    fila[6] = dtConceptos.Select("codigo=" + dtPropuestasMaes.Rows[i][8].ToString())[0][1];
+                    fila[6] = dtConceptos.Select("codigo=" + dtPropuestasMaes.Rows[i][7].ToString())[0][1];
 
                     // concepto 1 calificador 2
-                    fila[7] = dtConceptos.Select("codigo=" + dtPropuestasMaes.Rows[i][9].ToString())[0][1];
+                    fila[7] = dtConceptos.Select("codigo=" + dtPropuestasMaes.Rows[i][8].ToString())[0][1];
 
                     // fecha de entrega de correcciones
                     fila[8] = dtPropuestasMaes.Rows[i][11];
@@ -144,7 +144,7 @@ namespace PosgrIQ
                     fila[11] = dtPropuestasMaes.Rows[i][16];
 
                     // concepto sustentacion
-                    fila[12] = dtPropuestasMaes.Rows[i][17];
+                    fila[12] = dtConceptos.Select("codigo=" + dtPropuestasMaes.Rows[i][17].ToString())[0][1];
 
                     dt.Rows.Add(fila);
                 }
