@@ -307,12 +307,11 @@ namespace PosgrIQ
 
                 string query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
                 OleDbCommand command = new OleDbCommand(query, conection);
+                conection.Close();
                 OleDbDataAdapter da = new OleDbDataAdapter(command);
 
                 dtConceptos = new DataTable();
-                da.Fill(dtConceptos);
-
-                conection.Close();
+                da.Fill(dtConceptos);                
 
                 cmbConceptoTema.Items.Clear();
 
@@ -511,7 +510,7 @@ namespace PosgrIQ
                     // se agrega el estudiante
                     try
                     {
-                        conection.Open();
+                        
 
                         // se prepara la cadena SQL
                         query = "INSERT INTO EstudiantesMaes (";
@@ -586,6 +585,8 @@ namespace PosgrIQ
                         query2 += ")";
                         query += query2;
 
+                        conection.Open();
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
@@ -626,8 +627,6 @@ namespace PosgrIQ
                     // se modifica el estudiante
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         query = "UPDATE EstudiantesMaes SET ";
                         query += "codigo=" + numCod.Value.ToString();
@@ -668,6 +667,8 @@ namespace PosgrIQ
                         query += ", observaciones='" + txtObservaciones.Text + "'";
 
                         query += " WHERE codigo=" + codigo.ToString();
+
+                        conection.Open();
 
                         command = new OleDbCommand(query, conection);
 

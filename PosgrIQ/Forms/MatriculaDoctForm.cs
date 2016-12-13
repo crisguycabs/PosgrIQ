@@ -33,8 +33,6 @@ namespace PosgrIQ
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
-                conection.Open();
-
                 // algunas variables
                 string query;
                 OleDbCommand command;
@@ -43,7 +41,9 @@ namespace PosgrIQ
 
                 // se pide la informacion de las propuestas de doctorado
                 query = "SELECT * FROM MatriculaDoct ORDER BY codigo ASC";
+                conection.Open(); 
                 command = new OleDbCommand(query, conection);
+                conection.Close();
 
                 da = new OleDbDataAdapter(command);
                 dtMatriculaDoct = new DataTable();
@@ -51,7 +51,9 @@ namespace PosgrIQ
 
                 // se pide la informacion de los estudiantes de doctorado
                 query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
+                conection.Open(); 
                 command = new OleDbCommand(query, conection);
+                conection.Close();
 
                 da = new OleDbDataAdapter(command);
                 dtEstudiantesDoct = new DataTable();
@@ -59,7 +61,9 @@ namespace PosgrIQ
 
                 // se pide la informacion de los semestres
                 query = "SELECT * FROM Semestres ORDER BY codigo ASC";
+                conection.Open(); 
                 command = new OleDbCommand(query, conection);
+                conection.Close();
 
                 da = new OleDbDataAdapter(command);
                 dtSemestre = new DataTable();
@@ -183,8 +187,6 @@ namespace PosgrIQ
 
                 // se enlaza el datatable con el datagrid
                 dataGridMatricula.DataSource = dt;
-
-                conection.Close();
 
                 // se reescala el datagridview
                 MainForm.ReescalarDataGridView(ref dataGridMatricula);

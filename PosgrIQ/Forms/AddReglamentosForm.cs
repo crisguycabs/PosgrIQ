@@ -135,10 +135,11 @@ namespace PosgrIQ
                     // se agrega el reglamento
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         query = "INSERT INTO Reglamentos VALUES(" + numCod.Value.ToString() + ",'" + txtNombre.Text + "')";
+                        
+                        conection.Open();
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
@@ -170,10 +171,11 @@ namespace PosgrIQ
                     // se modifica la escuela
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         query = "UPDATE Reglamentos SET codigo=" + numCod.Value.ToString() + ", nombre='" + txtNombre.Text + "' WHERE codigo=" + codigo.ToString();
+
+                        conection.Open();
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();

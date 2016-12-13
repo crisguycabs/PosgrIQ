@@ -245,11 +245,12 @@ namespace PosgrIQ
                     // se agrega el profesor
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         busqueda = dtEscuelas.Select("escuela='" + cmbEscuela.Items[cmbEscuela.SelectedIndex] + "'");
                         query = "INSERT INTO Profesores VALUES(" + numCod.Value.ToString() + ",'" + txtNombre.Text + "'," + (cmbColegiatura.SelectedIndex + 1).ToString() + "," + busqueda[0][0] + ",'" + txtCorreo.Text + "','" + txtTelefono.Text + "','" + txtUniversidad.Text + "')";
+                        
+                        conection.Open();
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
@@ -287,11 +288,12 @@ namespace PosgrIQ
                     // se modifica el profesor
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         busqueda = dtEscuelas.Select("escuela='" + cmbEscuela.Items[cmbEscuela.SelectedIndex] + "'");
                         query = "UPDATE Profesores SET codigo=" + numCod.Value.ToString() + ", nombre='" + txtNombre.Text + "', colegiatura=" + (cmbColegiatura.SelectedIndex + 1).ToString() + ", escuela=" + busqueda[0][0] + ", correo='" + txtCorreo.Text + "', telefono='" + txtTelefono.Text + "', universidad='" + txtUniversidad.Text + "' WHERE codigo=" + codigo.ToString();
+
+                        conection.Open();
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();

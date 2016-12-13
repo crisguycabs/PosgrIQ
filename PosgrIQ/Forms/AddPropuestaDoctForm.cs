@@ -447,8 +447,6 @@ namespace PosgrIQ
                     // se agrega la propuesta
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         query = "INSERT INTO PropuestaDoct (";
                         query2 = " VALUES (";
@@ -606,6 +604,8 @@ namespace PosgrIQ
                         query2 += ")";
                         query += query2;
 
+                        conection.Open();
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
@@ -652,8 +652,6 @@ namespace PosgrIQ
 
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         query = "UPDATE PropuestaDoct SET ";
                         query += "codigo=" + numCod.Value.ToString();
@@ -698,6 +696,8 @@ namespace PosgrIQ
                         if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text)) query += ", rutaconceptofinal='" + txtRutaSustentacion.Text + "'";
 
                         query += " WHERE codigo=" + codigo.ToString();
+
+                        conection.Open();
 
                         command = new OleDbCommand(query, conection);
 
@@ -936,11 +936,11 @@ namespace PosgrIQ
 
                 command.ExecuteNonQuery();
 
+                conection.Close();
+
                 da = new OleDbDataAdapter(command);
                 dtEstudiantes = new DataTable();
                 da.Fill(dtEstudiantes);
-
-                conection.Close();
 
                 txtPropuesta.Text = Convert.ToString(dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][11]);
             }

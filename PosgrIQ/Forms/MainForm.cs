@@ -343,6 +343,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -356,6 +357,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -369,6 +371,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -382,6 +385,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -395,6 +399,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -408,6 +413,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -421,6 +427,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -434,6 +441,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -447,6 +455,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -460,6 +469,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -473,6 +483,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -486,6 +497,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -499,6 +511,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -512,6 +525,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -525,6 +539,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -538,6 +553,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -551,6 +567,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -564,6 +581,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -577,6 +595,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close(); 
                     return false;
                 }
 
@@ -590,6 +609,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close();
                     return false;
                 }
 
@@ -603,6 +623,7 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conection.Close();
                     return false;
                 }
 

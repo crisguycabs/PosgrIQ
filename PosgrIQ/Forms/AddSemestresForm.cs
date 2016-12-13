@@ -306,8 +306,6 @@ namespace PosgrIQ
                     {
                         datePropuestaDoct.Format = DateTimePickerFormat.Short;
 
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         query = "INSERT INTO Semestres VALUES(";
                         query += numCod.Value.ToString() + ",";
@@ -319,6 +317,8 @@ namespace PosgrIQ
                         query += "'" + MainForm.Fecha2Texto(datePropuestaMaes.Value) + "',";
                         query += "'" + MainForm.Fecha2Texto(datePedirQualify.Value) + "',";
                         query += "'" + MainForm.Fecha2Texto(dateTema.Value) + "')";
+
+                        conection.Open();
 
                         command = new OleDbCommand(query, conection);
 
@@ -347,8 +347,6 @@ namespace PosgrIQ
                     // se modifica el semestre
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
 
                         query = "UPDATE Semestres SET ";
@@ -362,6 +360,9 @@ namespace PosgrIQ
                         query += "pedirqualify='" + MainForm.Fecha2Texto(datePedirQualify.Value) + "', ";
                         query += "tema='" + MainForm.Fecha2Texto(dateTema.Value) + "' ";
                         query += "WHERE codigo=" + codigo.ToString();
+
+                        conection.Open();
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();

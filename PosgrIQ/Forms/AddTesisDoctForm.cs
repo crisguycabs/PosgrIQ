@@ -64,9 +64,10 @@ namespace PosgrIQ
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
+                string query = "SELECT * FROM Profesores ORDER BY codigo ASC";
+                
                 conection.Open();
 
-                string query = "SELECT * FROM Profesores ORDER BY codigo ASC";
                 OleDbCommand command = new OleDbCommand(query, conection);
                 OleDbDataAdapter da = new OleDbDataAdapter(command);
 
@@ -571,8 +572,6 @@ namespace PosgrIQ
                     // se agrega la propuesta
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         query = "INSERT INTO TesisDoct (";
                         query2 = " VALUES (";
@@ -804,6 +803,8 @@ namespace PosgrIQ
                         query2 += ")";
                         query += query2;
 
+                        conection.Open();
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
@@ -860,8 +861,6 @@ namespace PosgrIQ
 
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         query = "UPDATE TesisDoct SET ";
                         query += "codigo=" + numCod.Value.ToString();
@@ -924,6 +923,8 @@ namespace PosgrIQ
                         if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text)) query += ", rutaconceptofinal='" + txtRutaSustentacion.Text + "'";
 
                         query += " WHERE codigo=" + codigo.ToString();
+
+                        conection.Open();
 
                         command = new OleDbCommand(query, conection);
 

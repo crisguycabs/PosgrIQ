@@ -522,8 +522,6 @@ namespace PosgrIQ
                     // se agrega el estudiante
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         query = "INSERT INTO EstudiantesDoct (";
                         query2 = " VALUES (";
@@ -606,7 +604,9 @@ namespace PosgrIQ
                         query += ")";
                         query2 += ")";
                         query += query2;
-                        
+
+                        conection.Open();
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
@@ -648,8 +648,6 @@ namespace PosgrIQ
                     // se modifica el estudiante
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         query = "UPDATE EstudiantesDoct SET ";
                         query += "codigo=" + numCod.Value.ToString();
@@ -696,6 +694,8 @@ namespace PosgrIQ
                         query += ", observaciones='" + txtObservaciones.Text + "'";
 
                         query += " WHERE codigo=" + codigo.ToString();
+
+                        conection.Open();
 
                         command = new OleDbCommand(query, conection);
 

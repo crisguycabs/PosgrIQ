@@ -244,8 +244,6 @@ namespace PosgrIQ
                 case true: // se agrega la publicacion
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         query = "INSERT INTO PublicacionesDoct (";
                         query2 = " VALUES (";
@@ -276,6 +274,8 @@ namespace PosgrIQ
                         query2 += ")";
                         query += query2;
 
+                        conection.Open();
+
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
@@ -305,8 +305,6 @@ namespace PosgrIQ
 
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         query = "UPDATE PropuestaDoct SET ";
                         query += "codigo=" + numCod.Value.ToString();
@@ -321,6 +319,8 @@ namespace PosgrIQ
                         query += ", categoria='" + txtCategoria.Text + "'";
 
                         query += " WHERE codigo=" + codigo.ToString();
+
+                        conection.Open();
 
                         command = new OleDbCommand(query, conection);
 
