@@ -915,5 +915,39 @@ namespace PosgrIQ
 
             if (agregar.ShowDialog() == DialogResult.OK) this.LlenarProfesores();
         }
+
+        private void cmbEstudiante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // se selecciono un estudiante, por tanto se debe buscar el TEMA en la tabla de estudiantes
+
+            // se prepara la conexion
+            OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
+            string query;
+            OleDbCommand command;
+            OleDbDataAdapter da;
+
+            // se crea la cadena de busqueda
+            query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
+
+            try
+            {
+                conection.Open();
+                command = new OleDbCommand(query, conection);
+
+                command.ExecuteNonQuery();
+
+                da = new OleDbDataAdapter(command);
+                dtEstudiantes = new DataTable();
+                da.Fill(dtEstudiantes);
+
+                conection.Close();
+
+                txtPropuesta.Text = Convert.ToString(dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][11]);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede acceder a la base de datos, tabla Estudiantes Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
