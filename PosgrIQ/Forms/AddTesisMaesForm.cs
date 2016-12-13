@@ -223,7 +223,17 @@ namespace PosgrIQ
                         numCod.Value = codigo;
 
                         // estudiante
-                        cmbEstudiante.SelectedIndex = Convert.ToInt32(seleccionado[0][1]) - 1;
+                        // se selecciona el indice en el cmbEstudiante segun el codigo de estudiante en la propuesta
+                        string est = seleccionado[0][1].ToString();
+                        for (int i = 0; i < dtEstudiantes.Rows.Count; i++)
+                        {
+                            if (dtEstudiantes.Rows[i][0].ToString() == est)
+                            {
+                                cmbEstudiante.SelectedIndex = i;
+                                break;
+                            }
+                        }
+                        //cmbEstudiante.SelectedIndex = Convert.ToInt32(seleccionado[0][1]) - 1;
 
                         // titulo
                         txtTesis.Text = Convert.ToString(seleccionado[0][2]);
@@ -553,7 +563,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador1.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador1";
-                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -564,7 +574,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador2.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador2";
-                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -590,7 +600,7 @@ namespace PosgrIQ
                         if (cmbConcepto2Calificador1.SelectedIndex >= 0)
                         {
                             query += ", concepto2calificador1";
-                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -601,7 +611,7 @@ namespace PosgrIQ
                         if (cmbConcepto2Calificador2.SelectedIndex >= 0)
                         {
                             query += ", concepto2calificador2";
-                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -627,7 +637,7 @@ namespace PosgrIQ
                         if (cmbSustentacion.SelectedIndex >= 0)
                         {
                             query += ", conceptofinal";
-                            query2 += ", " + (cmbSustentacion.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbSustentacion.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -739,6 +749,48 @@ namespace PosgrIQ
                         MessageBox.Show("No se puede acceder a la base de datos, tabla Tesis de Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     break;
+            }
+        }
+
+        private void cmbEstudiante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // se selecciono un estudiante, por tanto se debe buscar la PROPUESTA en la tabla de propuestas
+
+            if (cmbEstudiante.SelectedIndex < 0) return; // no hacer nada en caso que se resetee el comboBox
+
+            // se prepara la conexion
+            OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
+            string query;
+            OleDbCommand command;
+            OleDbDataAdapter da;
+
+            // se crea la cadena de busqueda
+            query = "SELECT * FROM PropuestaMaes ORDER BY codigo ASC";
+
+            try
+            {
+                conection.Open();
+                command = new OleDbCommand(query, conection);
+
+                command.ExecuteNonQuery();
+
+                da = new OleDbDataAdapter(command);
+                DataTable dtPropuestas = new DataTable();
+                da.Fill(dtPropuestas);
+
+                conection.Close();
+
+                // se busca si existe alguna propuesta a nombre del estudiante seleccionado
+                DataRow[] seleccion = dtPropuestas.Select("estudiante=" + this.dtEstudiantes.Rows[this.cmbEstudiante.SelectedIndex][0].ToString());
+                if (seleccion.Length > 0)
+                {
+                    txtTesis.Text = Convert.ToString(seleccion[0][2]);
+                }
+                else txtTesis.Text = "";
+            }
+            catch
+            {
+                MessageBox.Show("No se puede acceder a la base de datos, tabla Propuestas Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

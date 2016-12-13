@@ -609,7 +609,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador1.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador1";
-                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -620,7 +620,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador2.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador2";
-                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -631,7 +631,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador3.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador3";
-                            query2 += ", " + (cmbConcepto1Calificador3.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador3.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -642,7 +642,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador4.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador4";
-                            query2 += ", " + (cmbConcepto1Calificador4.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador4.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -653,7 +653,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador5.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador5";
-                            query2 += ", " + (cmbConcepto1Calificador5.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador5.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -697,7 +697,7 @@ namespace PosgrIQ
                         if (cmbConcepto2Calificador1.SelectedIndex >= 0)
                         {
                             query += ", concepto2calificador1";
-                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -708,7 +708,7 @@ namespace PosgrIQ
                         if (cmbConcepto2Calificador2.SelectedIndex >= 0)
                         {
                             query += ", concepto2calificador2";
-                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -719,7 +719,7 @@ namespace PosgrIQ
                         if (cmbConcepto2Calificador3.SelectedIndex >= 0)
                         {
                             query += ", concepto2calificador3";
-                            query2 += ", " + (cmbConcepto2Calificador3.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto2Calificador3.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -730,7 +730,7 @@ namespace PosgrIQ
                         if (cmbConcepto2Calificador4.SelectedIndex >= 0)
                         {
                             query += ", concepto2calificador4";
-                            query2 += ", " + (cmbConcepto2Calificador4.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto2Calificador4.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -741,7 +741,7 @@ namespace PosgrIQ
                         if (cmbConcepto2Calificador5.SelectedIndex >= 0)
                         {
                             query += ", concepto2calificador5";
-                            query2 += ", " + (cmbConcepto2Calificador5.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto2Calificador5.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -785,7 +785,7 @@ namespace PosgrIQ
                         if (cmbSustentacion.SelectedIndex >= 0)
                         {
                             query += ", conceptofinal";
-                            query2 += ", " + (cmbSustentacion.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbSustentacion.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -1236,6 +1236,86 @@ namespace PosgrIQ
             catch
             {
                 MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void chkCorrecciones_CheckedChanged(object sender, EventArgs e)
+        {
+            dateCorrecciones.Enabled = chkCorrecciones.Checked;
+
+            cmbConcepto2Calificador1.Enabled = chkCorrecciones.Checked;
+            cmbConcepto2Calificador2.Enabled = chkCorrecciones.Checked;
+            cmbConcepto2Calificador3.Enabled = chkCorrecciones.Checked;
+            cmbConcepto2Calificador4.Enabled = chkCorrecciones.Checked;
+            cmbConcepto2Calificador5.Enabled = chkCorrecciones.Checked;
+
+            txtRutaConcepto2Calificador1.Enabled = chkCorrecciones.Checked;
+            txtRutaConcepto2Calificador2.Enabled = chkCorrecciones.Checked;
+            txtRutaConcepto2Calificador3.Enabled = chkCorrecciones.Checked;
+            txtRutaConcepto2Calificador4.Enabled = chkCorrecciones.Checked;
+            txtRutaConcepto2Calificador5.Enabled = chkCorrecciones.Checked;
+
+            btnSelConcepto2Calificador1.Enabled = chkCorrecciones.Checked;
+            btnSelConcepto2Calificador2.Enabled = chkCorrecciones.Checked;
+            btnSelConcepto2Calificador3.Enabled = chkCorrecciones.Checked;
+            btnSelConcepto2Calificador4.Enabled = chkCorrecciones.Checked;
+            btnSelConcepto2Calificador5.Enabled = chkCorrecciones.Checked;
+
+            btnVerConcepto2Calificador1.Enabled = chkCorrecciones.Checked;
+            btnVerConcepto2Calificador2.Enabled = chkCorrecciones.Checked;
+            btnVerConcepto2Calificador3.Enabled = chkCorrecciones.Checked;
+            btnVerConcepto2Calificador4.Enabled = chkCorrecciones.Checked;
+            btnVerConcepto2Calificador5.Enabled = chkCorrecciones.Checked;
+        }
+
+        private void chkSustentacion_CheckedChanged(object sender, EventArgs e)
+        {
+            dateSustentacion.Enabled = chkCorrecciones.Checked;
+            cmbSustentacion.Enabled = chkCorrecciones.Checked;
+            txtRutaSustentacion.Enabled = chkCorrecciones.Checked;
+            btnSelSustentacion.Enabled = chkCorrecciones.Checked;
+            btnVerSustentacion.Enabled = chkCorrecciones.Checked;
+        }
+
+        private void cmbEstudiante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // se selecciono un estudiante, por tanto se debe buscar la PROPUESTA en la tabla de propuestas
+
+            if (cmbEstudiante.SelectedIndex < 0) return; // no hacer nada en caso que se resetee el comboBox
+
+            // se prepara la conexion
+            OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
+            string query;
+            OleDbCommand command;
+            OleDbDataAdapter da;
+
+            // se crea la cadena de busqueda
+            query = "SELECT * FROM PropuestaDoct ORDER BY codigo ASC";
+
+            try
+            {
+                conection.Open();
+                command = new OleDbCommand(query, conection);
+
+                command.ExecuteNonQuery();
+
+                da = new OleDbDataAdapter(command);
+                DataTable dtPropuestas = new DataTable();
+                da.Fill(dtPropuestas);               
+
+                conection.Close();
+
+                // se busca si existe alguna propuesta a nombre del estudiante seleccionado
+                DataRow[] seleccion = dtPropuestas.Select("estudiante=" + this.dtEstudiantes.Rows[this.cmbEstudiante.SelectedIndex][0].ToString());
+                if (seleccion.Length > 0)
+                {
+                    txtTesis.Text = Convert.ToString(seleccion[0][2]);
+                }
+                else txtTesis.Text = "";
+            }
+            catch
+            {
+                MessageBox.Show("No se puede acceder a la base de datos, tabla Propuestas Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }        
     }

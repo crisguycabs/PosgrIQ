@@ -488,7 +488,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador1.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador1";
-                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -499,7 +499,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador2.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador2";
-                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -510,7 +510,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador3.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador3";
-                            query2 += ", " + (cmbConcepto1Calificador3.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador3.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -544,7 +544,7 @@ namespace PosgrIQ
                             if (cmbConcepto2Calificador1.SelectedIndex >= 0)
                             {
                                 query += ", concepto2calificador1";
-                                query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+                                query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex).ToString();
                             }
                             else
                             {
@@ -555,7 +555,7 @@ namespace PosgrIQ
                             if (cmbConcepto2Calificador2.SelectedIndex >= 0)
                             {
                                 query += ", concepto2calificador2";
-                                query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
+                                query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex).ToString();
                             }
                             else
                             {
@@ -566,7 +566,7 @@ namespace PosgrIQ
                             if (cmbConcepto2Calificador3.SelectedIndex >= 0)
                             {
                                 query += ", concepto2calificador3";
-                                query2 += ", " + (cmbConcepto2Calificador3.SelectedIndex + 1).ToString();
+                                query2 += ", " + (cmbConcepto2Calificador3.SelectedIndex).ToString();
                             }
                             else
                             {
@@ -613,7 +613,7 @@ namespace PosgrIQ
                             if (cmbSustentacion.SelectedIndex >= 0)
                             {
                                 query += ", conceptofinal";
-                                query2 += ", " + (cmbSustentacion.SelectedIndex + 1).ToString();
+                                query2 += ", " + (cmbSustentacion.SelectedIndex).ToString();
                             }
                             else
                             {
@@ -696,11 +696,11 @@ namespace PosgrIQ
                         query += ", calificador3=" + (cmbCalificador3.SelectedIndex + 1).ToString();
                         query += ", entrega1='" + MainForm.Fecha2Texto(datePropuesta.Value) + "'";
 
-                        if (cmbConcepto1Calificador1.SelectedIndex >= 0) query += ", concepto1calificador1=" + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+                        if (cmbConcepto1Calificador1.SelectedIndex >= 0) query += ", concepto1calificador1=" + (cmbConcepto1Calificador1.SelectedIndex).ToString();
 
-                        if (cmbConcepto1Calificador2.SelectedIndex >= 0) query += ", concepto1calificador2=" + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
+                        if (cmbConcepto1Calificador2.SelectedIndex >= 0) query += ", concepto1calificador2=" + (cmbConcepto1Calificador2.SelectedIndex).ToString();
 
-                        if (cmbConcepto1Calificador3.SelectedIndex >= 0) query += ", concepto1calificador3=" + (cmbConcepto1Calificador3.SelectedIndex + 1).ToString();
+                        if (cmbConcepto1Calificador3.SelectedIndex >= 0) query += ", concepto1calificador3=" + (cmbConcepto1Calificador3.SelectedIndex).ToString();
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text)) query += ", rutaconcepto1calificador1='" + txtRutaConcepto1Calificador1.Text + "'";
 
@@ -710,11 +710,11 @@ namespace PosgrIQ
 
                         query += ", correcciones='" + MainForm.Fecha2Texto(dateCorrecciones.Value) + "'";
 
-                        if (cmbConcepto2Calificador1.SelectedIndex >= 0) query += ", concepto2calificador1=" + (cmbConcepto2Calificador1.SelectedIndex + 1).ToString();
+                        if (cmbConcepto2Calificador1.SelectedIndex >= 0) query += ", concepto2calificador1=" + (cmbConcepto2Calificador1.SelectedIndex).ToString();
 
-                        if (cmbConcepto2Calificador2.SelectedIndex >= 0) query += ", concepto2calificador2=" + (cmbConcepto2Calificador2.SelectedIndex + 1).ToString();
+                        if (cmbConcepto2Calificador2.SelectedIndex >= 0) query += ", concepto2calificador2=" + (cmbConcepto2Calificador2.SelectedIndex).ToString();
 
-                        if (cmbConcepto2Calificador3.SelectedIndex >= 0) query += ", concepto2calificador3=" + (cmbConcepto2Calificador3.SelectedIndex + 1).ToString();
+                        if (cmbConcepto2Calificador3.SelectedIndex >= 0) query += ", concepto2calificador3=" + (cmbConcepto2Calificador3.SelectedIndex).ToString();
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text)) query += ", rutaconcepto2calificador1='" + txtRutaConcepto2Calificador1.Text + "'";
 
@@ -724,7 +724,7 @@ namespace PosgrIQ
 
                         query += ", sustentacion='" + MainForm.Fecha2Texto(dateSustentacion.Value) + "'";
 
-                        if (cmbSustentacion.SelectedIndex >= 0) query += ", conceptofinal=" + (cmbSustentacion.SelectedIndex + 1).ToString();
+                        if (cmbSustentacion.SelectedIndex >= 0) query += ", conceptofinal=" + (cmbSustentacion.SelectedIndex).ToString();
 
                         if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text)) query += ", rutaconceptofinal='" + txtRutaSustentacion.Text + "'";
 

@@ -338,6 +338,7 @@
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(223, 22);
             this.cmbEstudiante.TabIndex = 2;
+            this.cmbEstudiante.SelectedIndexChanged += new System.EventHandler(this.cmbEstudiante_SelectedIndexChanged);
             // 
             // cmbConcepto1Calificador2
             // 
@@ -770,7 +771,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(630, 475);
+            this.ClientSize = new System.Drawing.Size(630, 480);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label26);
