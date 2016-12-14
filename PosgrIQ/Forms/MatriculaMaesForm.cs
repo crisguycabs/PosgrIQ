@@ -188,7 +188,7 @@ namespace PosgrIQ
 
                 dataGridMatricula.Sort(dataGridMatricula.Columns[1], ListSortDirection.Ascending);
             }
-            catch(Exception excep)
+            catch
             {
                 MessageBox.Show("No se puede acceder a la base de datos, tabla Matricula de Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }  

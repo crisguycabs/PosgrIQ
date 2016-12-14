@@ -81,6 +81,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chkCorrecciones = new System.Windows.Forms.CheckBox();
             this.cmbConcepto2Calificador5 = new System.Windows.Forms.ComboBox();
             this.btnVerConcepto2Calificador5 = new System.Windows.Forms.Button();
             this.txtRutaConcepto2Calificador5 = new System.Windows.Forms.TextBox();
@@ -107,6 +108,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chkSustentacion = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
@@ -131,8 +133,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.cmbCalificador4 = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.chkCorrecciones = new System.Windows.Forms.CheckBox();
-            this.chkSustentacion = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -773,6 +773,17 @@
             this.tabPage2.Text = "CORRECCIONES";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // chkCorrecciones
+            // 
+            this.chkCorrecciones.AutoSize = true;
+            this.chkCorrecciones.Location = new System.Drawing.Point(9, 7);
+            this.chkCorrecciones.Name = "chkCorrecciones";
+            this.chkCorrecciones.Size = new System.Drawing.Size(122, 17);
+            this.chkCorrecciones.TabIndex = 53;
+            this.chkCorrecciones.Text = "Hubo correcciones?";
+            this.chkCorrecciones.UseVisualStyleBackColor = true;
+            this.chkCorrecciones.CheckedChanged += new System.EventHandler(this.chkCorrecciones_CheckedChanged);
+            // 
             // cmbConcepto2Calificador5
             // 
             this.cmbConcepto2Calificador5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -1076,6 +1087,17 @@
             this.tabPage3.Text = "SUSTENTACION";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // chkSustentacion
+            // 
+            this.chkSustentacion.AutoSize = true;
+            this.chkSustentacion.Location = new System.Drawing.Point(9, 7);
+            this.chkSustentacion.Name = "chkSustentacion";
+            this.chkSustentacion.Size = new System.Drawing.Size(121, 17);
+            this.chkSustentacion.TabIndex = 33;
+            this.chkSustentacion.Text = "Hubo sustentación?";
+            this.chkSustentacion.UseVisualStyleBackColor = true;
+            this.chkSustentacion.CheckedChanged += new System.EventHandler(this.chkSustentacion_CheckedChanged);
+            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -1327,31 +1349,8 @@
             this.label29.TabIndex = 60;
             this.label29.Text = "Calificador 4:";
             // 
-            // chkCorrecciones
-            // 
-            this.chkCorrecciones.AutoSize = true;
-            this.chkCorrecciones.Location = new System.Drawing.Point(9, 7);
-            this.chkCorrecciones.Name = "chkCorrecciones";
-            this.chkCorrecciones.Size = new System.Drawing.Size(122, 17);
-            this.chkCorrecciones.TabIndex = 53;
-            this.chkCorrecciones.Text = "Hubo correcciones?";
-            this.chkCorrecciones.UseVisualStyleBackColor = true;
-            this.chkCorrecciones.CheckedChanged += new System.EventHandler(this.chkCorrecciones_CheckedChanged);
-            // 
-            // chkSustentacion
-            // 
-            this.chkSustentacion.AutoSize = true;
-            this.chkSustentacion.Location = new System.Drawing.Point(9, 7);
-            this.chkSustentacion.Name = "chkSustentacion";
-            this.chkSustentacion.Size = new System.Drawing.Size(121, 17);
-            this.chkSustentacion.TabIndex = 33;
-            this.chkSustentacion.Text = "Hubo sustentación?";
-            this.chkSustentacion.UseVisualStyleBackColor = true;
-            this.chkSustentacion.CheckedChanged += new System.EventHandler(this.chkSustentacion_CheckedChanged);
-            // 
             // AddTesisDoctForm
             // 
-            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;

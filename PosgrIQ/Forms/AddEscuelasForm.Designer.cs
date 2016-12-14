@@ -116,12 +116,11 @@
             // 
             // AddEscuelasForm
             // 
-            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(287, 108);
+            this.ClientSize = new System.Drawing.Size(287, 113);
             this.ControlBox = false;
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
@@ -135,7 +134,6 @@
             this.MaximumSize = new System.Drawing.Size(303, 147);
             this.MinimumSize = new System.Drawing.Size(303, 147);
             this.Name = "AddEscuelasForm";
-            this.Size = new System.Drawing.Size(303, 147);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Escuelas";
             this.Load += new System.EventHandler(this.AddEscuelasForm_Load);

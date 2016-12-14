@@ -592,12 +592,11 @@
             // 
             // AddEstudiantesDoctForm
             // 
-            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(608, 494);
+            this.ClientSize = new System.Drawing.Size(608, 499);
             this.ControlBox = false;
             this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.label22);

@@ -102,11 +102,10 @@
             // 
             // AboutForm
             // 
-            this.AcceptButton = this.btnCerrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(336, 251);
+            this.ClientSize = new System.Drawing.Size(336, 256);
             this.ControlBox = false;
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -124,7 +123,6 @@
             this.Padding = new System.Windows.Forms.Padding(9);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Size = new System.Drawing.Size(352, 290);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AboutForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

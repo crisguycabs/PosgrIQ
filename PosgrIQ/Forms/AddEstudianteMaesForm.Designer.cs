@@ -528,12 +528,11 @@
             // 
             // AddEstudianteMaesForm
             // 
-            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(608, 460);
+            this.ClientSize = new System.Drawing.Size(608, 465);
             this.ControlBox = false;
             this.Controls.Add(this.label21);
             this.Controls.Add(this.chkTema);

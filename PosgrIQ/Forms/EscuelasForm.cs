@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 using GemBox.Spreadsheet;
 using System.Runtime.InteropServices;
-using System.Drawing;
 using System.Drawing.Drawing2D;
 
 namespace PosgrIQ

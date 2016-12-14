@@ -62,6 +62,7 @@
             this.txtRutaConcepto1Calificador1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chkCorrecciones = new System.Windows.Forms.CheckBox();
             this.btnSelConcepto2Calificador1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSelConcepto2Calificador2 = new System.Windows.Forms.Button();
@@ -71,6 +72,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chkSustentacion = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
@@ -89,8 +91,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.numCod = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.chkCorrecciones = new System.Windows.Forms.CheckBox();
-            this.chkSustentacion = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -490,6 +490,17 @@
             this.tabPage2.Text = "CORRECCIONES";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // chkCorrecciones
+            // 
+            this.chkCorrecciones.AutoSize = true;
+            this.chkCorrecciones.Location = new System.Drawing.Point(9, 8);
+            this.chkCorrecciones.Name = "chkCorrecciones";
+            this.chkCorrecciones.Size = new System.Drawing.Size(132, 18);
+            this.chkCorrecciones.TabIndex = 29;
+            this.chkCorrecciones.Text = "Hubo correcciones?";
+            this.chkCorrecciones.UseVisualStyleBackColor = true;
+            this.chkCorrecciones.CheckedChanged += new System.EventHandler(this.chkCorrecciones_CheckedChanged);
+            // 
             // btnSelConcepto2Calificador1
             // 
             this.btnSelConcepto2Calificador1.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -595,6 +606,17 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "SUSTENTACION";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // chkSustentacion
+            // 
+            this.chkSustentacion.AutoSize = true;
+            this.chkSustentacion.Location = new System.Drawing.Point(9, 8);
+            this.chkSustentacion.Name = "chkSustentacion";
+            this.chkSustentacion.Size = new System.Drawing.Size(135, 18);
+            this.chkSustentacion.TabIndex = 30;
+            this.chkSustentacion.Text = "Hubo sustentación?";
+            this.chkSustentacion.UseVisualStyleBackColor = true;
+            this.chkSustentacion.CheckedChanged += new System.EventHandler(this.chkSustentacion_CheckedChanged);
             // 
             // label21
             // 
@@ -790,31 +812,8 @@
             this.label1.TabIndex = 40;
             this.label1.Text = "Codigo:";
             // 
-            // chkCorrecciones
-            // 
-            this.chkCorrecciones.AutoSize = true;
-            this.chkCorrecciones.Location = new System.Drawing.Point(9, 8);
-            this.chkCorrecciones.Name = "chkCorrecciones";
-            this.chkCorrecciones.Size = new System.Drawing.Size(132, 18);
-            this.chkCorrecciones.TabIndex = 29;
-            this.chkCorrecciones.Text = "Hubo correcciones?";
-            this.chkCorrecciones.UseVisualStyleBackColor = true;
-            this.chkCorrecciones.CheckedChanged += new System.EventHandler(this.chkCorrecciones_CheckedChanged);
-            // 
-            // chkSustentacion
-            // 
-            this.chkSustentacion.AutoSize = true;
-            this.chkSustentacion.Location = new System.Drawing.Point(9, 8);
-            this.chkSustentacion.Name = "chkSustentacion";
-            this.chkSustentacion.Size = new System.Drawing.Size(135, 18);
-            this.chkSustentacion.TabIndex = 30;
-            this.chkSustentacion.Text = "Hubo sustentación?";
-            this.chkSustentacion.UseVisualStyleBackColor = true;
-            this.chkSustentacion.CheckedChanged += new System.EventHandler(this.chkSustentacion_CheckedChanged);
-            // 
             // AddPropuestaMaesForm
             // 
-            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;

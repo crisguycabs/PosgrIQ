@@ -236,12 +236,11 @@
             // 
             // AddProfesoresForm
             // 
-            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(302, 264);
+            this.ClientSize = new System.Drawing.Size(302, 269);
             this.ControlBox = false;
             this.Controls.Add(this.cmbEscuela);
             this.Controls.Add(this.cmbColegiatura);

@@ -118,6 +118,7 @@ namespace PosgrIQ
                         // categoria
                         txtCategoria.Text = Convert.ToString(seleccionado[0][6]);
 
+                        btnAdd.Text = "Modificar";
                         this.Text = "MODIFICAR PUBLICACION DE DOCTORADO";
 
                         break;

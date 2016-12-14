@@ -235,6 +235,7 @@ namespace PosgrIQ
                         cmbSemestre8.SelectedIndex = Convert.ToInt32(seleccionado[0][20]) - 1;
                         numPromedio8.Value = Convert.ToDecimal(seleccionado[0][21]);
 
+                        btnAdd.Text = "Modificar";
                         this.Text = "MODIFICAR MATRICULA DE MAESTRIA";
 
                         break;

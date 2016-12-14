@@ -149,6 +149,7 @@ namespace PosgrIQ
                         if (Convert.ToString(seleccionado[0][5]) == "Nacional") cmbAlcance.SelectedIndex = 0;
                         else cmbAlcance.SelectedIndex = 1;
 
+                        btnAdd.Text = "Modificar";
                         this.Text = "MODIFICAR PONENCIAS DE MAESTRIA";
 
                         break;
