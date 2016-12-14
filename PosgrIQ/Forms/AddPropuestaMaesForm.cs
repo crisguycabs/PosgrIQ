@@ -595,7 +595,7 @@ namespace PosgrIQ
                         else
                         {
                             query += ", concepto1calificador1";
-                            query2 += ", 1";
+                            query2 += ", 0";
                         }
 
                         if (cmbConcepto1Calificador2.SelectedIndex >= 0)
@@ -606,7 +606,7 @@ namespace PosgrIQ
                         else
                         {
                             query += ", concepto1calificador2";
-                            query2 += ", 1";
+                            query2 += ", 0";
                         }
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text))
@@ -635,7 +635,7 @@ namespace PosgrIQ
                             else
                             {
                                 query += ", concepto2calificador1";
-                                query2 += ", 1";
+                                query2 += ", 0";
                             }
 
                             if (cmbConcepto2Calificador2.SelectedIndex >= 0)
@@ -646,7 +646,7 @@ namespace PosgrIQ
                             else
                             {
                                 query += ", concepto2calificador2";
-                                query2 += ", 1";
+                                query2 += ", 0";
                             }
 
                             if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text))
