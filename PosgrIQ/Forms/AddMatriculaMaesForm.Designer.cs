@@ -465,7 +465,7 @@
             65536});
             this.numPromedio8.Location = new System.Drawing.Point(694, 166);
             this.numPromedio8.Maximum = new decimal(new int[] {
-            10000000,
+            5,
             0,
             0,
             0});
@@ -484,7 +484,7 @@
             65536});
             this.numPromedio4.Location = new System.Drawing.Point(694, 101);
             this.numPromedio4.Maximum = new decimal(new int[] {
-            10000000,
+            5,
             0,
             0,
             0});
@@ -513,7 +513,7 @@
             65536});
             this.numPromedio7.Location = new System.Drawing.Point(239, 166);
             this.numPromedio7.Maximum = new decimal(new int[] {
-            10000000,
+            5,
             0,
             0,
             0});
@@ -542,7 +542,7 @@
             65536});
             this.numPromedio6.Location = new System.Drawing.Point(694, 138);
             this.numPromedio6.Maximum = new decimal(new int[] {
-            10000000,
+            5,
             0,
             0,
             0});
@@ -561,7 +561,7 @@
             65536});
             this.numPromedio3.Location = new System.Drawing.Point(239, 101);
             this.numPromedio3.Maximum = new decimal(new int[] {
-            10000000,
+            5,
             0,
             0,
             0});
@@ -580,7 +580,7 @@
             65536});
             this.numPromedio2.Location = new System.Drawing.Point(694, 73);
             this.numPromedio2.Maximum = new decimal(new int[] {
-            10000000,
+            5,
             0,
             0,
             0});
@@ -599,7 +599,7 @@
             65536});
             this.numPromedio5.Location = new System.Drawing.Point(239, 138);
             this.numPromedio5.Maximum = new decimal(new int[] {
-            10000000,
+            5,
             0,
             0,
             0});
@@ -628,7 +628,7 @@
             65536});
             this.numPromedio1.Location = new System.Drawing.Point(239, 73);
             this.numPromedio1.Maximum = new decimal(new int[] {
-            10000000,
+            5,
             0,
             0,
             0});
