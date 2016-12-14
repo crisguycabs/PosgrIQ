@@ -109,50 +109,73 @@ namespace PosgrIQ
                     fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
                     fila[j + 2] = Convert.ToString(dtMatriculaMaes.Rows[i][j + 2]);
 
+                    // los semestres asignados deben tener un codigo >=1
+
                     // semestre 2
                     j = 5;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
-                    fila[j + 2] = Convert.ToString(dtMatriculaMaes.Rows[i][j + 2]);
+                    if (Convert.ToInt32(dtMatriculaMaes.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
+                        fila[j + 2] = Convert.ToString(dtMatriculaMaes.Rows[i][j + 2]);
+                    }
 
                     // semestre 3
                     j = 8;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
-                    fila[j + 2] = Convert.ToString(dtMatriculaMaes.Rows[i][j + 2]);
+                    if (Convert.ToInt32(dtMatriculaMaes.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
+                        fila[j + 2] = Convert.ToString(dtMatriculaMaes.Rows[i][j + 2]);
+                    }
 
                     // semestre 4
                     j = 11;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
-                    fila[j + 2] = Convert.ToString(dtMatriculaMaes.Rows[i][j + 2]);
+                    if (Convert.ToInt32(dtMatriculaMaes.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
+                        fila[j + 2] = Convert.ToString(dtMatriculaMaes.Rows[i][j + 2]);
+                    }
 
                     // semestre 5
                     j = 14;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
+                    if (Convert.ToInt32(dtMatriculaMaes.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
+                    }
 
                     // semestre 6
                     j = 16;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
+                    if (Convert.ToInt32(dtMatriculaMaes.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
+                    }
 
                     // semestre 7
                     j = 18;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
+                    if (Convert.ToInt32(dtMatriculaMaes.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
+                    }
 
                     // semestre 8
                     j = 20;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
+                    if (Convert.ToInt32(dtMatriculaMaes.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaMaes.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaMaes.Rows[i][j + 1]);
+                    }
 
                     dt.Rows.Add(fila);
                 }
@@ -165,7 +188,7 @@ namespace PosgrIQ
 
                 dataGridMatricula.Sort(dataGridMatricula.Columns[1], ListSortDirection.Ascending);
             }
-            catch
+            catch(Exception excep)
             {
                 MessageBox.Show("No se puede acceder a la base de datos, tabla Matricula de Maestria", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }  

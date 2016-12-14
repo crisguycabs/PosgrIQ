@@ -460,6 +460,7 @@ namespace PosgrIQ
                         query += ", estudiante";
                         query2 += ", " + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
 
+                        // el primer semestre es obligatorio
                         query += ", semestre1";
                         query2 += ", " + (cmbSemestre1.SelectedIndex + 1).ToString();
                         query += ", promedio1";
@@ -468,49 +469,71 @@ namespace PosgrIQ
                         if (cmbBeca1.SelectedIndex == 0) query2 += ", 'Si'";
                         else query2 += ", 'No'";
 
-                        query += ", semestre2";
-                        query2 += ", " + (cmbSemestre2.SelectedIndex + 1).ToString();
-                        query += ", promedio2";
-                        query2 += ", " + (numPromedio2.Value).ToString();
-                        query += ", beca2";
-                        if (cmbBeca2.SelectedIndex == 0) query2 += ", 'Si'";
-                        else query2 += ", 'No'";
+                        // los demas semestres no son obligatorios
+                        if (cmbSemestre2.SelectedIndex >= 0)
+                        {
+                            query += ", semestre2";
+                            query2 += ", " + (cmbSemestre2.SelectedIndex + 1).ToString();
+                            query += ", promedio2";
+                            query2 += ", " + (numPromedio2.Value).ToString();
+                            query += ", beca2";
+                            if (cmbBeca2.SelectedIndex == 0) query2 += ", 'Si'";
+                            else query2 += ", 'No'";
+                        }
 
-                        query += ", semestre3";
-                        query2 += ", " + (cmbSemestre3.SelectedIndex + 1).ToString();
-                        query += ", promedio3";
-                        query2 += ", " + (numPromedio3.Value).ToString();
-                        query += ", beca3";
-                        if (cmbBeca3.SelectedIndex == 0) query2 += ", 'Si'";
-                        else query2 += ", 'No'";
+                        if (cmbSemestre3.SelectedIndex >= 0)
+                        {
+                            query += ", semestre3";
+                            query2 += ", " + (cmbSemestre3.SelectedIndex + 1).ToString();
+                            query += ", promedio3";
+                            query2 += ", " + (numPromedio3.Value).ToString();
+                            query += ", beca3";
+                            if (cmbBeca3.SelectedIndex == 0) query2 += ", 'Si'";
+                            else query2 += ", 'No'";
+                        }
 
-                        query += ", semestre4";
-                        query2 += ", " + (cmbSemestre4.SelectedIndex + 1).ToString();
-                        query += ", promedio4";
-                        query2 += ", " + (numPromedio4.Value).ToString();
-                        query += ", beca4";
-                        if (cmbBeca4.SelectedIndex == 0) query2 += ", 'Si'";
-                        else query2 += ", 'No'";
+                        if (cmbSemestre4.SelectedIndex >= 0)
+                        {
+                            query += ", semestre4";
+                            query2 += ", " + (cmbSemestre4.SelectedIndex + 1).ToString();
+                            query += ", promedio4";
+                            query2 += ", " + (numPromedio4.Value).ToString();
+                            query += ", beca4";
+                            if (cmbBeca4.SelectedIndex == 0) query2 += ", 'Si'";
+                            else query2 += ", 'No'";
+                        }
 
-                        query += ", semestre5";
-                        query2 += ", " + (cmbSemestre5.SelectedIndex + 1).ToString();
-                        query += ", promedio5";
-                        query2 += ", " + (numPromedio5.Value).ToString();
-                        
-                        query += ", semestre6";
-                        query2 += ", " + (cmbSemestre6.SelectedIndex + 1).ToString();
-                        query += ", promedio6";
-                        query2 += ", " + (numPromedio6.Value).ToString();
-                        
-                        query += ", semestre7";
-                        query2 += ", " + (cmbSemestre7.SelectedIndex + 1).ToString();
-                        query += ", promedio7";
-                        query2 += ", " + (numPromedio7.Value).ToString();
-                        
-                        query += ", semestre8";
-                        query2 += ", " + (cmbSemestre8.SelectedIndex + 1).ToString();
-                        query += ", promedio8";
-                        query2 += ", " + (numPromedio8.Value).ToString();  
+                        if (cmbSemestre5.SelectedIndex >= 0)
+                        {
+                            query += ", semestre5";
+                            query2 += ", " + (cmbSemestre5.SelectedIndex + 1).ToString();
+                            query += ", promedio5";
+                            query2 += ", " + (numPromedio5.Value).ToString();
+                        }
+
+                        if (cmbSemestre6.SelectedIndex >= 0)
+                        {
+                            query += ", semestre6";
+                            query2 += ", " + (cmbSemestre6.SelectedIndex + 1).ToString();
+                            query += ", promedio6";
+                            query2 += ", " + (numPromedio6.Value).ToString();
+                        }
+
+                        if (cmbSemestre7.SelectedIndex >= 0)
+                        {
+                            query += ", semestre7";
+                            query2 += ", " + (cmbSemestre7.SelectedIndex + 1).ToString();
+                            query += ", promedio7";
+                            query2 += ", " + (numPromedio7.Value).ToString();
+                        }
+
+                        if (cmbSemestre8.SelectedIndex >= 0)
+                        {
+                            query += ", semestre8";
+                            query2 += ", " + (cmbSemestre8.SelectedIndex + 1).ToString();
+                            query += ", promedio8";
+                            query2 += ", " + (numPromedio8.Value).ToString();
+                        }
 
                         query += ")";
                         query2 += ")";
@@ -564,41 +587,64 @@ namespace PosgrIQ
                     try
                     {
                         // se prepara la cadena SQL
-                        query = "UPDATE MatriculaDoct SET ";
+                        query = "UPDATE MatriculaMaes SET ";
                         query += "codigo=" + numCod.Value.ToString();
-                        query += ", estudiante=" + (this.cmbEstudiante.SelectedIndex + 1).ToString();
+                        query += ", estudiante=" + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
 
+                        // el primer semestre es obligatorio
                         query += ", semestre1=" + (this.cmbSemestre1.SelectedIndex + 1).ToString();
                         query += ", promedio1=" + (this.numPromedio1.Value).ToString();
                         if (cmbBeca1.SelectedIndex == 0) query += ", beca1='Si'";
                         else query += ", 'No'";
 
-                        query += ", semestre2=" + (this.cmbSemestre2.SelectedIndex + 1).ToString();
-                        query += ", promedio2=" + (this.numPromedio2.Value).ToString();
-                        if (cmbBeca2.SelectedIndex == 0) query += ", beca2='Si'";
-                        else query += ", 'No'";
+                        // los demas semestres no son obligatorios
+                        if (cmbSemestre2.SelectedIndex >= 0)
+                        {
+                            query += ", semestre2=" + (this.cmbSemestre2.SelectedIndex + 1).ToString();
+                            query += ", promedio2=" + (this.numPromedio2.Value).ToString();
+                            if (cmbBeca2.SelectedIndex == 0) query += ", beca2='Si'";
+                            else query += ", 'No'";
+                        }
 
-                        query += ", semestre3=" + (this.cmbSemestre3.SelectedIndex + 1).ToString();
-                        query += ", promedio3=" + (this.numPromedio3.Value).ToString();
-                        if (cmbBeca3.SelectedIndex == 0) query += ", beca3='Si'";
-                        else query += ", 'No'";
+                        if (cmbSemestre3.SelectedIndex >= 0)
+                        {
+                            query += ", semestre3=" + (this.cmbSemestre3.SelectedIndex + 1).ToString();
+                            query += ", promedio3=" + (this.numPromedio3.Value).ToString();
+                            if (cmbBeca3.SelectedIndex == 0) query += ", beca3='Si'";
+                            else query += ", 'No'";
+                        }
 
-                        query += ", semestre4=" + (this.cmbSemestre4.SelectedIndex + 1).ToString();
-                        query += ", promedio4=" + (this.numPromedio4.Value).ToString();
-                        if (cmbBeca4.SelectedIndex == 0) query += ", beca4='Si'";
-                        else query += ", 'No'";
+                        if (cmbSemestre4.SelectedIndex >= 0)
+                        {
+                            query += ", semestre4=" + (this.cmbSemestre4.SelectedIndex + 1).ToString();
+                            query += ", promedio4=" + (this.numPromedio4.Value).ToString();
+                            if (cmbBeca4.SelectedIndex == 0) query += ", beca4='Si'";
+                            else query += ", 'No'";
+                        }
 
-                        query += ", semestre5=" + (this.cmbSemestre5.SelectedIndex + 1).ToString();
-                        query += ", promedio5=" + (this.numPromedio5.Value).ToString();
+                        if (cmbSemestre5.SelectedIndex >= 0)
+                        {
+                            query += ", semestre5=" + (this.cmbSemestre5.SelectedIndex + 1).ToString();
+                            query += ", promedio5=" + (this.numPromedio5.Value).ToString();
+                        }
+
+                        if (cmbSemestre6.SelectedIndex >= 0)
+                        {
+                            query += ", semestre6=" + (this.cmbSemestre6.SelectedIndex + 1).ToString();
+                            query += ", promedio6=" + (this.numPromedio6.Value).ToString();
+                        }
                         
-                        query += ", semestre6=" + (this.cmbSemestre6.SelectedIndex + 1).ToString();
-                        query += ", promedio6=" + (this.numPromedio6.Value).ToString();
-                        
-                        query += ", semestre7=" + (this.cmbSemestre7.SelectedIndex + 1).ToString();
-                        query += ", promedio7=" + (this.numPromedio7.Value).ToString();
-                        
-                        query += ", semestre8=" + (this.cmbSemestre8.SelectedIndex + 1).ToString();
-                        query += ", promedio8=" + (this.numPromedio8.Value).ToString();
+                        if (cmbSemestre7.SelectedIndex >= 0)
+                        {
+                            query += ", semestre7=" + (this.cmbSemestre7.SelectedIndex + 1).ToString();
+                            query += ", promedio7=" + (this.numPromedio7.Value).ToString();
+                        }
+
+                        if (cmbSemestre8.SelectedIndex >= 0)
+                        {
+                            query += ", semestre8=" + (this.cmbSemestre8.SelectedIndex + 1).ToString();
+                            query += ", promedio8=" + (this.numPromedio8.Value).ToString();
+                        }
                         
                         query += " WHERE codigo=" + codigo.ToString();
 
