@@ -224,7 +224,7 @@ namespace PosgrIQ
 
                         // estudiante
                         // se selecciona el indice en el cmbEstudiante segun el codigo de estudiante en la propuesta
-                        string est=seleccionado[0][1].ToString();
+                        string est = seleccionado[0][1].ToString();
                         for (int i = 0; i < dtEstudiantes.Rows.Count;i++ )
                         {
                             if (dtEstudiantes.Rows[i][0].ToString() == est)
@@ -623,7 +623,6 @@ namespace PosgrIQ
 
                         if (chkCorrecciones.Checked)
                         {
-
                             query += ", correcciones";
                             query2 += ", '" + MainForm.Fecha2Texto(dateCorrecciones.Value) + "'";
 
@@ -672,7 +671,6 @@ namespace PosgrIQ
 
                         if (chkSustentacion.Checked)
                         {
-
                             query += ", sustentacion";
                             query2 += " ,'" + MainForm.Fecha2Texto(dateSustentacion.Value) + "'";
 
@@ -684,7 +682,7 @@ namespace PosgrIQ
                             else
                             {
                                 query += ", conceptofinal";
-                                query2 += ", 1";
+                                query2 += ", 0";
                             }
 
                             if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text))

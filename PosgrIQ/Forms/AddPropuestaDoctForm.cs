@@ -265,13 +265,13 @@ namespace PosgrIQ
                         datePropuesta.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][7]));
 
                         // concepto 1 calificador 1
-                        cmbConcepto1Calificador1.SelectedIndex = Convert.ToInt32(seleccionado[0][8]) - 1;
+                        cmbConcepto1Calificador1.SelectedIndex = Convert.ToInt32(seleccionado[0][8]);
 
                         // concepto 1 calificador 2
-                        cmbConcepto1Calificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][9]) - 1;
+                        cmbConcepto1Calificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][9]);
 
                         // concepto 1 calificador 3
-                        cmbConcepto1Calificador3.SelectedIndex = Convert.ToInt32(seleccionado[0][10]) - 1;
+                        cmbConcepto1Calificador3.SelectedIndex = Convert.ToInt32(seleccionado[0][10]);
 
                         // ruta concepto 1 calificador 1
                         if (!string.IsNullOrWhiteSpace(seleccionado[0][11].ToString())) txtRutaConcepto1Calificador1.Text = Convert.ToString(seleccionado[0][11]);
@@ -283,34 +283,55 @@ namespace PosgrIQ
                         if (!string.IsNullOrWhiteSpace(seleccionado[0][13].ToString())) txtRutaConcepto1Calificador3.Text = Convert.ToString(seleccionado[0][13]);
 
                         // correcciones
-                        dateCorrecciones.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][14]));
+                        // se revisa si hay fecha de correcciones
+                        string fecha = Convert.ToString(seleccionado[0][14]);
+                        if(fecha.Length>0)
+                        {
+                            // hay una fecha registrada, por tanto hay correcciones
+                            chkCorrecciones.Checked = true;
 
-                        // concepto 2 calificador 1
-                        cmbConcepto2Calificador1.SelectedIndex = Convert.ToInt32(seleccionado[0][15]) - 1;
+                            dateCorrecciones.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][14]));
 
-                        // concepto 2 calificador 2
-                        cmbConcepto2Calificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][16]) - 1;
+                            // concepto 2 calificador 1
+                            cmbConcepto2Calificador1.SelectedIndex = Convert.ToInt32(seleccionado[0][15]);
 
-                        // concepto 2 calificador 3
-                        cmbConcepto2Calificador3.SelectedIndex = Convert.ToInt32(seleccionado[0][17]) - 1;
+                            // concepto 2 calificador 2
+                            cmbConcepto2Calificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][16]);
 
-                        // ruta concepto 2 calificador 1
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][18].ToString())) txtRutaConcepto1Calificador1.Text = Convert.ToString(seleccionado[0][18]);
+                            // concepto 2 calificador 3
+                            cmbConcepto2Calificador3.SelectedIndex = Convert.ToInt32(seleccionado[0][17]);
 
-                        // ruta concepto 2 calificador 2
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][19].ToString())) txtRutaConcepto1Calificador2.Text = Convert.ToString(seleccionado[0][19]);
+                            // ruta concepto 2 calificador 1
+                            if (!string.IsNullOrWhiteSpace(seleccionado[0][18].ToString())) txtRutaConcepto1Calificador1.Text = Convert.ToString(seleccionado[0][18]);
 
-                        // ruta concepto 2 calificador 3
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][20].ToString())) txtRutaConcepto1Calificador3.Text = Convert.ToString(seleccionado[0][20]);
+                            // ruta concepto 2 calificador 2
+                            if (!string.IsNullOrWhiteSpace(seleccionado[0][19].ToString())) txtRutaConcepto1Calificador2.Text = Convert.ToString(seleccionado[0][19]);
 
+                            // ruta concepto 2 calificador 3
+                            if (!string.IsNullOrWhiteSpace(seleccionado[0][20].ToString())) txtRutaConcepto1Calificador3.Text = Convert.ToString(seleccionado[0][20]);
+                        }
+                        
                         // fecha sustentacion
-                        dateSustentacion.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][21]));
+                        // se revisa si hay fecha de sustentacion
+                        fecha = Convert.ToString(seleccionado[0][21]);
+                        if (fecha.Length > 0)
+                        {
+                            // hay una fecha registrada, por tanto hay sustentacion
+                            chkSustentacion.Checked = true;
 
-                        // concepto sustentacion
-                        cmbSustentacion.SelectedIndex = Convert.ToInt32(seleccionado[0][22]) - 1;
+                            dateSustentacion.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][21]));
 
-                        // ruta concepto sustentacion
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][23].ToString())) txtRutaSustentacion.Text = Convert.ToString(seleccionado[0][23]);
+                            // concepto sustentacion
+                            cmbSustentacion.SelectedIndex = Convert.ToInt32(seleccionado[0][22]);
+
+                            // ruta concepto sustentacion
+                            if (!string.IsNullOrWhiteSpace(seleccionado[0][23].ToString())) txtRutaSustentacion.Text = Convert.ToString(seleccionado[0][23]);
+                        }
+                        else
+                        {
+                            // no hay una fecha registrada, por tanto no hay correcciones
+                            chkSustentacion.Checked = false;
+                        }
 
                         btnAdd.Text = "Modificar";
                         this.Text = "MODIFICAR PROPUESTA DE DOCTORADO";
@@ -549,7 +570,7 @@ namespace PosgrIQ
                             else
                             {
                                 query += ", concepto2calificador1";
-                                query2 += ", 1";
+                                query2 += ", 0";
                             }
 
                             if (cmbConcepto2Calificador2.SelectedIndex >= 0)
@@ -560,7 +581,7 @@ namespace PosgrIQ
                             else
                             {
                                 query += ", concepto2calificador2";
-                                query2 += ", 1";
+                                query2 += ", 0";
                             }
 
                             if (cmbConcepto2Calificador3.SelectedIndex >= 0)
@@ -571,7 +592,7 @@ namespace PosgrIQ
                             else
                             {
                                 query += ", concepto2calificador3";
-                                query2 += ", 1";
+                                query2 += ", 0";
                             }
 
                             if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text))
@@ -591,7 +612,6 @@ namespace PosgrIQ
                                 query += ", rutaconcepto2calificador3";
                                 query2 += ", '" + txtRutaConcepto2Calificador3.Text + "'";
                             }
-
                         }
                         else
                         {
@@ -618,7 +638,7 @@ namespace PosgrIQ
                             else
                             {
                                 query += ", conceptofinal";
-                                query2 += ", 1";
+                                query2 += ", 0";
                             }
 
                             if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text))
@@ -688,7 +708,9 @@ namespace PosgrIQ
                         // se prepara la cadena SQL
                         query = "UPDATE PropuestaDoct SET ";
                         query += "codigo=" + numCod.Value.ToString();
-                        query += ", estudiante=" + (this.cmbEstudiante.SelectedIndex + 1).ToString();
+
+                        query += ", estudiante=" + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
+                        
                         query += ", titulo='" + txtPropuesta.Text + "'";
                         query += ", ruta='" + txtRutaPropuesta.Text + "'";
                         query += ", calificador1=" + (cmbCalificador1.SelectedIndex + 1).ToString();
@@ -697,10 +719,13 @@ namespace PosgrIQ
                         query += ", entrega1='" + MainForm.Fecha2Texto(datePropuesta.Value) + "'";
 
                         if (cmbConcepto1Calificador1.SelectedIndex >= 0) query += ", concepto1calificador1=" + (cmbConcepto1Calificador1.SelectedIndex).ToString();
+                        else query += ", concepto1calificador1=0";
 
                         if (cmbConcepto1Calificador2.SelectedIndex >= 0) query += ", concepto1calificador2=" + (cmbConcepto1Calificador2.SelectedIndex).ToString();
+                        else query += ", concepto1calificador2=0";
 
                         if (cmbConcepto1Calificador3.SelectedIndex >= 0) query += ", concepto1calificador3=" + (cmbConcepto1Calificador3.SelectedIndex).ToString();
+                        else query += ", concepto1calificador3=0";
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text)) query += ", rutaconcepto1calificador1='" + txtRutaConcepto1Calificador1.Text + "'";
 
@@ -708,13 +733,27 @@ namespace PosgrIQ
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador3.Text)) query += ", rutaconcepto1calificador3='" + txtRutaConcepto1Calificador3.Text + "'";
 
-                        query += ", correcciones='" + MainForm.Fecha2Texto(dateCorrecciones.Value) + "'";
+                        if (chkCorrecciones.Checked)
+                        {
+                            // existen correcciones, se guardan en la base de datos
+                            query += ", correcciones='" + MainForm.Fecha2Texto(dateCorrecciones.Value) + "'";
 
-                        if (cmbConcepto2Calificador1.SelectedIndex >= 0) query += ", concepto2calificador1=" + (cmbConcepto2Calificador1.SelectedIndex).ToString();
+                            if (cmbConcepto2Calificador1.SelectedIndex >= 0) query += ", concepto2calificador1=" + (cmbConcepto2Calificador1.SelectedIndex).ToString();
+                            else query += ", concepto2calificador1=0";
 
-                        if (cmbConcepto2Calificador2.SelectedIndex >= 0) query += ", concepto2calificador2=" + (cmbConcepto2Calificador2.SelectedIndex).ToString();
+                            if (cmbConcepto2Calificador2.SelectedIndex >= 0) query += ", concepto2calificador2=" + (cmbConcepto2Calificador2.SelectedIndex).ToString();
+                            else query += ", concepto2calificador2=0";
 
-                        if (cmbConcepto2Calificador3.SelectedIndex >= 0) query += ", concepto2calificador3=" + (cmbConcepto2Calificador3.SelectedIndex).ToString();
+                            if (cmbConcepto2Calificador3.SelectedIndex >= 0) query += ", concepto2calificador3=" + (cmbConcepto2Calificador3.SelectedIndex).ToString();
+                            else query += ", concepto2calificador3=0";                            
+                        }
+                        else
+                        {
+                            // no existen correcciones, por tanto se guardan ceros
+                            query += ", concepto2calificador1=0";
+                            query += ", concepto2calificador2=0";
+                            query += ", concepto2calificador3=0";
+                        }
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text)) query += ", rutaconcepto2calificador1='" + txtRutaConcepto2Calificador1.Text + "'";
 
@@ -722,9 +761,15 @@ namespace PosgrIQ
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador3.Text)) query += ", rutaconcepto2calificador3='" + txtRutaConcepto2Calificador3.Text + "'";
 
-                        query += ", sustentacion='" + MainForm.Fecha2Texto(dateSustentacion.Value) + "'";
+                        if (chkSustentacion.Checked)
+                        {
+                            // existe sustentacion, se guardan en la base de datos
+                            query += ", sustentacion='" + MainForm.Fecha2Texto(dateSustentacion.Value) + "'";
 
-                        if (cmbSustentacion.SelectedIndex >= 0) query += ", conceptofinal=" + (cmbSustentacion.SelectedIndex).ToString();
+                            if (cmbSustentacion.SelectedIndex >= 0) query += ", conceptofinal=" + (cmbSustentacion.SelectedIndex).ToString();
+                            else query += ", conceptofinal=0";
+                        }
+                        else query += ", conceptofinal=0";          
 
                         if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text)) query += ", rutaconceptofinal='" + txtRutaSustentacion.Text + "'";
 
