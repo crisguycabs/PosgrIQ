@@ -173,9 +173,12 @@
             // 
             // btnNext
             // 
+            this.btnNext.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.ForeColor = System.Drawing.Color.DarkRed;
             this.btnNext.Location = new System.Drawing.Point(406, 0);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(26, 23);
+            this.btnNext.Size = new System.Drawing.Size(23, 23);
             this.btnNext.TabIndex = 8;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -183,9 +186,12 @@
             // 
             // btnPrev
             // 
+            this.btnPrev.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrev.ForeColor = System.Drawing.Color.DarkRed;
             this.btnPrev.Location = new System.Drawing.Point(377, 0);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(26, 23);
+            this.btnPrev.Size = new System.Drawing.Size(23, 23);
             this.btnPrev.TabIndex = 8;
             this.btnPrev.Text = "<";
             this.btnPrev.UseVisualStyleBackColor = true;
