@@ -35,6 +35,10 @@
             this.btnMod = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPublicaciones)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -58,13 +62,14 @@
             this.dataGridPublicaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridPublicaciones.Size = new System.Drawing.Size(763, 217);
             this.dataGridPublicaciones.TabIndex = 1;
+            this.dataGridPublicaciones.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridEstudiantes_RowPostPaint);
             // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Location = new System.Drawing.Point(0, 0);
+            this.btnAdd.Location = new System.Drawing.Point(526, 0);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 2;
@@ -78,7 +83,7 @@
             this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Location = new System.Drawing.Point(162, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(688, 0);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(75, 23);
             this.btnCerrar.TabIndex = 4;
@@ -91,7 +96,7 @@
             this.btnMod.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnMod.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMod.Location = new System.Drawing.Point(81, 0);
+            this.btnMod.Location = new System.Drawing.Point(607, 0);
             this.btnMod.Name = "btnMod";
             this.btnMod.Size = new System.Drawing.Size(75, 23);
             this.btnMod.TabIndex = 3;
@@ -120,14 +125,61 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnPrev);
+            this.panel1.Controls.Add(this.btnNext);
+            this.panel1.Controls.Add(this.txtSearch);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Controls.Add(this.btnMod);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(534, 231);
+            this.panel1.Location = new System.Drawing.Point(8, 231);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(237, 23);
+            this.panel1.Size = new System.Drawing.Size(763, 23);
             this.panel1.TabIndex = 4;
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrev.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnPrev.Location = new System.Drawing.Point(232, 0);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(23, 23);
+            this.btnPrev.TabIndex = 31;
+            this.btnPrev.Text = "<";
+            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnNext.Location = new System.Drawing.Point(261, 0);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(23, 23);
+            this.btnNext.TabIndex = 32;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(49, 0);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(177, 20);
+            this.txtSearch.TabIndex = 30;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Buscar: ";
             // 
             // PublicacionesDoctForm
             // 
@@ -145,6 +197,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPublicaciones)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -157,5 +210,9 @@
         private System.Windows.Forms.Button btnMod;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnPrev;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label1;
     }
 }

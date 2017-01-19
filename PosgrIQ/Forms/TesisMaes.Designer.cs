@@ -37,6 +37,10 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMod = new System.Windows.Forms.Button();
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTesis)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -60,6 +64,7 @@
             this.dataGridTesis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridTesis.Size = new System.Drawing.Size(1152, 420);
             this.dataGridTesis.TabIndex = 1;
+            this.dataGridTesis.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridEstudiantes_RowPostPaint);
             // 
             // tableLayoutPanel1
             // 
@@ -82,6 +87,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnPrev);
+            this.panel1.Controls.Add(this.btnNext);
+            this.panel1.Controls.Add(this.txtSearch);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnVer);
             this.panel1.Controls.Add(this.cmbVer);
             this.panel1.Controls.Add(this.btnAdd);
@@ -161,6 +170,49 @@
             this.btnMod.UseVisualStyleBackColor = false;
             this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
             // 
+            // btnPrev
+            // 
+            this.btnPrev.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrev.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnPrev.Location = new System.Drawing.Point(524, 1);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(23, 23);
+            this.btnPrev.TabIndex = 43;
+            this.btnPrev.Text = "<";
+            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnNext.Location = new System.Drawing.Point(553, 1);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(23, 23);
+            this.btnNext.TabIndex = 44;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(341, 1);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(177, 22);
+            this.txtSearch.TabIndex = 42;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(295, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 14);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "Buscar: ";
+            // 
             // TesisMaes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -178,6 +230,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTesis)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -192,5 +245,9 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnMod;
+        private System.Windows.Forms.Button btnPrev;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label1;
     }
 }

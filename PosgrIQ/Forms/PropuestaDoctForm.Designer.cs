@@ -37,6 +37,10 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMod = new System.Windows.Forms.Button();
             this.dataGridPropuestas = new System.Windows.Forms.DataGridView();
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPropuestas)).BeginInit();
@@ -63,6 +67,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnPrev);
+            this.panel1.Controls.Add(this.btnNext);
+            this.panel1.Controls.Add(this.txtSearch);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnVer);
             this.panel1.Controls.Add(this.cmbVer);
             this.panel1.Controls.Add(this.btnAdd);
@@ -162,6 +170,50 @@
             this.dataGridPropuestas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridPropuestas.Size = new System.Drawing.Size(1152, 393);
             this.dataGridPropuestas.TabIndex = 1;
+            this.dataGridPropuestas.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridEstudiantes_RowPostPaint);
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrev.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnPrev.Location = new System.Drawing.Point(516, 0);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(23, 23);
+            this.btnPrev.TabIndex = 23;
+            this.btnPrev.Text = "<";
+            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnNext.Location = new System.Drawing.Point(545, 0);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(23, 23);
+            this.btnNext.TabIndex = 24;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(333, 0);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(177, 22);
+            this.txtSearch.TabIndex = 22;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(287, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 14);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Buscar: ";
             // 
             // PropuestaDoctForm
             // 
@@ -180,6 +232,7 @@
             this.Load += new System.EventHandler(this.PropuestaDoctForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPropuestas)).EndInit();
             this.ResumeLayout(false);
 
@@ -195,5 +248,9 @@
         private System.Windows.Forms.DataGridView dataGridPropuestas;
         private System.Windows.Forms.ComboBox cmbVer;
         private System.Windows.Forms.Button btnVer;
+        private System.Windows.Forms.Button btnPrev;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label1;
     }
 }

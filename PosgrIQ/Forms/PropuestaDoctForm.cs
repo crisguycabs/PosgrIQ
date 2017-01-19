@@ -21,6 +21,16 @@ namespace PosgrIQ
         /// </summary>
         public MainForm padre;
 
+        /// <summary>
+        /// contiene los indices de las filas que coinciden con la busqueda
+        /// </summary>
+        public List<int> busqueda = null;
+
+        /// <summary>
+        /// indice del elemento de la busqueda que esta seleccionado
+        /// </summary>
+        public int iBusqueda = -1;
+
         #endregion
 
         public PropuestaDoctForm()
@@ -259,6 +269,87 @@ namespace PosgrIQ
             {
                 MessageBox.Show("No se puede acceder a la base de datos, tabla Propuestas de Doctorado", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            // se vacia la lista de indices de la busqueda
+            busqueda = new List<int>();
+
+            if (txtSearch.Text.Length < 1) return;
+
+            // se prepara la cadena de busqueda
+            string searchValue = txtSearch.Text;
+
+            dataGridPropuestas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            try
+            {
+                /*foreach (DataGridViewRow row in dataGridEstudiantes.Rows)
+                {
+                    if (row.Cells[1].Value.ToString().Contains(searchValue))
+                    {
+                        // row.Selected = true;
+                        // dataGridEstudiantes.FirstDisplayedScrollingRowIndex = dataGridEstudiantes.SelectedRows[0].Index;
+                        // break;
+                        
+                    }
+                }*/
+
+                for (int i = 0; i < dataGridPropuestas.Rows.Count; i++)
+                {
+                    if (dataGridPropuestas.Rows[i].Cells[1].Value.ToString().Contains(searchValue))
+                    {
+                        busqueda.Add(i);
+                    }
+                }
+
+                // se selecciona la primera fila encontrada, si existe una
+                if (busqueda.Count > 0)
+                {
+                    iBusqueda = 0;
+                    dataGridPropuestas.Rows[busqueda[0]].Selected = true;
+                    dataGridPropuestas.FirstDisplayedScrollingRowIndex = dataGridPropuestas.SelectedRows[0].Index;
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            // se aumenta en 1 el indice de busqueda seleccionado
+            iBusqueda++;
+            if (iBusqueda >= busqueda.Count) iBusqueda = busqueda.Count - 1;
+
+            dataGridPropuestas.Rows[busqueda[iBusqueda]].Selected = true;
+            dataGridPropuestas.FirstDisplayedScrollingRowIndex = dataGridPropuestas.SelectedRows[0].Index;
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            iBusqueda--;
+            if (iBusqueda <= 0) iBusqueda = 0;
+
+            dataGridPropuestas.Rows[busqueda[iBusqueda]].Selected = true;
+            dataGridPropuestas.FirstDisplayedScrollingRowIndex = dataGridPropuestas.SelectedRows[0].Index;
+        }
+
+        private void dataGridEstudiantes_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            var grid = sender as DataGridView;
+            var rowIdx = (e.RowIndex + 1).ToString();
+
+            var centerFormat = new StringFormat()
+            {
+                // right alignment might actually make more sense for numbers
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+
+            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
+            e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
     }
 }
