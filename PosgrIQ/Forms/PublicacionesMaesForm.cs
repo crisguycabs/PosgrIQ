@@ -55,7 +55,7 @@ namespace PosgrIQ
                 DataTable dt, dtEstudiantesMaes, dtPublicacionesMaes;
                 OleDbDataAdapter da;
 
-                // se pide la informacion de los estudiantes de doctorado
+                // se pide la informacion de los estudiantes de maestria
                 query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
                 conection.Open();
                 command = new OleDbCommand(query, conection);
@@ -65,7 +65,7 @@ namespace PosgrIQ
                 dtEstudiantesMaes = new DataTable();
                 da.Fill(dtEstudiantesMaes);
 
-                // se pide la informacion de las publicaciones de doctorado
+                // se pide la informacion de las publicaciones de maestria
                 query = "SELECT * FROM PublicacionesMaes ORDER BY codigo ASC";
                 conection.Open();
                 command = new OleDbCommand(query, conection);
