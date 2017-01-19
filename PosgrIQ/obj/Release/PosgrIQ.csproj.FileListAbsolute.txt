@@ -50,7 +50,6 @@ C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.pdb
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\GemBox.Spreadsheet.dll
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\GemBox.Spreadsheet.xml
-C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csprojResolveAssemblyReference.cache
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AboutForm.resources
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddTesisMaesForm.resources
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddPropuestaMaesForm.resources

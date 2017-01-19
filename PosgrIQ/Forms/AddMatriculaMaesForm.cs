@@ -168,7 +168,7 @@ namespace PosgrIQ
                 {
                     case true: // se agrega una nueva matricula de doctorado
 
-                        numCod.Value = dtMatriculaMaes.Rows.Count + 1;
+                        codigo = dtMatriculaMaes.Rows.Count + 1;
                         cmbEstudiante.SelectedIndex = -1;
 
                         this.Text = "AGREGAR MATRICULA DE MAESTRIAS";
@@ -178,9 +178,6 @@ namespace PosgrIQ
                     case false: // se modifica una matricula de doctorado
 
                         DataRow[] seleccionado = dtMatriculaMaes.Select("codigo=" + codigo.ToString());
-
-                        // codigo
-                        numCod.Value = codigo;
 
                         // estudiante
                         // se selecciona el indice en el cmbEstudiante segun el codigo de estudiante en la propuesta
@@ -261,10 +258,10 @@ namespace PosgrIQ
             // existe una propuesta con ese codigo. Solo revisar en modo insercion
             if (modo)
             {
-                busqueda = dtMatriculaMaes.Select("codigo=" + numCod.Value.ToString());
+                busqueda = dtMatriculaMaes.Select("codigo=" + codigo.ToString());
                 if (busqueda.Length > 0)
                 {
-                    MessageBox.Show("Ya existe una matricula con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe una matricula con el codigo " + codigo.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -456,7 +453,7 @@ namespace PosgrIQ
                         query2 = " VALUES (";
 
                         query += "codigo";
-                        query2 += numCod.Value.ToString();
+                        query2 += codigo.ToString();
 
                         query += ", estudiante";
                         query2 += ", " + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
@@ -548,7 +545,7 @@ namespace PosgrIQ
 
                         conection.Close();
 
-                        this.numCod.Value = 0;
+                        codigo++;
                         this.numPromedio1.Value = 0;                        
                         this.numPromedio2.Value = 0;
                         this.numPromedio3.Value = 0;
@@ -589,7 +586,7 @@ namespace PosgrIQ
                     {
                         // se prepara la cadena SQL
                         query = "UPDATE MatriculaMaes SET ";
-                        query += "codigo=" + numCod.Value.ToString();
+                        query += "codigo=" + codigo.ToString();
                         query += ", estudiante=" + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
 
                         // el primer semestre es obligatorio

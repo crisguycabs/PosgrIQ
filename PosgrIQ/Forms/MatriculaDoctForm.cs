@@ -121,76 +121,109 @@ namespace PosgrIQ
 
                     // semestre 2
                     j = 5;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
-                    fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    if (Convert.ToInt32(dtMatriculaDoct.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    }
 
                     // semestre 3
                     j = 8;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
-                    fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    if (Convert.ToInt32(dtMatriculaDoct.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    }
 
                     // semestre 4
                     j = 11;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
-                    fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    if (Convert.ToInt32(dtMatriculaDoct.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    }
 
                     // semestre 5
                     j = 14;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
-                    fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    if (Convert.ToInt32(dtMatriculaDoct.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    }
 
                     // semestre 6
                     j = 17;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
-                    fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    if (Convert.ToInt32(dtMatriculaDoct.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    }
 
                     // semestre 7
                     j = 20;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
-                    fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    if (Convert.ToInt32(dtMatriculaDoct.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    }
 
                     // semestre 8
                     j = 23;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
-                    fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    if (Convert.ToInt32(dtMatriculaDoct.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
+                    }
 
                     // semestre 9
                     j = 26;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                    if (Convert.ToInt32(dtMatriculaDoct.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                    }
 
                     // semestre 10
                     j = 28;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                    if (Convert.ToInt32(dtMatriculaDoct.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                    }
 
                     // semestre 11
                     j = 30;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                    if (Convert.ToInt32(dtMatriculaDoct.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                    }
 
                     // semestre 12
                     j = 32;
-                    seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
-                    fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);                    
+                    if (Convert.ToInt32(dtMatriculaDoct.Rows[i][j]) > 0)
+                    {
+                        seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
+                        fila[j] = Convert.ToString(seleccionado[0][1]);
+                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                    }
 
                     dt.Rows.Add(fila);
                 }
