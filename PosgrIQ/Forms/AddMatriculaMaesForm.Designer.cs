@@ -400,9 +400,9 @@
             this.label32.Font = new System.Drawing.Font("Calibri", 9F);
             this.label32.Location = new System.Drawing.Point(462, 170);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(76, 14);
+            this.label32.Size = new System.Drawing.Size(70, 14);
             this.label32.TabIndex = 76;
-            this.label32.Text = "Semestre 12:";
+            this.label32.Text = "Semestre 8:";
             // 
             // label17
             // 
@@ -420,9 +420,9 @@
             this.label31.Font = new System.Drawing.Font("Calibri", 9F);
             this.label31.Location = new System.Drawing.Point(7, 170);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(76, 14);
+            this.label31.Size = new System.Drawing.Size(70, 14);
             this.label31.TabIndex = 74;
-            this.label31.Text = "Semestre 11:";
+            this.label31.Text = "Semestre 7:";
             // 
             // label6
             // 
@@ -440,9 +440,9 @@
             this.label30.Font = new System.Drawing.Font("Calibri", 9F);
             this.label30.Location = new System.Drawing.Point(462, 142);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(76, 14);
+            this.label30.Size = new System.Drawing.Size(70, 14);
             this.label30.TabIndex = 80;
-            this.label30.Text = "Semestre 10:";
+            this.label30.Text = "Semestre 6:";
             // 
             // label16
             // 
@@ -500,7 +500,7 @@
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(70, 14);
             this.label29.TabIndex = 72;
-            this.label29.Text = "Semestre 9:";
+            this.label29.Text = "Semestre 5:";
             // 
             // numPromedio7
             // 
@@ -670,7 +670,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(861, 237);
+            this.ClientSize = new System.Drawing.Size(861, 232);
             this.ControlBox = false;
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
