@@ -78,10 +78,7 @@ namespace PosgrIQ
                 this.cmbSemestre6.Items.Clear();
                 this.cmbSemestre7.Items.Clear();
                 this.cmbSemestre8.Items.Clear();
-                this.cmbSemestre5.Items.Clear();
-                this.cmbSemestre6.Items.Clear();
-                this.cmbSemestre7.Items.Clear();
-                this.cmbSemestre8.Items.Clear();
+                
 
                 foreach (DataRow row in dtSemestres.Rows)
                 {
@@ -89,10 +86,6 @@ namespace PosgrIQ
                     this.cmbSemestre2.Items.Add(row[1]);
                     this.cmbSemestre3.Items.Add(row[1]);
                     this.cmbSemestre4.Items.Add(row[1]);
-                    this.cmbSemestre5.Items.Add(row[1]);
-                    this.cmbSemestre6.Items.Add(row[1]);
-                    this.cmbSemestre7.Items.Add(row[1]);
-                    this.cmbSemestre8.Items.Add(row[1]);
                     this.cmbSemestre5.Items.Add(row[1]);
                     this.cmbSemestre6.Items.Add(row[1]);
                     this.cmbSemestre7.Items.Add(row[1]);
@@ -593,7 +586,7 @@ namespace PosgrIQ
                         query += ", semestre1=" + (this.cmbSemestre1.SelectedIndex + 1).ToString();
                         query += ", promedio1=" + (this.numPromedio1.Value).ToString();
                         if (cmbBeca1.SelectedIndex == 0) query += ", beca1='Si'";
-                        else query += ", 'No'";
+                        else query += ", beca1='No'";
 
                         // los demas semestres no son obligatorios
                         if (cmbSemestre2.SelectedIndex >= 0)
@@ -601,7 +594,7 @@ namespace PosgrIQ
                             query += ", semestre2=" + (this.cmbSemestre2.SelectedIndex + 1).ToString();
                             query += ", promedio2=" + (this.numPromedio2.Value).ToString();
                             if (cmbBeca2.SelectedIndex == 0) query += ", beca2='Si'";
-                            else query += ", 'No'";
+                            else query += ", beca2='No'";
                         }
 
                         if (cmbSemestre3.SelectedIndex >= 0)
@@ -609,7 +602,7 @@ namespace PosgrIQ
                             query += ", semestre3=" + (this.cmbSemestre3.SelectedIndex + 1).ToString();
                             query += ", promedio3=" + (this.numPromedio3.Value).ToString();
                             if (cmbBeca3.SelectedIndex == 0) query += ", beca3='Si'";
-                            else query += ", 'No'";
+                            else query += ", beca3='No'";
                         }
 
                         if (cmbSemestre4.SelectedIndex >= 0)
@@ -617,7 +610,7 @@ namespace PosgrIQ
                             query += ", semestre4=" + (this.cmbSemestre4.SelectedIndex + 1).ToString();
                             query += ", promedio4=" + (this.numPromedio4.Value).ToString();
                             if (cmbBeca4.SelectedIndex == 0) query += ", beca4='Si'";
-                            else query += ", 'No'";
+                            else query += ", beca4='No'";
                         }
 
                         if (cmbSemestre5.SelectedIndex >= 0)

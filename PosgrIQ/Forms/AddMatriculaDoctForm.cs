@@ -881,7 +881,7 @@ namespace PosgrIQ
                             query += ", semestre2=" + (this.cmbSemestre2.SelectedIndex + 1).ToString();
                             query += ", promedio2=" + (this.numPromedio2.Value).ToString();
                             if (cmbBeca2.SelectedIndex == 0) query += ", beca2='Si'";
-                            else query += ", 'No'";
+                            else query += ", beca2='No'";
                         }
 
                         if (cmbSemestre3.SelectedIndex >= 0)
@@ -889,7 +889,7 @@ namespace PosgrIQ
                             query += ", semestre3=" + (this.cmbSemestre3.SelectedIndex + 1).ToString();
                             query += ", promedio3=" + (this.numPromedio3.Value).ToString();
                             if (cmbBeca3.SelectedIndex == 0) query += ", beca3='Si'";
-                            else query += ", 'No'";
+                            else query += ", beca3='No'";
                         }
 
                         if (cmbSemestre4.SelectedIndex >= 0)
@@ -897,7 +897,7 @@ namespace PosgrIQ
                             query += ", semestre4=" + (this.cmbSemestre4.SelectedIndex + 1).ToString();
                             query += ", promedio4=" + (this.numPromedio4.Value).ToString();
                             if (cmbBeca4.SelectedIndex == 0) query += ", beca4='Si'";
-                            else query += ", 'No'";
+                            else query += ", beca4='No'";
                         }
 
                         if (cmbSemestre5.SelectedIndex >= 0)
@@ -905,7 +905,7 @@ namespace PosgrIQ
                             query += ", semestre5=" + (this.cmbSemestre5.SelectedIndex + 1).ToString();
                             query += ", promedio5=" + (this.numPromedio5.Value).ToString();
                             if (cmbBeca5.SelectedIndex == 0) query += ", beca5='Si'";
-                            else query += ", 'No'";
+                            else query += ", beca5='No'";
                         }
 
                         if (cmbSemestre6.SelectedIndex >= 0)
@@ -913,7 +913,7 @@ namespace PosgrIQ
                             query += ", semestre6=" + (this.cmbSemestre6.SelectedIndex + 1).ToString();
                             query += ", promedio6=" + (this.numPromedio6.Value).ToString();
                             if (cmbBeca6.SelectedIndex == 0) query += ", beca6='Si'";
-                            else query += ", 'No'";
+                            else query += ", beca6='No'";
                         }
 
                         if (cmbSemestre7.SelectedIndex >= 0)
@@ -921,7 +921,7 @@ namespace PosgrIQ
                             query += ", semestre7=" + (this.cmbSemestre7.SelectedIndex + 1).ToString();
                             query += ", promedio7=" + (this.numPromedio7.Value).ToString();
                             if (cmbBeca7.SelectedIndex == 0) query += ", beca7='Si'";
-                            else query += ", 'No'";
+                            else query += ", beca7='No'";
                         }
 
                         if (cmbSemestre8.SelectedIndex >= 0)
@@ -929,7 +929,7 @@ namespace PosgrIQ
                             query += ", semestre8=" + (this.cmbSemestre8.SelectedIndex + 1).ToString();
                             query += ", promedio8=" + (this.numPromedio8.Value).ToString();
                             if (cmbBeca8.SelectedIndex == 0) query += ", beca8='Si'";
-                            else query += ", 'No'";
+                            else query += ", beca8='No'";
                         }
 
                         if (cmbSemestre9.SelectedIndex >= 0)
