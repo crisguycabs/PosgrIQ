@@ -58,6 +58,7 @@
             this.dataGridSemestres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridSemestres.Size = new System.Drawing.Size(800, 222);
             this.dataGridSemestres.TabIndex = 1;
+            this.dataGridSemestres.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridSemestres_RowPostPaint);
             // 
             // btnMod
             // 

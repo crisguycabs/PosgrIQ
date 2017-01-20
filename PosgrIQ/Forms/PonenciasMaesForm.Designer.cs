@@ -62,6 +62,7 @@
             this.dataGridPonencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridPonencias.Size = new System.Drawing.Size(763, 217);
             this.dataGridPonencias.TabIndex = 1;
+            this.dataGridPonencias.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridEstudiantes_RowPostPaint);
             // 
             // btnAdd
             // 

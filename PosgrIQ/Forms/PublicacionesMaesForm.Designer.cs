@@ -62,6 +62,7 @@
             this.dataGridPublicaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridPublicaciones.Size = new System.Drawing.Size(763, 217);
             this.dataGridPublicaciones.TabIndex = 1;
+            this.dataGridPublicaciones.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridPublicaciones_RowPostPaint);
             // 
             // btnAdd
             // 

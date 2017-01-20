@@ -58,6 +58,7 @@
             this.dataGridEscuelas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridEscuelas.Size = new System.Drawing.Size(265, 240);
             this.dataGridEscuelas.TabIndex = 1;
+            this.dataGridEscuelas.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridEscuelas_RowPostPaint);
             // 
             // btnCerrar
             // 

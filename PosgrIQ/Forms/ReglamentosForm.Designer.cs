@@ -58,6 +58,7 @@
             this.dataGridReglamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridReglamentos.Size = new System.Drawing.Size(238, 222);
             this.dataGridReglamentos.TabIndex = 1;
+            this.dataGridReglamentos.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridReglamentos_RowPostPaint);
             // 
             // btnMod
             // 
