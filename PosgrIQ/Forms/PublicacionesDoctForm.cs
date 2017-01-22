@@ -196,6 +196,9 @@ namespace PosgrIQ
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            // failsafe
+            if (busqueda.Count <= 0) return;
+            
             // se aumenta en 1 el indice de busqueda seleccionado
             iBusqueda++;
             if (iBusqueda >= busqueda.Count) iBusqueda = busqueda.Count - 1;
@@ -206,6 +209,9 @@ namespace PosgrIQ
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
+            // failsafe
+            if (busqueda.Count <= 0) return;
+
             iBusqueda--;
             if (iBusqueda <= 0) iBusqueda = 0;
 
