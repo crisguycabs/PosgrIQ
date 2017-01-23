@@ -1280,6 +1280,996 @@ namespace PosgrIQ
         private void semestresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirSemestresForm();
-        }          
+        }
+
+        /// <summary>
+        /// Genera el informe en PDF y XLSX de los estudiantes de maestria
+        /// </summary>
+        public void InformeEstudiantesMaes()
+        {
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
+
+            // algunas variables
+            string query;
+            OleDbCommand command;
+            DataTable dt = new DataTable();
+            OleDbDataAdapter da;
+
+            // se lee desde el archivo oneSource la ruta a donde se deben guardar el archivo excel
+            System.IO.StreamReader sr;
+
+            try
+            {
+                sr = new System.IO.StreamReader("sourceone");
+            }
+            catch
+            {
+                MessageBox.Show("No se puede encontrar el archivo sourceone.\r\n\r\nPor favor verifique la ubicacion del archivo en la ventana de Configuracion e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
+            string leido = @sr.ReadLine();
+            string final = leido + "\\EstudiantesMaes.xlsx";
+
+            // se extrae la ruta inicial
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string inicial = System.IO.Path.GetDirectoryName(path) + "\\templates\\templateEstudiantesMaes.xlsx";
+
+            // se verifica que existan los archivos
+            //bool existeInicial = false;
+            //existeInicial = System.IO.File.Exists(inicial);
+            //bool existeFin = false;
+            //existeFin = System.IO.File.Exists(final);
+
+            // si el archivo final existe entonces se debe borrar
+            try
+            {
+                if (System.IO.File.Exists(final)) System.IO.File.Delete(final);
+            }
+            catch
+            {
+                MessageBox.Show("El archivo " + final + "esta siendo utilizado y no se puede modificar.\r\n\r\nPor favor cierre el archivo e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // se duplica el archivo
+                System.IO.File.Copy(inicial, final);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede crear el nuevo archivo excel en la ruta " + final, "Error de escritura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los estudiantes de maestria
+            dt = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dt);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla EstudiantesMaes", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los profesores
+            DataTable dtProfesores = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Profesores ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtProfesores);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Profesores", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtConceptos = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtConceptos);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Conceptos", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los reglamentos
+            DataTable dtReglamentos = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Reglamentos ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtReglamentos);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Reglamentos", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se abre el archivo excel
+            DateTime start = DateTime.Now;
+            SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
+            ExcelFile ef = ExcelFile.Load(final);
+            ExcelWorksheet ws = ef.Worksheets[0];
+
+            // se empieza a llenar el archivo de excel
+            int rowpos;
+            int colpos;
+
+            /*  CODIGO
+                NOMBRE 
+                CORREO
+                CEDULA
+                CIUDAD
+                CONDICION
+                NIVEL
+                DIRECTOR
+                CODIRECTOR 1
+                CODIRECTOR 2
+                REGLAMENTO
+                TEMA
+                FECHA
+                CONCEPTO
+                OBSERVACIONES
+            */
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                rowpos = 9;
+                colpos = (3 * i) + 1;
+
+                ws.Columns[colpos - 1].Width = 5 * 300;
+                ws.Columns[colpos].Width = 15 * 300;
+                ws.Columns[colpos + 1].Width = 42 * 300;
+
+                ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(i + 1) + "/" + dt.Rows.Count.ToString();
+                ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CODIGO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][0].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "NOMBRE";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][1].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CORREO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][2].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CEDULA";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][3].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CIUDAD";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][4].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CONDICION";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][5].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "NIVEL";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][6].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "DIRECTOR";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                // existe director?
+
+                if (dt.Rows[i][7].ToString() != "") ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dt.Rows[i][7]))[0][1]);
+                else ws.Cells[rowpos, colpos + 1].Value="";
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CODIRECTOR 1";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                // existe codirector1?
+                if (dt.Rows[i][8].ToString() != "") ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dt.Rows[i][8]))[0][1]);
+                else ws.Cells[rowpos, colpos + 1].Value = "";
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CODIRECTOR 2";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                // existe codirector2?
+                if (dt.Rows[i][9].ToString() != "") ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dt.Rows[i][9]))[0][1]);
+                else ws.Cells[rowpos, colpos + 1].Value = "";
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "REGLAMENTO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtReglamentos.Select("codigo=" + Convert.ToString(dt.Rows[i][10]))[0][1]);
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "TEMA";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][11].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Style.WrapText = true;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "FECHA";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][12].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CONCEPTO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtConceptos.Select("codigo=" + Convert.ToString(dt.Rows[i][13]))[0][1]);
+                //ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][13].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "OSERVACIONES";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][15].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Style.WrapText = true;
+
+                rowpos++;
+                ws.Cells[rowpos, colpos].Value = "";
+                rowpos++;
+                ws.Cells[rowpos, colpos].Value = "";
+            }
+
+            //ef.Save(final);
+
+            ws.PrintOptions.Portrait = false;
+            ws.PrintOptions.FitToPage = false;
+
+            ef.Save(final);
+            /*
+            
+            ws.PrintOptions.FitToPage = true;
+            ws.PrintOptions.FitWorksheetWidthToPages = 1;            
+            */
+            //ws.NamedRanges.SetPrintArea(ws.Cells.GetSubrange("A1", "C" + inipos.ToString()));
+
+            string pathFinal = System.IO.Path.GetDirectoryName(final);
+            ExcelFile.Load(final).Save(pathFinal + "\\EstudiantesMaes.pdf");
+            
+            DateTime end = DateTime.Now;
+            //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
+        }
+
+        /// <summary>
+        /// Genera el informe en PDF y XLSX de los estudiantes de doctorado
+        /// </summary>
+        public void InformeEstudiantesDoct()
+        {
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
+
+            // algunas variables
+            string query;
+            OleDbCommand command;
+            DataTable dt = new DataTable();
+            OleDbDataAdapter da;
+
+            // se lee desde el archivo oneSource la ruta a donde se deben guardar el archivo excel
+            System.IO.StreamReader sr;
+
+            try
+            {
+                sr = new System.IO.StreamReader("sourceone");
+            }
+            catch
+            {
+                MessageBox.Show("No se puede encontrar el archivo sourceone.\r\n\r\nPor favor verifique la ubicacion del archivo en la ventana de Configuracion e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
+            string leido = @sr.ReadLine();
+            string final = leido + "\\EstudiantesDoct.xlsx";
+
+            // se extrae la ruta inicial
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string inicial = System.IO.Path.GetDirectoryName(path) + "\\templates\\templateEstudiantesMaes.xlsx";
+
+            // se verifica que existan los archivos
+            //bool existeInicial = false;
+            //existeInicial = System.IO.File.Exists(inicial);
+            //bool existeFin = false;
+            //existeFin = System.IO.File.Exists(final);
+
+            // si el archivo final existe entonces se debe borrar
+            try
+            {
+                if (System.IO.File.Exists(final)) System.IO.File.Delete(final);
+            }
+            catch
+            {
+                MessageBox.Show("El archivo " + final + "esta siendo utilizado y no se puede modificar.\r\n\r\nPor favor cierre el archivo e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // se duplica el archivo
+                System.IO.File.Copy(inicial, final);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede crear el nuevo archivo excel en la ruta " + final, "Error de escritura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los estudiantes de maestria
+            dt = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dt);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla EstudiantesDoct", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los profesores
+            DataTable dtProfesores = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Profesores ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtProfesores);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Profesores", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtConceptos = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtConceptos);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Conceptos", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los reglamentos
+            DataTable dtReglamentos = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Reglamentos ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtReglamentos);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Reglamentos", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se abre el archivo excel
+            DateTime start = DateTime.Now;
+            SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
+            ExcelFile ef = ExcelFile.Load(final);
+            ExcelWorksheet ws = ef.Worksheets[0];
+
+            // se empieza a llenar el archivo de excel
+            int rowpos;
+            int colpos;
+
+            /*  CODIGO
+                NOMBRE 
+                CORREO
+                CEDULA
+                CIUDAD
+                CONDICION
+                NIVEL
+                DIRECTOR
+                CODIRECTOR 1
+                CODIRECTOR 2
+                REGLAMENTO
+                TEMA
+                FECHA
+                CONCEPTO
+                OBSERVACIONES
+            */
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                rowpos = 9;
+                colpos = (3 * i) + 1;
+
+                ws.Columns[colpos - 1].Width = 5 * 300;
+                ws.Columns[colpos].Width = 15 * 300;
+                ws.Columns[colpos + 1].Width = 42 * 300;
+
+                ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(i + 1) + "/" + dt.Rows.Count.ToString();
+                ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CODIGO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][0].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "NOMBRE";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][1].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CORREO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][2].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CEDULA";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][3].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CIUDAD";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][4].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CONDICION";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][5].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "NIVEL";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][6].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "DIRECTOR";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                // existe director?
+                if (dt.Rows[i][7].ToString() != "") ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dt.Rows[i][7]))[0][1]);
+                else ws.Cells[rowpos, colpos + 1].Value = "";
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CODIRECTOR 1";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                // existe codirector1?
+                if (dt.Rows[i][8].ToString() != "") ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dt.Rows[i][8]))[0][1]);
+                else ws.Cells[rowpos, colpos + 1].Value = "";
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CODIRECTOR 2";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                // existe codirector2?
+                if (dt.Rows[i][9].ToString() != "") ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dt.Rows[i][9]))[0][1]);
+                else ws.Cells[rowpos, colpos + 1].Value = "";
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "REGLAMENTO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtReglamentos.Select("codigo=" + Convert.ToString(dt.Rows[i][10]))[0][1]);
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "TEMA";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][11].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Style.WrapText = true;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "FECHA";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][12].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CONCEPTO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtConceptos.Select("codigo=" + Convert.ToString(dt.Rows[i][13]))[0][1]);
+                //ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][13].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "SOLICITO QUALIFY";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][15].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Style.WrapText = true;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "APROBO QUALIFY";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][16].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Style.WrapText = true;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "OSERVACIONES";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][17].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Style.WrapText = true;                               
+            }
+
+            //ef.Save(final);
+
+            ws.PrintOptions.Portrait = false;
+            ws.PrintOptions.FitToPage = false;
+
+            ef.Save(final);
+            /*
+            
+            ws.PrintOptions.FitToPage = true;
+            ws.PrintOptions.FitWorksheetWidthToPages = 1;            
+            */
+            //ws.NamedRanges.SetPrintArea(ws.Cells.GetSubrange("A1", "C" + inipos.ToString()));
+
+            string pathFinal = System.IO.Path.GetDirectoryName(final);
+            ExcelFile.Load(final).Save(pathFinal + "\\EstudiantesDoct.pdf");
+
+            DateTime end = DateTime.Now;
+            //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
+        }
+
+        /// <summary>
+        /// Genera el informe en PDF y XLSX de las propuestas de maestria
+        /// </summary>
+        public void InformePropuestaMaes()
+        {
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
+
+            // algunas variables
+            string query;
+            OleDbCommand command;
+            DataTable dtEstudiantes = new DataTable();
+            OleDbDataAdapter da;
+
+            // se lee desde el archivo oneSource la ruta a donde se deben guardar el archivo excel
+            System.IO.StreamReader sr;
+
+            try
+            {
+                sr = new System.IO.StreamReader("sourceone");
+            }
+            catch
+            {
+                MessageBox.Show("No se puede encontrar el archivo sourceone.\r\n\r\nPor favor verifique la ubicacion del archivo en la ventana de Configuracion e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
+            string leido = @sr.ReadLine();
+            string final = leido + "\\PropuestasMaes.xlsx";
+
+            // se extrae la ruta inicial
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string inicial = System.IO.Path.GetDirectoryName(path) + "\\templates\\templateEstudiantesMaes.xlsx";
+
+            // se verifica que existan los archivos
+            //bool existeInicial = false;
+            //existeInicial = System.IO.File.Exists(inicial);
+            //bool existeFin = false;
+            //existeFin = System.IO.File.Exists(final);
+
+            // si el archivo final existe entonces se debe borrar
+            try
+            {
+                if (System.IO.File.Exists(final)) System.IO.File.Delete(final);
+            }
+            catch
+            {
+                MessageBox.Show("El archivo " + final + "esta siendo utilizado y no se puede modificar.\r\n\r\nPor favor cierre el archivo e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // se duplica el archivo
+                System.IO.File.Copy(inicial, final);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede crear el nuevo archivo excel en la ruta " + final, "Error de escritura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los estudiantes de maestria
+            dtEstudiantes = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtEstudiantes);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla EstudiantesDoct", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los profesores
+            DataTable dtProfesores = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Profesores ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtProfesores);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Profesores", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtConceptos = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtConceptos);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Conceptos", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtPropuestas = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM PropuestaMaes ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtPropuestas);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla PropuestaMaes", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }       
+
+            // se abre el archivo excel
+            DateTime start = DateTime.Now;
+            SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
+            ExcelFile ef = ExcelFile.Load(final);
+            ExcelWorksheet ws = ef.Worksheets[0];
+
+            // se empieza a llenar el archivo de excel
+            int rowpos;
+            int colpos;
+
+            for (int i = 0; i < dtPropuestas.Rows.Count; i++)
+            {
+                rowpos = 9;
+                colpos = (3 * i) + 1;
+
+                ws.Columns[colpos - 1].Width = 5 * 300;
+                ws.Columns[colpos].Width = 18 * 300;
+                ws.Columns[colpos + 1].Width = 42 * 300;
+
+                ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(i + 1) + "/" + dtEstudiantes.Rows.Count.ToString();
+                ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "ESTUDIANTE";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtEstudiantes.Select("codigo=" + Convert.ToString(dtPropuestas.Rows[i][1]))[0][1]);
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "TITULO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dtPropuestas.Rows[i][2].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Style.WrapText = true;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CALIFICADOR 1";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dtPropuestas.Rows[i][4]))[0][1]);
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CALIFICADOR 2";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dtPropuestas.Rows[i][5]))[0][1]);
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "FECHA ENTREGA";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dtPropuestas.Rows[i][6].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CONCEPTO CAL 1";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                // existe concepto1?
+                if (dtPropuestas.Rows[i][7].ToString() != "") ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtConceptos.Select("codigo=" + Convert.ToString(dtPropuestas.Rows[i][7]))[0][1]);
+                else ws.Cells[rowpos, colpos + 1].Value = "";
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CONCEPTO CAL 2";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                // existe concepto1?
+                if (dtPropuestas.Rows[i][12].ToString() != "") ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtConceptos.Select("codigo=" + Convert.ToString(dtPropuestas.Rows[i][8]))[0][1]);
+                else ws.Cells[rowpos, colpos + 1].Value = "";
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "FECHA CORRECCIONES";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dtPropuestas.Rows[i][11].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CONCEPTO CAL 1";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                // existe concepto1?
+                if (dtPropuestas.Rows[i][8].ToString() != "") ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtConceptos.Select("codigo=" + Convert.ToString(dtPropuestas.Rows[i][12]))[0][1]);
+                else ws.Cells[rowpos, colpos + 1].Value = "";
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CONCEPTO CAL 2";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                // existe concepto1?
+                if (dtPropuestas.Rows[i][13].ToString() != "") ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtConceptos.Select("codigo=" + Convert.ToString(dtPropuestas.Rows[i][13]))[0][1]);
+                else ws.Cells[rowpos, colpos + 1].Value = "";
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "FECHA SUSTENTACION";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                ws.Cells[rowpos, colpos + 1].Value = dtPropuestas.Rows[i][16].ToString();
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                rowpos++;
+
+                ws.Cells[rowpos, colpos].Value = "CONCEPTO";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                // existe concepto1?
+                if (dtPropuestas.Rows[i][13].ToString() != "") ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtConceptos.Select("codigo=" + Convert.ToString(dtPropuestas.Rows[i][17]))[0][1]);
+                else ws.Cells[rowpos, colpos + 1].Value = "";
+                ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;                
+            }
+
+            //ef.Save(final);
+
+            ws.PrintOptions.Portrait = false;
+            ws.PrintOptions.FitToPage = false;
+
+            ef.Save(final);
+            /*
+            
+            ws.PrintOptions.FitToPage = true;
+            ws.PrintOptions.FitWorksheetWidthToPages = 1;            
+            */
+            //ws.NamedRanges.SetPrintArea(ws.Cells.GetSubrange("A1", "C" + inipos.ToString()));
+
+            string pathFinal = System.IO.Path.GetDirectoryName(final);
+            ExcelFile.Load(final).Save(pathFinal + "\\PropuestasMaes.pdf");
+
+            DateTime end = DateTime.Now;
+            //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
+        }
     }
 }
