@@ -50,6 +50,8 @@ namespace PosgrIQ
 
         private void AddPublicacionesDoctForm_Load(object sender, EventArgs e)
         {
+            padre.CheckConflicto();
+
             cmbAlcance.SelectedIndex = 0;
 
             // se lee desde la BD la cantidad de Profesores, Colegiatura y Escuelas que existen actualmente

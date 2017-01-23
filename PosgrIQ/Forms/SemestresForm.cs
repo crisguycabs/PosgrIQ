@@ -32,6 +32,8 @@ namespace PosgrIQ
 
         public void SemestresForm_Load(object sender, EventArgs e)
         {
+            padre.CheckConflicto();
+
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {

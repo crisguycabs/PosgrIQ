@@ -230,6 +230,22 @@ namespace PosgrIQ
             MessageBox.Show(errorMessages, "ERROR DE CONEXION", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        /// <summary>
+        /// Se verifica que no exista mas de un archivo .MDB en la carpeta de la base de datos. Es decir, que no hayan copias en conflicto
+        /// </summary>
+        public void CheckConflicto()
+        {
+            string folder = System.IO.Path.GetDirectoryName(sourceBD);
+            string[] files = System.IO.Directory.GetFiles(folder, "*.mdb", System.IO.SearchOption.AllDirectories);
+            if (files.Length > 1)
+            {
+                // se encontraron más de un archivo MDB
+                // se le informa al usuario y se cierra la aplicacion
+                MessageBox.Show("Se encontraron " + files.Length + " copias en conflicto de la base de datos en la carpeta " + folder + ".\r\n\r\nElimine las copias en conflicto antes seguir.\r\n\r\nPosgrIQ se cerrará.", "Copias de la BD en conflicto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             if (!GetSource())
@@ -242,9 +258,10 @@ namespace PosgrIQ
                 MessageBox.Show("No se encuentra la ruta de la carpeta de OneDrive.\r\n\r\nLa aplicacion se cerrara.", "Error de archivo de configuracion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
+            CheckConflicto();
             if (!TestSource())
             {
-                MessageBox.Show("No se encuentra la base de datos en la ruta indicada.\r\n\r\nSe debe cambiar la configuracion de la aplicacion.", "Error de archivo de configuracion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La base de datos seleccionada no contiene las tablas necesarias.\r\n\r\nSe debe cambiar la configuracion de la aplicacion.", "Error de archivo de configuracion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 AbrirConfiguracionForm(true);
             }
             else AbrirHomeForm();

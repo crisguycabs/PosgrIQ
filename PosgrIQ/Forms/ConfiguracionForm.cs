@@ -53,6 +53,8 @@ namespace PosgrIQ
 
         private void ConfiguracionForm_Load(object sender, EventArgs e)
         {
+            padre.CheckConflicto();
+
             if (conf)
             {
                 // se ha invocado la configuracion desde el inicio de la aplicacion

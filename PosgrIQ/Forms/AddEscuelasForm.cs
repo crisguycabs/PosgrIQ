@@ -45,6 +45,8 @@ namespace PosgrIQ
 
         private void AddEscuelasForm_Load(object sender, EventArgs e)
         {
+            padre.CheckConflicto();
+
             // se lee desde la BD la cantidad de escuelas que existen actualmente
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try

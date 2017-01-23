@@ -50,6 +50,8 @@ namespace PosgrIQ
 
         private void AddSemestresForm_Load(object sender, EventArgs e)
         {
+            padre.CheckConflicto();
+
             // se lee desde la BD la cantidad de Profesores, Colegiatura y Escuelas que existen actualmente
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try

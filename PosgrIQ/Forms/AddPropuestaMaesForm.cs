@@ -160,6 +160,8 @@ namespace PosgrIQ
 
         private void AddPropuestaMaesForm_Load(object sender, EventArgs e)
         {
+            padre.CheckConflicto();
+
             label5.BackColor = label26.BackColor = label25.BackColor = Color.DarkRed;
             
             // se lee desde la BD la cantidad de Profesores, Colegiatura y Escuelas que existen actualmente
