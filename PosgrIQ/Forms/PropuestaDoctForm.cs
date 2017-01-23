@@ -99,13 +99,16 @@ namespace PosgrIQ
                 dt.Columns.Add("Calificador 1", typeof(string));
                 dt.Columns.Add("Calificador 2", typeof(string));
                 dt.Columns.Add("Calificador 3", typeof(string));
+                dt.Columns.Add("Calificador 4", typeof(string));
                 dt.Columns.Add("Concepto 1 Calificador 1", typeof(string));
                 dt.Columns.Add("Concepto 1 Calificador 2", typeof(string));
                 dt.Columns.Add("Concepto 1 Calificador 3", typeof(string));
+                dt.Columns.Add("Concepto 1 Calificador 4", typeof(string));
                 dt.Columns.Add("Fecha Entrega Correcciones", typeof(string));
                 dt.Columns.Add("Concepto 2 Calificador 1", typeof(string));
                 dt.Columns.Add("Concepto 2 Calificador 2", typeof(string));
                 dt.Columns.Add("Concepto 2 Calificador 3", typeof(string));
+                dt.Columns.Add("Concepto 2 Calificador 4", typeof(string));
                 dt.Columns.Add("Fecha Sustentacion", typeof(string));
                 dt.Columns.Add("Concepto Final", typeof(string));
                 
@@ -137,32 +140,49 @@ namespace PosgrIQ
                     // calificador 3
                     fila[6] = dtProfesores.Select("codigo=" + dtPropuestasDoct.Rows[i][6].ToString())[0][1];
 
-                    // concepto 1 calificador 1
-                    fila[7] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][8].ToString())[0][1];
+                    // calificador 4, opcional
+                    if (dtPropuestasDoct.Rows[i][7].ToString() != "")
+                    {
+                        // hay un calificador 4
+                        fila[7] = dtProfesores.Select("codigo=" + dtPropuestasDoct.Rows[i][7].ToString())[0][1];
+                    }
+                    else
+                    {
+                        fila[7] = "";
+                    }
 
-                    // concepto 1 calificador 2
+                    // concepto 1 calificador 1
                     fila[8] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][9].ToString())[0][1];
 
-                    // concepto 1 calificador 3
+                    // concepto 1 calificador 2
                     fila[9] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][10].ToString())[0][1];
 
+                    // concepto 1 calificador 3
+                    fila[10] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][11].ToString())[0][1];
+
+                    // concepto 1 calificador 4
+                    fila[11] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][12].ToString())[0][1];
+
                     // fecha de entrega de correcciones
-                    fila[10] = dtPropuestasDoct.Rows[i][14];
+                    fila[12] = dtPropuestasDoct.Rows[i][17];
 
                     // concepto 2 calificador 1
-                    fila[11] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][15].ToString())[0][1];
+                    fila[13] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][18].ToString())[0][1];
 
                     // concepto 2 calificador 2
-                    fila[12] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][16].ToString())[0][1];
+                    fila[14] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][19].ToString())[0][1];
 
                     // concepto 2 calificador 3
-                    fila[13] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][17].ToString())[0][1];
+                    fila[15] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][20].ToString())[0][1];
+
+                    // concepto 2 calificador 4
+                    fila[16] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][21].ToString())[0][1];
 
                     // fecha sustentacion
-                    fila[14] = dtPropuestasDoct.Rows[i][21];
+                    fila[17] = dtPropuestasDoct.Rows[i][26];
 
                     // concepto sustentacion
-                    fila[15] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][22].ToString())[0][1];
+                    fila[18] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][27].ToString())[0][1];
 
                     dt.Rows.Add(fila);
                 }
@@ -246,16 +266,22 @@ namespace PosgrIQ
                         case 3: // concepto 1 calificador 3
                             System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][10]));
                             break;
-                        case 4: // concepto 2 calificador 1
+                        case 4: // concepto 1 calificador 4
+                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][10]));
+                            break;
+                        case 5: // concepto 2 calificador 1
                             System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][15]));
                             break;
-                        case 5: // concepto 2 calificador 2
+                        case 6: // concepto 2 calificador 2
                             System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][16]));
                             break;
-                        case 6: // concepto 2 calificador 3
+                        case 7: // concepto 2 calificador 3
                             System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][17]));
                             break;
-                        case 7: // sustentacion
+                        case 8: // concepto 2 calificador 4
+                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][17]));
+                            break;
+                        case 9: // sustentacion
                             System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][23]));
                             break;
                     }                    

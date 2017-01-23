@@ -78,12 +78,14 @@ namespace PosgrIQ
                 cmbCalificador1.Items.Clear();
                 cmbCalificador2.Items.Clear();
                 cmbCalificador3.Items.Clear();
+                cmbCalificador4.Items.Clear();
 
                 foreach (DataRow row in dtProfesores.Rows)
                 {
                     cmbCalificador1.Items.Add(row[1]);
                     cmbCalificador2.Items.Add(row[1]);
                     cmbCalificador3.Items.Add(row[1]);
+                    cmbCalificador4.Items.Add(row[1]);
                 }
             }
             catch
@@ -142,9 +144,11 @@ namespace PosgrIQ
                 cmbConcepto1Calificador1.Items.Clear();
                 cmbConcepto1Calificador2.Items.Clear();
                 cmbConcepto1Calificador3.Items.Clear();
+                cmbConcepto1Calificador4.Items.Clear();
                 cmbConcepto2Calificador1.Items.Clear();
                 cmbConcepto2Calificador2.Items.Clear();
                 cmbConcepto2Calificador3.Items.Clear();
+                cmbConcepto2Calificador4.Items.Clear();
                 cmbSustentacion.Items.Clear();
 
                 foreach (DataRow row in dtConceptos.Rows)
@@ -152,9 +156,11 @@ namespace PosgrIQ
                     cmbConcepto1Calificador1.Items.Add(row[1]);
                     cmbConcepto1Calificador2.Items.Add(row[1]);
                     cmbConcepto1Calificador3.Items.Add(row[1]);
+                    cmbConcepto1Calificador4.Items.Add(row[1]);
                     cmbConcepto2Calificador1.Items.Add(row[1]);
                     cmbConcepto2Calificador2.Items.Add(row[1]);
                     cmbConcepto2Calificador3.Items.Add(row[1]);
+                    cmbConcepto2Calificador4.Items.Add(row[1]);
                     cmbSustentacion.Items.Add(row[1]);
                 }
             }
@@ -198,27 +204,32 @@ namespace PosgrIQ
                 {
                     case true: // se agrega una nueva propuesta de doctorado
 
-                        numCod.Value = dtPropuestas.Rows.Count + 1;
+                        codigo = dtPropuestas.Rows.Count + 1;
                         cmbEstudiante.SelectedIndex = -1;
                         txtPropuesta.Text = "";
                         txtRutaPropuesta.Text = "";
                         cmbCalificador1.SelectedIndex = -1;
                         cmbCalificador2.SelectedIndex = -1;
                         cmbCalificador3.SelectedIndex = -1;
+                        cmbCalificador4.SelectedIndex = -1;
                         datePropuesta.Value = DateTime.Today;
                         cmbConcepto1Calificador1.SelectedIndex = -1;
                         cmbConcepto1Calificador2.SelectedIndex = -1;
                         cmbConcepto1Calificador3.SelectedIndex = -1;
+                        cmbConcepto1Calificador4.SelectedIndex = -1;
                         txtRutaConcepto1Calificador1.Text = "";
                         txtRutaConcepto1Calificador2.Text = "";
                         txtRutaConcepto1Calificador3.Text = "";
+                        txtRutaConcepto1Calificador4.Text = "";
                         dateCorrecciones.Value = DateTime.Today;
                         cmbConcepto2Calificador1.SelectedIndex = -1;
                         cmbConcepto2Calificador2.SelectedIndex = -1;
                         cmbConcepto2Calificador3.SelectedIndex = -1;
+                        cmbConcepto2Calificador4.SelectedIndex = -1;
                         txtRutaConcepto2Calificador1.Text = "";
                         txtRutaConcepto2Calificador2.Text = "";
                         txtRutaConcepto2Calificador3.Text = "";
+                        txtRutaConcepto2Calificador4.Text = "";
                         dateSustentacion.Value = DateTime.Today;
                         cmbSustentacion.SelectedIndex = -1;
                         txtRutaSustentacion.Text = "";
@@ -229,9 +240,6 @@ namespace PosgrIQ
                     case false: // se modifica una propuesta de doctorado
 
                         DataRow[] seleccionado = dtPropuestas.Select("codigo=" + codigo.ToString());
-
-                        // codigo
-                        numCod.Value = codigo;
 
                         // estudiante
                         // se selecciona el indice en el cmbEstudiante segun el codigo de estudiante en la propuesta
@@ -261,71 +269,86 @@ namespace PosgrIQ
                         // calificador3
                         if (!string.IsNullOrWhiteSpace(seleccionado[0][6].ToString())) cmbCalificador3.SelectedIndex = Convert.ToInt32(seleccionado[0][6]) - 1;
 
+                        // calificador4
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][7].ToString())) cmbCalificador4.SelectedIndex = Convert.ToInt32(seleccionado[0][7]) - 1;
+
                         // entrega
-                        datePropuesta.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][7]));
+                        datePropuesta.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][8]));
 
                         // concepto 1 calificador 1
-                        cmbConcepto1Calificador1.SelectedIndex = Convert.ToInt32(seleccionado[0][8]);
+                        cmbConcepto1Calificador1.SelectedIndex = Convert.ToInt32(seleccionado[0][9]);
 
                         // concepto 1 calificador 2
-                        cmbConcepto1Calificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][9]);
+                        cmbConcepto1Calificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][10]);
 
                         // concepto 1 calificador 3
-                        cmbConcepto1Calificador3.SelectedIndex = Convert.ToInt32(seleccionado[0][10]);
+                        cmbConcepto1Calificador3.SelectedIndex = Convert.ToInt32(seleccionado[0][11]);
+
+                        // concepto 1 calificador 4
+                        cmbConcepto1Calificador3.SelectedIndex = Convert.ToInt32(seleccionado[0][12]);
 
                         // ruta concepto 1 calificador 1
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][11].ToString())) txtRutaConcepto1Calificador1.Text = Convert.ToString(seleccionado[0][11]);
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][11].ToString())) txtRutaConcepto1Calificador1.Text = Convert.ToString(seleccionado[0][13]);
 
                         // ruta concepto 1 calificador 2
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][12].ToString())) txtRutaConcepto1Calificador2.Text = Convert.ToString(seleccionado[0][12]);
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][12].ToString())) txtRutaConcepto1Calificador2.Text = Convert.ToString(seleccionado[0][14]);
 
                         // ruta concepto 1 calificador 3
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][13].ToString())) txtRutaConcepto1Calificador3.Text = Convert.ToString(seleccionado[0][13]);
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][13].ToString())) txtRutaConcepto1Calificador3.Text = Convert.ToString(seleccionado[0][15]);
+
+                        // ruta concepto 1 calificador 4
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][13].ToString())) txtRutaConcepto1Calificador3.Text = Convert.ToString(seleccionado[0][16]);
 
                         // correcciones
                         // se revisa si hay fecha de correcciones
-                        string fecha = Convert.ToString(seleccionado[0][14]);
+                        string fecha = Convert.ToString(seleccionado[0][17]);
                         if(fecha.Length>0)
                         {
                             // hay una fecha registrada, por tanto hay correcciones
                             chkCorrecciones.Checked = true;
 
-                            dateCorrecciones.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][14]));
+                            dateCorrecciones.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][17]));
 
                             // concepto 2 calificador 1
-                            cmbConcepto2Calificador1.SelectedIndex = Convert.ToInt32(seleccionado[0][15]);
+                            cmbConcepto2Calificador1.SelectedIndex = Convert.ToInt32(seleccionado[0][18]);
 
                             // concepto 2 calificador 2
-                            cmbConcepto2Calificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][16]);
+                            cmbConcepto2Calificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][19]);
 
                             // concepto 2 calificador 3
-                            cmbConcepto2Calificador3.SelectedIndex = Convert.ToInt32(seleccionado[0][17]);
+                            cmbConcepto2Calificador3.SelectedIndex = Convert.ToInt32(seleccionado[0][20]);
+
+                            // concepto 2 calificador 4
+                            cmbConcepto2Calificador3.SelectedIndex = Convert.ToInt32(seleccionado[0][21]);
 
                             // ruta concepto 2 calificador 1
-                            if (!string.IsNullOrWhiteSpace(seleccionado[0][18].ToString())) txtRutaConcepto1Calificador1.Text = Convert.ToString(seleccionado[0][18]);
+                            if (!string.IsNullOrWhiteSpace(seleccionado[0][18].ToString())) txtRutaConcepto1Calificador1.Text = Convert.ToString(seleccionado[0][22]);
 
                             // ruta concepto 2 calificador 2
-                            if (!string.IsNullOrWhiteSpace(seleccionado[0][19].ToString())) txtRutaConcepto1Calificador2.Text = Convert.ToString(seleccionado[0][19]);
+                            if (!string.IsNullOrWhiteSpace(seleccionado[0][19].ToString())) txtRutaConcepto1Calificador2.Text = Convert.ToString(seleccionado[0][23]);
 
                             // ruta concepto 2 calificador 3
-                            if (!string.IsNullOrWhiteSpace(seleccionado[0][20].ToString())) txtRutaConcepto1Calificador3.Text = Convert.ToString(seleccionado[0][20]);
+                            if (!string.IsNullOrWhiteSpace(seleccionado[0][20].ToString())) txtRutaConcepto1Calificador3.Text = Convert.ToString(seleccionado[0][24]);
+
+                            // ruta concepto 2 calificador 4
+                            if (!string.IsNullOrWhiteSpace(seleccionado[0][20].ToString())) txtRutaConcepto1Calificador3.Text = Convert.ToString(seleccionado[0][25]);
                         }
                         
                         // fecha sustentacion
                         // se revisa si hay fecha de sustentacion
-                        fecha = Convert.ToString(seleccionado[0][21]);
+                        fecha = Convert.ToString(seleccionado[0][26]);
                         if (fecha.Length > 0)
                         {
                             // hay una fecha registrada, por tanto hay sustentacion
                             chkSustentacion.Checked = true;
 
-                            dateSustentacion.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][21]));
+                            dateSustentacion.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][26]));
 
                             // concepto sustentacion
-                            cmbSustentacion.SelectedIndex = Convert.ToInt32(seleccionado[0][22]);
+                            cmbSustentacion.SelectedIndex = Convert.ToInt32(seleccionado[0][27]);
 
                             // ruta concepto sustentacion
-                            if (!string.IsNullOrWhiteSpace(seleccionado[0][23].ToString())) txtRutaSustentacion.Text = Convert.ToString(seleccionado[0][23]);
+                            if (!string.IsNullOrWhiteSpace(seleccionado[0][28].ToString())) txtRutaSustentacion.Text = Convert.ToString(seleccionado[0][28]);
                         }
                         else
                         {
@@ -359,10 +382,10 @@ namespace PosgrIQ
             // existe una propuesta con ese codigo. Solo revisar en modo insercion
             if (modo)
             {
-                busqueda = dtPropuestas.Select("codigo=" + numCod.Value.ToString());
+                busqueda = dtPropuestas.Select("codigo=" + codigo.ToString());
                 if (busqueda.Length > 0)
                 {
-                    MessageBox.Show("Ya existe una propuesta con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe una propuesta con el codigo " + codigo.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }                
             }
@@ -448,6 +471,17 @@ namespace PosgrIQ
                 }
             }
 
+            // calificador 4 no es doctor
+            if (cmbCalificador4.SelectedIndex >= 0)
+            {
+                busqueda = dtProfesores.Select("codigo=" + (cmbCalificador4.SelectedIndex + 1).ToString());
+                if (Convert.ToInt32(busqueda[0][2]) < 2)
+                {
+                    MessageBox.Show("El calificador 4 no tiene titulo de doctor, no se puede asignar como calificador", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             if ((cmbCalificador1.SelectedIndex >= 0) & (cmbCalificador2.SelectedIndex >= 0) & (cmbCalificador1.SelectedIndex == cmbCalificador2.SelectedIndex))
             {
                 MessageBox.Show("Se asigno el mismo profesor a calificador 1 y calificador 2", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -460,11 +494,29 @@ namespace PosgrIQ
                 return;
             }
 
+            if ((cmbCalificador1.SelectedIndex >= 0) & (cmbCalificador4.SelectedIndex >= 0) & (cmbCalificador1.SelectedIndex == cmbCalificador4.SelectedIndex))
+            {
+                MessageBox.Show("Se asigno el mismo profesor a calificador 1 y calificador 4", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if ((cmbCalificador3.SelectedIndex >= 0) & (cmbCalificador2.SelectedIndex >= 0) & (cmbCalificador3.SelectedIndex == cmbCalificador2.SelectedIndex))
             {
                 MessageBox.Show("Se asigno el mismo profesor a calificador 2 y calificador 3", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }           
+            }
+
+            if ((cmbCalificador4.SelectedIndex >= 0) & (cmbCalificador2.SelectedIndex >= 0) & (cmbCalificador4.SelectedIndex == cmbCalificador2.SelectedIndex))
+            {
+                MessageBox.Show("Se asigno el mismo profesor a calificador 2 y calificador 4", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if ((cmbCalificador4.SelectedIndex >= 0) & (cmbCalificador3.SelectedIndex >= 0) & (cmbCalificador4.SelectedIndex == cmbCalificador3.SelectedIndex))
+            {
+                MessageBox.Show("Se asigno el mismo profesor a calificador 3 y calificador 4", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }  
 
             // se prepara la conexion
             OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
@@ -483,7 +535,7 @@ namespace PosgrIQ
                         query2 = " VALUES (";
 
                         query += "codigo";
-                        query2 += numCod.Value.ToString();
+                        query2 += codigo.ToString();
 
                         query += ", estudiante";
                         query2 += ", " + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
@@ -502,6 +554,17 @@ namespace PosgrIQ
 
                         query += ", calificador3";
                         query2 += ", " + (dtProfesores.Rows[cmbCalificador3.SelectedIndex][0]).ToString();
+
+                        if (cmbCalificador4.SelectedIndex >= 0)
+                        {
+                            query += ", calificador4";
+                            query2 += ", " + (dtProfesores.Rows[cmbCalificador4.SelectedIndex][0]).ToString();
+                        }
+                        //else
+                        //{
+                        //    query += ", calificador4";
+                        //    query2 += ", 0";
+                        //}
 
                         query += ", entrega1";
                         query2 += ", '" + MainForm.Fecha2Texto(this.datePropuesta.Value) + "'";
@@ -539,6 +602,17 @@ namespace PosgrIQ
                             query2 += ", 1";
                         }
 
+                        if (cmbConcepto1Calificador4.SelectedIndex >= 0)
+                        {
+                            query += ", concepto1calificador4";
+                            query2 += ", " + (cmbConcepto1Calificador4.SelectedIndex).ToString();
+                        }
+                        else
+                        {
+                            query += ", concepto1calificador4";
+                            query2 += ", 1";
+                        }
+
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text))
                         {
                             query += ", rutaconcepto1calificador1";
@@ -555,6 +629,12 @@ namespace PosgrIQ
                         {
                             query += ", rutaconcepto1calificador3";
                             query2 += ", '" + txtRutaConcepto1Calificador3.Text + "'";
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador4.Text))
+                        {
+                            query += ", rutaconcepto1calificador4";
+                            query2 += ", '" + txtRutaConcepto1Calificador4.Text + "'";
                         }
 
                         if (chkCorrecciones.Checked)
@@ -595,6 +675,17 @@ namespace PosgrIQ
                                 query2 += ", 0";
                             }
 
+                            if (cmbConcepto2Calificador4.SelectedIndex >= 0)
+                            {
+                                query += ", concepto2calificador4";
+                                query2 += ", " + (cmbConcepto2Calificador4.SelectedIndex).ToString();
+                            }
+                            else
+                            {
+                                query += ", concepto2calificador4";
+                                query2 += ", 0";
+                            }
+
                             if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text))
                             {
                                 query += ", rutaconcepto2calificador1";
@@ -612,6 +703,12 @@ namespace PosgrIQ
                                 query += ", rutaconcepto2calificador3";
                                 query2 += ", '" + txtRutaConcepto2Calificador3.Text + "'";
                             }
+
+                            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador4.Text))
+                            {
+                                query += ", rutaconcepto2calificador4";
+                                query2 += ", '" + txtRutaConcepto2Calificador4.Text + "'";
+                            }
                         }
                         else
                         {
@@ -622,6 +719,9 @@ namespace PosgrIQ
                             query2 += ", 0";
 
                             query += ", concepto2calificador3";
+                            query2 += ", 0";
+
+                            query += ", concepto2calificador4";
                             query2 += ", 0";
                         }
 
@@ -669,21 +769,26 @@ namespace PosgrIQ
                         txtRutaConcepto1Calificador1.Text = "";
                         txtRutaConcepto1Calificador2.Text = "";
                         txtRutaConcepto1Calificador3.Text = "";
+                        txtRutaConcepto1Calificador4.Text = "";
                         txtRutaConcepto2Calificador1.Text = "";
                         txtRutaConcepto2Calificador2.Text = "";
                         txtRutaConcepto2Calificador3.Text = "";
+                        txtRutaConcepto2Calificador4.Text = "";
                         txtRutaPropuesta.Text = "";
                         txtRutaSustentacion.Text = "";
-                        numCod.Value = 0;
+                        codigo++;
                         cmbCalificador1.SelectedIndex = -1;
                         cmbCalificador2.SelectedIndex = -1;
                         cmbCalificador3.SelectedIndex = -1;
+                        cmbCalificador4.SelectedIndex = -1;
                         cmbConcepto1Calificador1.SelectedIndex = -1;
                         cmbConcepto1Calificador2.SelectedIndex = -1;
                         cmbConcepto1Calificador3.SelectedIndex = -1;
+                        cmbConcepto1Calificador4.SelectedIndex = -1;
                         cmbConcepto2Calificador1.SelectedIndex = -1;
                         cmbConcepto2Calificador2.SelectedIndex = -1;
                         cmbConcepto2Calificador3.SelectedIndex = -1;
+                        cmbConcepto2Calificador4.SelectedIndex = -1;
                         cmbEstudiante.SelectedIndex = -1;
                         cmbSustentacion.SelectedIndex = -1;
                         
@@ -707,7 +812,7 @@ namespace PosgrIQ
                     {
                         // se prepara la cadena SQL
                         query = "UPDATE PropuestaDoct SET ";
-                        query += "codigo=" + numCod.Value.ToString();
+                        query += "codigo=" + codigo.ToString();
 
                         query += ", estudiante=" + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
                         
@@ -716,6 +821,7 @@ namespace PosgrIQ
                         query += ", calificador1=" + (cmbCalificador1.SelectedIndex + 1).ToString();
                         query += ", calificador2=" + (cmbCalificador2.SelectedIndex + 1).ToString();
                         query += ", calificador3=" + (cmbCalificador3.SelectedIndex + 1).ToString();
+                        if (cmbCalificador4.SelectedIndex >= 0) query += ", calificador4=" + (cmbCalificador4.SelectedIndex + 1).ToString();
                         query += ", entrega1='" + MainForm.Fecha2Texto(datePropuesta.Value) + "'";
 
                         if (cmbConcepto1Calificador1.SelectedIndex >= 0) query += ", concepto1calificador1=" + (cmbConcepto1Calificador1.SelectedIndex).ToString();
@@ -727,11 +833,16 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador3.SelectedIndex >= 0) query += ", concepto1calificador3=" + (cmbConcepto1Calificador3.SelectedIndex).ToString();
                         else query += ", concepto1calificador3=0";
 
+                        if (cmbConcepto1Calificador4.SelectedIndex >= 0) query += ", concepto1calificador4=" + (cmbConcepto1Calificador4.SelectedIndex).ToString();
+                        else query += ", concepto1calificador4=0";
+
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text)) query += ", rutaconcepto1calificador1='" + txtRutaConcepto1Calificador1.Text + "'";
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador2.Text)) query += ", rutaconcepto1calificador2='" + txtRutaConcepto1Calificador2.Text + "'";
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador3.Text)) query += ", rutaconcepto1calificador3='" + txtRutaConcepto1Calificador3.Text + "'";
+
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador4.Text)) query += ", rutaconcepto1calificador4='" + txtRutaConcepto1Calificador4.Text + "'";
 
                         if (chkCorrecciones.Checked)
                         {
@@ -745,7 +856,10 @@ namespace PosgrIQ
                             else query += ", concepto2calificador2=0";
 
                             if (cmbConcepto2Calificador3.SelectedIndex >= 0) query += ", concepto2calificador3=" + (cmbConcepto2Calificador3.SelectedIndex).ToString();
-                            else query += ", concepto2calificador3=0";                            
+                            else query += ", concepto2calificador3=0";
+
+                            if (cmbConcepto2Calificador4.SelectedIndex >= 0) query += ", concepto2calificador4=" + (cmbConcepto2Calificador4.SelectedIndex).ToString();
+                            else query += ", concepto2calificador4=0";   
                         }
                         else
                         {
@@ -753,6 +867,7 @@ namespace PosgrIQ
                             query += ", concepto2calificador1=0";
                             query += ", concepto2calificador2=0";
                             query += ", concepto2calificador3=0";
+                            query += ", concepto2calificador4=0";
                         }
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text)) query += ", rutaconcepto2calificador1='" + txtRutaConcepto2Calificador1.Text + "'";
@@ -760,6 +875,8 @@ namespace PosgrIQ
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text)) query += ", rutaconcepto2calificador2='" + txtRutaConcepto2Calificador2.Text + "'";
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador3.Text)) query += ", rutaconcepto2calificador3='" + txtRutaConcepto2Calificador3.Text + "'";
+
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador3.Text)) query += ", rutaconcepto2calificador4='" + txtRutaConcepto2Calificador3.Text + "'";
 
                         if (chkSustentacion.Checked)
                         {
@@ -1032,12 +1149,36 @@ namespace PosgrIQ
 
         private void chkCorrecciones_CheckedChanged(object sender, EventArgs e)
         {
-            dateCorrecciones.Enabled = cmbConcepto2Calificador1.Enabled = cmbConcepto2Calificador2.Enabled = cmbConcepto2Calificador3.Enabled = txtRutaConcepto2Calificador1.Enabled = txtRutaConcepto2Calificador2.Enabled = txtRutaConcepto2Calificador3.Enabled = btnSelConcepto2Calificador1.Enabled = btnSelConcepto2Calificador2.Enabled = btnSelConcepto2Calificador3.Enabled = btnVerConcepto2Calificador1.Enabled = btnVerConcepto2Calificador2.Enabled = btnVerConcepto2Calificador3.Enabled = chkCorrecciones.Checked;
+            dateCorrecciones.Enabled = cmbConcepto2Calificador1.Enabled = cmbConcepto2Calificador2.Enabled = cmbConcepto2Calificador3.Enabled = cmbConcepto2Calificador4.Enabled = txtRutaConcepto2Calificador1.Enabled = txtRutaConcepto2Calificador2.Enabled = txtRutaConcepto2Calificador3.Enabled = txtRutaConcepto2Calificador4.Enabled = btnSelConcepto2Calificador1.Enabled = btnSelConcepto2Calificador2.Enabled = btnSelConcepto2Calificador3.Enabled = btnSelConcepto2Calificador4.Enabled = btnVerConcepto2Calificador1.Enabled = btnVerConcepto2Calificador2.Enabled = btnVerConcepto2Calificador3.Enabled = btnVerConcepto2Calificador4.Enabled = chkCorrecciones.Checked;
         }
 
         private void chkSustentacion_CheckedChanged(object sender, EventArgs e)
         {
             dateSustentacion.Enabled = cmbSustentacion.Enabled = txtRutaSustentacion.Enabled = btnSelSustentacion.Enabled = btnVerSustentacion.Enabled = chkSustentacion.Checked;
+        }
+
+        private void btnSelConcepto2Calificador4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc|Archivos PDF (.pdf)|*.pdf";
+            open.FilterIndex = 0;
+
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                txtRutaConcepto2Calificador4.Text = open.FileName;
+            }
+        }
+
+        private void btnVerConcepto2Calificador4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(txtRutaConcepto2Calificador4.Text);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
