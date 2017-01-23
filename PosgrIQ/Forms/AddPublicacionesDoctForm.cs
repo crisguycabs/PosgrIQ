@@ -253,7 +253,7 @@ namespace PosgrIQ
                         query2 += numCod.Value.ToString();
 
                         query += ", estudiante";
-                        query2 += ", " + (cmbEstudiante.SelectedIndex + 1).ToString();
+                        query2 += ", " + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
 
                         query += ", nombre";
                         query2 += ", '" + txtTitulo.Text + "'";
@@ -309,7 +309,7 @@ namespace PosgrIQ
                         // se prepara la cadena SQL
                         query = "UPDATE PropuestaDoct SET ";
                         query += "codigo=" + numCod.Value.ToString();
-                        query += ", estudiante=" + (this.cmbEstudiante.SelectedIndex + 1).ToString();
+                        query += ", estudiante=" + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
                         query += ", nombre='" + txtTitulo.Text + "'";
                         query += ", revista='" + txtRevista.Text + "'";
                         query += ", fecha='" + MainForm.Fecha2Texto(dateAceptado.Value) + "'";

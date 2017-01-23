@@ -580,7 +580,7 @@ namespace PosgrIQ
                         query2 += numCod.Value.ToString();
 
                         query += ", estudiante";
-                        query2 += ", " + (cmbEstudiante.SelectedIndex + 1).ToString();
+                        query2 += ", " + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
 
                         query += ", titulo";
                         query2 += ", '" + txtTesis.Text + "'";
@@ -864,7 +864,7 @@ namespace PosgrIQ
                         // se prepara la cadena SQL
                         query = "UPDATE TesisDoct SET ";
                         query += "codigo=" + numCod.Value.ToString();
-                        query += ", estudiante=" + (this.cmbEstudiante.SelectedIndex + 1).ToString();
+                        query += ", estudiante=" + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
                         query += ", titulo='" + txtTesis.Text + "'";
                         query += ", ruta='" + txtRutaTesis.Text + "'";
                         query += ", calificador1=" + (cmbCalificador1.SelectedIndex + 1).ToString();
