@@ -250,43 +250,43 @@ namespace PosgrIQ
                         if (!string.IsNullOrWhiteSpace(seleccionado[0][5].ToString())) cmbCalificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][5]) - 1;
 
                         // entrega
-                        datePropuesta.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][9]));
+                        datePropuesta.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][6]));
 
                         // concepto 1 calificador 1
-                        cmbConcepto1Calificador1.SelectedIndex = Convert.ToInt32(seleccionado[0][10]) - 1;
+                        cmbConcepto1Calificador1.SelectedIndex = Convert.ToInt32(seleccionado[0][7]) - 1;
 
                         // concepto 1 calificador 2
-                        cmbConcepto1Calificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][11]) - 1;
+                        cmbConcepto1Calificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][8]) - 1;
 
                         // ruta concepto 1 calificador 1
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][15].ToString())) txtRutaConcepto1Calificador1.Text = Convert.ToString(seleccionado[0][15]);
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][9].ToString())) txtRutaConcepto1Calificador1.Text = Convert.ToString(seleccionado[0][9]);
 
                         // ruta concepto 1 calificador 2
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][16].ToString())) txtRutaConcepto1Calificador2.Text = Convert.ToString(seleccionado[0][16]);
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][10].ToString())) txtRutaConcepto1Calificador2.Text = Convert.ToString(seleccionado[0][10]);
 
                         // correcciones
-                        dateCorrecciones.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][20]));
+                        dateCorrecciones.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][11]));
 
                         // concepto 2 calificador 1
-                        cmbConcepto2Calificador1.SelectedIndex = Convert.ToInt32(seleccionado[0][21]) - 1;
+                        cmbConcepto2Calificador1.SelectedIndex = Convert.ToInt32(seleccionado[0][12]) - 1;
 
                         // concepto 2 calificador 2
-                        cmbConcepto2Calificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][22]) - 1;                        
+                        cmbConcepto2Calificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][13]) - 1;                        
 
                         // ruta concepto 2 calificador 1
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][26].ToString())) txtRutaConcepto1Calificador1.Text = Convert.ToString(seleccionado[0][26]);
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][14].ToString())) txtRutaConcepto1Calificador1.Text = Convert.ToString(seleccionado[0][14]);
 
                         // ruta concepto 2 calificador 2
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][27].ToString())) txtRutaConcepto1Calificador2.Text = Convert.ToString(seleccionado[0][27]);
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][15].ToString())) txtRutaConcepto1Calificador2.Text = Convert.ToString(seleccionado[0][15]);
 
                         // fecha sustentacion
-                        dateSustentacion.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][31]));
+                        dateSustentacion.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][16]));
 
                         // concepto sustentacion
-                        cmbSustentacion.SelectedIndex = Convert.ToInt32(seleccionado[0][32]) - 1;
+                        cmbSustentacion.SelectedIndex = Convert.ToInt32(seleccionado[0][17]) - 1;
 
                         // ruta concepto sustentacion
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][33].ToString())) txtRutaSustentacion.Text = Convert.ToString(seleccionado[0][33]);
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][18].ToString())) txtRutaSustentacion.Text = Convert.ToString(seleccionado[0][18]);
 
                         btnAdd.Text = "Modificar";
                         this.Text = "MODIFICAR TESIS DE MAESTRIA";

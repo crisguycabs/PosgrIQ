@@ -806,7 +806,7 @@ namespace PosgrIQ
             }
             else
             {
-                tesisDoctForm.Select();
+                tesisMaesForm.Select();
             }
         }
 
