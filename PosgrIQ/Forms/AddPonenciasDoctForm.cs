@@ -112,7 +112,7 @@ namespace PosgrIQ
                 {
                     case true: // se agrega una nueva publicacion de doctorado
 
-                        numCod.Value = dtPonencias.Rows.Count + 1;
+                        codigo = dtPonencias.Rows.Count + 1;
                         cmbEstudiante.SelectedIndex = -1;
                         txtTitulo.Text = "";
                         txtRevista.Text = "";
@@ -126,9 +126,6 @@ namespace PosgrIQ
                     case false: // se modifica una nueva publicacion de doctorado
 
                         DataRow[] seleccionado = dtPonencias.Select("codigo=" + codigo.ToString());
-
-                        // codigo
-                        numCod.Value = codigo;
 
                         // estudiante
                         cmbEstudiante.SelectedIndex = Convert.ToInt32(seleccionado[0][1]) - 1;
@@ -172,10 +169,10 @@ namespace PosgrIQ
             // existe una propuesta con ese codigo. Solo revisar en modo insercion
             if (modo)
             {
-                busqueda = dtPonencias.Select("codigo=" + numCod.Value.ToString());
+                busqueda = dtPonencias.Select("codigo=" + codigo.ToString());
                 if (busqueda.Length > 0)
                 {
-                    MessageBox.Show("Ya existe una ponencia con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe una ponencia con el codigo " + codigo.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -237,11 +234,11 @@ namespace PosgrIQ
                     try
                     {
                         // se prepara la cadena SQL
-                        query = "INSERT INTO PublicacionesDoct (";
+                        query = "INSERT INTO PonenciasDoct (";
                         query2 = " VALUES (";
 
                         query += "codigo";
-                        query2 += numCod.Value.ToString();
+                        query2 += codigo.ToString();
 
                         query += ", estudiante";
                         query2 += ", " + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
@@ -249,7 +246,7 @@ namespace PosgrIQ
                         query += ", nombre";
                         query2 += ", '" + txtTitulo.Text + "'";
 
-                        query += ", revista";
+                        query += ", evento";
                         query2 += ", '" + txtRevista.Text + "'";
 
                         query += ", fecha";
@@ -273,7 +270,7 @@ namespace PosgrIQ
 
                         txtRevista.Text = "";
                         txtTitulo.Text = "";
-                        numCod.Value = 0;
+                        codigo++;
                         cmbAlcance.SelectedIndex = -1;
                         cmbEstudiante.SelectedIndex = -1;
 
@@ -294,11 +291,11 @@ namespace PosgrIQ
                     try
                     {
                         // se prepara la cadena SQL
-                        query = "UPDATE PropuestaDoct SET ";
-                        query += "codigo=" + numCod.Value.ToString();
+                        query = "UPDATE PonenciasDoct SET ";
+                        query += "codigo=" + codigo.ToString();
                         query += ", estudiante=" + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
                         query += ", nombre='" + txtTitulo.Text + "'";
-                        query += ", revista='" + txtRevista.Text + "'";
+                        query += ", evento='" + txtRevista.Text + "'";
                         query += ", fecha='" + MainForm.Fecha2Texto(dateAceptado.Value) + "'";
 
                         if (cmbAlcance.SelectedIndex == 1) query += ", alcance='Nacional'";

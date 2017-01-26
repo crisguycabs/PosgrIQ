@@ -89,13 +89,10 @@
             this.label13 = new System.Windows.Forms.Label();
             this.cmbEstudiante = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.numCod = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numCod)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbConcepto2Calificador1
@@ -144,7 +141,7 @@
             this.btnAddProfesor.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAddProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProfesor.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAddProfesor.Location = new System.Drawing.Point(495, 215);
+            this.btnAddProfesor.Location = new System.Drawing.Point(495, 186);
             this.btnAddProfesor.Name = "btnAddProfesor";
             this.btnAddProfesor.Size = new System.Drawing.Size(128, 23);
             this.btnAddProfesor.TabIndex = 57;
@@ -237,7 +234,7 @@
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAdd.Location = new System.Drawing.Point(548, 445);
+            this.btnAdd.Location = new System.Drawing.Point(548, 416);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 18;
@@ -258,7 +255,7 @@
             // 
             this.label25.BackColor = System.Drawing.Color.DarkRed;
             this.label25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label25.Location = new System.Drawing.Point(8, 438);
+            this.label25.Location = new System.Drawing.Point(8, 409);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(616, 3);
             this.label25.TabIndex = 53;
@@ -287,7 +284,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(7, 254);
+            this.tabControl1.Location = new System.Drawing.Point(7, 225);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(616, 180);
@@ -635,7 +632,7 @@
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnCancel.Location = new System.Drawing.Point(467, 445);
+            this.btnCancel.Location = new System.Drawing.Point(467, 416);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 19;
@@ -647,7 +644,7 @@
             // 
             this.label26.BackColor = System.Drawing.Color.DarkRed;
             this.label26.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label26.Location = new System.Drawing.Point(7, 246);
+            this.label26.Location = new System.Drawing.Point(7, 217);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(616, 3);
             this.label26.TabIndex = 51;
@@ -656,7 +653,7 @@
             // 
             this.cmbCalificador2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCalificador2.FormattingEnabled = true;
-            this.cmbCalificador2.Location = new System.Drawing.Point(400, 187);
+            this.cmbCalificador2.Location = new System.Drawing.Point(400, 158);
             this.cmbCalificador2.Name = "cmbCalificador2";
             this.cmbCalificador2.Size = new System.Drawing.Size(223, 22);
             this.cmbCalificador2.TabIndex = 6;
@@ -665,7 +662,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label24.Location = new System.Drawing.Point(322, 191);
+            this.label24.Location = new System.Drawing.Point(322, 162);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(76, 14);
             this.label24.TabIndex = 42;
@@ -675,7 +672,7 @@
             // 
             this.cmbCalificador1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCalificador1.FormattingEnabled = true;
-            this.cmbCalificador1.Location = new System.Drawing.Point(90, 187);
+            this.cmbCalificador1.Location = new System.Drawing.Point(90, 158);
             this.cmbCalificador1.Name = "cmbCalificador1";
             this.cmbCalificador1.Size = new System.Drawing.Size(223, 22);
             this.cmbCalificador1.TabIndex = 5;
@@ -684,7 +681,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label20.Location = new System.Drawing.Point(7, 191);
+            this.label20.Location = new System.Drawing.Point(7, 162);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(76, 14);
             this.label20.TabIndex = 43;
@@ -694,7 +691,7 @@
             // 
             this.label5.BackColor = System.Drawing.Color.DarkRed;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(7, 179);
+            this.label5.Location = new System.Drawing.Point(7, 150);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(616, 3);
             this.label5.TabIndex = 52;
@@ -702,7 +699,7 @@
             // txtRutaPropuesta
             // 
             this.txtRutaPropuesta.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtRutaPropuesta.Location = new System.Drawing.Point(90, 121);
+            this.txtRutaPropuesta.Location = new System.Drawing.Point(90, 92);
             this.txtRutaPropuesta.Name = "txtRutaPropuesta";
             this.txtRutaPropuesta.Size = new System.Drawing.Size(533, 22);
             this.txtRutaPropuesta.TabIndex = 4;
@@ -711,7 +708,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label16.Location = new System.Drawing.Point(7, 124);
+            this.label16.Location = new System.Drawing.Point(7, 95);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(72, 14);
             this.label16.TabIndex = 48;
@@ -723,7 +720,7 @@
             this.btnRutaPropuesta.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnRutaPropuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRutaPropuesta.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnRutaPropuesta.Location = new System.Drawing.Point(90, 149);
+            this.btnRutaPropuesta.Location = new System.Drawing.Point(90, 120);
             this.btnRutaPropuesta.Name = "btnRutaPropuesta";
             this.btnRutaPropuesta.Size = new System.Drawing.Size(128, 23);
             this.btnRutaPropuesta.TabIndex = 49;
@@ -737,7 +734,7 @@
             this.btnVerArchivoPropuesta.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnVerArchivoPropuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerArchivoPropuesta.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnVerArchivoPropuesta.Location = new System.Drawing.Point(224, 149);
+            this.btnVerArchivoPropuesta.Location = new System.Drawing.Point(224, 120);
             this.btnVerArchivoPropuesta.Name = "btnVerArchivoPropuesta";
             this.btnVerArchivoPropuesta.Size = new System.Drawing.Size(128, 23);
             this.btnVerArchivoPropuesta.TabIndex = 50;
@@ -748,7 +745,7 @@
             // txtPropuesta
             // 
             this.txtPropuesta.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtPropuesta.Location = new System.Drawing.Point(90, 64);
+            this.txtPropuesta.Location = new System.Drawing.Point(90, 35);
             this.txtPropuesta.Multiline = true;
             this.txtPropuesta.Name = "txtPropuesta";
             this.txtPropuesta.Size = new System.Drawing.Size(533, 51);
@@ -758,7 +755,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label13.Location = new System.Drawing.Point(7, 69);
+            this.label13.Location = new System.Drawing.Point(7, 40);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(42, 14);
             this.label13.TabIndex = 45;
@@ -768,7 +765,7 @@
             // 
             this.cmbEstudiante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbEstudiante.FormattingEnabled = true;
-            this.cmbEstudiante.Location = new System.Drawing.Point(90, 36);
+            this.cmbEstudiante.Location = new System.Drawing.Point(90, 7);
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(223, 22);
             this.cmbEstudiante.TabIndex = 2;
@@ -778,39 +775,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label9.Location = new System.Drawing.Point(7, 40);
+            this.label9.Location = new System.Drawing.Point(7, 11);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 14);
             this.label9.TabIndex = 41;
             this.label9.Text = "Estudiante:";
-            // 
-            // numCod
-            // 
-            this.numCod.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numCod.Location = new System.Drawing.Point(90, 8);
-            this.numCod.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numCod.Name = "numCod";
-            this.numCod.Size = new System.Drawing.Size(70, 22);
-            this.numCod.TabIndex = 1;
-            this.numCod.Value = new decimal(new int[] {
-            9999999,
-            0,
-            0,
-            0});
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label1.Location = new System.Drawing.Point(7, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 14);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Codigo:";
             // 
             // AddPropuestaMaesForm
             // 
@@ -818,7 +787,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(629, 481);
+            this.ClientSize = new System.Drawing.Size(629, 448);
             this.ControlBox = false;
             this.Controls.Add(this.btnAddProfesor);
             this.Controls.Add(this.btnAdd);
@@ -839,13 +808,11 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cmbEstudiante);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.numCod);
-            this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Calibri", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(645, 515);
-            this.MinimumSize = new System.Drawing.Size(645, 515);
+            this.MaximumSize = new System.Drawing.Size(645, 487);
+            this.MinimumSize = new System.Drawing.Size(645, 487);
             this.Name = "AddPropuestaMaesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddPropuestaMaesForm";
@@ -857,7 +824,6 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numCod)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -923,8 +889,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbEstudiante;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown numCod;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chkCorrecciones;
         private System.Windows.Forms.CheckBox chkSustentacion;
     }

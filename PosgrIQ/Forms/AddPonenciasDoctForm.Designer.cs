@@ -41,9 +41,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.numCod = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numCod)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -52,7 +49,7 @@
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAdd.Location = new System.Drawing.Point(547, 202);
+            this.btnAdd.Location = new System.Drawing.Point(547, 171);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 7;
@@ -67,7 +64,7 @@
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnCancel.Location = new System.Drawing.Point(466, 202);
+            this.btnCancel.Location = new System.Drawing.Point(466, 171);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 8;
@@ -82,14 +79,14 @@
             this.cmbAlcance.Items.AddRange(new object[] {
             "Nacional",
             "Internacional"});
-            this.cmbAlcance.Location = new System.Drawing.Point(89, 178);
+            this.cmbAlcance.Location = new System.Drawing.Point(89, 147);
             this.cmbAlcance.Name = "cmbAlcance";
             this.cmbAlcance.Size = new System.Drawing.Size(96, 22);
             this.cmbAlcance.TabIndex = 6;
             // 
             // txtRevista
             // 
-            this.txtRevista.Location = new System.Drawing.Point(89, 150);
+            this.txtRevista.Location = new System.Drawing.Point(89, 119);
             this.txtRevista.Name = "txtRevista";
             this.txtRevista.Size = new System.Drawing.Size(533, 22);
             this.txtRevista.TabIndex = 5;
@@ -97,7 +94,7 @@
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label14.Location = new System.Drawing.Point(6, 121);
+            this.label14.Location = new System.Drawing.Point(6, 90);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(69, 35);
             this.label14.TabIndex = 45;
@@ -106,7 +103,7 @@
             // dateAceptado
             // 
             this.dateAceptado.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateAceptado.Location = new System.Drawing.Point(89, 122);
+            this.dateAceptado.Location = new System.Drawing.Point(89, 91);
             this.dateAceptado.Name = "dateAceptado";
             this.dateAceptado.Size = new System.Drawing.Size(96, 22);
             this.dateAceptado.TabIndex = 4;
@@ -114,7 +111,7 @@
             // txtTitulo
             // 
             this.txtTitulo.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtTitulo.Location = new System.Drawing.Point(89, 64);
+            this.txtTitulo.Location = new System.Drawing.Point(89, 33);
             this.txtTitulo.Multiline = true;
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(533, 51);
@@ -124,7 +121,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label13.Location = new System.Drawing.Point(6, 69);
+            this.label13.Location = new System.Drawing.Point(6, 38);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(42, 14);
             this.label13.TabIndex = 42;
@@ -134,7 +131,7 @@
             // 
             this.cmbEstudiante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbEstudiante.FormattingEnabled = true;
-            this.cmbEstudiante.Location = new System.Drawing.Point(89, 36);
+            this.cmbEstudiante.Location = new System.Drawing.Point(89, 5);
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(223, 22);
             this.cmbEstudiante.TabIndex = 2;
@@ -143,7 +140,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label3.Location = new System.Drawing.Point(6, 182);
+            this.label3.Location = new System.Drawing.Point(6, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 14);
             this.label3.TabIndex = 39;
@@ -153,49 +150,21 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label2.Location = new System.Drawing.Point(6, 156);
+            this.label2.Location = new System.Drawing.Point(6, 125);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 14);
+            this.label2.Size = new System.Drawing.Size(46, 14);
             this.label2.TabIndex = 40;
-            this.label2.Text = "Revista:";
+            this.label2.Text = "Evento:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label9.Location = new System.Drawing.Point(6, 40);
+            this.label9.Location = new System.Drawing.Point(6, 9);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 14);
             this.label9.TabIndex = 41;
             this.label9.Text = "Estudiante:";
-            // 
-            // numCod
-            // 
-            this.numCod.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numCod.Location = new System.Drawing.Point(89, 8);
-            this.numCod.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numCod.Name = "numCod";
-            this.numCod.Size = new System.Drawing.Size(70, 22);
-            this.numCod.TabIndex = 1;
-            this.numCod.Value = new decimal(new int[] {
-            9999999,
-            0,
-            0,
-            0});
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label1.Location = new System.Drawing.Point(6, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 14);
-            this.label1.TabIndex = 37;
-            this.label1.Text = "Codigo:";
             // 
             // AddPonenciasDoctForm
             // 
@@ -203,7 +172,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(629, 238);
+            this.ClientSize = new System.Drawing.Size(629, 203);
             this.ControlBox = false;
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
@@ -217,18 +186,15 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.numCod);
-            this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Calibri", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(645, 272);
-            this.MinimumSize = new System.Drawing.Size(645, 272);
+            this.MaximumSize = new System.Drawing.Size(645, 242);
+            this.MinimumSize = new System.Drawing.Size(645, 242);
             this.Name = "AddPonenciasDoctForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AGREGAR PONENCIAS DE DOCTORADO";
             this.Load += new System.EventHandler(this.AddPonenciasDoctForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numCod)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,7 +214,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown numCod;
-        private System.Windows.Forms.Label label1;
     }
 }

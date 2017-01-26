@@ -139,11 +139,12 @@ namespace PosgrIQ
         {
             if (dataGridPonencias.Rows.Count < 1) return;
 
-            AddPonenciasMaesForm agregar = new AddPonenciasMaesForm();
-            agregar.padre = this.padre;
-            agregar.modo = false;
+            AddPonenciasMaesForm modificar = new AddPonenciasMaesForm();
+            modificar.padre = this.padre;
+            modificar.modo = false;
+            modificar.codigo = Convert.ToInt32(dataGridPonencias.SelectedRows[0].Cells[0].Value);
 
-            if (agregar.ShowDialog() == DialogResult.OK) this.PonenciasMaesForm_Load(sender, e);
+            if (modificar.ShowDialog() == DialogResult.OK) this.PonenciasMaesForm_Load(sender, e);
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

@@ -194,7 +194,7 @@ namespace PosgrIQ
                 {
                     case true: // se agrega una nueva propuesta de doctorado
 
-                        numCod.Value = dtPropuestas.Rows.Count + 1;
+                        codigo = dtPropuestas.Rows.Count + 1;
                         cmbEstudiante.SelectedIndex = -1;
                         txtPropuesta.Text = "";
                         txtRutaPropuesta.Text = "";
@@ -220,9 +220,6 @@ namespace PosgrIQ
                     case false: // se modifica una propuesta de doctorado
 
                         DataRow[] seleccionado = dtPropuestas.Select("codigo=" + codigo.ToString());
-
-                        // codigo
-                        numCod.Value = codigo;
 
                         // estudiante
                         // se selecciona el indice en el cmbEstudiante segun el codigo de estudiante en la propuesta
@@ -493,10 +490,10 @@ namespace PosgrIQ
             // existe una propuesta con ese codigo. Solo revisar en modo insercion
             if (modo)
             {
-                busqueda = dtPropuestas.Select("codigo=" + numCod.Value.ToString());
+                busqueda = dtPropuestas.Select("codigo=" + codigo.ToString());
                 if (busqueda.Length > 0)
                 {
-                    MessageBox.Show("Ya existe una propuesta con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe una propuesta con el codigo " + codigo.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -568,7 +565,7 @@ namespace PosgrIQ
                         query2 = " VALUES (";
 
                         query += "codigo";
-                        query2 += numCod.Value.ToString();
+                        query2 += codigo.ToString();
 
                         query += ", estudiante";
                         query2 += ", " + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
@@ -718,7 +715,7 @@ namespace PosgrIQ
                         txtRutaConcepto2Calificador2.Text = "";
                         txtRutaPropuesta.Text = "";
                         txtRutaSustentacion.Text = "";
-                        numCod.Value = 0;
+                        codigo++;
                         cmbCalificador1.SelectedIndex = -1;
                         cmbCalificador2.SelectedIndex = -1;
                         cmbConcepto1Calificador1.SelectedIndex = -1;
@@ -748,7 +745,7 @@ namespace PosgrIQ
                     {
                         // se prepara la cadena SQL
                         query = "UPDATE PropuestaMaes SET ";
-                        query += "codigo=" + numCod.Value.ToString();
+                        query += "codigo=" + codigo.ToString();
 
                         query += ", estudiante=" + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
                         
