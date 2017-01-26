@@ -310,7 +310,7 @@ namespace PosgrIQ
 
                         // concepto, sensible a valores vacios
                         if (string.IsNullOrWhiteSpace(seleccionado[0][13].ToString())) cmbConceptoTema.SelectedIndex = -1;
-                        else cmbConceptoTema.SelectedIndex = Convert.ToInt32(seleccionado[0][13]) - 1;
+                        else cmbConceptoTema.SelectedIndex = Convert.ToInt32(seleccionado[0][13]);
 
                         // ruta
                         txtRutaTema.Text = Convert.ToString(seleccionado[0][14]);
@@ -579,7 +579,8 @@ namespace PosgrIQ
                             query2 += ", '" + MainForm.Fecha2Texto(dateTema.Value) + "'";
 
                             query += ", concepto";
-                            query2 += ", " + (cmbConceptoTema.SelectedIndex + 1).ToString();
+                            if (cmbConceptoTema.SelectedIndex < 0) query2 += ", 1";
+                            else query2 += ", " + (cmbConceptoTema.SelectedIndex).ToString();
 
                             query += ", ruta";
                             query2 += ", '" + btnRutaTema.Text + "'";                            
@@ -682,7 +683,7 @@ namespace PosgrIQ
                         query += ", tema='" + txtTema.Text + "'";
                         query += ", fecha='" + MainForm.Fecha2Texto(dateTema.Value) + "'";
 
-                        if (cmbConceptoTema.SelectedIndex >= 0) query += ", concepto=" + (cmbConceptoTema.SelectedIndex + 1).ToString();
+                        if (cmbConceptoTema.SelectedIndex >= 0) query += ", concepto=" + (cmbConceptoTema.SelectedIndex).ToString();
                         else query += ", concepto=1";
 
                         query += ", ruta='" + txtRutaTema.Text + "'";
