@@ -128,6 +128,9 @@ namespace PosgrIQ
             padre.InformeEstudiantesMaes();
             padre.InformeEstudiantesDoct();
             padre.InformePropuestaMaes();
+            padre.InformePropuestaDoct();
+            padre.InformeTesisMaes();
+            padre.InformeTesisDoct();
             DateTime fin = DateTime.Now;
             MessageBox.Show(Convert.ToString((fin - ini).Milliseconds + 1000 * (fin - ini).Seconds));
         }
