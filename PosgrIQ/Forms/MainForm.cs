@@ -1457,7 +1457,7 @@ namespace PosgrIQ
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                rowpos = 9;
+                rowpos = 5;
                 colpos = (3 * i) + 1;
 
                 ws.Columns[colpos - 1].Width = 5 * 300;
@@ -1607,6 +1607,9 @@ namespace PosgrIQ
 
             ws.PrintOptions.Portrait = false;
             ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
 
             ef.Save(final);
             /*
@@ -1798,7 +1801,7 @@ namespace PosgrIQ
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                rowpos = 9;
+                rowpos = 5;
                 colpos = (3 * i) + 1;
 
                 ws.Columns[colpos - 1].Width = 5 * 300;
@@ -1960,6 +1963,9 @@ namespace PosgrIQ
 
             ws.PrintOptions.Portrait = false;
             ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
 
             ef.Save(final);
             /*
@@ -2134,7 +2140,7 @@ namespace PosgrIQ
 
             for (int i = 0; i < dtPropuestas.Rows.Count; i++)
             {
-                rowpos = 9;
+                rowpos = 5;
                 colpos = (3 * i) + 1;
 
                 ws.Columns[colpos - 1].Width = 5 * 300;
@@ -2256,6 +2262,9 @@ namespace PosgrIQ
 
             ws.PrintOptions.Portrait = false;
             ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
 
             ef.Save(final);
             /*
@@ -2430,7 +2439,7 @@ namespace PosgrIQ
 
             for (int i = 0; i < dtPropuestas.Rows.Count; i++)
             {
-                rowpos = 9;
+                rowpos = 5;
                 colpos = (3 * i) + 1;
 
                 ws.Columns[colpos - 1].Width = 5 * 300;
@@ -2610,6 +2619,9 @@ namespace PosgrIQ
 
             ws.PrintOptions.Portrait = false;
             ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
 
             ef.Save(final);
             /*
@@ -2784,7 +2796,7 @@ namespace PosgrIQ
 
             for (int i = 0; i < dtTesis.Rows.Count; i++)
             {
-                rowpos = 9;
+                rowpos = 5;
                 colpos = (3 * i) + 1;
 
                 ws.Columns[colpos - 1].Width = 5 * 300;
@@ -2906,6 +2918,9 @@ namespace PosgrIQ
 
             ws.PrintOptions.Portrait = false;
             ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
 
             ef.Save(final);
             /*
@@ -3080,7 +3095,7 @@ namespace PosgrIQ
 
             for (int i = 0; i < dtTesis.Rows.Count; i++)
             {
-                rowpos = 9;
+                rowpos = 5;
                 colpos = (3 * i) + 1;
 
                 ws.Columns[colpos - 1].Width = 5 * 300;
@@ -3286,6 +3301,9 @@ namespace PosgrIQ
 
             ws.PrintOptions.Portrait = false;
             ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
 
             ef.Save(final);
             /*
@@ -3297,6 +3315,1412 @@ namespace PosgrIQ
 
             string pathFinal = System.IO.Path.GetDirectoryName(final);
             ExcelFile.Load(final).Save(pathFinal + "\\TesisDoct.pdf");
+
+            DateTime end = DateTime.Now;
+            //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
+        }
+
+        /// <summary>
+        /// Genera el informe en PDF y XLSX de los calificadores de propuestas de maestria
+        /// </summary>
+        public void InformeCalificadoresPropMaes()
+        {
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
+
+            // algunas variables
+            string query;
+            OleDbCommand command;
+            DataTable dtEstudiantes = new DataTable();
+            OleDbDataAdapter da;
+
+            // se lee desde el archivo oneSource la ruta a donde se deben guardar el archivo excel
+            System.IO.StreamReader sr;
+
+            try
+            {
+                sr = new System.IO.StreamReader("sourceone");
+            }
+            catch
+            {
+                MessageBox.Show("No se puede encontrar el archivo sourceone.\r\n\r\nPor favor verifique la ubicacion del archivo en la ventana de Configuracion e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
+            string leido = @sr.ReadLine();
+            string final = leido + "\\CalifPropuestasMaes.xlsx";
+
+            // se extrae la ruta inicial
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string inicial = System.IO.Path.GetDirectoryName(path) + "\\templates\\templateCalificadores.xlsx";
+
+            // se verifica que existan los archivos
+            //bool existeInicial = false;
+            //existeInicial = System.IO.File.Exists(inicial);
+            //bool existeFin = false;
+            //existeFin = System.IO.File.Exists(final);
+
+            // si el archivo final existe entonces se debe borrar
+            try
+            {
+                if (System.IO.File.Exists(final)) System.IO.File.Delete(final);
+            }
+            catch
+            {
+                MessageBox.Show("El archivo " + final + "esta siendo utilizado y no se puede modificar.\r\n\r\nPor favor cierre el archivo e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // se duplica el archivo
+                System.IO.File.Copy(inicial, final);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede crear el nuevo archivo excel en la ruta " + final, "Error de escritura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los estudiantes de maestria
+            dtEstudiantes = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtEstudiantes);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla EstudiantesMaes", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los profesores
+            DataTable dtProfesores = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Profesores ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtProfesores);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Profesores", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtConceptos = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtConceptos);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Conceptos", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtPropuestas = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM PropuestaMaes ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtPropuestas);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla PropuestaMaes", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se abre el archivo excel
+            DateTime start = DateTime.Now;
+            SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
+            ExcelFile ef = ExcelFile.Load(final);
+            ExcelWorksheet ws = ef.Worksheets[0];
+
+            // se empieza a llenar el archivo de excel
+            int rowpos;
+            int colpos;
+
+            int nprof = 0;
+            
+            for (int i = 0; i < dtProfesores.Rows.Count; i++)
+            {
+                // se extraen todos las propuestas de maestria en el que el calificador aparezca
+                DataRow[] dr = dtPropuestas.Select("calificador1=" + Convert.ToString(dtProfesores.Rows[i][0]) + " OR calificador2=" + Convert.ToString(dtProfesores.Rows[i][0]));
+
+                try 
+                {
+                    if(dr.Length>0)
+                    {
+                        // el profesor es calificador de alguna propuesta, por tanto se escribe en el Excel
+
+                        rowpos = 4;
+                        colpos = (nprof * 4) + 1;
+                        nprof++;
+
+                        ws.Columns[colpos - 1].Width = 2 * 300;
+                        ws.Columns[colpos].Width = 30 * 300;
+                        ws.Columns[colpos + 1].Width = 83 * 300;
+                        ws.Columns[colpos + 2].Width = 2 * 300;
+
+                        ws.Cells[rowpos, colpos].Value = Convert.ToString(dtProfesores.Rows[i][1]).ToUpper();
+                        ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                        rowpos++;
+
+                        ws.Cells[rowpos, colpos - 1].Value = "#";
+                        ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                        ws.Cells[rowpos, colpos].Value = "ESTUDIANTE";
+                        ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                        ws.Cells[rowpos, colpos + 1].Value = "TITULO";
+                        ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                        for(int j=0;j<dr.Length;j++)
+                        {
+                            rowpos++;
+
+                            ws.Cells[rowpos, colpos - 1].Value = (j+1).ToString();
+                            ws.Cells[rowpos, colpos - 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                            ws.Cells[rowpos, colpos].Value = Convert.ToString(dtEstudiantes.Select("codigo=" + dr[j][1])[0][1]);
+                            ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dr[j][2]).Substring(0,70)+"...";
+                            ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                        }
+                    }
+                }
+                catch
+                { }                
+            }
+
+            //ef.Save(final);
+
+            ws.PrintOptions.Portrait = false;
+            ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
+            ws.PrintOptions.RightMargin = 1.5;
+                        
+            ef.Save(final);
+            /*
+            
+            ws.PrintOptions.FitToPage = true;
+            ws.PrintOptions.FitWorksheetWidthToPages = 1;            
+            */
+            //ws.NamedRanges.SetPrintArea(ws.Cells.GetSubrange("A1", "C" + inipos.ToString()));
+
+            string pathFinal = System.IO.Path.GetDirectoryName(final);
+            ExcelFile.Load(final).Save(pathFinal + "\\CalifPropuestasMaes.pdf");
+
+            DateTime end = DateTime.Now;
+            //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
+        }
+
+        /// <summary>
+        /// Genera el informe en PDF y XLSX de los calificadores de propuestas de doctorado
+        /// </summary>
+        public void InformeCalificadoresPropDoct()
+        {
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
+
+            // algunas variables
+            string query;
+            OleDbCommand command;
+            DataTable dtEstudiantes = new DataTable();
+            OleDbDataAdapter da;
+
+            // se lee desde el archivo oneSource la ruta a donde se deben guardar el archivo excel
+            System.IO.StreamReader sr;
+
+            try
+            {
+                sr = new System.IO.StreamReader("sourceone");
+            }
+            catch
+            {
+                MessageBox.Show("No se puede encontrar el archivo sourceone.\r\n\r\nPor favor verifique la ubicacion del archivo en la ventana de Configuracion e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
+            string leido = @sr.ReadLine();
+            string final = leido + "\\CalifPropuestasDoct.xlsx";
+
+            // se extrae la ruta inicial
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string inicial = System.IO.Path.GetDirectoryName(path) + "\\templates\\templateCalificadores.xlsx";
+
+            // se verifica que existan los archivos
+            //bool existeInicial = false;
+            //existeInicial = System.IO.File.Exists(inicial);
+            //bool existeFin = false;
+            //existeFin = System.IO.File.Exists(final);
+
+            // si el archivo final existe entonces se debe borrar
+            try
+            {
+                if (System.IO.File.Exists(final)) System.IO.File.Delete(final);
+            }
+            catch
+            {
+                MessageBox.Show("El archivo " + final + "esta siendo utilizado y no se puede modificar.\r\n\r\nPor favor cierre el archivo e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // se duplica el archivo
+                System.IO.File.Copy(inicial, final);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede crear el nuevo archivo excel en la ruta " + final, "Error de escritura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los estudiantes de maestria
+            dtEstudiantes = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtEstudiantes);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla EstudiantesDoct", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los profesores
+            DataTable dtProfesores = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Profesores ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtProfesores);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Profesores", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtConceptos = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtConceptos);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Conceptos", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtPropuestas = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM PropuestaDoct ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtPropuestas);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla PropuestaDoct", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se abre el archivo excel
+            DateTime start = DateTime.Now;
+            SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
+            ExcelFile ef = ExcelFile.Load(final);
+            ExcelWorksheet ws = ef.Worksheets[0];
+
+            // se empieza a llenar el archivo de excel
+            int rowpos;
+            int colpos;
+
+            int nprof = 0;
+
+            for (int i = 0; i < dtProfesores.Rows.Count; i++)
+            {
+                // se extraen todos las propuestas de maestria en el que el calificador aparezca
+                DataRow[] dr = dtPropuestas.Select("calificador1=" + Convert.ToString(dtProfesores.Rows[i][0]) + " OR calificador2=" + Convert.ToString(dtProfesores.Rows[i][0]) + " OR calificador3=" + Convert.ToString(dtProfesores.Rows[i][0]) + " OR calificador4=" + Convert.ToString(dtProfesores.Rows[i][0]));
+
+                try
+                {
+                    if (dr.Length > 0)
+                    {
+                        // el profesor es calificador de alguna propuesta, por tanto se escribe en el Excel
+
+                        rowpos = 4;
+                        colpos = (nprof * 4) + 1;
+                        nprof++;
+
+                        ws.Columns[colpos - 1].Width = 2 * 300;
+                        ws.Columns[colpos].Width = 30 * 300;
+                        ws.Columns[colpos + 1].Width = 83 * 300;
+                        ws.Columns[colpos + 2].Width = 2 * 300;
+
+                        ws.Cells[rowpos, colpos].Value = Convert.ToString(dtProfesores.Rows[i][1]).ToUpper();
+                        ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                        rowpos++;
+
+                        ws.Cells[rowpos, colpos - 1].Value = "#";
+                        ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                        ws.Cells[rowpos, colpos].Value = "ESTUDIANTE";
+                        ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                        ws.Cells[rowpos, colpos + 1].Value = "TITULO";
+                        ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                        for (int j = 0; j < dr.Length; j++)
+                        {
+                            rowpos++;
+
+                            ws.Cells[rowpos, colpos - 1].Value = (j + 1).ToString();
+                            ws.Cells[rowpos, colpos - 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                            ws.Cells[rowpos, colpos].Value = Convert.ToString(dtEstudiantes.Select("codigo=" + dr[j][1])[0][1]);
+                            ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dr[j][2]).Substring(0, 70) + "...";
+                            ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                        }
+                    }
+                }
+                catch
+                { }
+            }
+
+            //ef.Save(final);
+
+            ws.PrintOptions.Portrait = false;
+            ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
+            ws.PrintOptions.RightMargin = 1.5;
+
+            ef.Save(final);
+            /*
+            
+            ws.PrintOptions.FitToPage = true;
+            ws.PrintOptions.FitWorksheetWidthToPages = 1;            
+            */
+            //ws.NamedRanges.SetPrintArea(ws.Cells.GetSubrange("A1", "C" + inipos.ToString()));
+
+            string pathFinal = System.IO.Path.GetDirectoryName(final);
+            ExcelFile.Load(final).Save(pathFinal + "\\CalifPropuestasDoct.pdf");
+
+            DateTime end = DateTime.Now;
+            //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
+        }
+
+        /// <summary>
+        /// Genera el informe en PDF y XLSX de los calificadores de propuestas de maestria
+        /// </summary>
+        public void InformeCalificadoresTesisMaes()
+        {
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
+
+            // algunas variables
+            string query;
+            OleDbCommand command;
+            DataTable dtEstudiantes = new DataTable();
+            OleDbDataAdapter da;
+
+            // se lee desde el archivo oneSource la ruta a donde se deben guardar el archivo excel
+            System.IO.StreamReader sr;
+
+            try
+            {
+                sr = new System.IO.StreamReader("sourceone");
+            }
+            catch
+            {
+                MessageBox.Show("No se puede encontrar el archivo sourceone.\r\n\r\nPor favor verifique la ubicacion del archivo en la ventana de Configuracion e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
+            string leido = @sr.ReadLine();
+            string final = leido + "\\CalifTesisMaes.xlsx";
+
+            // se extrae la ruta inicial
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string inicial = System.IO.Path.GetDirectoryName(path) + "\\templates\\templateCalificadores.xlsx";
+
+            // se verifica que existan los archivos
+            //bool existeInicial = false;
+            //existeInicial = System.IO.File.Exists(inicial);
+            //bool existeFin = false;
+            //existeFin = System.IO.File.Exists(final);
+
+            // si el archivo final existe entonces se debe borrar
+            try
+            {
+                if (System.IO.File.Exists(final)) System.IO.File.Delete(final);
+            }
+            catch
+            {
+                MessageBox.Show("El archivo " + final + "esta siendo utilizado y no se puede modificar.\r\n\r\nPor favor cierre el archivo e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // se duplica el archivo
+                System.IO.File.Copy(inicial, final);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede crear el nuevo archivo excel en la ruta " + final, "Error de escritura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los estudiantes de maestria
+            dtEstudiantes = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtEstudiantes);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla EstudiantesMaes", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los profesores
+            DataTable dtProfesores = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Profesores ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtProfesores);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Profesores", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtConceptos = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtConceptos);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Conceptos", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtTesis = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM TesisMaes ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtTesis);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla TesisMaes", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se abre el archivo excel
+            DateTime start = DateTime.Now;
+            SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
+            ExcelFile ef = ExcelFile.Load(final);
+            ExcelWorksheet ws = ef.Worksheets[0];
+
+            // se empieza a llenar el archivo de excel
+            int rowpos;
+            int colpos;
+
+            int nprof = 0;
+
+            for (int i = 0; i < dtProfesores.Rows.Count; i++)
+            {
+                // se extraen todos las propuestas de maestria en el que el calificador aparezca
+                DataRow[] dr = dtTesis.Select("calificador1=" + Convert.ToString(dtProfesores.Rows[i][0]) + " OR calificador2=" + Convert.ToString(dtProfesores.Rows[i][0]));
+
+                try
+                {
+                    if (dr.Length > 0)
+                    {
+                        // el profesor es calificador de alguna propuesta, por tanto se escribe en el Excel
+
+                        rowpos = 4;
+                        colpos = (nprof * 4) + 1;
+                        nprof++;
+
+                        ws.Columns[colpos - 1].Width = 2 * 300;
+                        ws.Columns[colpos].Width = 30 * 300;
+                        ws.Columns[colpos + 1].Width = 83 * 300;
+                        ws.Columns[colpos + 2].Width = 2 * 300;
+
+                        ws.Cells[rowpos, colpos].Value = Convert.ToString(dtProfesores.Rows[i][1]).ToUpper();
+                        ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                        rowpos++;
+
+                        ws.Cells[rowpos, colpos - 1].Value = "#";
+                        ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                        ws.Cells[rowpos, colpos].Value = "ESTUDIANTE";
+                        ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                        ws.Cells[rowpos, colpos + 1].Value = "TITULO";
+                        ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                        for (int j = 0; j < dr.Length; j++)
+                        {
+                            rowpos++;
+
+                            ws.Cells[rowpos, colpos - 1].Value = (j + 1).ToString();
+                            ws.Cells[rowpos, colpos - 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                            ws.Cells[rowpos, colpos].Value = Convert.ToString(dtEstudiantes.Select("codigo=" + dr[j][1])[0][1]);
+                            ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dr[j][2]).Substring(0, 70) + "...";
+                            ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                        }
+                    }
+                }
+                catch
+                { }
+            }
+
+            //ef.Save(final);
+
+            ws.PrintOptions.Portrait = false;
+            ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
+            ws.PrintOptions.RightMargin = 1.5;
+
+            ef.Save(final);
+            /*
+            
+            ws.PrintOptions.FitToPage = true;
+            ws.PrintOptions.FitWorksheetWidthToPages = 1;            
+            */
+            //ws.NamedRanges.SetPrintArea(ws.Cells.GetSubrange("A1", "C" + inipos.ToString()));
+
+            string pathFinal = System.IO.Path.GetDirectoryName(final);
+            ExcelFile.Load(final).Save(pathFinal + "\\CalifTesisMaes.pdf");
+
+            DateTime end = DateTime.Now;
+            //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
+        }
+
+        /// <summary>
+        /// Genera el informe en PDF y XLSX de los calificadores de propuestas de maestria
+        /// </summary>
+        public void InformeCalificadoresTesisDoct()
+        {
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
+
+            // algunas variables
+            string query;
+            OleDbCommand command;
+            DataTable dtEstudiantes = new DataTable();
+            OleDbDataAdapter da;
+
+            // se lee desde el archivo oneSource la ruta a donde se deben guardar el archivo excel
+            System.IO.StreamReader sr;
+
+            try
+            {
+                sr = new System.IO.StreamReader("sourceone");
+            }
+            catch
+            {
+                MessageBox.Show("No se puede encontrar el archivo sourceone.\r\n\r\nPor favor verifique la ubicacion del archivo en la ventana de Configuracion e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
+            string leido = @sr.ReadLine();
+            string final = leido + "\\CalifTesisDoct.xlsx";
+
+            // se extrae la ruta inicial
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string inicial = System.IO.Path.GetDirectoryName(path) + "\\templates\\templateCalificadores.xlsx";
+
+            // se verifica que existan los archivos
+            //bool existeInicial = false;
+            //existeInicial = System.IO.File.Exists(inicial);
+            //bool existeFin = false;
+            //existeFin = System.IO.File.Exists(final);
+
+            // si el archivo final existe entonces se debe borrar
+            try
+            {
+                if (System.IO.File.Exists(final)) System.IO.File.Delete(final);
+            }
+            catch
+            {
+                MessageBox.Show("El archivo " + final + "esta siendo utilizado y no se puede modificar.\r\n\r\nPor favor cierre el archivo e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // se duplica el archivo
+                System.IO.File.Copy(inicial, final);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede crear el nuevo archivo excel en la ruta " + final, "Error de escritura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los estudiantes de maestria
+            dtEstudiantes = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtEstudiantes);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla EstudiantesMaes", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los profesores
+            DataTable dtProfesores = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Profesores ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtProfesores);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Profesores", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtConceptos = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtConceptos);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Conceptos", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtTesis = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM TesisDoct ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtTesis);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla TesisDoct", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se abre el archivo excel
+            DateTime start = DateTime.Now;
+            SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
+            ExcelFile ef = ExcelFile.Load(final);
+            ExcelWorksheet ws = ef.Worksheets[0];
+
+            // se empieza a llenar el archivo de excel
+            int rowpos;
+            int colpos;
+
+            int nprof = 0;
+
+            for (int i = 0; i < dtProfesores.Rows.Count; i++)
+            {
+                // se extraen todos las propuestas de maestria en el que el calificador aparezca
+                DataRow[] dr = dtTesis.Select("calificador1=" + Convert.ToString(dtProfesores.Rows[i][0]) + " OR calificador2=" + Convert.ToString(dtProfesores.Rows[i][0]) + " OR calificador3=" + Convert.ToString(dtProfesores.Rows[i][0]) + " OR calificador4=" + Convert.ToString(dtProfesores.Rows[i][0]) + " OR calificador5=" + Convert.ToString(dtProfesores.Rows[i][0]));
+
+                try
+                {
+                    if (dr.Length > 0)
+                    {
+                        // el profesor es calificador de alguna propuesta, por tanto se escribe en el Excel
+
+                        rowpos = 4;
+                        colpos = (nprof * 4) + 1;
+                        nprof++;
+
+                        ws.Columns[colpos - 1].Width = 2 * 300;
+                        ws.Columns[colpos].Width = 30 * 300;
+                        ws.Columns[colpos + 1].Width = 83 * 300;
+                        ws.Columns[colpos + 2].Width = 2 * 300;
+
+                        ws.Cells[rowpos, colpos].Value = Convert.ToString(dtProfesores.Rows[i][1]).ToUpper();
+                        ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                        rowpos++;
+
+                        ws.Cells[rowpos, colpos - 1].Value = "#";
+                        ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                        ws.Cells[rowpos, colpos].Value = "ESTUDIANTE";
+                        ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                        ws.Cells[rowpos, colpos + 1].Value = "TITULO";
+                        ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                        for (int j = 0; j < dr.Length; j++)
+                        {
+                            rowpos++;
+
+                            ws.Cells[rowpos, colpos - 1].Value = (j + 1).ToString();
+                            ws.Cells[rowpos, colpos - 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                            ws.Cells[rowpos, colpos].Value = Convert.ToString(dtEstudiantes.Select("codigo=" + dr[j][1])[0][1]);
+                            ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dr[j][2]).Substring(0, 70) + "...";
+                            ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                        }
+                    }
+                }
+                catch
+                { }
+            }
+
+            //ef.Save(final);
+
+            ws.PrintOptions.Portrait = false;
+            ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
+            ws.PrintOptions.RightMargin = 1.5;
+
+            ef.Save(final);
+            /*
+            
+            ws.PrintOptions.FitToPage = true;
+            ws.PrintOptions.FitWorksheetWidthToPages = 1;            
+            */
+            //ws.NamedRanges.SetPrintArea(ws.Cells.GetSubrange("A1", "C" + inipos.ToString()));
+
+            string pathFinal = System.IO.Path.GetDirectoryName(final);
+            ExcelFile.Load(final).Save(pathFinal + "\\CalifTesisDoct.pdf");
+
+            DateTime end = DateTime.Now;
+            //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
+        }
+
+        /// <summary>
+        /// Genera el informe en PDF y XLSX de los calificadores de propuestas de maestria
+        /// </summary>
+        public void InformeDirectorTesisMaes()
+        {
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
+
+            // algunas variables
+            string query;
+            OleDbCommand command;
+            DataTable dtEstudiantes = new DataTable();
+            OleDbDataAdapter da;
+
+            // se lee desde el archivo oneSource la ruta a donde se deben guardar el archivo excel
+            System.IO.StreamReader sr;
+
+            try
+            {
+                sr = new System.IO.StreamReader("sourceone");
+            }
+            catch
+            {
+                MessageBox.Show("No se puede encontrar el archivo sourceone.\r\n\r\nPor favor verifique la ubicacion del archivo en la ventana de Configuracion e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
+            string leido = @sr.ReadLine();
+            string final = leido + "\\DirectorTesisMaes.xlsx";
+
+            // se extrae la ruta inicial
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string inicial = System.IO.Path.GetDirectoryName(path) + "\\templates\\templateCalificadores.xlsx";
+
+            // se verifica que existan los archivos
+            //bool existeInicial = false;
+            //existeInicial = System.IO.File.Exists(inicial);
+            //bool existeFin = false;
+            //existeFin = System.IO.File.Exists(final);
+
+            // si el archivo final existe entonces se debe borrar
+            try
+            {
+                if (System.IO.File.Exists(final)) System.IO.File.Delete(final);
+            }
+            catch
+            {
+                MessageBox.Show("El archivo " + final + "esta siendo utilizado y no se puede modificar.\r\n\r\nPor favor cierre el archivo e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // se duplica el archivo
+                System.IO.File.Copy(inicial, final);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede crear el nuevo archivo excel en la ruta " + final, "Error de escritura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los estudiantes de maestria
+            dtEstudiantes = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtEstudiantes);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla EstudiantesMaes", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los profesores
+            DataTable dtProfesores = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Profesores ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtProfesores);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Profesores", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtConceptos = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtConceptos);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Conceptos", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtTesis = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM TesisMaes ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtTesis);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla TesisMaes", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se abre el archivo excel
+            DateTime start = DateTime.Now;
+            SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
+            ExcelFile ef = ExcelFile.Load(final);
+            ExcelWorksheet ws = ef.Worksheets[0];
+
+            // se empieza a llenar el archivo de excel
+            int rowpos;
+            int colpos;
+
+            int nprof = 0;
+
+            for (int i = 0; i < dtProfesores.Rows.Count; i++)
+            {
+                // se extraen todos las propuestas de maestria en el que el calificador aparezca
+                DataRow[] dr = dtEstudiantes.Select("director=" + Convert.ToString(dtProfesores.Rows[i][0]));
+
+                try
+                {
+                    if (dr.Length > 0)
+                    {
+                        // el profesor es director de alguna tesis, por tanto se escribe en el Excel
+
+                        rowpos = 4;
+                        colpos = (nprof * 4) + 1;
+                        nprof++;
+
+                        ws.Columns[colpos - 1].Width = 2 * 300;
+                        ws.Columns[colpos].Width = 30 * 300;
+                        ws.Columns[colpos + 1].Width = 83 * 300;
+                        ws.Columns[colpos + 2].Width = 2 * 300;
+
+                        ws.Cells[rowpos, colpos].Value = Convert.ToString(dtProfesores.Rows[i][1]).ToUpper();
+                        ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                        rowpos++;
+
+                        ws.Cells[rowpos, colpos - 1].Value = "#";
+                        ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                        ws.Cells[rowpos, colpos].Value = "ESTUDIANTE";
+                        ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                        ws.Cells[rowpos, colpos + 1].Value = "TITULO";
+                        ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                        for (int j = 0; j < dr.Length; j++)
+                        {
+                            rowpos++;
+
+                            ws.Cells[rowpos, colpos - 1].Value = (j + 1).ToString();
+                            ws.Cells[rowpos, colpos - 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                            ws.Cells[rowpos, colpos].Value = Convert.ToString(dr[j][1]);
+                            ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtTesis.Select("estudiante=" + Convert.ToString(dr[j][0]))[0][2]);
+                            //Convert.ToString(dr[j][2]).Substring(0, 70) + "...";
+                            ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                        }
+                    }
+                }
+                catch
+                { }
+            }
+
+            //ef.Save(final);
+
+            ws.PrintOptions.Portrait = false;
+            ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
+            ws.PrintOptions.RightMargin = 1.5;
+
+            ef.Save(final);
+            /*
+            
+            ws.PrintOptions.FitToPage = true;
+            ws.PrintOptions.FitWorksheetWidthToPages = 1;            
+            */
+            //ws.NamedRanges.SetPrintArea(ws.Cells.GetSubrange("A1", "C" + inipos.ToString()));
+
+            string pathFinal = System.IO.Path.GetDirectoryName(final);
+            ExcelFile.Load(final).Save(pathFinal + "\\DirectorTesisMaes.pdf");
+
+            DateTime end = DateTime.Now;
+            //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
+        }
+
+        /// <summary>
+        /// Genera el informe en PDF y XLSX de los calificadores de propuestas de maestria
+        /// </summary>
+        public void InformeDirectorTesisDoct()
+        {
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
+
+            // algunas variables
+            string query;
+            OleDbCommand command;
+            DataTable dtEstudiantes = new DataTable();
+            OleDbDataAdapter da;
+
+            // se lee desde el archivo oneSource la ruta a donde se deben guardar el archivo excel
+            System.IO.StreamReader sr;
+
+            try
+            {
+                sr = new System.IO.StreamReader("sourceone");
+            }
+            catch
+            {
+                MessageBox.Show("No se puede encontrar el archivo sourceone.\r\n\r\nPor favor verifique la ubicacion del archivo en la ventana de Configuracion e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
+            string leido = @sr.ReadLine();
+            string final = leido + "\\DirectorTesisDoct.xlsx";
+
+            // se extrae la ruta inicial
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string inicial = System.IO.Path.GetDirectoryName(path) + "\\templates\\templateCalificadores.xlsx";
+
+            // se verifica que existan los archivos
+            //bool existeInicial = false;
+            //existeInicial = System.IO.File.Exists(inicial);
+            //bool existeFin = false;
+            //existeFin = System.IO.File.Exists(final);
+
+            // si el archivo final existe entonces se debe borrar
+            try
+            {
+                if (System.IO.File.Exists(final)) System.IO.File.Delete(final);
+            }
+            catch
+            {
+                MessageBox.Show("El archivo " + final + "esta siendo utilizado y no se puede modificar.\r\n\r\nPor favor cierre el archivo e intentelo de nuevo.", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // se duplica el archivo
+                System.IO.File.Copy(inicial, final);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede crear el nuevo archivo excel en la ruta " + final, "Error de escritura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los estudiantes de maestria
+            dtEstudiantes = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtEstudiantes);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla EstudiantesDoct", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los profesores
+            DataTable dtProfesores = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Profesores ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtProfesores);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Profesores", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtConceptos = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtConceptos);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Conceptos", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de los conceptos
+            DataTable dtTesis = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM TesisDoct ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtTesis);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla TesisDoct", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se abre el archivo excel
+            DateTime start = DateTime.Now;
+            SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
+            ExcelFile ef = ExcelFile.Load(final);
+            ExcelWorksheet ws = ef.Worksheets[0];
+
+            // se empieza a llenar el archivo de excel
+            int rowpos;
+            int colpos;
+
+            int nprof = 0;
+
+            for (int i = 0; i < dtProfesores.Rows.Count; i++)
+            {
+                // se extraen todos las propuestas de maestria en el que el calificador aparezca
+                DataRow[] dr = dtEstudiantes.Select("director=" + Convert.ToString(dtProfesores.Rows[i][0]));
+
+                try
+                {
+                    if (dr.Length > 0)
+                    {
+                        // el profesor es director de alguna tesis, por tanto se escribe en el Excel
+
+                        rowpos = 4;
+                        colpos = (nprof * 4) + 1;
+                        nprof++;
+
+                        ws.Columns[colpos - 1].Width = 2 * 300;
+                        ws.Columns[colpos].Width = 30 * 300;
+                        ws.Columns[colpos + 1].Width = 83 * 300;
+                        ws.Columns[colpos + 2].Width = 2 * 300;
+
+                        ws.Cells[rowpos, colpos].Value = Convert.ToString(dtProfesores.Rows[i][1]).ToUpper();
+                        ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                        rowpos++;
+
+                        ws.Cells[rowpos, colpos - 1].Value = "#";
+                        ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                        ws.Cells[rowpos, colpos].Value = "ESTUDIANTE";
+                        ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+                        ws.Cells[rowpos, colpos + 1].Value = "TITULO";
+                        ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
+                        for (int j = 0; j < dr.Length; j++)
+                        {
+                            rowpos++;
+
+                            ws.Cells[rowpos, colpos - 1].Value = (j + 1).ToString();
+                            ws.Cells[rowpos, colpos - 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+                            ws.Cells[rowpos, colpos].Value = Convert.ToString(dr[j][1]);
+                            ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtTesis.Select("estudiante=" + Convert.ToString(dr[j][0]))[0][2]);
+                            //Convert.ToString(dr[j][2]).Substring(0, 70) + "...";
+                            ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+                            ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                        }
+                    }
+                }
+                catch
+                { }
+            }
+
+            //ef.Save(final);
+
+            ws.PrintOptions.Portrait = false;
+            ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
+            ws.PrintOptions.RightMargin = 1.5;
+
+            ef.Save(final);
+            /*
+            
+            ws.PrintOptions.FitToPage = true;
+            ws.PrintOptions.FitWorksheetWidthToPages = 1;            
+            */
+            //ws.NamedRanges.SetPrintArea(ws.Cells.GetSubrange("A1", "C" + inipos.ToString()));
+
+            string pathFinal = System.IO.Path.GetDirectoryName(final);
+            ExcelFile.Load(final).Save(pathFinal + "\\DirectorTesisDoct.pdf");
 
             DateTime end = DateTime.Now;
             //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
