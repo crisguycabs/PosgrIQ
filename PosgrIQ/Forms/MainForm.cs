@@ -1428,6 +1428,27 @@ namespace PosgrIQ
                 return;
             }
 
+            // se carga la informacion de las condiciones
+            DataTable dtCondicion = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Condicion ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtCondicion);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Condicion", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // se abre el archivo excel
             DateTime start = DateTime.Now;
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
@@ -1512,7 +1533,7 @@ namespace PosgrIQ
                 ws.Cells[rowpos, colpos].Value = "CONDICION";
                 ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
                 ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
-                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][5].ToString();
+                ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtCondicion.Select("codigo=" + Convert.ToString(dt.Rows[i][5]))[0][1]);                
                 ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
 
                 rowpos++;
@@ -1624,6 +1645,214 @@ namespace PosgrIQ
             
             DateTime end = DateTime.Now;
             //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
+
+            // se crea el archivo mas grande de estudiantes de maestria
+            // se borra el archivo creado
+            System.IO.File.Delete(final);
+
+            // se lee la plantilla
+            inicial = System.IO.Path.GetDirectoryName(path) + "\\templates\\templateEstudiantesMaes2.xlsx";
+
+            // se duplica el archivo
+            System.IO.File.Copy(inicial, final);
+
+            // se vuelve a escribir el archivo final
+            ef = ExcelFile.Load(final);
+            ws = ef.Worksheets[0];
+
+            /*  CODIGO
+                NOMBRE 
+                CORREO
+                CEDULA
+                CIUDAD
+                CONDICION
+                NIVEL
+                DIRECTOR
+                CODIRECTOR 1
+                CODIRECTOR 2
+                REGLAMENTO
+                TEMA
+                FECHA
+                CONCEPTO
+                OBSERVACIONES
+            */
+
+            // se escriben los encabezados
+
+            colpos = 1;
+            rowpos = 5;
+
+            ws.Cells[rowpos, colpos].Value = "CODIGO";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "NOMBRE";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CORREO";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CEDULA";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CIUDAD";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CONDICION";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "NIVEL";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "DIRECTOR";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CODIRECTOR 1";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CODIRECTOR 2";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "REGLAMENTO";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "TEMA";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "FECHA";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CONCEPTO";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "OBSERVACIONES";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                rowpos = 6+i;
+                colpos = 1;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][0].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][1].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][2].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][3].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][4].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = Convert.ToString(dtCondicion.Select("codigo=" + Convert.ToString(dt.Rows[i][5]))[0][1]); 
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][6].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                // existe director?
+                if (dt.Rows[i][7].ToString() != "") ws.Cells[rowpos, colpos].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dt.Rows[i][7]))[0][1]);
+                else ws.Cells[rowpos, colpos].Value = "";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                colpos++;
+
+                // existe codirector1?
+                if (dt.Rows[i][8].ToString() != "") ws.Cells[rowpos, colpos].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dt.Rows[i][8]))[0][1]);
+                else ws.Cells[rowpos, colpos].Value = "";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                colpos++;
+
+                // existe codirector2?
+                if (dt.Rows[i][9].ToString() != "") ws.Cells[rowpos, colpos].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dt.Rows[i][9]))[0][1]);
+                else ws.Cells[rowpos, colpos].Value = "";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = Convert.ToString(dtReglamentos.Select("codigo=" + Convert.ToString(dt.Rows[i][10]))[0][1]);
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][11].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][12].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = Convert.ToString(dtConceptos.Select("codigo=" + Convert.ToString(dt.Rows[i][13]))[0][1]);
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][15].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+            }
+
+            //ef.Save(final);
+
+            ws.PrintOptions.Portrait = false;
+            ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
+
+            ef.Save(final);
         }
 
         /// <summary>
@@ -1769,6 +1998,27 @@ namespace PosgrIQ
             catch
             {
                 MessageBox.Show("No se encuentra la tabla Reglamentos", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // se carga la informacion de la condicion
+            DataTable dtCondicion = new DataTable();
+            try
+            {
+                conection.Open();
+
+                // se pide la informacion de los estudiantes de maestria
+                query = "SELECT * FROM Condicion ORDER BY codigo ASC";
+                command = new OleDbCommand(query, conection);
+
+                da = new OleDbDataAdapter(command);
+                da.Fill(dtCondicion);
+
+                conection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se encuentra la tabla Condicion", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -1980,6 +2230,217 @@ namespace PosgrIQ
 
             DateTime end = DateTime.Now;
             //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
+
+            // se crea el archivo mas grande de estudiantes de maestria
+            // se borra el archivo creado
+            System.IO.File.Delete(final);
+
+            // se lee la plantilla
+            inicial = System.IO.Path.GetDirectoryName(path) + "\\templates\\templateEstudiantesMaes2.xlsx";
+
+            // se duplica el archivo
+            System.IO.File.Copy(inicial, final);
+
+            // se vuelve a escribir el archivo final
+            ef = ExcelFile.Load(final);
+            ws = ef.Worksheets[0];
+
+            // se escriben los encabezados
+
+            colpos = 1;
+            rowpos = 5;
+
+            ws.Cells[rowpos, colpos].Value = "CODIGO";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "NOMBRE";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CORREO";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CEDULA";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CIUDAD";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CONDICION";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "NIVEL";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "DIRECTOR";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CODIRECTOR 1";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CODIRECTOR 2";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "REGLAMENTO";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "TEMA";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "FECHA";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "CONCEPTO";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "SOLICITO QUALIFY";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "APROBO QUALIFY";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            colpos++;
+
+            ws.Cells[rowpos, colpos].Value = "OBSERVACIONES";
+            ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                rowpos = 6 + i;
+                colpos = 1;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][0].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][1].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][2].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][3].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][4].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = Convert.ToString(dtCondicion.Select("codigo=" + Convert.ToString(dt.Rows[i][5]))[0][1]);
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][6].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                // existe director?
+                if (dt.Rows[i][7].ToString() != "") ws.Cells[rowpos, colpos].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dt.Rows[i][7]))[0][1]);
+                else ws.Cells[rowpos, colpos].Value = "";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                colpos++;
+
+                // existe codirector1?
+                if (dt.Rows[i][8].ToString() != "") ws.Cells[rowpos, colpos].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dt.Rows[i][8]))[0][1]);
+                else ws.Cells[rowpos, colpos].Value = "";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                colpos++;
+
+                // existe codirector2?
+                if (dt.Rows[i][9].ToString() != "") ws.Cells[rowpos, colpos].Value = Convert.ToString(dtProfesores.Select("codigo=" + Convert.ToString(dt.Rows[i][9]))[0][1]);
+                else ws.Cells[rowpos, colpos].Value = "";
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+                ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = Convert.ToString(dtReglamentos.Select("codigo=" + Convert.ToString(dt.Rows[i][10]))[0][1]);
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][11].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][12].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = Convert.ToString(dtConceptos.Select("codigo=" + Convert.ToString(dt.Rows[i][13]))[0][1]);
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][15].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][16].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+                colpos++;
+
+                ws.Cells[rowpos, colpos].Value = dt.Rows[i][17].ToString();
+                ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
+
+            }
+
+            //ef.Save(final);
+
+            ws.PrintOptions.Portrait = false;
+            ws.PrintOptions.FitToPage = false;
+            ws.PrintOptions.TopMargin = 0.2;
+            ws.PrintOptions.BottomMargin = 0.2;
+            ws.PrintOptions.LeftMargin = 0.2;
+
+            ef.Save(final);
         }
 
         /// <summary>
@@ -3083,6 +3544,9 @@ namespace PosgrIQ
                 return;
             }
 
+            // se verifica si no hay tesis a guardar
+            if (dtTesis.Rows.Count == 0) return;
+
             // se abre el archivo excel
             DateTime start = DateTime.Now;
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
@@ -4168,6 +4632,9 @@ namespace PosgrIQ
                 return;
             }
 
+            // no hay registros de tesis
+            if (dtTesis.Rows.Count == 0) return;
+
             // se abre el archivo excel
             DateTime start = DateTime.Now;
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
@@ -4257,9 +4724,9 @@ namespace PosgrIQ
         }
 
         /// <summary>
-        /// Genera el informe en PDF y XLSX de los calificadores de propuestas de maestria
+        /// Genera el informe en PDF y XLSX de los directores de maestria
         /// </summary>
-        public void InformeDirectorTesisMaes()
+        public void InformeDirectorMaes()
         {
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
 
@@ -4284,7 +4751,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\DirectorTesisMaes.xlsx";
+            string final = leido + "\\DirectorMaes.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -4381,26 +4848,26 @@ namespace PosgrIQ
                 return;
             }
 
-            // se carga la informacion de los conceptos
-            DataTable dtTesis = new DataTable();
-            try
-            {
-                conection.Open();
+            //// se carga la informacion de las tesis de maestria
+            //DataTable dtTesis = new DataTable();
+            //try
+            //{
+            //    conection.Open();
 
-                // se pide la informacion de los estudiantes de maestria
-                query = "SELECT * FROM TesisMaes ORDER BY codigo ASC";
-                command = new OleDbCommand(query, conection);
+            //    // se pide la informacion de los estudiantes de maestria
+            //    query = "SELECT * FROM TesisMaes ORDER BY codigo ASC";
+            //    command = new OleDbCommand(query, conection);
 
-                da = new OleDbDataAdapter(command);
-                da.Fill(dtTesis);
+            //    da = new OleDbDataAdapter(command);
+            //    da.Fill(dtTesis);
 
-                conection.Close();
-            }
-            catch
-            {
-                MessageBox.Show("No se encuentra la tabla TesisMaes", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //    conection.Close();
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("No se encuentra la tabla TesisMaes", "Error en la Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
             // se abre el archivo excel
             DateTime start = DateTime.Now;
@@ -4416,14 +4883,14 @@ namespace PosgrIQ
 
             for (int i = 0; i < dtProfesores.Rows.Count; i++)
             {
-                // se extraen todos las propuestas de maestria en el que el calificador aparezca
+                // se extraen todos los estudiantes de maestria en el que el profesor aparezca como director
                 DataRow[] dr = dtEstudiantes.Select("director=" + Convert.ToString(dtProfesores.Rows[i][0]));
 
                 try
                 {
                     if (dr.Length > 0)
                     {
-                        // el profesor es director de alguna tesis, por tanto se escribe en el Excel
+                        // el profesor es director de alguna estudiante de maestria, por tanto se escribe en el Excel
 
                         rowpos = 4;
                         colpos = (nprof * 4) + 1;
@@ -4456,7 +4923,8 @@ namespace PosgrIQ
                             ws.Cells[rowpos, colpos].Value = Convert.ToString(dr[j][1]);
                             ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
-                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtTesis.Select("estudiante=" + Convert.ToString(dr[j][0]))[0][2]);
+                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtEstudiantes.Select("codigo="+ Convert.ToString(dr[j][0]))[0][11]);
+                            //ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtTesis.Select("estudiante=" + Convert.ToString(dr[j][0]))[0][2]);
                             //Convert.ToString(dr[j][2]).Substring(0, 70) + "...";
                             ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
@@ -4485,7 +4953,7 @@ namespace PosgrIQ
             //ws.NamedRanges.SetPrintArea(ws.Cells.GetSubrange("A1", "C" + inipos.ToString()));
 
             string pathFinal = System.IO.Path.GetDirectoryName(final);
-            ExcelFile.Load(final).Save(pathFinal + "\\DirectorTesisMaes.pdf");
+            ExcelFile.Load(final).Save(pathFinal + "\\DirectorMaes.pdf");
 
             DateTime end = DateTime.Now;
             //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
@@ -4494,7 +4962,7 @@ namespace PosgrIQ
         /// <summary>
         /// Genera el informe en PDF y XLSX de los calificadores de propuestas de maestria
         /// </summary>
-        public void InformeDirectorTesisDoct()
+        public void InformeDirectorDoct()
         {
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
 
@@ -4519,7 +4987,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\DirectorTesisDoct.xlsx";
+            string final = leido + "\\DirectorDoct.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -4691,7 +5159,7 @@ namespace PosgrIQ
                             ws.Cells[rowpos, colpos].Value = Convert.ToString(dr[j][1]);
                             ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
-                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtTesis.Select("estudiante=" + Convert.ToString(dr[j][0]))[0][2]);
+                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtEstudiantes.Select("codigo=" + Convert.ToString(dr[j][0]))[0][11]);
                             //Convert.ToString(dr[j][2]).Substring(0, 70) + "...";
                             ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
@@ -4720,7 +5188,7 @@ namespace PosgrIQ
             //ws.NamedRanges.SetPrintArea(ws.Cells.GetSubrange("A1", "C" + inipos.ToString()));
 
             string pathFinal = System.IO.Path.GetDirectoryName(final);
-            ExcelFile.Load(final).Save(pathFinal + "\\DirectorTesisDoct.pdf");
+            ExcelFile.Load(final).Save(pathFinal + "\\DirectorDoct.pdf");
 
             DateTime end = DateTime.Now;
             //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());

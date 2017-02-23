@@ -122,23 +122,22 @@ namespace PosgrIQ
             padre.CheckConflicto();
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void btnReportes_Click(object sender, EventArgs e)
         {
-            DateTime ini = DateTime.Now;
-            //padre.InformeEstudiantesMaes();
-            //padre.InformeEstudiantesDoct();
-            //padre.InformePropuestaMaes();
-            //padre.InformePropuestaDoct();
-            //padre.InformeTesisMaes();
-            //padre.InformeTesisDoct();
+            padre.InformeEstudiantesMaes();
+            padre.InformeEstudiantesDoct();
+            padre.InformePropuestaMaes();
+            padre.InformePropuestaDoct();
+            padre.InformeTesisMaes();
+            padre.InformeTesisDoct();
             padre.InformeCalificadoresPropMaes();
             padre.InformeCalificadoresPropDoct();
             padre.InformeCalificadoresTesisMaes();
             padre.InformeCalificadoresTesisDoct();
-            padre.InformeDirectorTesisMaes();
-            padre.InformeDirectorTesisDoct();
-            DateTime fin = DateTime.Now;
-            MessageBox.Show(Convert.ToString((fin - ini).Milliseconds + 1000 * (fin - ini).Seconds));
+            padre.InformeDirectorMaes();
+            padre.InformeDirectorDoct();
+
+            MessageBox.Show("Los reportes han sido creados exitosamente en la carpeta de OneDrive", "Creacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
