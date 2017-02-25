@@ -1351,7 +1351,7 @@ namespace PosgrIQ
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
-                query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
+                query = "SELECT * FROM EstudiantesMaes WHERE condicion=1 ORDER BY codigo ASC";
                 command = new OleDbCommand(query, conection);
 
                 da = new OleDbDataAdapter(command);
@@ -1611,7 +1611,7 @@ namespace PosgrIQ
 
                 rowpos++;
 
-                ws.Cells[rowpos, colpos].Value = "OSERVACIONES";
+                ws.Cells[rowpos, colpos].Value = "OBSERVACIONES";
                 ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
                 ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                 ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][15].ToString();
@@ -1917,14 +1917,14 @@ namespace PosgrIQ
                 return;
             }
 
-            // se carga la informacion de los estudiantes de maestria
+            // se carga la informacion de los estudiantes de doctorado
             dt = new DataTable();
             try
             {
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
-                query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
+                query = "SELECT * FROM EstudiantesDoct WHERE condicion=1 ORDER BY codigo ASC";
                 command = new OleDbCommand(query, conection);
 
                 da = new OleDbDataAdapter(command);
@@ -2201,7 +2201,7 @@ namespace PosgrIQ
 
                 rowpos++;
 
-                ws.Cells[rowpos, colpos].Value = "OSERVACIONES";
+                ws.Cells[rowpos, colpos].Value = "OBSERVACIONES";
                 ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
                 ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                 ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][17].ToString();
