@@ -500,7 +500,7 @@ namespace PosgrIQ
                 }
             }
 
-            string destino;
+            string destino = destino = "TemasMaestria\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
             // se intenta mover el archivo del tema. Si no se puede, se cancela todo
             if (!txtRutaTema.Text.Contains("TemasMaestria")) // no contienen la cadena => no es necesario verificar
             {
