@@ -124,6 +124,8 @@ namespace PosgrIQ
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
+            padre.ShowWaiting("Por favor espere mientras PosgrIQ genera los reportes...");
+
             padre.InformeEstudiantesMaes();
             padre.InformeEstudiantesDoct();
             padre.InformePropuestaMaes();
@@ -136,6 +138,8 @@ namespace PosgrIQ
             padre.InformeCalificadoresTesisDoct();
             padre.InformeDirectorMaes();
             padre.InformeDirectorDoct();
+
+            padre.CloseWaiting();
 
             MessageBox.Show("Los reportes han sido creados exitosamente en la carpeta de OneDrive", "Creacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

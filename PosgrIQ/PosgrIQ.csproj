@@ -277,6 +277,12 @@
     <Compile Include="Forms\TesisMaes.Designer.cs">
       <DependentUpon>TesisMaes.cs</DependentUpon>
     </Compile>
+    <Compile Include="WaitingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitingForm.Designer.cs">
+      <DependentUpon>WaitingForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -398,6 +404,9 @@
     <EmbeddedResource Include="Forms\TesisMaes.resx">
       <DependentUpon>TesisMaes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WaitingForm.resx">
+      <DependentUpon>WaitingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -419,6 +428,7 @@
     <Content Include="favicon.ico" />
     <Content Include="posgriq.ico" />
     <Content Include="Resources\Header.png" />
+    <None Include="Resources\hour-glass-icon.png" />
     <None Include="Resources\UISLogo.png" />
     <None Include="Resources\logoEscuela.png" />
     <None Include="Resources\logoPQ.png" />

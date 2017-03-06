@@ -17,6 +17,16 @@ namespace PosgrIQ
         #region variables de clase
 
         /// <summary>
+        /// Instancia del form WaitingForm
+        /// </summary>
+        public WaitingForm waitingForm;
+
+        /// <summary>
+        /// Variable que indica si la ventana WaitingForm esta abierta o no
+        /// </summary>
+        public bool abiertoWaitingForm;
+
+        /// <summary>
         /// Instancia de la ventana TesisMaesForm
         /// </summary>
         public TesisMaes tesisMaesForm = null;
@@ -211,6 +221,37 @@ namespace PosgrIQ
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Se muestra la ventana WaitingForm, con el mensaje que se muestra como argumento
+        /// </summary>
+        /// <param name="mensaje">Mensaje a mostrar en pantalla</param>
+        public void ShowWaiting(string mensaje)
+        {
+            if (!this.abiertoWaitingForm)
+            {
+                waitingForm = new WaitingForm();
+                waitingForm.lblTexto.Text = mensaje;
+                abiertoWaitingForm = true;
+                waitingForm.Show();
+                Application.DoEvents();
+            }
+            else
+            {
+                waitingForm.lblTexto.Text = mensaje;
+                Application.DoEvents();
+            }
+        }
+
+        /// <summary>
+        /// Cierra la ventana WaitingForm
+        /// </summary>
+        public void CloseWaiting()
+        {
+            abiertoWaitingForm = false;
+            waitingForm.Close();
+            Application.DoEvents();
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -5192,6 +5233,26 @@ namespace PosgrIQ
 
             DateTime end = DateTime.Now;
             //MessageBox.Show(((end - start).Milliseconds + (1000 * (end - start).Seconds)).ToString());
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ShowWaiting("Por favor espere mientras PosgrIQ genera los reportes antes de cerrar...");
+
+            InformeEstudiantesMaes();
+            InformeEstudiantesDoct();
+            InformePropuestaMaes();
+            InformePropuestaDoct();
+            InformeTesisMaes();
+            InformeTesisDoct();
+            InformeCalificadoresPropMaes();
+            InformeCalificadoresPropDoct();
+            InformeCalificadoresTesisMaes();
+            InformeCalificadoresTesisDoct();
+            InformeDirectorMaes();
+            InformeDirectorDoct();
+
+            CloseWaiting();
         }
     }
 }

@@ -91,3 +91,5 @@ D:\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csproj.GenerateResource.Cache
 D:\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.exe
 D:\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.pdb
 D:\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csprojResolveAssemblyReference.cache
+C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csprojResolveAssemblyReference.cache
+C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.WaitingForm.resources
