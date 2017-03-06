@@ -252,7 +252,7 @@ namespace PosgrIQ
 
                 try
                 {
-                    System.Diagnostics.Process.Start(Convert.ToString(dtEstudiantesDoct.Rows[0][14]));
+                    System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtEstudiantesDoct.Rows[0][14]));
                 }
                 catch
                 {

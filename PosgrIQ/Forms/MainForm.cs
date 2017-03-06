@@ -278,7 +278,7 @@ namespace PosgrIQ
         public void CheckConflicto()
         {
             string folder = System.IO.Path.GetDirectoryName(sourceBD);
-            string[] files = System.IO.Directory.GetFiles(folder, "*.mdb", System.IO.SearchOption.AllDirectories);
+            string[] files = System.IO.Directory.GetFiles(folder, "*.mdb", System.IO.SearchOption.TopDirectoryOnly);
             if (files.Length > 1)
             {
                 // se encontraron más de un archivo MDB
@@ -5249,7 +5249,7 @@ namespace PosgrIQ
 
             try
             {
-                string destino = this.sourceONE + "\\Secure\\" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Year.ToString() + "-" + DateTime.Now.+".mdb";
+                string destino = this.sourceONE + "\\Secure\\" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Year.ToString() + "-" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + ".mdb";
                 System.IO.File.Copy(this.sourceBD, destino, true);
             }
             catch

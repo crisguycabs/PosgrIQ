@@ -198,22 +198,22 @@ namespace PosgrIQ
                     switch (cmbVer.SelectedIndex)
                     {
                         case 0: // propuesta
-                            System.Diagnostics.Process.Start(Convert.ToString(dtTesisMaes.Rows[0][3]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisMaes.Rows[0][3]));
                             break;
                         case 1: // concepto 1 calificador 1
-                            System.Diagnostics.Process.Start(Convert.ToString(dtTesisMaes.Rows[0][10]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisMaes.Rows[0][10]));
                             break;
                         case 2: // concepto 1 calificador 2
-                            System.Diagnostics.Process.Start(Convert.ToString(dtTesisMaes.Rows[0][11]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisMaes.Rows[0][11]));
                             break;
                         case 3: // concepto 2 calificador 1
-                            System.Diagnostics.Process.Start(Convert.ToString(dtTesisMaes.Rows[0][21]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisMaes.Rows[0][21]));
                             break;
                         case 4: // concepto 2 calificador 2
-                            System.Diagnostics.Process.Start(Convert.ToString(dtTesisMaes.Rows[0][22]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisMaes.Rows[0][22]));
                             break;
                         case 5: // sustentacion
-                            System.Diagnostics.Process.Start(Convert.ToString(dtTesisMaes.Rows[0][33]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisMaes.Rows[0][33]));
                             break;
                     }
                 }

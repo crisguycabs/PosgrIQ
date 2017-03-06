@@ -257,34 +257,34 @@ namespace PosgrIQ
                     switch (cmbVer.SelectedIndex)
                     {
                         case 0: // propuesta
-                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][3]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtPropuestaDoct.Rows[0][3]));
                             break;
                         case 1: // concepto 1 calificador 1
-                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][8]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtPropuestaDoct.Rows[0][8]));
                             break;
                         case 2: // concepto 1 calificador 2
-                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][9]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtPropuestaDoct.Rows[0][9]));
                             break;
                         case 3: // concepto 1 calificador 3
-                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][10]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtPropuestaDoct.Rows[0][10]));
                             break;
                         case 4: // concepto 1 calificador 4
-                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][10]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtPropuestaDoct.Rows[0][10]));
                             break;
                         case 5: // concepto 2 calificador 1
-                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][15]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtPropuestaDoct.Rows[0][15]));
                             break;
                         case 6: // concepto 2 calificador 2
-                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][16]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtPropuestaDoct.Rows[0][16]));
                             break;
                         case 7: // concepto 2 calificador 3
-                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][17]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtPropuestaDoct.Rows[0][17]));
                             break;
                         case 8: // concepto 2 calificador 4
-                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][17]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtPropuestaDoct.Rows[0][17]));
                             break;
                         case 9: // sustentacion
-                            System.Diagnostics.Process.Start(Convert.ToString(dtPropuestaDoct.Rows[0][23]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtPropuestaDoct.Rows[0][23]));
                             break;
                     }                    
                 }
