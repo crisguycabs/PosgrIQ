@@ -1310,7 +1310,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\EstudiantesMaes.xlsx";
+            string final = leido + "\\Reportes\\EstudiantesMaes.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -1883,7 +1883,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\EstudiantesDoct.xlsx";
+            string final = leido + "\\Reportes\\EstudiantesDoct.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -2471,7 +2471,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\PropuestasMaes.xlsx";
+            string final = leido + "\\Reportes\\PropuestasMaes.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -2770,7 +2770,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\PropuestasDoct.xlsx";
+            string final = leido + "\\Reportes\\PropuestasDoct.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -3127,7 +3127,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\TesisMaes.xlsx";
+            string final = leido + "\\Reportes\\TesisMaes.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -3426,7 +3426,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\TesisDoct.xlsx";
+            string final = leido + "\\Reportes\\TesisDoct.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -3812,7 +3812,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\CalifPropuestasMaes.xlsx";
+            string final = leido + "\\Reportes\\CalifPropuestasMaes.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -4046,7 +4046,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\CalifPropuestasDoct.xlsx";
+            string final = leido + "\\Reportes\\CalifPropuestasDoct.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -4280,7 +4280,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\CalifTesisMaes.xlsx";
+            string final = leido + "\\Reportes\\CalifTesisMaes.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -4514,7 +4514,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\CalifTesisDoct.xlsx";
+            string final = leido + "\\Reportes\\CalifTesisDoct.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -4751,7 +4751,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\DirectorMaes.xlsx";
+            string final = leido + "\\Reportes\\DirectorMaes.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -4987,7 +4987,7 @@ namespace PosgrIQ
 
             // se extrae la ruta de la carpeta final y se prepara el nombre del archivo a copiar
             string leido = @sr.ReadLine();
-            string final = leido + "\\DirectorDoct.xlsx";
+            string final = leido + "\\Reportes\\DirectorDoct.xlsx";
 
             // se extrae la ruta inicial
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
