@@ -512,6 +512,22 @@ namespace PosgrIQ
                 }                
             }
 
+            string destino;
+            // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+            if (!txtRutaTema.Text.Contains("TemasDoctorado")) // no contienen la cadena => no es necesario verificar
+            {
+                try
+                {
+                    destino = "TemasDoctorado\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
+                    System.IO.File.Copy(txtRutaTema.Text, padre.sourceONE + "\\Soportes\\" + destino, true);
+                }
+                catch
+                {
+                    MessageBox.Show("No se tiene acceso al archivo del tema. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             // se prepara la conexion
             OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             string query, query2;
@@ -582,8 +598,9 @@ namespace PosgrIQ
                             if (cmbConceptoTema.SelectedIndex < 0) query2 += ", 1";
                             else query2 += ", " + (cmbConceptoTema.SelectedIndex).ToString();
 
+                            destino = "TemasDoctorado\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
                             query += ", ruta";
-                            query2 += ", '" + btnRutaTema.Text + "'";                            
+                            query2 += ", '" + destino + "'";                            
                         }
                         else
                         {
@@ -686,7 +703,8 @@ namespace PosgrIQ
                         if (cmbConceptoTema.SelectedIndex >= 0) query += ", concepto=" + (cmbConceptoTema.SelectedIndex).ToString();
                         else query += ", concepto=1";
 
-                        query += ", ruta='" + txtRutaTema.Text + "'";
+                        destino = "TemasDoctorado\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
+                        query += ", ruta='" + destino + "'";
 
                         if (cmbSolicitarQualify.SelectedIndex < 0) cmbSolicitarQualify.SelectedIndex = 0;
                         query += ", solicitoqualify='" + cmbSolicitarQualify.Items[cmbSolicitarQualify.SelectedIndex] + "'";
