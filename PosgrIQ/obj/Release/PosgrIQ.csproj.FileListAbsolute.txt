@@ -93,3 +93,4 @@ D:\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.pdb
 D:\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csprojResolveAssemblyReference.cache
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csprojResolveAssemblyReference.cache
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.WaitingForm.resources
+C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\EASendMail45.dll

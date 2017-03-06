@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using GemBox.Spreadsheet;
+using EASendMail;
 
 namespace PosgrIQ
 {
@@ -125,23 +126,10 @@ namespace PosgrIQ
         private void btnReportes_Click(object sender, EventArgs e)
         {
             padre.ShowWaiting("Por favor espere mientras PosgrIQ genera los reportes...");
-
-            padre.InformeEstudiantesMaes();
-            padre.InformeEstudiantesDoct();
-            padre.InformePropuestaMaes();
-            padre.InformePropuestaDoct();
-            padre.InformeTesisMaes();
-            padre.InformeTesisDoct();
-            padre.InformeCalificadoresPropMaes();
-            padre.InformeCalificadoresPropDoct();
-            padre.InformeCalificadoresTesisMaes();
-            padre.InformeCalificadoresTesisDoct();
-            padre.InformeDirectorMaes();
-            padre.InformeDirectorDoct();
-
+            padre.GenerarReportes();
             padre.CloseWaiting();
 
             MessageBox.Show("Los reportes han sido creados exitosamente en la carpeta de OneDrive", "Creacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        }        
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using GemBox.Spreadsheet;
+using EASendMail;
 
 namespace PosgrIQ
 {
@@ -5239,6 +5240,28 @@ namespace PosgrIQ
         {
             ShowWaiting("Por favor espere mientras PosgrIQ genera los reportes antes de cerrar...");
 
+            GenerarReportes();
+
+            CloseWaiting();
+
+            // se genera la copia de seguridad
+            ShowWaiting("Por favor espere mientras PosgrIQ genera la copia de seguridad...");
+
+            try
+            {
+                string destino = this.sourceONE + "\\Secure\\" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Year.ToString() + "-" + DateTime.Now.+".mdb";
+                System.IO.File.Copy(this.sourceBD, destino, true);
+            }
+            catch
+            {
+                MessageBox.Show("No se pudo realizar la copia de seguridad", "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            CloseWaiting();
+        }
+
+        public void GenerarReportes()
+        {
             InformeEstudiantesMaes();
             InformeEstudiantesDoct();
             InformePropuestaMaes();
@@ -5251,8 +5274,81 @@ namespace PosgrIQ
             InformeCalificadoresTesisDoct();
             InformeDirectorMaes();
             InformeDirectorDoct();
+        }
 
-            CloseWaiting();
+        public bool SendEmail(string destinatario, string sujeto, string mensaje)
+        {
+            // se lee desde la BD la info de correos
+            var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
+            try
+            {
+                // algunas variables
+                string query;
+                OleDbCommand command;
+                DataTable dtConfiguracion;
+                OleDbDataAdapter da;
+
+                // se pide la informacion de los estudiantes de doctorad
+                query = "SELECT * FROM Configuracion";
+                conection.Open();
+                command = new OleDbCommand(query, conection);
+                conection.Close();
+
+                da = new OleDbDataAdapter(command);
+                dtConfiguracion = new DataTable();
+                da.Fill(dtConfiguracion);
+
+                string correo = dtConfiguracion.Rows[0][0].ToString();
+                string clave = dtConfiguracion.Rows[0][1].ToString();
+                string director = dtConfiguracion.Rows[0][2].ToString();
+                string coordinador = dtConfiguracion.Rows[0][3].ToString();
+
+                SmtpMail oMail = new SmtpMail("TryIt");
+                SmtpClient oSmtp = new SmtpClient();
+
+                // Your Offic 365 email address
+                oMail.From = correo;
+
+                // Set recipient email address
+                oMail.To = destinatario;
+
+                // Set email subject
+                oMail.Subject = sujeto;
+
+                // Set email body
+                oMail.TextBody = mensaje;
+
+                // Your Office 365 SMTP server address,
+                // You should get it from outlook web access.
+                SmtpServer oServer = new SmtpServer("smtp.office365.com");
+
+                // user authentication should use your
+                // email address as the user name.
+                oServer.User = correo;
+                oServer.Password = clave;
+
+                // Set 587 port
+                oServer.Port = 587;
+
+                // detect SSL/TLS connection automatically
+                oServer.ConnectType = SmtpConnectType.ConnectSSLAuto;
+
+                try
+                {
+                    oSmtp.SendMail(oServer, oMail);                    
+                    return true;
+                }
+                catch (Exception ep)
+                {
+                    MessageBox.Show("error: " + ep.Message.ToString());
+                    return false;
+                }                
+            }
+            catch
+            {
+                MessageBox.Show("No se puede leer la BD para extraer la información de la cuenta de correo", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
     }
 }
