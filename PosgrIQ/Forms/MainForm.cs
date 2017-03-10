@@ -217,6 +217,11 @@ namespace PosgrIQ
         /// </summary>
         public string sourceONE = "";
 
+        /// <summary>
+        /// indica si se cerro de manera segura. False si se cierra por error al leer la BD
+        /// </summary>
+        public bool cerradoSeguro = true;
+
         #endregion
 
         public MainForm()
@@ -284,6 +289,7 @@ namespace PosgrIQ
                 // se encontraron más de un archivo MDB
                 // se le informa al usuario y se cierra la aplicacion
                 MessageBox.Show("Se encontraron " + files.Length + " copias en conflicto de la base de datos en la carpeta " + folder + ".\r\n\r\nElimine las copias en conflicto antes seguir.\r\n\r\nPosgrIQ se cerrará.", "Copias de la BD en conflicto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cerradoSeguro = false;
                 Application.Exit();
             }
         }
@@ -293,11 +299,13 @@ namespace PosgrIQ
             if (!GetSource())
             {
                 MessageBox.Show("No se encuentra la ruta de la base de datos.\r\n\r\nLa aplicacion se cerrara.", "Error de archivo de configuracion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cerradoSeguro = false;
                 Application.Exit();
             }
             if (!GetOne())
             {
                 MessageBox.Show("No se encuentra la ruta de la carpeta de OneDrive.\r\n\r\nLa aplicacion se cerrara.", "Error de archivo de configuracion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cerradoSeguro = false;
                 Application.Exit();
             }
             CheckConflicto();
@@ -5238,26 +5246,29 @@ namespace PosgrIQ
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ShowWaiting("Por favor espere mientras PosgrIQ genera los reportes antes de cerrar...");
-
-            GenerarReportes();
-
-            CloseWaiting();
-
-            // se genera la copia de seguridad
-            ShowWaiting("Por favor espere mientras PosgrIQ genera la copia de seguridad...");
-
-            try
+            if (cerradoSeguro)
             {
-                string destino = this.sourceONE + "\\Secure\\" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Year.ToString() + "-" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + ".mdb";
-                System.IO.File.Copy(this.sourceBD, destino, true);
-            }
-            catch
-            {
-                MessageBox.Show("No se pudo realizar la copia de seguridad", "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                ShowWaiting("Por favor espere mientras PosgrIQ genera los reportes antes de cerrar...");
 
-            CloseWaiting();
+                GenerarReportes();
+
+                CloseWaiting();
+
+                // se genera la copia de seguridad
+                ShowWaiting("Por favor espere mientras PosgrIQ genera la copia de seguridad...");
+
+                try
+                {
+                    string destino = this.sourceONE + "\\Secure\\" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Year.ToString() + "-" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + ".mdb";
+                    System.IO.File.Copy(this.sourceBD, destino, true);
+                }
+                catch
+                {
+                    MessageBox.Show("No se pudo realizar la copia de seguridad", "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                CloseWaiting();
+            }
         }
 
         public void GenerarReportes()
