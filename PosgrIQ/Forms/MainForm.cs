@@ -3125,7 +3125,7 @@ namespace PosgrIQ
                 else ws.Cells[rowpos, colpos + 1].Value = "";
                 ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
             }
-
+            
             //ef.Save(final);
 
             ws.PrintOptions.Portrait = false;
@@ -5273,18 +5273,22 @@ namespace PosgrIQ
 
         public void GenerarReportes()
         {
-            InformeEstudiantesMaes();
-            InformeEstudiantesDoct();
-            InformePropuestaMaes();
-            InformePropuestaDoct();
-            InformeTesisMaes();
-            InformeTesisDoct();
-            InformeCalificadoresPropMaes();
-            InformeCalificadoresPropDoct();
-            InformeCalificadoresTesisMaes();
-            InformeCalificadoresTesisDoct();
-            InformeDirectorMaes();
-            InformeDirectorDoct();
+            try
+            {
+                InformeEstudiantesMaes();
+                InformeEstudiantesDoct();
+                InformePropuestaMaes();
+                InformePropuestaDoct();
+                InformeTesisMaes();
+                InformeTesisDoct();
+                InformeCalificadoresPropMaes();
+                InformeCalificadoresPropDoct();
+                InformeCalificadoresTesisMaes();
+                InformeCalificadoresTesisDoct();
+                InformeDirectorMaes();
+                InformeDirectorDoct();
+            }
+            catch { }
         }
 
         public bool SendEmail(string destinatario, string sujeto, string mensaje)
