@@ -469,6 +469,7 @@ namespace PosgrIQ
             }
 
             // se marco el Tema como ENTREGADO
+            string destino = destino = "TemasMaestria\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
             if (chkTema.Checked)
             {
                 // nombre del tema vacío
@@ -498,21 +499,20 @@ namespace PosgrIQ
                     MessageBox.Show("No se ha indicado un director para el Tema de maestria", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-            }
-
-            string destino = destino = "TemasMaestria\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
-            // se intenta mover el archivo del tema. Si no se puede, se cancela todo
-            if (!txtRutaTema.Text.Contains("TemasMaestria")) // no contienen la cadena => no es necesario verificar
-            {
-                try
+                
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaTema.Text.Contains("TemasMaestria")) // no contienen la cadena => no es necesario verificar
                 {
-                    destino = "TemasMaestria\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
-                    System.IO.File.Copy(txtRutaTema.Text, padre.sourceONE + "\\Soportes\\" + destino, true);
-                }
-                catch
-                {
-                    MessageBox.Show("No se tiene acceso al archivo del tema. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    try
+                    {
+                        destino = "TemasMaestria\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
+                        System.IO.File.Copy(txtRutaTema.Text, padre.sourceONE + "\\Soportes\\" + destino, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo del tema. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
             }
 

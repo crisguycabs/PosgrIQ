@@ -505,6 +505,22 @@ namespace PosgrIQ
                 return;
             }
 
+            string destino = "";
+            // se intenta mover el archivo de la propuesta. Si no se puede, se cancela todo
+            if (!txtRutaTesis.Text.Contains("TesisMaestria")) // no contienen la cadena => no es necesario verificar
+            {
+                try
+                {
+                    destino = "TesisMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_Tesis.pdf";
+                    System.IO.File.Copy(txtRutaTesis.Text, padre.sourceONE + "\\Soportes\\" + destino, true);
+                }
+                catch
+                {
+                    MessageBox.Show("No se tiene acceso al archivo de la tesis. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             // no ha calificador1
             if (cmbCalificador1.SelectedIndex < 0)
             {
@@ -523,7 +539,101 @@ namespace PosgrIQ
             {
                 MessageBox.Show("Se asigno el mismo profesor a calificador 1 y calificador 2", "Falta informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }            
+            }
+
+            string destinoC1C1 = "TesisMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC1C1.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text))
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto1Calificador1.Text.Contains("TesisMaestria")) // no contienen la cadena => es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto1Calificador1.Text, padre.sourceONE + "\\Soportes\\" + destinoC1C1, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Concepto 1 Calificador 1. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            string destinoC1C2 = "TesisMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC1C2.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador2.Text))
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto1Calificador2.Text.Contains("TesisMaestria")) // no contienen la cadena => es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto1Calificador2.Text, padre.sourceONE + "\\Soportes\\" + destinoC1C2, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Concepto 1 Calificador 2. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            // - 
+
+            string destinoC2C1 = "TesisMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC2C1.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text) & chkCorrecciones.Checked)
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto2Calificador1.Text.Contains("TesisMaestria")) // no contienen la cadena => no es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto2Calificador1.Text, padre.sourceONE + "\\Soportes\\" + destinoC2C1, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Concepto 2 Calificador 1. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            string destinoC2C2 = "TesisMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC2C2.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text) & chkCorrecciones.Checked)
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto2Calificador2.Text.Contains("TesisMaestria")) // no contienen la cadena => no es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto2Calificador2.Text, padre.sourceONE + "\\Soportes\\" + destinoC2C2, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Conceto 1 Calificador 2. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            // --
+
+            string destinoSust = "TesisMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_Sustentacion.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text) & chkSustentacion.Checked)
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaSustentacion.Text.Contains("TesisMaestria")) // no contienen la cadena => no es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaSustentacion.Text, padre.sourceONE + "\\Soportes\\" + destinoSust, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo de la Sustentacion. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
 
             // se prepara la conexion
             OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);

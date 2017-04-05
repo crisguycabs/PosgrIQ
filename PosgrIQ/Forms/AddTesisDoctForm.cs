@@ -426,6 +426,22 @@ namespace PosgrIQ
                 return;
             }
 
+            string destino = "";
+            // se intenta mover el archivo de la propuesta. Si no se puede, se cancela todo
+            if (!txtRutaTesis.Text.Contains("TesisDoctorado")) // no contienen la cadena => no es necesario verificar
+            {
+                try
+                {
+                    destino = "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_Tesis.pdf";
+                    System.IO.File.Copy(txtRutaTesis.Text, padre.sourceONE + "\\Soportes\\" + destino, true);
+                }
+                catch
+                {
+                    MessageBox.Show("No se tiene acceso al archivo de la tesis. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             // no ha calificador1
             if (cmbCalificador1.SelectedIndex < 0)
             {
@@ -571,6 +587,208 @@ namespace PosgrIQ
                 return;
             }
 
+            string destinoC1C1 = "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC1C1.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text))
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto1Calificador1.Text.Contains("TesisDoctorado")) // no contienen la cadena => es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto1Calificador1.Text, padre.sourceONE + "\\Soportes\\" + destinoC1C1, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Concepto 1 Calificador 1. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            string destinoC1C2 = "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC1C2.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador2.Text))
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto1Calificador2.Text.Contains("TesisDoctorado")) // no contienen la cadena => es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto1Calificador2.Text, padre.sourceONE + "\\Soportes\\" + destinoC1C2, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Concepto 1 Calificador 2. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            string destinoC1C3 = "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC1C3.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador3.Text))
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto1Calificador3.Text.Contains("TesisDoctorado")) // no contienen la cadena => no es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto1Calificador3.Text, padre.sourceONE + "\\Soportes\\" + destinoC1C3, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Concepto 1 Calificador 3. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            string destinoC1C4 = "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC1C4.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador4.Text))
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto1Calificador4.Text.Contains("TesisDoctorado")) // no contienen la cadena => no es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto1Calificador4.Text, padre.sourceONE + "\\Soportes\\" + destinoC1C4, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Concepto 1 Calificador 4. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            string destinoC1C5 = "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC1C5.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador5.Text))
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto1Calificador5.Text.Contains("TesisDoctorado")) // no contienen la cadena => no es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto1Calificador5.Text, padre.sourceONE + "\\Soportes\\" + destinoC1C5, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Concepto 1 Calificador 5. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            // - 
+
+            string destinoC2C1 = "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC2C1.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text) & chkCorrecciones.Checked)
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto2Calificador1.Text.Contains("TesisDoctorado")) // no contienen la cadena => no es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto2Calificador1.Text, padre.sourceONE + "\\Soportes\\" + destinoC2C1, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Concepto 2 Calificador 1. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            string destinoC2C2 = "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC2C2.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text) & chkCorrecciones.Checked)
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto2Calificador2.Text.Contains("TesisDoctorado")) // no contienen la cadena => no es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto2Calificador2.Text, padre.sourceONE + "\\Soportes\\" + destinoC2C2, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Conceto 1 Calificador 2. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            string destinoC2C3 = "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC2C3.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador3.Text) & chkCorrecciones.Checked)
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto2Calificador3.Text.Contains("TesisDoctorado")) // no contienen la cadena => no es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto1Calificador3.Text, padre.sourceONE + "\\Soportes\\" + destinoC2C3, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Conceto 2 Calificador 3. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            string destinoC2C4 = "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC2C4.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador4.Text) & chkCorrecciones.Checked)
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto2Calificador4.Text.Contains("TesisDoctorado")) // no contienen la cadena => no es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto2Calificador4.Text, padre.sourceONE + "\\Soportes\\" + destinoC2C4, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Conceto 2 Calificador 4. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            string destinoC2C5 = "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_TC2C5.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador4.Text) & chkCorrecciones.Checked)
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaConcepto2Calificador5.Text.Contains("TesisDoctorado")) // no contienen la cadena => no es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaConcepto2Calificador5.Text, padre.sourceONE + "\\Soportes\\" + destinoC2C5, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo Conceto 2 Calificador 5. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            // --
+
+            string destinoSust = "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_Sustentacion.pdf";
+            if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text) & chkSustentacion.Checked)
+            {
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaSustentacion.Text.Contains("TesisDoctorado")) // no contienen la cadena => no es necesario verificar
+                {
+                    try
+                    {
+                        System.IO.File.Copy(txtRutaSustentacion.Text, padre.sourceONE + "\\Soportes\\" + destinoSust, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo de la Sustentacion. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
             // se prepara la conexion
             OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             string query, query2;
@@ -597,7 +815,7 @@ namespace PosgrIQ
                         query2 += ", '" + txtTesis.Text + "'";
 
                         query += ", ruta";
-                        query2 += ", '" + txtRutaTesis.Text + "'";
+                        query2 += ", '" + "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_Tesis.pdf" + "'";
 
                         query += ", calificador1";
                         query2 += ", " + (cmbCalificador1.SelectedIndex + 1).ToString();
@@ -675,31 +893,31 @@ namespace PosgrIQ
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text))
                         {
                             query += ", rutaconcepto1calificador1";
-                            query2 += ", '" + txtRutaConcepto1Calificador1.Text + "'";
+                            query2 += ", '" + destinoC1C1 + "'";
                         }
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador2.Text))
                         {
                             query += ", rutaconcepto1calificador2";
-                            query2 += ", '" + txtRutaConcepto1Calificador2.Text + "'";
+                            query2 += ", '" + destinoC1C2 + "'";
                         }
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador3.Text))
                         {
                             query += ", rutaconcepto1calificador3";
-                            query2 += ", '" + txtRutaConcepto1Calificador3.Text + "'";
+                            query2 += ", '" + destinoC1C3 + "'";
                         }
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador4.Text))
                         {
                             query += ", rutaconcepto1calificador4";
-                            query2 += ", '" + txtRutaConcepto1Calificador4.Text + "'";
+                            query2 += ", '" + destinoC1C4 + "'";
                         }
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador5.Text))
                         {
                             query += ", rutaconcepto1calificador5";
-                            query2 += ", '" + txtRutaConcepto1Calificador5.Text + "'";
+                            query2 += ", '" + destinoC1C5 + "'";
                         }
 
                         query += ", correcciones";
@@ -763,31 +981,31 @@ namespace PosgrIQ
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text))
                         {
                             query += ", rutaconcepto2calificador1";
-                            query2 += ", '" + txtRutaConcepto2Calificador1.Text + "'";
+                            query2 += ", '" + destinoC2C1 + "'";
                         }
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text))
                         {
                             query += ", rutaconcepto2calificador2";
-                            query2 += ", '" + txtRutaConcepto2Calificador2.Text + "'";
+                            query2 += ", '" + destinoC2C2 + "'";
                         }
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador3.Text))
                         {
                             query += ", rutaconcepto2calificador3";
-                            query2 += ", '" + txtRutaConcepto2Calificador3.Text + "'";
+                            query2 += ", '" + destinoC2C3 + "'";
                         }
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador4.Text))
                         {
                             query += ", rutaconcepto2calificador4";
-                            query2 += ", '" + txtRutaConcepto2Calificador4.Text + "'";
+                            query2 += ", '" + destinoC2C4 + "'";
                         }
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador5.Text))
                         {
                             query += ", rutaconcepto2calificador5";
-                            query2 += ", '" + txtRutaConcepto2Calificador5.Text + "'";
+                            query2 += ", '" + destinoC2C5 + "'";
                         }
 
                         query += ", sustentacion";
@@ -807,7 +1025,7 @@ namespace PosgrIQ
                         if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text))
                         {
                             query += ", rutaconceptofinal";
-                            query2 += ", '" + txtRutaSustentacion.Text + "'";
+                            query2 += ", '" + destinoSust + "'";
                         }
 
                         query += ")";
@@ -877,7 +1095,7 @@ namespace PosgrIQ
                         query += "codigo=" + numCod.Value.ToString();
                         query += ", estudiante=" + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
                         query += ", titulo='" + txtTesis.Text + "'";
-                        query += ", ruta='" + txtRutaTesis.Text + "'";
+                        query += ", ruta='" + "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_Tesis.pdf" + "'";
                         query += ", calificador1=" + (cmbCalificador1.SelectedIndex + 1).ToString();
                         query += ", calificador2=" + (cmbCalificador2.SelectedIndex + 1).ToString();
                         query += ", calificador3=" + (cmbCalificador3.SelectedIndex + 1).ToString();
@@ -895,15 +1113,15 @@ namespace PosgrIQ
 
                         if (cmbConcepto1Calificador5.SelectedIndex >= 0) query += ", concepto1calificador5=" + (cmbConcepto1Calificador5.SelectedIndex + 1).ToString();
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text)) query += ", rutaconcepto1calificador1='" + txtRutaConcepto1Calificador1.Text + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text)) query += ", rutaconcepto1calificador1='" + destinoC1C1 + "'";
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador2.Text)) query += ", rutaconcepto1calificador2='" + txtRutaConcepto1Calificador2.Text + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador2.Text)) query += ", rutaconcepto1calificador2='" + destinoC1C2 + "'";
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador3.Text)) query += ", rutaconcepto1calificador3='" + txtRutaConcepto1Calificador3.Text + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador3.Text)) query += ", rutaconcepto1calificador3='" + destinoC1C3 + "'";
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador4.Text)) query += ", rutaconcepto1calificador4='" + txtRutaConcepto1Calificador4.Text + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador4.Text)) query += ", rutaconcepto1calificador4='" + destinoC1C4 + "'";
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador5.Text)) query += ", rutaconcepto1calificador5='" + txtRutaConcepto1Calificador5.Text + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador5.Text)) query += ", rutaconcepto1calificador5='" + destinoC1C5 + "'";
 
                         query += ", correcciones='" + MainForm.Fecha2Texto(dateCorrecciones.Value) + "'";
 
@@ -917,15 +1135,15 @@ namespace PosgrIQ
 
                         if (cmbConcepto2Calificador5.SelectedIndex >= 0) query += ", concepto2calificador3=" + (cmbConcepto2Calificador5.SelectedIndex + 1).ToString();
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text)) query += ", rutaconcepto2calificador1='" + txtRutaConcepto2Calificador1.Text + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text)) query += ", rutaconcepto2calificador1='" + destinoC2C1 + "'";
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text)) query += ", rutaconcepto2calificador2='" + txtRutaConcepto2Calificador2.Text + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text)) query += ", rutaconcepto2calificador2='" + destinoC2C2 + "'";
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador3.Text)) query += ", rutaconcepto2calificador3='" + txtRutaConcepto2Calificador3.Text + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador3.Text)) query += ", rutaconcepto2calificador3='" + destinoC2C3 + "'";
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador4.Text)) query += ", rutaconcepto2calificador4='" + txtRutaConcepto2Calificador4.Text + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador4.Text)) query += ", rutaconcepto2calificador4='" + destinoC2C4 + "'";
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador5.Text)) query += ", rutaconcepto2calificador5='" + txtRutaConcepto2Calificador5.Text + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador5.Text)) query += ", rutaconcepto2calificador5='" + destinoC2C5 + "'";
 
                         query += ", sustentacion='" + MainForm.Fecha2Texto(dateSustentacion.Value) + "'";
 

@@ -89,6 +89,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnAddProfesor = new System.Windows.Forms.Button();
+            this.chkCorrecciones = new System.Windows.Forms.CheckBox();
+            this.chkSustentacion = new System.Windows.Forms.CheckBox();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCod)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -142,6 +144,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.chkSustentacion);
             this.tabPage3.Controls.Add(this.label22);
             this.tabPage3.Controls.Add(this.cmbSustentacion);
             this.tabPage3.Controls.Add(this.btnVerSustentacion);
@@ -161,7 +164,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label22.Location = new System.Drawing.Point(6, 9);
+            this.label22.Location = new System.Drawing.Point(191, 9);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(42, 14);
             this.label22.TabIndex = 21;
@@ -206,7 +209,7 @@
             // dateSustentacion
             // 
             this.dateSustentacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateSustentacion.Location = new System.Drawing.Point(89, 5);
+            this.dateSustentacion.Location = new System.Drawing.Point(244, 5);
             this.dateSustentacion.Name = "dateSustentacion";
             this.dateSustentacion.Size = new System.Drawing.Size(96, 22);
             this.dateSustentacion.TabIndex = 23;
@@ -626,7 +629,7 @@
             // dateCorrecciones
             // 
             this.dateCorrecciones.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateCorrecciones.Location = new System.Drawing.Point(89, 5);
+            this.dateCorrecciones.Location = new System.Drawing.Point(245, 5);
             this.dateCorrecciones.Name = "dateCorrecciones";
             this.dateCorrecciones.Size = new System.Drawing.Size(96, 22);
             this.dateCorrecciones.TabIndex = 23;
@@ -649,7 +652,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label12.Location = new System.Drawing.Point(6, 9);
+            this.label12.Location = new System.Drawing.Point(196, 9);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(42, 14);
             this.label12.TabIndex = 21;
@@ -693,6 +696,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.chkCorrecciones);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.cmbConcepto2Calificador1);
             this.tabPage2.Controls.Add(this.cmbConcepto2Calificador2);
@@ -763,6 +767,26 @@
             this.btnAddProfesor.Text = "Agregar Profesor";
             this.btnAddProfesor.UseVisualStyleBackColor = false;
             this.btnAddProfesor.Click += new System.EventHandler(this.btnAddProfesor_Click);
+            // 
+            // chkCorrecciones
+            // 
+            this.chkCorrecciones.AutoSize = true;
+            this.chkCorrecciones.Location = new System.Drawing.Point(9, 8);
+            this.chkCorrecciones.Name = "chkCorrecciones";
+            this.chkCorrecciones.Size = new System.Drawing.Size(132, 18);
+            this.chkCorrecciones.TabIndex = 54;
+            this.chkCorrecciones.Text = "Hubo correcciones?";
+            this.chkCorrecciones.UseVisualStyleBackColor = true;
+            // 
+            // chkSustentacion
+            // 
+            this.chkSustentacion.AutoSize = true;
+            this.chkSustentacion.Location = new System.Drawing.Point(9, 8);
+            this.chkSustentacion.Name = "chkSustentacion";
+            this.chkSustentacion.Size = new System.Drawing.Size(135, 18);
+            this.chkSustentacion.TabIndex = 34;
+            this.chkSustentacion.Text = "Hubo sustentación?";
+            this.chkSustentacion.UseVisualStyleBackColor = true;
             // 
             // AddTesisMaesForm
             // 
@@ -877,5 +901,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnAddProfesor;
+        private System.Windows.Forms.CheckBox chkCorrecciones;
+        private System.Windows.Forms.CheckBox chkSustentacion;
     }
 }

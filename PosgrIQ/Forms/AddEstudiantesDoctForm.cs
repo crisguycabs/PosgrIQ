@@ -481,6 +481,7 @@ namespace PosgrIQ
             }
 
             // se marco el Tema como ENTREGADO
+            string destino="";
             if (chkTema.Checked)
             {
                 // nombre del tema vacío
@@ -509,24 +510,26 @@ namespace PosgrIQ
                 {
                     MessageBox.Show("No se ha indicado un director para el Tema doctoral", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
-                }                
+                }
+
+                // se intenta mover el archivo del tema. Si no se puede, se cancela todo
+                if (!txtRutaTema.Text.Contains("TemasDoctorado")) // no contienen la cadena => no es necesario verificar
+                {
+                    try
+                    {
+                        destino = "TemasDoctorado\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
+                        System.IO.File.Copy(txtRutaTema.Text, padre.sourceONE + "\\Soportes\\" + destino, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se tiene acceso al archivo del tema. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
             }
 
-            string destino;
-            // se intenta mover el archivo del tema. Si no se puede, se cancela todo
-            if (!txtRutaTema.Text.Contains("TemasDoctorado")) // no contienen la cadena => no es necesario verificar
-            {
-                try
-                {
-                    destino = "TemasDoctorado\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
-                    System.IO.File.Copy(txtRutaTema.Text, padre.sourceONE + "\\Soportes\\" + destino, true);
-                }
-                catch
-                {
-                    MessageBox.Show("No se tiene acceso al archivo del tema. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
+           
+            
 
             // se prepara la conexion
             OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
