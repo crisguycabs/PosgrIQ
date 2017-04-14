@@ -114,6 +114,7 @@
             this.txtRutaTema.Name = "txtRutaTema";
             this.txtRutaTema.Size = new System.Drawing.Size(518, 22);
             this.txtRutaTema.TabIndex = 15;
+            this.txtRutaTema.TextChanged += new System.EventHandler(this.txtRutaTema_TextChanged);
             // 
             // label17
             // 
@@ -532,7 +533,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(608, 465);
+            this.ClientSize = new System.Drawing.Size(608, 460);
             this.ControlBox = false;
             this.Controls.Add(this.label21);
             this.Controls.Add(this.chkTema);

@@ -709,6 +709,11 @@ namespace PosgrIQ
         private void chkTema_CheckedChanged(object sender, EventArgs e)
         {
             txtTema.Enabled = dateTema.Enabled = cmbConceptoTema.Enabled = txtRutaTema.Enabled = btnVerArchivoTema.Enabled = btnRutaTema.Enabled = chkTema.Checked;
+        }
+
+        private void txtRutaTema_TextChanged(object sender, EventArgs e)
+        {
+            
         }    
     }
 }
