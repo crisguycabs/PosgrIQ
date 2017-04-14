@@ -5248,26 +5248,33 @@ namespace PosgrIQ
         {
             if (cerradoSeguro)
             {
-                ShowWaiting("Por favor espere mientras PosgrIQ genera los reportes antes de cerrar...");
-
-                GenerarReportes();
-
-                CloseWaiting();
-
-                // se genera la copia de seguridad
-                ShowWaiting("Por favor espere mientras PosgrIQ genera la copia de seguridad...");
-
-                try
+                if (MessageBox.Show("Desea generar los reportes?", "Reportes", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string destino = this.sourceONE + "\\Secure\\" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Year.ToString() + "-" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + ".mdb";
-                    System.IO.File.Copy(this.sourceBD, destino, true);
-                }
-                catch
-                {
-                    MessageBox.Show("No se pudo realizar la copia de seguridad", "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ShowWaiting("Por favor espere mientras PosgrIQ genera los reportes antes de cerrar...");
+
+                    GenerarReportes();
+
+                    CloseWaiting();
                 }
 
-                CloseWaiting();
+                if (MessageBox.Show("Desea generar una copia de seguridad?", "Copia de Seguridad", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    // se genera la copia de seguridad
+                    ShowWaiting("Por favor espere mientras PosgrIQ genera la copia de seguridad...");
+
+                    try
+                    {
+                        string destino = this.sourceONE + "\\Secure\\" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Year.ToString() + "-" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + ".mdb";
+                        System.IO.File.Copy(this.sourceBD, destino, true);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se pudo realizar la copia de seguridad", "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    CloseWaiting();
+                }
             }
         }
 

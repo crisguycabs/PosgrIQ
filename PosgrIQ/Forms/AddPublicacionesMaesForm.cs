@@ -273,7 +273,7 @@ namespace PosgrIQ
                         query2 += ", '" + MainForm.Fecha2Texto(this.dateAceptado.Value) + "'";
 
                         query += ", alcance";
-                        if (cmbAlcance.SelectedIndex == 1) query2 += ", 'Nacional'";
+                        if (cmbAlcance.SelectedIndex == 0) query2 += ", 'Nacional'";
                         else query2 += ", 'Internacional'";
 
                         query += ", categoria";
@@ -315,14 +315,14 @@ namespace PosgrIQ
                     try
                     {
                         // se prepara la cadena SQL
-                        query = "UPDATE PropuestaMaes SET ";
+                        query = "UPDATE PublicacionesMaes SET ";
                         query += "codigo=" + codigo.ToString();
                         query += ", estudiante=" + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
                         query += ", nombre='" + txtTitulo.Text + "'";
                         query += ", revista='" + txtRevista.Text + "'";
                         query += ", fecha='" + MainForm.Fecha2Texto(dateAceptado.Value) + "'";
 
-                        if (cmbAlcance.SelectedIndex == 1) query += ", alcance='Nacional'";
+                        if (cmbAlcance.SelectedIndex == 0) query += ", alcance='Nacional'";
                         else query += ", alcance='Internacional'";
 
                         query += ", categoria='" + txtCategoria.Text + "'";
