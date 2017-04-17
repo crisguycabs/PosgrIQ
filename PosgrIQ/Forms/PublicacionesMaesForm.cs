@@ -136,8 +136,7 @@ namespace PosgrIQ
             AddPublicacionesMaesForm agregar = new AddPublicacionesMaesForm();
             agregar.padre = this.padre;
             agregar.modo = true;
-            agregar.codigo = Convert.ToInt32(dataGridPublicaciones.SelectedRows[0].Cells[0].Value);
-
+            
             if (agregar.ShowDialog() == DialogResult.OK) this.PublicacionesMaesForm_Load(sender, e);
         }
 

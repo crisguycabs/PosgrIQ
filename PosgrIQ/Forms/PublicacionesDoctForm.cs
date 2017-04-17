@@ -143,11 +143,12 @@ namespace PosgrIQ
         {
             if (dataGridPublicaciones.Rows.Count < 1) return;
 
-            AddPublicacionesDoctForm agregar = new AddPublicacionesDoctForm();
-            agregar.padre = this.padre;
-            agregar.modo = false;
+            AddPublicacionesDoctForm modificar = new AddPublicacionesDoctForm();
+            modificar.padre = this.padre;
+            modificar.modo = false;
+            modificar.codigo = Convert.ToInt32(dataGridPublicaciones.SelectedRows[0].Cells[0].Value);
 
-            if (agregar.ShowDialog() == DialogResult.OK) this.PublicacionesDoctForm_Load(sender, e);
+            if (modificar.ShowDialog() == DialogResult.OK) this.PublicacionesDoctForm_Load(sender, e);
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

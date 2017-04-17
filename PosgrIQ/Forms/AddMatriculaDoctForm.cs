@@ -875,7 +875,7 @@ namespace PosgrIQ
                         query += ", semestre1=" + (this.cmbSemestre1.SelectedIndex + 1).ToString();
                         query += ", promedio1=" + (this.numPromedio1.Value).ToString();
                         if (cmbBeca1.SelectedIndex == 0) query += ", beca1='Si'";
-                        else query += ", 'No'";
+                        else query += ", beca1='No'";
 
                         // los demas semestres no son obligatorios
                         if (cmbSemestre2.SelectedIndex >= 0)
