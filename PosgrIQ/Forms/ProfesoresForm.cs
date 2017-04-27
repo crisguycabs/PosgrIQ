@@ -247,7 +247,7 @@ namespace PosgrIQ
         {
             AddProfesoresForm agregar = new AddProfesoresForm();
             agregar.padre = this.padre;
-            agregar.modo = 1;
+            agregar.modo = true;
 
             if (agregar.ShowDialog() == DialogResult.OK) this.ProfesoresForm_Load(sender, e);
         }
@@ -258,7 +258,7 @@ namespace PosgrIQ
             
             AddProfesoresForm modificar = new AddProfesoresForm();
             modificar.padre = this.padre;
-            modificar.modo = 0;
+            modificar.modo = false;
             modificar.codigo = Convert.ToInt32(dataGridProfesores.SelectedRows[0].Cells[0].Value);
 
             if (modificar.ShowDialog() == DialogResult.OK) this.ProfesoresForm_Load(sender, e);

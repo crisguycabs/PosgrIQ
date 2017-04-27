@@ -24,7 +24,7 @@ namespace PosgrIQ
         /// <summary>
         /// Valores posibles: '1' para agregar, '0' para modificar, '2' para agregar invocado desde otra ventana
         /// </summary>
-        public int modo;
+        public bool modo;
 
         /// <summary>
         /// Codigo del profesor a modificar
@@ -144,10 +144,9 @@ namespace PosgrIQ
 
                 switch (modo)
                 {
-                    case 1:
-                    case 2: // se agrega un nuevo profesor
+                    case true: // se agrega un nuevo profesor
 
-                        numCod.Value = dtProfesores.Rows.Count+1;
+                        codigo = dtProfesores.Rows.Count + 1;
                         txtNombre.Text = "";
                         txtCorreo.Text = "";
                         txtTelefono.Text = "";
@@ -157,13 +156,12 @@ namespace PosgrIQ
 
                         break;
 
-                    case 0: // se modifica una escuela
+                    case false: // se modifica una escuela
 
                         // se escriben en los controles la informacion de la escuela seleccionada
 
                         DataRow[] seleccionado = dtProfesores.Select("codigo=" + codigo.ToString());
                         DataRow[] listaEscuelas = dtEscuelas.Select("codigo=" + seleccionado[0][3]);
-                        numCod.Value = codigo;
                         txtNombre.Text = Convert.ToString(seleccionado[0][1]);
                         cmbColegiatura.SelectedIndex = Convert.ToInt32(seleccionado[0][2]) - 1;
                         cmbEscuela.SelectedIndex = Convert.ToInt32(seleccionado[0][3]) - 1;
@@ -203,12 +201,12 @@ namespace PosgrIQ
             }
 
             // existe un profesor con ese codigo. Solo revisar en modo insercion
-            if (modo>=1)
+            if (modo)
             {
-                busqueda = dtProfesores.Select("codigo=" + numCod.Value.ToString());
+                busqueda = dtProfesores.Select("codigo=" + codigo.ToString());
                 if (busqueda.Length > 0)
                 {
-                    MessageBox.Show("Ya existe un profesor con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe un profesor con el codigo " + codigo.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -241,15 +239,12 @@ namespace PosgrIQ
 
             switch (modo)
             {
-                case 1:
-                case 2:
-
-                    // se agrega el profesor
+                case true: // se agrega el profesor
                     try
                     {
                         // se prepara la cadena SQL
                         busqueda = dtEscuelas.Select("escuela='" + cmbEscuela.Items[cmbEscuela.SelectedIndex] + "'");
-                        query = "INSERT INTO Profesores VALUES(" + numCod.Value.ToString() + ",'" + txtNombre.Text + "'," + (cmbColegiatura.SelectedIndex + 1).ToString() + "," + busqueda[0][0] + ",'" + txtCorreo.Text + "','" + txtTelefono.Text + "','" + txtUniversidad.Text + "')";
+                        query = "INSERT INTO Profesores VALUES(" + codigo.ToString() + ",'" + txtNombre.Text + "'," + (cmbColegiatura.SelectedIndex + 1).ToString() + "," + busqueda[0][0] + ",'" + txtCorreo.Text + "','" + txtTelefono.Text + "','" + txtUniversidad.Text + "')";
                         
                         conection.Open();
 
@@ -259,7 +254,7 @@ namespace PosgrIQ
 
                         conection.Close();
 
-                        if (modo == 2) this.DialogResult = DialogResult.OK;
+                        if (modo) this.DialogResult = DialogResult.OK;
                         else
                         {
                             try
@@ -269,7 +264,7 @@ namespace PosgrIQ
                             catch { }
                         }
 
-                        numCod.Value = 0;
+                        codigo++;
                         txtNombre.Text = "";
                         cmbColegiatura.SelectedIndex = -1;
                         cmbEscuela.SelectedIndex = -1;
@@ -285,14 +280,12 @@ namespace PosgrIQ
 
                     break;
 
-                case 0:
-
-                    // se modifica el profesor
+                case false: // se modifica el profesor
                     try
                     {
                         // se prepara la cadena SQL
                         busqueda = dtEscuelas.Select("escuela='" + cmbEscuela.Items[cmbEscuela.SelectedIndex] + "'");
-                        query = "UPDATE Profesores SET codigo=" + numCod.Value.ToString() + ", nombre='" + txtNombre.Text + "', colegiatura=" + (cmbColegiatura.SelectedIndex + 1).ToString() + ", escuela=" + busqueda[0][0] + ", correo='" + txtCorreo.Text + "', telefono='" + txtTelefono.Text + "', universidad='" + txtUniversidad.Text + "' WHERE codigo=" + codigo.ToString();
+                        query = "UPDATE Profesores SET codigo=" + codigo.ToString() + ", nombre='" + txtNombre.Text + "', colegiatura=" + (cmbColegiatura.SelectedIndex + 1).ToString() + ", escuela=" + busqueda[0][0] + ", correo='" + txtCorreo.Text + "', telefono='" + txtTelefono.Text + "', universidad='" + txtUniversidad.Text + "' WHERE codigo=" + codigo.ToString();
 
                         conection.Open();
 
@@ -320,7 +313,7 @@ namespace PosgrIQ
         {
             AddEscuelasForm agregar = new AddEscuelasForm();
             agregar.padre = this.padre;
-            agregar.modo = 2;
+            agregar.modo = true;
 
             if (agregar.ShowDialog() == DialogResult.OK)
             {

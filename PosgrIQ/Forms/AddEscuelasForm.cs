@@ -24,7 +24,7 @@ namespace PosgrIQ
         /// <summary>
         /// Valores posibles: '1' para agregar, '0' para modificar, '2' para agregar invocado desde otra ventana
         /// </summary>
-        public int modo;
+        public bool modo;
 
         /// <summary>
         /// Codigo de la escuela a modificar
@@ -51,8 +51,6 @@ namespace PosgrIQ
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
-                
-
                 // algunas variables
                 string query;
                 OleDbCommand command;
@@ -71,21 +69,19 @@ namespace PosgrIQ
 
                 switch (modo)
                 {
-                    case 1:
-                    case 2:// se agrega una nueva escuela
+                    case true:// se agrega una nueva escuela
 
                         // se genera el nuevo codigo para la nueva escuela
-                        numCod.Value = dt.Rows.Count + 1;
+                        codigo = dt.Rows.Count + 1;
                         txtNombre.Text = "";
 
                         this.Text = "AGREGAR NUEVA ESCUELA";
 
                         break;
 
-                    case 0: // se modifica una escuela
+                    case false: // se modifica una escuela
 
                         // se escriben en los controles la informacion de la escuela seleccionada
-                        numCod.Value = codigo;
                         txtNombre.Text = Convert.ToString(dt.Select("codigo=" + codigo.ToString())[0][1]);
 
                         btnAdd.Text = "Modificar";
@@ -114,16 +110,15 @@ namespace PosgrIQ
             }
 
             // existe una escuela con ese codigo. Solo revisar en modo insercion
-            if (modo>=1)
+            if (modo)
             {
-                DataRow[] busqueda = dt.Select("codigo=" + numCod.Value.ToString());
+                DataRow[] busqueda = dt.Select("codigo=" + codigo.ToString());
                 if (busqueda.Length > 0)
                 {
-                    MessageBox.Show("Ya existe una escuela con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe una escuela con el codigo " + codigo.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
-
 
             // se prepara la conexion
             OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
@@ -132,16 +127,13 @@ namespace PosgrIQ
 
             switch (modo)
             {
-                case 1:
-                case 2:
-
-                    // se agrega la escuela
+                case true: // se agrega la escuela
                     try
                     {
                         conection.Open();
 
                         // se prepara la cadena SQL
-                        query = "INSERT INTO Escuelas VALUES(" + numCod.Value.ToString() + ",'" + txtNombre.Text + "')";
+                        query = "INSERT INTO Escuelas VALUES(" + codigo.ToString() + ",'" + txtNombre.Text + "')";
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
@@ -149,8 +141,9 @@ namespace PosgrIQ
                         conection.Close();
 
                         this.txtNombre.Text = "";
+                        codigo++;
 
-                        if (modo == 2) this.DialogResult = DialogResult.OK;
+                        if (modo) this.DialogResult = DialogResult.OK;
                         else
                         {
                             try { padre.escuelasForm.EscuelasForm_Load(sender, e); }
@@ -164,7 +157,7 @@ namespace PosgrIQ
 
                     break;
 
-                case 0:
+                case false:
 
                     // se modifica la escuela
                     try
@@ -172,7 +165,7 @@ namespace PosgrIQ
                         conection.Open();
 
                         // se prepara la cadena SQL
-                        query = "UPDATE Escuelas SET codigo=" + numCod.Value.ToString() + ", escuela='" + txtNombre.Text + "' WHERE codigo=" + codigo.ToString();
+                        query = "UPDATE Escuelas SET codigo=" + codigo + ", escuela='" + txtNombre.Text + "' WHERE codigo=" + codigo.ToString();
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
