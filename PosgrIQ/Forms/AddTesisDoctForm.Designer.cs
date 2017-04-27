@@ -196,7 +196,7 @@
             this.btnAddProfesor.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAddProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProfesor.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAddProfesor.Location = new System.Drawing.Point(185, 241);
+            this.btnAddProfesor.Location = new System.Drawing.Point(495, 241);
             this.btnAddProfesor.Name = "btnAddProfesor";
             this.btnAddProfesor.Size = new System.Drawing.Size(128, 23);
             this.btnAddProfesor.TabIndex = 57;
@@ -1315,7 +1315,7 @@
             // 
             this.cmbCalificador5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCalificador5.FormattingEnabled = true;
-            this.cmbCalificador5.Location = new System.Drawing.Point(400, 241);
+            this.cmbCalificador5.Location = new System.Drawing.Point(90, 241);
             this.cmbCalificador5.Name = "cmbCalificador5";
             this.cmbCalificador5.Size = new System.Drawing.Size(223, 21);
             this.cmbCalificador5.TabIndex = 9;
@@ -1324,7 +1324,7 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label28.Location = new System.Drawing.Point(322, 245);
+            this.label28.Location = new System.Drawing.Point(7, 245);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(76, 14);
             this.label28.TabIndex = 61;

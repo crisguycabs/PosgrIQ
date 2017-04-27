@@ -128,7 +128,16 @@ namespace PosgrIQ
                         DataRow[] seleccionado = dtPonencias.Select("codigo=" + codigo.ToString());
 
                         // estudiante
-                        cmbEstudiante.SelectedIndex = Convert.ToInt32(seleccionado[0][1]) - 1;
+                        // se selecciona el indice en el cmbEstudiante segun el codigo de estudiante en la publicacion
+                        string est = seleccionado[0][1].ToString();
+                        for (int i = 0; i < dtEstudiantes.Rows.Count; i++)
+                        {
+                            if (dtEstudiantes.Rows[i][0].ToString() == est)
+                            {
+                                cmbEstudiante.SelectedIndex = i;
+                                break;
+                            }
+                        }
 
                         // titulo
                         txtTitulo.Text = Convert.ToString(seleccionado[0][2]);

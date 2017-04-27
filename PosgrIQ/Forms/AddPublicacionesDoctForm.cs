@@ -102,7 +102,7 @@ namespace PosgrIQ
                         numCod.Value = codigo;
 
                         // estudiante
-                        // se selecciona el indice en el cmbEstudiante segun el codigo de estudiante en la propuesta
+                        // se selecciona el indice en el cmbEstudiante segun el codigo de estudiante en la publicacion
                         string est = seleccionado[0][1].ToString();
                         for (int i = 0; i < dtEstudiantes.Rows.Count; i++)
                         {

@@ -32,14 +32,14 @@
             this.dataGridEstudiantes = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnVerTema = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMod = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnPrev = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEstudiantes)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -61,7 +61,7 @@
             this.dataGridEstudiantes.MultiSelect = false;
             this.dataGridEstudiantes.Name = "dataGridEstudiantes";
             this.dataGridEstudiantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridEstudiantes.Size = new System.Drawing.Size(1168, 200);
+            this.dataGridEstudiantes.Size = new System.Drawing.Size(1168, 421);
             this.dataGridEstudiantes.TabIndex = 1;
             this.dataGridEstudiantes.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridEstudiantes_RowPostPaint);
             // 
@@ -82,7 +82,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1184, 245);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1184, 466);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // panel1
@@ -96,10 +96,36 @@
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Controls.Add(this.btnMod);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(8, 214);
+            this.panel1.Location = new System.Drawing.Point(8, 435);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1168, 23);
             this.panel1.TabIndex = 4;
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrev.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnPrev.Location = new System.Drawing.Point(377, 0);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(23, 23);
+            this.btnPrev.TabIndex = 8;
+            this.btnPrev.Text = "<";
+            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnNext.Location = new System.Drawing.Point(406, 0);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(23, 23);
+            this.btnNext.TabIndex = 8;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // txtSearch
             // 
@@ -171,38 +197,12 @@
             this.btnMod.UseVisualStyleBackColor = false;
             this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
             // 
-            // btnNext
-            // 
-            this.btnNext.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnNext.Location = new System.Drawing.Point(406, 0);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(23, 23);
-            this.btnNext.TabIndex = 8;
-            this.btnNext.Text = ">";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnPrev
-            // 
-            this.btnPrev.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
-            this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrev.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnPrev.Location = new System.Drawing.Point(377, 0);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(23, 23);
-            this.btnPrev.TabIndex = 8;
-            this.btnPrev.Text = "<";
-            this.btnPrev.UseVisualStyleBackColor = true;
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
             // EstudiantesMaesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1184, 245);
+            this.ClientSize = new System.Drawing.Size(1184, 466);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Calibri", 9F);

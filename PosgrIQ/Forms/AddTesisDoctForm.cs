@@ -79,12 +79,16 @@ namespace PosgrIQ
                 cmbCalificador1.Items.Clear();
                 cmbCalificador2.Items.Clear();
                 cmbCalificador3.Items.Clear();
+                cmbCalificador4.Items.Clear();
+                cmbCalificador5.Items.Clear();
 
                 foreach (DataRow row in dtProfesores.Rows)
                 {
                     cmbCalificador1.Items.Add(row[1]);
                     cmbCalificador2.Items.Add(row[1]);
                     cmbCalificador3.Items.Add(row[1]);
+                    cmbCalificador4.Items.Add(row[1]);
+                    cmbCalificador5.Items.Add(row[1]);
                 }
             }
             catch
@@ -287,10 +291,10 @@ namespace PosgrIQ
                         if (!string.IsNullOrWhiteSpace(seleccionado[0][6].ToString())) cmbCalificador3.SelectedIndex = Convert.ToInt32(seleccionado[0][6]) - 1;
 
                         // calificador4
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][7].ToString())) cmbCalificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][7]) - 1;
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][7].ToString())) cmbCalificador4.SelectedIndex = Convert.ToInt32(seleccionado[0][7]) - 1;
 
                         // calificador5
-                        if (!string.IsNullOrWhiteSpace(seleccionado[0][8].ToString())) cmbCalificador3.SelectedIndex = Convert.ToInt32(seleccionado[0][8]) - 1;
+                        if (!string.IsNullOrWhiteSpace(seleccionado[0][8].ToString())) cmbCalificador5.SelectedIndex = Convert.ToInt32(seleccionado[0][8]) - 1;
 
                         // entrega
                         datePropuesta.Value = MainForm.Texto2Fecha(Convert.ToString(seleccionado[0][9]));
