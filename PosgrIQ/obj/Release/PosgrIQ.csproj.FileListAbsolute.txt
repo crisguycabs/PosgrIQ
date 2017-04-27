@@ -1,4 +1,3 @@
-C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.exe
 D:\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.exe.config
 D:\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.exe
 D:\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.pdb
@@ -48,10 +47,12 @@ D:\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csproj.GenerateResource.Cache
 D:\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.exe
 D:\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.pdb
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.exe.config
+C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.exe
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.pdb
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\EASendMail45.dll
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\GemBox.Spreadsheet.dll
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\GemBox.Spreadsheet.xml
+C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csprojResolveAssemblyReference.cache
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AboutForm.resources
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddTesisMaesForm.resources
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddPropuestaMaesForm.resources
@@ -94,4 +95,3 @@ C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csproj.GenerateResource.Cache
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.exe
 C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.pdb
-C:\Users\Hdsp\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csprojResolveAssemblyReference.cache
