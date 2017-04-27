@@ -24,7 +24,7 @@ namespace PosgrIQ
         /// <summary>
         /// Valores posibles: '1' para agregar, '0' para modificar, '2' para agregar invocado desde otra ventana
         /// </summary>
-        public int modo;
+        public bool modo;
 
         /// <summary>
         /// Codigo de la escuela a modificar
@@ -70,21 +70,19 @@ namespace PosgrIQ
 
                 switch (modo)
                 {
-                    case 1:
-                    case 2: // se agrega un nuevo reglamento
+                    case true: // se agrega un nuevo reglamento
 
                         // se genera el nuevo codigo para el nuevo reglamento
-                        numCod.Value = dt.Rows.Count + 1;
+                        codigo = dt.Rows.Count + 1;
                         txtNombre.Text = "";
 
                         this.Text = "AGREGAR NUEVO REGLAMENTO";
 
                         break;
 
-                    case 0: // se modifica un reglamento
+                    case false: // se modifica un reglamento
 
                         // se escriben en los controles la informacion del reglamento a modificar
-                        numCod.Value = codigo;
                         txtNombre.Text = Convert.ToString(dt.Select("codigo=" + codigo.ToString())[0][1]);
 
                         btnAdd.Text = "Modificar";
@@ -113,12 +111,12 @@ namespace PosgrIQ
             }
 
             // existe un reglamento con ese codigo. Solo revisar en modo insercion
-            if (modo>=1)
+            if (modo)
             {
-                DataRow[] busqueda = dt.Select("codigo=" + numCod.Value.ToString());
+                DataRow[] busqueda = dt.Select("codigo=" + codigo.ToString());
                 if (busqueda.Length > 0)
                 {
-                    MessageBox.Show("Ya existe un reglamento con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe un reglamento con el codigo " + codigo.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -131,14 +129,13 @@ namespace PosgrIQ
 
             switch (modo)
             {
-                case 1:
-                case 2:
+                case true:
 
                     // se agrega el reglamento
                     try
                     {
                         // se prepara la cadena SQL
-                        query = "INSERT INTO Reglamentos VALUES(" + numCod.Value.ToString() + ",'" + txtNombre.Text + "')";
+                        query = "INSERT INTO Reglamentos VALUES(" + codigo.ToString() + ",'" + txtNombre.Text + "')";
                         
                         conection.Open();
 
@@ -149,9 +146,9 @@ namespace PosgrIQ
                         conection.Close();
 
                         this.txtNombre.Text = "";
-                        this.numCod.Value = 0;
+                        codigo++;
 
-                        if (modo == 2) this.DialogResult = DialogResult.OK;
+                        if (modo) this.DialogResult = DialogResult.OK;
                         else
                         {
                             try
@@ -168,13 +165,13 @@ namespace PosgrIQ
 
                     break;
 
-                case 0:
+                case false:
 
                     // se modifica la escuela
                     try
                     {
                         // se prepara la cadena SQL
-                        query = "UPDATE Reglamentos SET codigo=" + numCod.Value.ToString() + ", nombre='" + txtNombre.Text + "' WHERE codigo=" + codigo.ToString();
+                        query = "UPDATE Reglamentos SET codigo=" + codigo.ToString() + ", nombre='" + txtNombre.Text + "' WHERE codigo=" + codigo.ToString();
 
                         conection.Open();
 

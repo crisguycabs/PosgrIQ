@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSemestresForm));
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.numCod = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
             this.numAno = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbPeriodo = new System.Windows.Forms.ComboBox();
@@ -47,7 +45,6 @@
             this.datePedirQualify = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.dateTema = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.numCod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAno)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,38 +77,10 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // numCod
-            // 
-            this.numCod.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numCod.Location = new System.Drawing.Point(60, 9);
-            this.numCod.Maximum = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-            this.numCod.Name = "numCod";
-            this.numCod.Size = new System.Drawing.Size(45, 22);
-            this.numCod.TabIndex = 1;
-            this.numCod.Value = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label1.Location = new System.Drawing.Point(12, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 14);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Codigo:";
-            // 
             // numAno
             // 
             this.numAno.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numAno.Location = new System.Drawing.Point(147, 9);
+            this.numAno.Location = new System.Drawing.Point(46, 9);
             this.numAno.Maximum = new decimal(new int[] {
             3000,
             0,
@@ -136,7 +105,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label2.Location = new System.Drawing.Point(115, 13);
+            this.label2.Location = new System.Drawing.Point(14, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 14);
             this.label2.TabIndex = 15;
@@ -148,7 +117,7 @@
             this.cmbPeriodo.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.cmbPeriodo.Location = new System.Drawing.Point(257, 9);
+            this.cmbPeriodo.Location = new System.Drawing.Point(156, 9);
             this.cmbPeriodo.Name = "cmbPeriodo";
             this.cmbPeriodo.Size = new System.Drawing.Size(45, 22);
             this.cmbPeriodo.TabIndex = 3;
@@ -157,7 +126,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label3.Location = new System.Drawing.Point(204, 13);
+            this.label3.Location = new System.Drawing.Point(103, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 14);
             this.label3.TabIndex = 15;
@@ -263,10 +232,8 @@
             this.Controls.Add(this.dateTomarQualify);
             this.Controls.Add(this.cmbPeriodo);
             this.Controls.Add(this.numAno);
-            this.Controls.Add(this.numCod);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
             this.Font = new System.Drawing.Font("Calibri", 9F);
@@ -278,7 +245,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddSemestresForm";
             this.Load += new System.EventHandler(this.AddSemestresForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numCod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAno)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -289,8 +255,6 @@
 
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.NumericUpDown numCod;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numAno;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbPeriodo;

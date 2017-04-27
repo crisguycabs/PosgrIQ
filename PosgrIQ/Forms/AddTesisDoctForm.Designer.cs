@@ -127,8 +127,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.cmbEstudiante = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.numCod = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
             this.cmbCalificador5 = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
             this.cmbCalificador4 = new System.Windows.Forms.ComboBox();
@@ -137,7 +135,6 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numCod)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbConcepto2Calificador1
@@ -196,7 +193,7 @@
             this.btnAddProfesor.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAddProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProfesor.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAddProfesor.Location = new System.Drawing.Point(495, 241);
+            this.btnAddProfesor.Location = new System.Drawing.Point(495, 211);
             this.btnAddProfesor.Name = "btnAddProfesor";
             this.btnAddProfesor.Size = new System.Drawing.Size(128, 23);
             this.btnAddProfesor.TabIndex = 57;
@@ -289,7 +286,7 @@
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAdd.Location = new System.Drawing.Point(548, 639);
+            this.btnAdd.Location = new System.Drawing.Point(548, 609);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 33;
@@ -310,7 +307,7 @@
             // 
             this.label25.BackColor = System.Drawing.Color.DarkRed;
             this.label25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label25.Location = new System.Drawing.Point(8, 632);
+            this.label25.Location = new System.Drawing.Point(8, 602);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(616, 3);
             this.label25.TabIndex = 53;
@@ -339,7 +336,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(7, 279);
+            this.tabControl1.Location = new System.Drawing.Point(7, 249);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(616, 348);
@@ -1115,7 +1112,7 @@
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnCancel.Location = new System.Drawing.Point(467, 639);
+            this.btnCancel.Location = new System.Drawing.Point(467, 609);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 34;
@@ -1127,7 +1124,7 @@
             // 
             this.label26.BackColor = System.Drawing.Color.DarkRed;
             this.label26.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label26.Location = new System.Drawing.Point(7, 271);
+            this.label26.Location = new System.Drawing.Point(7, 241);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(616, 3);
             this.label26.TabIndex = 51;
@@ -1136,7 +1133,7 @@
             // 
             this.cmbCalificador3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCalificador3.FormattingEnabled = true;
-            this.cmbCalificador3.Location = new System.Drawing.Point(90, 214);
+            this.cmbCalificador3.Location = new System.Drawing.Point(90, 184);
             this.cmbCalificador3.Name = "cmbCalificador3";
             this.cmbCalificador3.Size = new System.Drawing.Size(223, 21);
             this.cmbCalificador3.TabIndex = 7;
@@ -1145,7 +1142,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label27.Location = new System.Drawing.Point(7, 218);
+            this.label27.Location = new System.Drawing.Point(7, 188);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(76, 14);
             this.label27.TabIndex = 44;
@@ -1155,7 +1152,7 @@
             // 
             this.cmbCalificador2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCalificador2.FormattingEnabled = true;
-            this.cmbCalificador2.Location = new System.Drawing.Point(400, 187);
+            this.cmbCalificador2.Location = new System.Drawing.Point(400, 157);
             this.cmbCalificador2.Name = "cmbCalificador2";
             this.cmbCalificador2.Size = new System.Drawing.Size(223, 21);
             this.cmbCalificador2.TabIndex = 6;
@@ -1164,7 +1161,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label24.Location = new System.Drawing.Point(322, 191);
+            this.label24.Location = new System.Drawing.Point(322, 161);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(76, 14);
             this.label24.TabIndex = 42;
@@ -1174,7 +1171,7 @@
             // 
             this.cmbCalificador1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCalificador1.FormattingEnabled = true;
-            this.cmbCalificador1.Location = new System.Drawing.Point(90, 187);
+            this.cmbCalificador1.Location = new System.Drawing.Point(90, 157);
             this.cmbCalificador1.Name = "cmbCalificador1";
             this.cmbCalificador1.Size = new System.Drawing.Size(223, 21);
             this.cmbCalificador1.TabIndex = 5;
@@ -1183,7 +1180,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label20.Location = new System.Drawing.Point(7, 191);
+            this.label20.Location = new System.Drawing.Point(7, 161);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(76, 14);
             this.label20.TabIndex = 43;
@@ -1193,7 +1190,7 @@
             // 
             this.label5.BackColor = System.Drawing.Color.DarkRed;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(7, 179);
+            this.label5.Location = new System.Drawing.Point(7, 149);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(616, 3);
             this.label5.TabIndex = 52;
@@ -1201,7 +1198,7 @@
             // txtRutaTesis
             // 
             this.txtRutaTesis.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtRutaTesis.Location = new System.Drawing.Point(90, 121);
+            this.txtRutaTesis.Location = new System.Drawing.Point(90, 91);
             this.txtRutaTesis.Name = "txtRutaTesis";
             this.txtRutaTesis.Size = new System.Drawing.Size(533, 22);
             this.txtRutaTesis.TabIndex = 4;
@@ -1210,7 +1207,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label16.Location = new System.Drawing.Point(7, 124);
+            this.label16.Location = new System.Drawing.Point(7, 94);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(72, 14);
             this.label16.TabIndex = 48;
@@ -1222,7 +1219,7 @@
             this.btnRutaTesis.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnRutaTesis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRutaTesis.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnRutaTesis.Location = new System.Drawing.Point(90, 149);
+            this.btnRutaTesis.Location = new System.Drawing.Point(90, 119);
             this.btnRutaTesis.Name = "btnRutaTesis";
             this.btnRutaTesis.Size = new System.Drawing.Size(128, 23);
             this.btnRutaTesis.TabIndex = 49;
@@ -1236,7 +1233,7 @@
             this.btnVerArchivoTesis.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnVerArchivoTesis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerArchivoTesis.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnVerArchivoTesis.Location = new System.Drawing.Point(224, 149);
+            this.btnVerArchivoTesis.Location = new System.Drawing.Point(224, 119);
             this.btnVerArchivoTesis.Name = "btnVerArchivoTesis";
             this.btnVerArchivoTesis.Size = new System.Drawing.Size(128, 23);
             this.btnVerArchivoTesis.TabIndex = 50;
@@ -1247,7 +1244,7 @@
             // txtTesis
             // 
             this.txtTesis.Font = new System.Drawing.Font("Calibri", 9F);
-            this.txtTesis.Location = new System.Drawing.Point(90, 64);
+            this.txtTesis.Location = new System.Drawing.Point(90, 34);
             this.txtTesis.Multiline = true;
             this.txtTesis.Name = "txtTesis";
             this.txtTesis.Size = new System.Drawing.Size(533, 51);
@@ -1257,7 +1254,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label13.Location = new System.Drawing.Point(7, 69);
+            this.label13.Location = new System.Drawing.Point(7, 39);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(42, 14);
             this.label13.TabIndex = 45;
@@ -1267,7 +1264,7 @@
             // 
             this.cmbEstudiante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbEstudiante.FormattingEnabled = true;
-            this.cmbEstudiante.Location = new System.Drawing.Point(90, 36);
+            this.cmbEstudiante.Location = new System.Drawing.Point(90, 6);
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(223, 21);
             this.cmbEstudiante.TabIndex = 2;
@@ -1277,45 +1274,17 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label9.Location = new System.Drawing.Point(7, 40);
+            this.label9.Location = new System.Drawing.Point(7, 10);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 14);
             this.label9.TabIndex = 41;
             this.label9.Text = "Estudiante:";
             // 
-            // numCod
-            // 
-            this.numCod.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numCod.Location = new System.Drawing.Point(90, 8);
-            this.numCod.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numCod.Name = "numCod";
-            this.numCod.Size = new System.Drawing.Size(70, 22);
-            this.numCod.TabIndex = 1;
-            this.numCod.Value = new decimal(new int[] {
-            9999999,
-            0,
-            0,
-            0});
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label1.Location = new System.Drawing.Point(7, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 14);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Codigo:";
-            // 
             // cmbCalificador5
             // 
             this.cmbCalificador5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCalificador5.FormattingEnabled = true;
-            this.cmbCalificador5.Location = new System.Drawing.Point(90, 241);
+            this.cmbCalificador5.Location = new System.Drawing.Point(90, 211);
             this.cmbCalificador5.Name = "cmbCalificador5";
             this.cmbCalificador5.Size = new System.Drawing.Size(223, 21);
             this.cmbCalificador5.TabIndex = 9;
@@ -1324,7 +1293,7 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label28.Location = new System.Drawing.Point(7, 245);
+            this.label28.Location = new System.Drawing.Point(7, 215);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(76, 14);
             this.label28.TabIndex = 61;
@@ -1334,7 +1303,7 @@
             // 
             this.cmbCalificador4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbCalificador4.FormattingEnabled = true;
-            this.cmbCalificador4.Location = new System.Drawing.Point(400, 214);
+            this.cmbCalificador4.Location = new System.Drawing.Point(400, 184);
             this.cmbCalificador4.Name = "cmbCalificador4";
             this.cmbCalificador4.Size = new System.Drawing.Size(223, 21);
             this.cmbCalificador4.TabIndex = 8;
@@ -1343,7 +1312,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label29.Location = new System.Drawing.Point(322, 218);
+            this.label29.Location = new System.Drawing.Point(322, 188);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(76, 14);
             this.label29.TabIndex = 60;
@@ -1355,7 +1324,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(631, 675);
+            this.ClientSize = new System.Drawing.Size(631, 641);
             this.ControlBox = false;
             this.Controls.Add(this.cmbCalificador5);
             this.Controls.Add(this.label28);
@@ -1382,12 +1351,10 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cmbEstudiante);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.numCod);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(647, 709);
-            this.MinimumSize = new System.Drawing.Size(647, 709);
+            this.MaximumSize = new System.Drawing.Size(647, 675);
+            this.MinimumSize = new System.Drawing.Size(647, 675);
             this.Name = "AddTesisDoctForm";
             this.Text = "AGREGAR TESIS DE DOCTORADO";
             this.Load += new System.EventHandler(this.AddTesisDoctForm_Load);
@@ -1398,7 +1365,6 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numCod)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1478,8 +1444,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbEstudiante;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown numCod;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbCalificador5;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.ComboBox cmbCalificador4;

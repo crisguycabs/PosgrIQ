@@ -742,7 +742,7 @@ namespace PosgrIQ
         {
             AddReglamentosForm agregar = new AddReglamentosForm();
             agregar.padre = this.padre;
-            agregar.modo = 2;
+            agregar.modo = true;
 
             if (agregar.ShowDialog() == DialogResult.OK) this.LlenarReglamentos();
         }

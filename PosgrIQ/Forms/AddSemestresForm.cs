@@ -78,7 +78,7 @@ namespace PosgrIQ
                     case true: // se agrega un nuevo semestre
 
                         // nuevo codigo
-                        numCod.Value = dtSemestres.Rows.Count + 1;
+                        codigo = dtSemestres.Rows.Count + 1;
 
                         // año
                         numAno.Value = DateTime.Now.Year;
@@ -110,8 +110,6 @@ namespace PosgrIQ
                         // se escriben en los controles la informacion de la escuela seleccionada
 
                         DataRow[] seleccionado = dtSemestres.Select("codigo=" + codigo.ToString());
-
-                        numCod.Value = codigo;
 
                         numAno.Value = Convert.ToDecimal(seleccionado[0][2]);
 
@@ -157,10 +155,10 @@ namespace PosgrIQ
             if (modo)
             {
                 // existe un semestre con ese codigo. 
-                DataRow[] busqueda = dtSemestres.Select("codigo=" + numCod.Value.ToString());
+                DataRow[] busqueda = dtSemestres.Select("codigo=" + codigo.ToString());
                 if (busqueda.Length > 0)
                 {
-                    MessageBox.Show("Ya existe un semestre con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe un semestre con el codigo " + codigo.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -310,7 +308,7 @@ namespace PosgrIQ
 
                         // se prepara la cadena SQL
                         query = "INSERT INTO Semestres VALUES(";
-                        query += numCod.Value.ToString() + ",";
+                        query += codigo.ToString() + ",";
                         query += "'" + numAno.Value.ToString() + "-" + cmbPeriodo.Items[cmbPeriodo.SelectedIndex] + "',";
                         query += numAno.Value.ToString() + ",";
                         query += cmbPeriodo.Items[cmbPeriodo.SelectedIndex] + ",";
@@ -329,7 +327,7 @@ namespace PosgrIQ
                         conection.Close();
 
                         //numAno.Value = 0;
-                        numCod.Value++;
+                        codigo++;
                         cmbPeriodo.SelectedIndex = -1;
 
                         //this.DialogResult = DialogResult.OK;
@@ -352,7 +350,7 @@ namespace PosgrIQ
                         // se prepara la cadena SQL
 
                         query = "UPDATE Semestres SET ";
-                        query += "codigo=" + numCod.Value.ToString() + ", ";
+                        query += "codigo=" + codigo.ToString() + ", ";
                         query += "nombre='" + numAno.Value.ToString() + "-" + cmbPeriodo.Items[cmbPeriodo.SelectedIndex] + "', ";
                         query += "ano=" + numAno.Value.ToString() + ", ";
                         query += "periodo=" + cmbPeriodo.Items[cmbPeriodo.SelectedIndex] + ", ";

@@ -218,7 +218,7 @@ namespace PosgrIQ
                 {
                     case true: // se agrega una nueva propuesta de doctorado
 
-                        numCod.Value = dtTesis.Rows.Count + 1;
+                        codigo = dtTesis.Rows.Count + 1;
                         cmbEstudiante.SelectedIndex = -1;
                         txtTesis.Text = "";
                         txtRutaTesis.Text = "";
@@ -259,9 +259,6 @@ namespace PosgrIQ
                     case false: // se modifica una propuesta de doctorado
 
                         DataRow[] seleccionado = dtTesis.Select("codigo=" + codigo.ToString());
-
-                        // codigo
-                        numCod.Value = codigo;
 
                         // estudiante
                         // se selecciona el indice en el cmbEstudiante segun el codigo de estudiante en la propuesta
@@ -392,10 +389,10 @@ namespace PosgrIQ
             // existe una propuesta con ese codigo. Solo revisar en modo insercion
             if (modo)
             {
-                busqueda = dtTesis.Select("codigo=" + numCod.Value.ToString());
+                busqueda = dtTesis.Select("codigo=" + codigo.ToString());
                 if (busqueda.Length > 0)
                 {
-                    MessageBox.Show("Ya existe una tesis con el codigo " + numCod.Value.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe una tesis con el codigo " + codigo.ToString(), "Error de duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -810,7 +807,7 @@ namespace PosgrIQ
                         query2 = " VALUES (";
 
                         query += "codigo";
-                        query2 += numCod.Value.ToString();
+                        query2 += codigo.ToString();
 
                         query += ", estudiante";
                         query2 += ", " + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
@@ -1074,7 +1071,7 @@ namespace PosgrIQ
                         cmbConcepto2Calificador5.SelectedIndex = -1;
                         cmbEstudiante.SelectedIndex = -1;
                         cmbSustentacion.SelectedIndex = -1;
-                        numCod.Value = 0;
+                        codigo++;
                         
                         //this.DialogResult = DialogResult.OK;
                         try { 
@@ -1096,7 +1093,7 @@ namespace PosgrIQ
                     {
                         // se prepara la cadena SQL
                         query = "UPDATE TesisDoct SET ";
-                        query += "codigo=" + numCod.Value.ToString();
+                        query += "codigo=" + codigo.ToString();
                         query += ", estudiante=" + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
                         query += ", titulo='" + txtTesis.Text + "'";
                         query += ", ruta='" + "TesisDoctorado\\" + cmbEstudiante.Text.Replace(" ", "") + "_Tesis.pdf" + "'";
