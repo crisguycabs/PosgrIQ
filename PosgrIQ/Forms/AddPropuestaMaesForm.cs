@@ -361,7 +361,7 @@ namespace PosgrIQ
         private void btnRutaPropuesta_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc|Archivos PDF (.pdf)|*.pdf";
+            open.Filter = "Archivos PDF (.pdf)|*.pdf|Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc";
             open.FilterIndex = 0;
 
             if (open.ShowDialog() == DialogResult.OK)
@@ -394,7 +394,7 @@ namespace PosgrIQ
         private void btnSelConcepto1Calificador1_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc|Archivos PDF (.pdf)|*.pdf";
+            open.Filter = "Archivos PDF (.pdf)|*.pdf|Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc";
             open.FilterIndex = 0;
 
             if (open.ShowDialog() == DialogResult.OK)
@@ -406,7 +406,7 @@ namespace PosgrIQ
         private void btnSelConcepto1Calificador2_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc|Archivos PDF (.pdf)|*.pdf";
+            open.Filter = "Archivos PDF (.pdf)|*.pdf|Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc";
             open.FilterIndex = 0;
 
             if (open.ShowDialog() == DialogResult.OK)
@@ -442,7 +442,7 @@ namespace PosgrIQ
         private void btnSelConcepto2Calificador1_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc|Archivos PDF (.pdf)|*.pdf";
+            open.Filter = "Archivos PDF (.pdf)|*.pdf|Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc";
             open.FilterIndex = 0;
 
             if (open.ShowDialog() == DialogResult.OK)
@@ -454,7 +454,7 @@ namespace PosgrIQ
         private void btnSelConcepto2Calificador2_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc|Archivos PDF (.pdf)|*.pdf";
+            open.Filter = "Archivos PDF (.pdf)|*.pdf|Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc";
             open.FilterIndex = 0;
 
             if (open.ShowDialog() == DialogResult.OK)
@@ -490,7 +490,7 @@ namespace PosgrIQ
         private void btnSelSustentacion_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc|Archivos PDF (.pdf)|*.pdf";
+            open.Filter = "Archivos PDF (.pdf)|*.pdf|Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc";
             open.FilterIndex = 0;
 
             if (open.ShowDialog() == DialogResult.OK)

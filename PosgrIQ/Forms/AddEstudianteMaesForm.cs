@@ -396,7 +396,7 @@ namespace PosgrIQ
         private void btnRutaTema_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc|Archivos PDF (.pdf)|*.pdf";
+            open.Filter = "Archivos PDF (.pdf)|*.pdf|Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc";
             open.FilterIndex = 0;
 
             if (open.ShowDialog() == DialogResult.OK)
@@ -407,9 +407,24 @@ namespace PosgrIQ
 
         private void btnVerArchivoTema_Click(object sender, EventArgs e)
         {
+            // si la ruta a abrir contiene la cadena "ac1017" entonces la ruta debe ser relativa a la carpeta de OneDrive
+            // si la ruta a abrir NO contiene la cadena "ac107" entonces se abre la ruta absoluta
+
+            string rutaAabrir = "";
+            if (txtRutaTema.Text.Contains("ac1017"))
+            {
+                // ruta relativa
+                rutaAabrir = padre.sourceONE + "\\" + txtRutaTema.Text;
+            }
+            else
+            {
+                // ruta absoluta
+                rutaAabrir = txtRutaTema.Text;
+            }
+
             try
             {
-                System.Diagnostics.Process.Start(txtRutaTema.Text);
+                System.Diagnostics.Process.Start(rutaAabrir);
             }
             catch
             {
@@ -511,7 +526,8 @@ namespace PosgrIQ
             }
 
             // se marco el Tema como ENTREGADO
-            string destino = destino = "TemasMaestria\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
+            string destino = "TemasMaestria\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
+            //string destino="Tema_" + Convert.ToString(numCod.Value)s
             if (chkTema.Checked)
             {
                 // nombre del tema vacío
