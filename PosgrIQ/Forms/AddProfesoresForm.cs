@@ -266,7 +266,8 @@ namespace PosgrIQ
                         // se prepara la cadena SQL
                         busqueda = dtEscuelas.Select("escuela='" + cmbEscuela.Items[cmbEscuela.SelectedIndex] + "'");
                         query = "INSERT INTO Profesores VALUES(" + codigo.ToString() + ",'" + txtNombre.Text + "'," + (cmbColegiatura.SelectedIndex + 1).ToString() + "," + busqueda[0][0] + ",'" + txtCorreo.Text + "','" + txtTelefono.Text + "','" + txtUniversidad.Text + "')";
-                        
+
+                        conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
                         conection.Open();
 
                         command = new OleDbCommand(query, conection);
@@ -315,6 +316,7 @@ namespace PosgrIQ
                         busqueda = dtEscuelas.Select("escuela='" + cmbEscuela.Items[cmbEscuela.SelectedIndex] + "'");
                         query = "UPDATE Profesores SET codigo=" + codigo.ToString() + ", nombre='" + txtNombre.Text + "', colegiatura=" + (cmbColegiatura.SelectedIndex + 1).ToString() + ", escuela=" + busqueda[0][0] + ", correo='" + txtCorreo.Text + "', telefono='" + txtTelefono.Text + "', universidad='" + txtUniversidad.Text + "' WHERE codigo=" + codigo.ToString();
 
+                        conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
                         conection.Open();
 
                         command = new OleDbCommand(query, conection);

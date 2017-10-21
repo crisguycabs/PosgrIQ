@@ -65,7 +65,8 @@ namespace PosgrIQ
             try
             {
                 string query = "SELECT * FROM Profesores ORDER BY codigo ASC";
-                
+
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
 
                 OleDbCommand command = new OleDbCommand(query, conection);
@@ -110,6 +111,7 @@ namespace PosgrIQ
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
 
                 string query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
@@ -147,6 +149,7 @@ namespace PosgrIQ
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
 
                 string query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
@@ -213,6 +216,7 @@ namespace PosgrIQ
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
 
                 // algunas variables
@@ -1061,6 +1065,7 @@ namespace PosgrIQ
                         query2 += ")";
                         query += query2;
 
+                        conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                         conection.Open();
 
                         command = new OleDbCommand(query, conection);
@@ -1189,6 +1194,7 @@ namespace PosgrIQ
 
                         query += " WHERE codigo=" + codigo.ToString();
 
+                        conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                         conection.Open();
 
                         command = new OleDbCommand(query, conection);
@@ -1566,6 +1572,7 @@ namespace PosgrIQ
 
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
                 command = new OleDbCommand(query, conection);
 

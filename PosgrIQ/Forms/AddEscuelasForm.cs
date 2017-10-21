@@ -58,7 +58,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de los profesores
                 query = "SELECT * FROM Escuelas ORDER BY codigo ASC";
-
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
                 conection.Open();
                 command = new OleDbCommand(query, conection);
 
@@ -142,7 +142,7 @@ namespace PosgrIQ
                         
                         // se prepara la cadena SQL
                         query = "INSERT INTO Escuelas VALUES(" + codigo.ToString() + ",'" + txtNombre.Text + "')";
-
+                        conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
                         conection.Open();
 
                         command = new OleDbCommand(query, conection);
@@ -181,7 +181,7 @@ namespace PosgrIQ
                     {
                         // se prepara la cadena SQL
                         query = "UPDATE Escuelas SET codigo=" + codigo + ", escuela='" + txtNombre.Text + "' WHERE codigo=" + codigo.ToString();
-
+                        conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
                         conection.Open();
                         command = new OleDbCommand(query, conection);
 

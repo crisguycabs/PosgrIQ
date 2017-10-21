@@ -56,6 +56,7 @@ namespace PosgrIQ
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
 
                 // algunas variables
@@ -325,6 +326,7 @@ namespace PosgrIQ
                         query += "'" + MainForm.Fecha2Texto(datePedirQualify.Value) + "',";
                         query += "'" + MainForm.Fecha2Texto(dateTema.Value) + "')";
 
+                        conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                         conection.Open();
 
                         command = new OleDbCommand(query, conection);
@@ -375,6 +377,7 @@ namespace PosgrIQ
                         query += "tema='" + MainForm.Fecha2Texto(dateTema.Value) + "' ";
                         query += "WHERE codigo=" + codigo.ToString();
 
+                        conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                         conection.Open();
 
                         command = new OleDbCommand(query, conection);

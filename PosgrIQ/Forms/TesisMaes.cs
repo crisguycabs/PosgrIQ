@@ -53,6 +53,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de las propuestas de doctorado
                 query = "SELECT * FROM TesisMaes ORDER BY codigo ASC";
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 da = new OleDbDataAdapter(command);
@@ -70,6 +71,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de los estudiantes de doctorado
                 query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 da = new OleDbDataAdapter(command);
@@ -87,6 +89,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de los profesores
                 query = "SELECT * FROM Profesores ORDER BY codigo ASC";
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 da = new OleDbDataAdapter(command);
@@ -104,6 +107,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de los conceptos
                 query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 da = new OleDbDataAdapter(command);
@@ -212,6 +216,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de la propuesta de doct
                 query = "SELECT * FROM TesisMaes WHERE codigo=" + codigo.ToString() + " ORDER BY codigo ASC";
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
                 command = new OleDbCommand(query, conection);
 

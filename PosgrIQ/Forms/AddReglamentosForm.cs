@@ -51,6 +51,7 @@ namespace PosgrIQ
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
 
                 // algunas variables
@@ -143,7 +144,8 @@ namespace PosgrIQ
                     {
                         // se prepara la cadena SQL
                         query = "INSERT INTO Reglamentos VALUES(" + codigo.ToString() + ",'" + txtNombre.Text + "')";
-                        
+
+                        conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                         conection.Open();
 
                         command = new OleDbCommand(query, conection);
@@ -187,6 +189,7 @@ namespace PosgrIQ
                         // se prepara la cadena SQL
                         query = "UPDATE Reglamentos SET codigo=" + codigo.ToString() + ", nombre='" + txtNombre.Text + "' WHERE codigo=" + codigo.ToString();
 
+                        conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                         conection.Open();
 
                         command = new OleDbCommand(query, conection);

@@ -404,7 +404,8 @@ namespace PosgrIQ
             try
             {
                 var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
-                
+
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD); 
                 conection.Open();
 
                 // algunas variables
@@ -1461,6 +1462,7 @@ namespace PosgrIQ
             dt = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD); 
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -1486,6 +1488,7 @@ namespace PosgrIQ
             try
             {
                 conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD); 
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -2054,6 +2057,7 @@ namespace PosgrIQ
             dt = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD); 
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -2662,6 +2666,7 @@ namespace PosgrIQ
             dtEstudiantes = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD); 
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -2979,6 +2984,7 @@ namespace PosgrIQ
             dtEstudiantes = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD); 
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -3354,6 +3360,7 @@ namespace PosgrIQ
             dtEstudiantes = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD); 
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -3671,6 +3678,7 @@ namespace PosgrIQ
             dtEstudiantes = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD); 
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4075,6 +4083,7 @@ namespace PosgrIQ
             dtEstudiantes = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD); 
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4582,6 +4591,7 @@ namespace PosgrIQ
             dtEstudiantes = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD); 
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -5600,6 +5610,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de los estudiantes de doctorad
                 query = "SELECT * FROM Configuracion";
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD); 
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 
@@ -5611,7 +5622,7 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                while (System.IO.Directory.GetFiles(sourceONE, "*.ldb").Length > 0)
                 {
                     System.Threading.Thread.Sleep(100);
                 }

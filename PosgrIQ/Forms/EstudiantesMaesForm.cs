@@ -53,6 +53,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de los estudiantes de doctorad
                 query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 da = new OleDbDataAdapter(command);
@@ -70,6 +71,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de los profesores
                 query = "SELECT * FROM Profesores ORDER BY codigo ASC";
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 da = new OleDbDataAdapter(command);
@@ -87,6 +89,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de la condicion del estudiante
                 query = "SELECT * FROM Condicion ORDER BY codigo ASC";
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 da = new OleDbDataAdapter(command);
@@ -104,6 +107,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de los reglamentos de posgrado
                 query = "SELECT * FROM Reglamentos ORDER BY codigo ASC";
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 da = new OleDbDataAdapter(command);
@@ -121,6 +125,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de los conceptos
                 query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 da = new OleDbDataAdapter(command);
@@ -257,7 +262,8 @@ namespace PosgrIQ
 
                 // se pide la informacion de los estudiantes de doctorad
                 query = "SELECT * FROM EstudiantesMaes WHERE codigo=" + codigo.ToString() + " ORDER BY codigo ASC";
-                
+
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
 
                 command = new OleDbCommand(query, conection);

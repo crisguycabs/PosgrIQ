@@ -78,6 +78,7 @@ namespace PosgrIQ
                     // se pide la informacion de los profesores
                     query = "SELECT * FROM Configuracion";
 
+                    conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                     conection.Open();
 
                     command = new OleDbCommand(query, conection);
@@ -138,6 +139,7 @@ namespace PosgrIQ
                     // se prepara la cadena SQL
                     query = "UPDATE Configuracion SET correo='" + txtCorreo.Text + "', clave='" + txtClave.Text + "', director='" + txtDirector.Text + "', coordinador='" + txtCoordinador.Text + "'";
 
+                    conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                     conection.Open();
 
                     command = new OleDbCommand(query, conection);
