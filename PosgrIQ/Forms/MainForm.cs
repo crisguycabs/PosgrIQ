@@ -5611,9 +5611,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 string correo = dtConfiguracion.Rows[0][0].ToString();
                 string clave = dtConfiguracion.Rows[0][1].ToString();

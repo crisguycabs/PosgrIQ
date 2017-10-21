@@ -94,9 +94,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 // se llenan los comboBox
                 LlenarConceptos();
@@ -232,9 +233,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 cmbDirector.Items.Clear();
                 cmbCodirector1.Items.Clear();
@@ -272,9 +274,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 cmbCondicion.Items.Clear();
 
@@ -308,9 +311,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 cmbReglamentos.Items.Clear();
 
@@ -345,9 +349,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 cmbConceptoTema.Items.Clear();
 
@@ -647,9 +652,10 @@ namespace PosgrIQ
                         conection.Dispose();
                         GC.Collect();
                         GC.WaitForPendingFinalizers();
-                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                        System.Threading.Thread.Sleep(1000);
-                        padre.CloseWaiting();
+                        while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                        {
+                            System.Threading.Thread.Sleep(100);
+                        }
 
                         numCod.Value = 0;
                         numCedula.Value = 0;
@@ -737,9 +743,10 @@ namespace PosgrIQ
                         conection.Dispose();
                         GC.Collect();
                         GC.WaitForPendingFinalizers();
-                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                        System.Threading.Thread.Sleep(1000);
-                        padre.CloseWaiting();
+                        while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                        {
+                            System.Threading.Thread.Sleep(100);
+                        }
 
                         this.DialogResult = DialogResult.OK;
                     }

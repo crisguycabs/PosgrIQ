@@ -67,9 +67,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 this.cmbEstudiante.Items.Clear();
 
@@ -118,9 +119,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 // se llenan los combobox
                 LlenarEstudiantes();
@@ -291,9 +293,10 @@ namespace PosgrIQ
                         conection.Dispose();
                         GC.Collect();
                         GC.WaitForPendingFinalizers();
-                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                        System.Threading.Thread.Sleep(1000);
-                        padre.CloseWaiting();
+                        while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                        {
+                            System.Threading.Thread.Sleep(100);
+                        }
 
                         txtRevista.Text = "";
                         txtTitulo.Text = "";
@@ -340,9 +343,10 @@ namespace PosgrIQ
                         conection.Dispose();
                         GC.Collect();
                         GC.WaitForPendingFinalizers();
-                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                        System.Threading.Thread.Sleep(1000);
-                        padre.CloseWaiting();
+                        while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                        {
+                            System.Threading.Thread.Sleep(100);
+                        }
 
                         this.DialogResult = DialogResult.OK;
                     }

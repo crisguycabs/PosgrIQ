@@ -167,9 +167,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 // se pide la informacion de las colegiaturas
                 query = "SELECT * FROM Colegiatura ORDER BY codigo ASC";
@@ -183,9 +184,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 // se pide la informacion de las escuelas
                 query = "SELECT * FROM Escuelas ORDER BY codigo ASC";
@@ -199,9 +201,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 // se crea una tabla que reemplaza el codigo de colegiatura y de escuela por el nombre
                 dt = new DataTable();

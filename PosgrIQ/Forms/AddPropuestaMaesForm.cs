@@ -77,9 +77,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 cmbCalificador1.Items.Clear();
                 cmbCalificador2.Items.Clear();
@@ -115,9 +116,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 this.cmbEstudiante.Items.Clear();
 
@@ -151,9 +153,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 cmbConcepto1Calificador1.Items.Clear();
                 cmbConcepto1Calificador2.Items.Clear();
@@ -205,9 +208,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 // se llenan los combobox
                 LlenarConceptos();
@@ -840,9 +844,10 @@ namespace PosgrIQ
                         conection.Dispose();
                         GC.Collect();
                         GC.WaitForPendingFinalizers();
-                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                        System.Threading.Thread.Sleep(1000);
-                        padre.CloseWaiting();
+                        while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                        {
+                            System.Threading.Thread.Sleep(100);
+                        }
 
                         txtPropuesta.Text = "";
                         txtRutaConcepto1Calificador1.Text = "";
@@ -947,9 +952,10 @@ namespace PosgrIQ
                         conection.Dispose();
                         GC.Collect();
                         GC.WaitForPendingFinalizers();
-                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                        System.Threading.Thread.Sleep(1000);
-                        padre.CloseWaiting();
+                        while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                        {
+                            System.Threading.Thread.Sleep(100);
+                        }
 
                         this.DialogResult = DialogResult.OK;
                     }
@@ -991,9 +997,10 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
-                System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
 
                 txtPropuesta.Text = Convert.ToString(dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][11]);                
             }
