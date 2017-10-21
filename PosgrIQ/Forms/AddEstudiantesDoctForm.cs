@@ -79,6 +79,12 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 cmbDirector.Items.Clear();
                 cmbCodirector1.Items.Clear();
@@ -113,6 +119,12 @@ namespace PosgrIQ
                 da.Fill(dtCondicion);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 cmbCondicion.Items.Clear();
 
@@ -143,6 +155,12 @@ namespace PosgrIQ
                 da.Fill(dtReglamentos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 cmbReglamentos.Items.Clear();
 
@@ -173,6 +191,12 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 cmbConceptoTema.Items.Clear();
 
@@ -213,6 +237,12 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se llenan los comboBox
                 LlenarConceptos();
@@ -635,6 +665,12 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();
 
                         txtCiudad.Text = "";
                         txtCorreo.Text = "";
@@ -726,6 +762,12 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();
 
                         this.DialogResult = DialogResult.OK;
                     }

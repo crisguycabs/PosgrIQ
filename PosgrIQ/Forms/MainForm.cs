@@ -422,7 +422,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();                    
                     return false;
                 }
 
@@ -436,7 +439,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();                     
                     return false;
                 }
 
@@ -450,7 +456,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -464,7 +473,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -478,7 +490,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -492,7 +507,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -506,7 +524,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -520,7 +541,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -534,7 +558,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -548,7 +575,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -562,7 +592,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -576,7 +609,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -590,7 +626,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -604,7 +643,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -618,7 +660,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -632,7 +677,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -646,7 +694,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -660,7 +711,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -674,7 +728,10 @@ namespace PosgrIQ
                 catch
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conection.Close(); 
+                    conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();  
                     return false;
                 }
 
@@ -689,6 +746,9 @@ namespace PosgrIQ
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers(); 
                     return false;
                 }
 
@@ -703,6 +763,9 @@ namespace PosgrIQ
                 {
                     MessageBox.Show("La base de datos no contienen la tabla " + query2 + ".\r\nNo es una base de datos valida", "Error de validacion de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers(); 
                     return false;
                 }
 
@@ -1408,6 +1471,9 @@ namespace PosgrIQ
                 da.Fill(dt);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -1429,6 +1495,9 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -1450,6 +1519,9 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -1471,6 +1543,9 @@ namespace PosgrIQ
                 da.Fill(dtReglamentos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -1492,6 +1567,9 @@ namespace PosgrIQ
                 da.Fill(dtCondicion);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -1981,6 +2059,9 @@ namespace PosgrIQ
                 da.Fill(dt);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -2002,6 +2083,9 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -2023,6 +2107,9 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -2044,6 +2131,9 @@ namespace PosgrIQ
                 da.Fill(dtReglamentos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -2065,6 +2155,9 @@ namespace PosgrIQ
                 da.Fill(dtCondicion);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -2569,6 +2662,9 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -2590,6 +2686,9 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -2611,6 +2710,9 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -2632,6 +2734,9 @@ namespace PosgrIQ
                 da.Fill(dtPropuestas);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -2868,6 +2973,9 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -2889,6 +2997,9 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -2910,6 +3021,9 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -2931,6 +3045,9 @@ namespace PosgrIQ
                 da.Fill(dtPropuestas);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -3225,6 +3342,9 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -3246,6 +3366,9 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -3267,6 +3390,9 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -3288,6 +3414,9 @@ namespace PosgrIQ
                 da.Fill(dtTesis);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -3524,6 +3653,9 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -3545,6 +3677,9 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -3566,6 +3701,9 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -3587,6 +3725,9 @@ namespace PosgrIQ
                 da.Fill(dtTesis);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -3910,6 +4051,9 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -3931,6 +4075,9 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -3952,6 +4099,9 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -3973,6 +4123,9 @@ namespace PosgrIQ
                 da.Fill(dtPropuestas);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4144,6 +4297,9 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4165,6 +4321,9 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4186,6 +4345,9 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4207,6 +4369,9 @@ namespace PosgrIQ
                 da.Fill(dtPropuestas);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4378,6 +4543,9 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4399,6 +4567,9 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4420,6 +4591,9 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4441,6 +4615,9 @@ namespace PosgrIQ
                 da.Fill(dtTesis);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4612,6 +4789,9 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4633,6 +4813,9 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4654,6 +4837,9 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4675,6 +4861,9 @@ namespace PosgrIQ
                 da.Fill(dtTesis);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4849,6 +5038,9 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4870,6 +5062,9 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -4891,6 +5086,9 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -5085,6 +5283,9 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -5106,6 +5307,9 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -5127,6 +5331,9 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -5148,6 +5355,9 @@ namespace PosgrIQ
                 da.Fill(dtTesis);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers(); 
             }
             catch
             {
@@ -5314,11 +5524,18 @@ namespace PosgrIQ
                 query = "SELECT * FROM Configuracion";
                 conection.Open();
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
+                
                 da = new OleDbDataAdapter(command);
                 dtConfiguracion = new DataTable();
                 da.Fill(dtConfiguracion);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 string correo = dtConfiguracion.Rows[0][0].ToString();
                 string clave = dtConfiguracion.Rows[0][1].ToString();

@@ -67,6 +67,12 @@ namespace PosgrIQ
                 da.Fill(dt);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 switch (modo)
                 {
@@ -144,6 +150,12 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();
 
                         this.txtNombre.Text = "";
                         codigo++;
@@ -180,6 +192,13 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();
+
                         this.DialogResult = DialogResult.OK;
                     }
                     catch

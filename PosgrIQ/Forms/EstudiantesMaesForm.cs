@@ -55,51 +55,81 @@ namespace PosgrIQ
                 query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
                 conection.Open();
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtEstudiantesMaes = new DataTable();
                 da.Fill(dtEstudiantesMaes);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se pide la informacion de los profesores
                 query = "SELECT * FROM Profesores ORDER BY codigo ASC";
                 conection.Open();
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtProfesores = new DataTable();
                 da.Fill(dtProfesores);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se pide la informacion de la condicion del estudiante
                 query = "SELECT * FROM Condicion ORDER BY codigo ASC";
                 conection.Open();
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtCondicion = new DataTable();
                 da.Fill(dtCondicion);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se pide la informacion de los reglamentos de posgrado
                 query = "SELECT * FROM Reglamentos ORDER BY codigo ASC";
                 conection.Open();
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtReglamentos = new DataTable();
                 da.Fill(dtReglamentos);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se pide la informacion de los conceptos
                 query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
                 conection.Open();
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtConceptos = new DataTable();
                 da.Fill(dtConceptos);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se crea una tabla que reemplaza el codigo de colegiatura y de escuela por el nombre
                 dt = new DataTable();
@@ -232,6 +262,12 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantesDoct);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 try
                 {

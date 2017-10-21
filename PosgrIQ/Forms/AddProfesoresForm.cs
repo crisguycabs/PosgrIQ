@@ -69,6 +69,12 @@ namespace PosgrIQ
                 da.Fill(dtEscuelas);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 cmbEscuela.Items.Clear();
 
@@ -99,6 +105,12 @@ namespace PosgrIQ
                 da.Fill(dtColegiatura);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 cmbColegiatura.Items.Clear();
 
@@ -137,6 +149,12 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se llenan las colegiaturas y escuelas
                 LlenarEscuelas();
@@ -253,6 +271,12 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();
 
                         if (modo) this.DialogResult = DialogResult.OK;
                         else
@@ -294,6 +318,12 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();
 
                         this.DialogResult = DialogResult.OK;
                     }

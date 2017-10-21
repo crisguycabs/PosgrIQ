@@ -60,6 +60,12 @@ namespace PosgrIQ
                 dataGridEscuelas.DataSource = dt;
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se reescala el datagridview
                 MainForm.ReescalarDataGridView(ref dataGridEscuelas);

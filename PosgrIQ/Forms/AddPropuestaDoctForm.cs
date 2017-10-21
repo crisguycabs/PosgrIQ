@@ -74,6 +74,12 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 cmbCalificador1.Items.Clear();
                 cmbCalificador2.Items.Clear();
@@ -110,6 +116,12 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 this.cmbEstudiante.Items.Clear();
 
@@ -140,6 +152,12 @@ namespace PosgrIQ
                 da.Fill(dtConceptos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 cmbConcepto1Calificador1.Items.Clear();
                 cmbConcepto1Calificador2.Items.Clear();
@@ -196,6 +214,12 @@ namespace PosgrIQ
                 da.Fill(dtPropuestas);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se llenan los combobox
                 LlenarConceptos();
@@ -947,6 +971,12 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();
 
                         txtPropuesta.Text = "";
                         txtRutaConcepto1Calificador1.Text = "";
@@ -1083,6 +1113,12 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();
 
                         this.DialogResult = DialogResult.OK;
                     }
@@ -1322,6 +1358,12 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 txtPropuesta.Text = Convert.ToString(dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][11]);
             }

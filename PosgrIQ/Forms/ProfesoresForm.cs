@@ -159,31 +159,49 @@ namespace PosgrIQ
                 query = "SELECT * FROM Profesores ORDER BY codigo ASC";
                 conection.Open();
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtProfesores = new DataTable();
                 da.Fill(dtProfesores);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se pide la informacion de las colegiaturas
                 query = "SELECT * FROM Colegiatura ORDER BY codigo ASC";
                 conection.Open();
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtColegiatura = new DataTable();
                 da.Fill(dtColegiatura);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se pide la informacion de las escuelas
                 query = "SELECT * FROM Escuelas ORDER BY codigo ASC";
                 conection.Open();
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtEscuelas = new DataTable();
                 da.Fill(dtEscuelas);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se crea una tabla que reemplaza el codigo de colegiatura y de escuela por el nombre
                 dt = new DataTable();

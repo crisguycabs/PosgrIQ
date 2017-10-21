@@ -64,6 +64,12 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 this.cmbEstudiante.Items.Clear();
 
@@ -104,6 +110,12 @@ namespace PosgrIQ
                 da.Fill(dtPonencias);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se llenan los combobox
                 LlenarEstudiantes();
@@ -276,6 +288,12 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();                        
 
                         txtRevista.Text = "";
                         txtTitulo.Text = "";
@@ -319,6 +337,12 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();
 
                         this.DialogResult = DialogResult.OK;
                     }

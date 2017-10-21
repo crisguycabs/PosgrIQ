@@ -55,21 +55,33 @@ namespace PosgrIQ
                 query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
                 conection.Open();
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtEstudiantesDoct = new DataTable();
                 da.Fill(dtEstudiantesDoct);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se pide la informacion de las publicaciones de doctorado
                 query = "SELECT * FROM PublicacionesDoct ORDER BY codigo ASC";
                 conection.Open();
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtPublicacionesDoct = new DataTable();
                 da.Fill(dtPublicacionesDoct);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se crea una tabla que reemplaza el codigo de colegiatura y de escuela por el nombre
                 dt = new DataTable();

@@ -87,6 +87,12 @@ namespace PosgrIQ
                     da.Fill(dt);
 
                     conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                    System.Threading.Thread.Sleep(1000);
+                    padre.CloseWaiting();
 
                     txtCorreo.Text = dt.Rows[0][0].ToString();
                     txtClave.Text = dt.Rows[0][1].ToString();
@@ -138,6 +144,12 @@ namespace PosgrIQ
                     command.ExecuteNonQuery();
 
                     conection.Close();
+                    conection.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                    System.Threading.Thread.Sleep(1000);
+                    padre.CloseWaiting();
 
                     padre.sourceONE = txtRutaOne.Text;
                     padre.SetSourceOne(txtRutaOne.Text);

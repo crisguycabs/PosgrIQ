@@ -61,11 +61,19 @@ namespace PosgrIQ
 
                 conection.Open();
                 command = new OleDbCommand(query, conection);
-                conection.Close();
 
                 da = new OleDbDataAdapter(command);
                 dt = new DataTable();
                 da.Fill(dt);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
+
 
                 switch (modo)
                 {
@@ -130,15 +138,22 @@ namespace PosgrIQ
                 case true: // se agrega la escuela
                     try
                     {
-                        conection.Open();
-
+                        
                         // se prepara la cadena SQL
                         query = "INSERT INTO Escuelas VALUES(" + codigo.ToString() + ",'" + txtNombre.Text + "')";
-                        command = new OleDbCommand(query, conection);
 
+                        conection.Open();
+
+                        command = new OleDbCommand(query, conection);
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();
 
                         this.txtNombre.Text = "";
                         codigo++;
@@ -162,15 +177,22 @@ namespace PosgrIQ
                     // se modifica la escuela
                     try
                     {
-                        conection.Open();
-
                         // se prepara la cadena SQL
                         query = "UPDATE Escuelas SET codigo=" + codigo + ", escuela='" + txtNombre.Text + "' WHERE codigo=" + codigo.ToString();
+
+                        conection.Open();
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();
+
                         this.DialogResult = DialogResult.OK;
                     }
                     catch

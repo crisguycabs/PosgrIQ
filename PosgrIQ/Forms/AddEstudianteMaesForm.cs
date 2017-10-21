@@ -73,7 +73,7 @@ namespace PosgrIQ
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
-                conection.Open();
+                
 
                 // algunas variables
                 string query;
@@ -82,6 +82,8 @@ namespace PosgrIQ
 
                 // se pide la informacion de los estudiantes de doctorado
                 query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
+
+                conection.Open();
                 command = new OleDbCommand(query, conection);
 
                 da = new OleDbDataAdapter(command);
@@ -89,6 +91,12 @@ namespace PosgrIQ
                 da.Fill(dtEstudiantes);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se llenan los comboBox
                 LlenarConceptos();
@@ -211,9 +219,9 @@ namespace PosgrIQ
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
-                conection.Open();
-
                 string query = "SELECT * FROM Profesores ORDER BY codigo ASC";
+
+                conection.Open();
                 OleDbCommand command = new OleDbCommand(query, conection);
                 OleDbDataAdapter da = new OleDbDataAdapter(command);
 
@@ -221,6 +229,12 @@ namespace PosgrIQ
                 da.Fill(dtProfesores);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 cmbDirector.Items.Clear();
                 cmbCodirector1.Items.Clear();
@@ -255,6 +269,12 @@ namespace PosgrIQ
                 da.Fill(dtCondicion);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 cmbCondicion.Items.Clear();
 
@@ -285,6 +305,12 @@ namespace PosgrIQ
                 da.Fill(dtReglamentos);
 
                 conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 cmbReglamentos.Items.Clear();
 
@@ -309,11 +335,19 @@ namespace PosgrIQ
 
                 string query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
                 OleDbCommand command = new OleDbCommand(query, conection);
-                conection.Close();
+                
                 OleDbDataAdapter da = new OleDbDataAdapter(command);
 
                 dtConceptos = new DataTable();
                 da.Fill(dtConceptos);                
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 cmbConceptoTema.Items.Clear();
 
@@ -610,6 +644,12 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();
 
                         numCod.Value = 0;
                         numCedula.Value = 0;
@@ -694,6 +734,12 @@ namespace PosgrIQ
                         command.ExecuteNonQuery();
 
                         conection.Close();
+                        conection.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                        System.Threading.Thread.Sleep(1000);
+                        padre.CloseWaiting();
 
                         this.DialogResult = DialogResult.OK;
                     }

@@ -55,31 +55,49 @@ namespace PosgrIQ
                 query = "SELECT * FROM MatriculaDoct ORDER BY codigo ASC";
                 conection.Open(); 
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtMatriculaDoct = new DataTable();
                 da.Fill(dtMatriculaDoct);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se pide la informacion de los estudiantes de doctorado
                 query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
                 conection.Open(); 
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtEstudiantesDoct = new DataTable();
                 da.Fill(dtEstudiantesDoct);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se pide la informacion de los semestres
                 query = "SELECT * FROM Semestres ORDER BY codigo ASC";
                 conection.Open(); 
                 command = new OleDbCommand(query, conection);
-                conection.Close();
-
                 da = new OleDbDataAdapter(command);
                 dtSemestre = new DataTable();
                 da.Fill(dtSemestre);
+
+                conection.Close();
+                conection.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                System.Threading.Thread.Sleep(1000);
+                padre.CloseWaiting();
 
                 // se crea una tabla para mostrar la data
                 dt = new DataTable();
