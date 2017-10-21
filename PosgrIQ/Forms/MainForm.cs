@@ -1485,6 +1485,7 @@ namespace PosgrIQ
             DataTable dtProfesores = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -1509,6 +1510,7 @@ namespace PosgrIQ
             DataTable dtConceptos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -1533,6 +1535,7 @@ namespace PosgrIQ
             DataTable dtReglamentos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -1557,6 +1560,7 @@ namespace PosgrIQ
             DataTable dtCondicion = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -1716,10 +1720,11 @@ namespace PosgrIQ
                 ws.Cells[rowpos, colpos].Value = "TEMA";
                 ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
                 ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
-                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][11].ToString();
+                ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dt.Rows[i][11]).ToUpper().Replace("\"", string.Empty);
                 ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                 ws.Cells[rowpos, colpos + 1].Style.WrapText = true;
-
+                ws.Cells[rowpos, colpos + 1].Style.HorizontalAlignment = HorizontalAlignmentStyle.Justify;
+                
                 rowpos++;
 
                 ws.Cells[rowpos, colpos].Value = "FECHA";
@@ -2073,6 +2078,7 @@ namespace PosgrIQ
             DataTable dtProfesores = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -2097,6 +2103,7 @@ namespace PosgrIQ
             DataTable dtConceptos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -2121,6 +2128,7 @@ namespace PosgrIQ
             DataTable dtReglamentos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -2145,6 +2153,7 @@ namespace PosgrIQ
             DataTable dtCondicion = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -2303,9 +2312,10 @@ namespace PosgrIQ
                 ws.Cells[rowpos, colpos].Value = "TEMA";
                 ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
                 ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
-                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][11].ToString();
+                ws.Cells[rowpos, colpos + 1].Value = dt.Rows[i][11].ToString().ToUpper().Replace("\"", string.Empty);
                 ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                 ws.Cells[rowpos, colpos + 1].Style.WrapText = true;
+                ws.Cells[rowpos, colpos + 1].Style.HorizontalAlignment = HorizontalAlignmentStyle.Justify;
 
                 rowpos++;
 
@@ -2676,6 +2686,7 @@ namespace PosgrIQ
             DataTable dtProfesores = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -2700,6 +2711,7 @@ namespace PosgrIQ
             DataTable dtConceptos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -2724,6 +2736,7 @@ namespace PosgrIQ
             DataTable dtPropuestas = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -2779,9 +2792,12 @@ namespace PosgrIQ
                 ws.Cells[rowpos, colpos].Value = "TITULO";
                 ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
                 ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
-                ws.Cells[rowpos, colpos + 1].Value = dtPropuestas.Rows[i][2].ToString();
+
+                if (Convert.ToString(dtPropuestas.Rows[i][2]).Length >= 70) ws.Cells[rowpos, colpos + 1].Value = (Convert.ToString(dtPropuestas.Rows[i][2]).Substring(0, 70) + "...").ToUpper().Replace("\"", string.Empty);
+                else ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtPropuestas.Rows[i][2]).ToUpper().Replace("\"", string.Empty);
                 ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
-                ws.Cells[rowpos, colpos + 1].Style.WrapText = true;
+                ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                ws.Cells[rowpos, colpos + 1].Style.HorizontalAlignment = HorizontalAlignmentStyle.Justify;
 
                 rowpos++;
 
@@ -2987,6 +3003,7 @@ namespace PosgrIQ
             DataTable dtProfesores = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -3011,6 +3028,7 @@ namespace PosgrIQ
             DataTable dtConceptos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -3035,6 +3053,7 @@ namespace PosgrIQ
             DataTable dtPropuestas = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -3090,9 +3109,12 @@ namespace PosgrIQ
                 ws.Cells[rowpos, colpos].Value = "TITULO";
                 ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
                 ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
-                ws.Cells[rowpos, colpos + 1].Value = dtPropuestas.Rows[i][2].ToString();
+
+                if (Convert.ToString(dtPropuestas.Rows[i][2]).Length >= 70) ws.Cells[rowpos, colpos + 1].Value = (Convert.ToString(dtPropuestas.Rows[i][2]).Substring(0, 70) + "...").ToUpper().Replace("\"", string.Empty);
+                else ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtPropuestas.Rows[i][2]).ToUpper().Replace("\"", string.Empty);
                 ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
-                ws.Cells[rowpos, colpos + 1].Style.WrapText = true;
+                ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                ws.Cells[rowpos, colpos + 1].Style.HorizontalAlignment = HorizontalAlignmentStyle.Justify;
 
                 rowpos++;
 
@@ -3356,6 +3378,7 @@ namespace PosgrIQ
             DataTable dtProfesores = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -3380,6 +3403,7 @@ namespace PosgrIQ
             DataTable dtConceptos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -3404,6 +3428,7 @@ namespace PosgrIQ
             DataTable dtTesis = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -3459,9 +3484,12 @@ namespace PosgrIQ
                 ws.Cells[rowpos, colpos].Value = "TITULO";
                 ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
                 ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
-                ws.Cells[rowpos, colpos + 1].Value = dtTesis.Rows[i][2].ToString();
+
+                if (Convert.ToString(dtTesis.Rows[i][2]).Length >= 70) ws.Cells[rowpos, colpos + 1].Value = (Convert.ToString(dtTesis.Rows[i][2]).Substring(0, 70) + "...").ToUpper().Replace("\"", string.Empty);
+                else ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtTesis.Rows[i][2]).ToUpper().Replace("\"", string.Empty);
                 ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
-                ws.Cells[rowpos, colpos + 1].Style.WrapText = true;
+                ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                ws.Cells[rowpos, colpos + 1].Style.HorizontalAlignment = HorizontalAlignmentStyle.Justify;
 
                 rowpos++;
 
@@ -3667,6 +3695,7 @@ namespace PosgrIQ
             DataTable dtProfesores = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -3691,6 +3720,7 @@ namespace PosgrIQ
             DataTable dtConceptos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -3715,6 +3745,7 @@ namespace PosgrIQ
             DataTable dtTesis = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -3773,9 +3804,12 @@ namespace PosgrIQ
                 ws.Cells[rowpos, colpos].Value = "TITULO";
                 ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.BoldWeight;
                 ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
-                ws.Cells[rowpos, colpos + 1].Value = dtTesis.Rows[i][2].ToString();
+
+                if (Convert.ToString(dtTesis.Rows[i][2]).Length >= 70) ws.Cells[rowpos, colpos + 1].Value = (Convert.ToString(dtTesis.Rows[i][2]).Substring(0, 70) + "...").ToUpper().Replace("\"", string.Empty);
+                else ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtTesis.Rows[i][2]).ToUpper().Replace("\"", string.Empty);
                 ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
-                ws.Cells[rowpos, colpos + 1].Style.WrapText = true;
+                ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                ws.Cells[rowpos, colpos + 1].Style.HorizontalAlignment = HorizontalAlignmentStyle.Justify;
 
                 rowpos++;
 
@@ -4065,6 +4099,7 @@ namespace PosgrIQ
             DataTable dtProfesores = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4089,6 +4124,7 @@ namespace PosgrIQ
             DataTable dtConceptos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4113,6 +4149,7 @@ namespace PosgrIQ
             DataTable dtPropuestas = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4184,12 +4221,16 @@ namespace PosgrIQ
                             ws.Cells[rowpos, colpos - 1].Value = (j+1).ToString();
                             ws.Cells[rowpos, colpos - 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
                             ws.Cells[rowpos, colpos].Value = Convert.ToString(dtEstudiantes.Select("codigo=" + dr[j][1])[0][1]);
                             ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
-                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dr[j][2]).Substring(0,70)+"...";
+
+                            if (Convert.ToString(dr[j][2]).Length >= 70) ws.Cells[rowpos, colpos + 1].Value = (Convert.ToString(dr[j][2]).Substring(0, 70) + "...").ToUpper().Replace("\"",string.Empty);
+                            else ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dr[j][2]).ToUpper().Replace("\"", string.Empty);
                             ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                            ws.Cells[rowpos, colpos + 1].Style.HorizontalAlignment = HorizontalAlignmentStyle.Justify;
                         }
                     }
                 }
@@ -4287,6 +4328,7 @@ namespace PosgrIQ
             dtEstudiantes = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4311,6 +4353,7 @@ namespace PosgrIQ
             DataTable dtProfesores = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4335,6 +4378,7 @@ namespace PosgrIQ
             DataTable dtConceptos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4359,6 +4403,7 @@ namespace PosgrIQ
             DataTable dtPropuestas = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4430,12 +4475,16 @@ namespace PosgrIQ
                             ws.Cells[rowpos, colpos - 1].Value = (j + 1).ToString();
                             ws.Cells[rowpos, colpos - 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
                             ws.Cells[rowpos, colpos].Value = Convert.ToString(dtEstudiantes.Select("codigo=" + dr[j][1])[0][1]);
                             ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
-                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dr[j][2]).Substring(0, 70) + "...";
+
+                            if (Convert.ToString(dr[j][2]).Length >= 70) ws.Cells[rowpos, colpos + 1].Value = (Convert.ToString(dr[j][2]).Substring(0, 70) + "...").ToUpper().Replace("\"", string.Empty);
+                            else ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dr[j][2]).ToUpper().Replace("\"", string.Empty);
                             ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                            ws.Cells[rowpos, colpos + 1].Style.HorizontalAlignment = HorizontalAlignmentStyle.Justify;
                         }
                     }
                 }
@@ -4557,6 +4606,7 @@ namespace PosgrIQ
             DataTable dtProfesores = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4581,6 +4631,7 @@ namespace PosgrIQ
             DataTable dtConceptos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4605,6 +4656,7 @@ namespace PosgrIQ
             DataTable dtTesis = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4676,12 +4728,16 @@ namespace PosgrIQ
                             ws.Cells[rowpos, colpos - 1].Value = (j + 1).ToString();
                             ws.Cells[rowpos, colpos - 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
                             ws.Cells[rowpos, colpos].Value = Convert.ToString(dtEstudiantes.Select("codigo=" + dr[j][1])[0][1]);
                             ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
-                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dr[j][2]).Substring(0, 70) + "...";
+
+                            if (Convert.ToString(dr[j][2]).Length >= 70) ws.Cells[rowpos, colpos + 1].Value = (Convert.ToString(dr[j][2]).Substring(0, 70) + "...").ToUpper().Replace("\"", string.Empty);
+                            else ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dr[j][2]).ToUpper().Replace("\"", string.Empty);
                             ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                            ws.Cells[rowpos, colpos + 1].Style.HorizontalAlignment = HorizontalAlignmentStyle.Justify;
                         }
                     }
                 }
@@ -4779,6 +4835,7 @@ namespace PosgrIQ
             dtEstudiantes = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4803,6 +4860,7 @@ namespace PosgrIQ
             DataTable dtProfesores = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4827,6 +4885,7 @@ namespace PosgrIQ
             DataTable dtConceptos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4851,6 +4910,7 @@ namespace PosgrIQ
             DataTable dtTesis = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -4925,12 +4985,16 @@ namespace PosgrIQ
                             ws.Cells[rowpos, colpos - 1].Value = (j + 1).ToString();
                             ws.Cells[rowpos, colpos - 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
                             ws.Cells[rowpos, colpos].Value = Convert.ToString(dtEstudiantes.Select("codigo=" + dr[j][1])[0][1]);
                             ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
-                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dr[j][2]).Substring(0, 70) + "...";
+
+                            if (Convert.ToString(dr[j][2]).Length >= 70) ws.Cells[rowpos, colpos + 1].Value = (Convert.ToString(dr[j][2]).Substring(0, 70) + "...").ToUpper().Replace("\"", string.Empty);
+                            else ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dr[j][2]).ToUpper().Replace("\"", string.Empty);
                             ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                            ws.Cells[rowpos, colpos + 1].Style.HorizontalAlignment = HorizontalAlignmentStyle.Justify;
                         }
                     }
                 }
@@ -5028,6 +5092,7 @@ namespace PosgrIQ
             dtEstudiantes = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -5052,6 +5117,7 @@ namespace PosgrIQ
             DataTable dtProfesores = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -5076,6 +5142,7 @@ namespace PosgrIQ
             DataTable dtConceptos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -5168,14 +5235,17 @@ namespace PosgrIQ
                             ws.Cells[rowpos, colpos - 1].Value = (j + 1).ToString();
                             ws.Cells[rowpos, colpos - 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
                             ws.Cells[rowpos, colpos].Value = Convert.ToString(dr[j][1]);
                             ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
-                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtEstudiantes.Select("codigo="+ Convert.ToString(dr[j][0]))[0][11]);
-                            //ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtTesis.Select("estudiante=" + Convert.ToString(dr[j][0]))[0][2]);
-                            //Convert.ToString(dr[j][2]).Substring(0, 70) + "...";
+
+                            string titulo = Convert.ToString(dtEstudiantes.Select("codigo=" + Convert.ToString(dr[j][0]))[0][11]).ToUpper().Replace("\"", string.Empty);
+                            if (titulo.Length >= 70) ws.Cells[rowpos, colpos + 1].Value = titulo.Substring(0, 70) + "...";
+                            else ws.Cells[rowpos, colpos + 1].Value = titulo;
                             ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                            ws.Cells[rowpos, colpos + 1].Style.HorizontalAlignment = HorizontalAlignmentStyle.Justify;
                         }
                     }
                 }
@@ -5273,6 +5343,7 @@ namespace PosgrIQ
             dtEstudiantes = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -5297,6 +5368,7 @@ namespace PosgrIQ
             DataTable dtProfesores = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -5321,6 +5393,7 @@ namespace PosgrIQ
             DataTable dtConceptos = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -5345,6 +5418,7 @@ namespace PosgrIQ
             DataTable dtTesis = new DataTable();
             try
             {
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + sourceBD);
                 conection.Open();
 
                 // se pide la informacion de los estudiantes de maestria
@@ -5416,13 +5490,17 @@ namespace PosgrIQ
                             ws.Cells[rowpos, colpos - 1].Value = (j + 1).ToString();
                             ws.Cells[rowpos, colpos - 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos - 1].Style.Font.Weight = ExcelFont.BoldWeight;
+
                             ws.Cells[rowpos, colpos].Value = Convert.ToString(dr[j][1]);
                             ws.Cells[rowpos, colpos].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos].Style.Font.Weight = ExcelFont.NormalWeight;
-                            ws.Cells[rowpos, colpos + 1].Value = Convert.ToString(dtEstudiantes.Select("codigo=" + Convert.ToString(dr[j][0]))[0][11]);
-                            //Convert.ToString(dr[j][2]).Substring(0, 70) + "...";
+
+                            string titulo = Convert.ToString(dtEstudiantes.Select("codigo=" + Convert.ToString(dr[j][0]))[0][11]).ToUpper().Replace("\"", string.Empty);
+                            if (titulo.Length >= 70) ws.Cells[rowpos, colpos + 1].Value = titulo.Substring(0, 70) + "...";
+                            else ws.Cells[rowpos, colpos + 1].Value = titulo;
                             ws.Cells[rowpos, colpos + 1].Style.VerticalAlignment = VerticalAlignmentStyle.Top;
                             ws.Cells[rowpos, colpos + 1].Style.Font.Weight = ExcelFont.NormalWeight;
+                            ws.Cells[rowpos, colpos + 1].Style.HorizontalAlignment = HorizontalAlignmentStyle.Justify;
                         }
                     }
                 }
@@ -5533,9 +5611,9 @@ namespace PosgrIQ
                 conection.Dispose();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                padre.ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
+                ShowWaiting("Espere un momento mientras PosgrIQ procesa...");
                 System.Threading.Thread.Sleep(1000);
-                padre.CloseWaiting();
+                CloseWaiting();
 
                 string correo = dtConfiguracion.Rows[0][0].ToString();
                 string clave = dtConfiguracion.Rows[0][1].ToString();
