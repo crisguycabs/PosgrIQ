@@ -560,7 +560,7 @@ namespace PosgrIQ
                 }
                 
                 // se intenta mover el archivo del tema. Si no se puede, se cancela todo
-                if (!System.IO.Path.GetFileName(txtRutaTema.Text).Contains("TemasMaestria")) // no contienen la cadena => no es necesario verificar
+                if (!System.IO.Path.GetFileName(txtRutaTema.Text).Contains("ac1017")) // no contienen la cadena => no es necesario verificar
                 {
                     try
                     {

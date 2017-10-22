@@ -46,3 +46,4 @@ D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.WaitingForm.resources
 D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.csproj.GenerateResource.Cache
 D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.exe
 D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.pdb
+D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.csprojResolveAssemblyReference.cache
