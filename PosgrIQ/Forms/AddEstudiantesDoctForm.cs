@@ -518,7 +518,9 @@ namespace PosgrIQ
             }
 
             // se marco el Tema como ENTREGADO
-            string destino="";
+            // se prepara el nombre destino para el archivo de soporte del tema
+            string destino = "Tema_" + Convert.ToString(numCod.Value) + "_ac1017" + System.IO.Path.GetExtension(txtRutaTema.Text);
+
             if (chkTema.Checked)
             {
                 // nombre del tema vacío
@@ -550,12 +552,11 @@ namespace PosgrIQ
                 }
 
                 // se intenta mover el archivo del tema. Si no se puede, se cancela todo
-                if (!txtRutaTema.Text.Contains("TemasDoctorado")) // no contienen la cadena => no es necesario verificar
+                if (!System.IO.Path.GetFileName(txtRutaTema.Text).Contains("ac1017")) // no contienen la cadena => no es necesario verificar
                 {
                     try
                     {
-                        destino = "TemasDoctorado\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
-                        System.IO.File.Copy(txtRutaTema.Text, padre.sourceONE + "\\Soportes\\" + destino, true);
+                        System.IO.File.Copy(txtRutaTema.Text, padre.sourceONE + "\\Soportes\\" + "TemasDoctorado\\" + destino, true);
                     }
                     catch
                     {
@@ -564,9 +565,6 @@ namespace PosgrIQ
                     }
                 }
             }
-
-           
-            
 
             // se prepara la conexion
             OleDbConnection conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
@@ -638,9 +636,8 @@ namespace PosgrIQ
                             if (cmbConceptoTema.SelectedIndex < 0) query2 += ", 1";
                             else query2 += ", " + (cmbConceptoTema.SelectedIndex).ToString();
 
-                            destino = "TemasDoctorado\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
                             query += ", ruta";
-                            query2 += ", '" + destino + "'";                            
+                            query2 += ", '" + "TemasDoctorado\\" + destino + "'";                      
                         }
                         else
                         {
@@ -751,8 +748,7 @@ namespace PosgrIQ
                         if (cmbConceptoTema.SelectedIndex >= 0) query += ", concepto=" + (cmbConceptoTema.SelectedIndex).ToString();
                         else query += ", concepto=1";
 
-                        destino = "TemasDoctorado\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
-                        query += ", ruta='" + destino + "'";
+                        query += ", ruta='" + "TemasDoctorado\\" + destino + "'";
 
                         if (cmbSolicitarQualify.SelectedIndex < 0) cmbSolicitarQualify.SelectedIndex = 0;
                         query += ", solicitoqualify='" + cmbSolicitarQualify.Items[cmbSolicitarQualify.SelectedIndex] + "'";
@@ -823,9 +819,24 @@ namespace PosgrIQ
 
         private void btnVerArchivoTema_Click(object sender, EventArgs e)
         {
+            // si la ruta a abrir contiene la cadena "ac1017" entonces la ruta debe ser relativa a la carpeta de OneDrive
+            // si la ruta a abrir NO contiene la cadena "ac107" entonces se abre la ruta absoluta
+
+            string rutaAabrir = "";
+            if (txtRutaTema.Text.Contains("ac1017"))
+            {
+                // ruta relativa
+                rutaAabrir = padre.sourceONE + "\\Soportes\\" + txtRutaTema.Text;
+            }
+            else
+            {
+                // ruta absoluta
+                rutaAabrir = txtRutaTema.Text;
+            }
+
             try
             {
-                System.Diagnostics.Process.Start(txtRutaTema.Text);
+                System.Diagnostics.Process.Start(rutaAabrir);
             }
             catch
             {
