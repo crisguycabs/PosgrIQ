@@ -414,7 +414,7 @@ namespace PosgrIQ
             if (txtRutaTema.Text.Contains("ac1017"))
             {
                 // ruta relativa
-                rutaAabrir = padre.sourceONE + "\\" + txtRutaTema.Text;
+                rutaAabrir = padre.sourceONE + "\\Soportes\\" + txtRutaTema.Text;
             }
             else
             {
@@ -526,8 +526,9 @@ namespace PosgrIQ
             }
 
             // se marco el Tema como ENTREGADO
-            string destino = "TemasMaestria\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
-            //string destino="Tema_" + Convert.ToString(numCod.Value)s
+            // se prepara el nombre destino para el archivo de soporte del tema
+            string destino = "Tema_" + Convert.ToString(numCod.Value) + "_ac1017" + System.IO.Path.GetExtension(txtRutaTema.Text);
+
             if (chkTema.Checked)
             {
                 // nombre del tema vacío
@@ -559,12 +560,11 @@ namespace PosgrIQ
                 }
                 
                 // se intenta mover el archivo del tema. Si no se puede, se cancela todo
-                if (!txtRutaTema.Text.Contains("TemasMaestria")) // no contienen la cadena => no es necesario verificar
+                if (!System.IO.Path.GetFileName(txtRutaTema.Text).Contains("TemasMaestria")) // no contienen la cadena => no es necesario verificar
                 {
                     try
                     {
-                        destino = "TemasMaestria\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
-                        System.IO.File.Copy(txtRutaTema.Text, padre.sourceONE + "\\Soportes\\" + destino, true);
+                        System.IO.File.Copy(txtRutaTema.Text, padre.sourceONE + "\\Soportes\\" + "TemasMaestria\\" + destino, true);
                     }
                     catch
                     {
@@ -644,9 +644,8 @@ namespace PosgrIQ
                             if (cmbConceptoTema.SelectedIndex < 0) query2 += ", 1";
                             else query2 += ", " + (cmbConceptoTema.SelectedIndex).ToString();
 
-                            destino = "TemasMaestria\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
                             query += ", ruta";
-                            query2 += ", '" + destino + "'";
+                            query2 += ", '" + "TemasMaestria\\" + destino + "'";
                         }
                         else
                         {
@@ -746,8 +745,7 @@ namespace PosgrIQ
                         if (cmbConceptoTema.SelectedIndex >= 0) query += ", concepto=" + (cmbConceptoTema.SelectedIndex).ToString();
                         else query += ", concepto=1";
 
-                        destino = "TemasMaestria\\" + txtNombre.Text.Replace(" ", "") + "_Tema.pdf";
-                        query += ", ruta='" + destino + "'";
+                        query += ", ruta='" + "TemasMaestria\\" + destino + "'";
 
                         query += ", observaciones='" + txtObservaciones.Text + "'";
 

@@ -1,9 +1,9 @@
 D:\PosgrIQ\PosgrIQ\bin\Debug\PosgrIQ.exe.config
 D:\PosgrIQ\PosgrIQ\bin\Debug\PosgrIQ.exe
 D:\PosgrIQ\PosgrIQ\bin\Debug\PosgrIQ.pdb
+D:\PosgrIQ\PosgrIQ\bin\Debug\EASendMail45.dll
 D:\PosgrIQ\PosgrIQ\bin\Debug\GemBox.Spreadsheet.dll
 D:\PosgrIQ\PosgrIQ\bin\Debug\GemBox.Spreadsheet.xml
-D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.csprojResolveAssemblyReference.cache
 D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.AboutForm.resources
 D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.AddTesisMaesForm.resources
 D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.AddPropuestaMaesForm.resources
@@ -42,6 +42,7 @@ D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.ReglamentosForm.resources
 D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.PublicacionesMaesForm.resources
 D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.PropuestaMaesForm.resources
 D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.TesisMaes.resources
+D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.WaitingForm.resources
 D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.csproj.GenerateResource.Cache
 D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.exe
 D:\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.pdb
