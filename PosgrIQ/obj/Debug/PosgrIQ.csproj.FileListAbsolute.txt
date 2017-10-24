@@ -1,5 +1,5 @@
-D:\PosgrIQ\PosgrIQ\bin\Debug\PosgrIQ.exe.config
 D:\PosgrIQ\PosgrIQ\bin\Debug\PosgrIQ.exe
+D:\PosgrIQ\PosgrIQ\bin\Debug\PosgrIQ.exe.config
 D:\PosgrIQ\PosgrIQ\bin\Debug\PosgrIQ.pdb
 D:\PosgrIQ\PosgrIQ\bin\Debug\EASendMail45.dll
 D:\PosgrIQ\PosgrIQ\bin\Debug\GemBox.Spreadsheet.dll

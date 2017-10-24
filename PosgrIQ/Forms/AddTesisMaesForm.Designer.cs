@@ -166,6 +166,7 @@
             this.chkSustentacion.TabIndex = 34;
             this.chkSustentacion.Text = "Hubo sustentación?";
             this.chkSustentacion.UseVisualStyleBackColor = true;
+            this.chkSustentacion.CheckedChanged += new System.EventHandler(this.chkSustentacion_CheckedChanged);
             // 
             // label22
             // 
@@ -179,6 +180,7 @@
             // 
             // cmbSustentacion
             // 
+            this.cmbSustentacion.Enabled = false;
             this.cmbSustentacion.FormattingEnabled = true;
             this.cmbSustentacion.Location = new System.Drawing.Point(89, 36);
             this.cmbSustentacion.Name = "cmbSustentacion";
@@ -188,6 +190,7 @@
             // btnVerSustentacion
             // 
             this.btnVerSustentacion.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVerSustentacion.Enabled = false;
             this.btnVerSustentacion.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnVerSustentacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerSustentacion.Font = new System.Drawing.Font("Calibri", 9F);
@@ -202,6 +205,7 @@
             // btnSelSustentacion
             // 
             this.btnSelSustentacion.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSelSustentacion.Enabled = false;
             this.btnSelSustentacion.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnSelSustentacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelSustentacion.Font = new System.Drawing.Font("Calibri", 9F);
@@ -215,6 +219,7 @@
             // 
             // dateSustentacion
             // 
+            this.dateSustentacion.Enabled = false;
             this.dateSustentacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateSustentacion.Location = new System.Drawing.Point(244, 5);
             this.dateSustentacion.Name = "dateSustentacion";
@@ -233,6 +238,7 @@
             // 
             // txtRutaSustentacion
             // 
+            this.txtRutaSustentacion.Enabled = false;
             this.txtRutaSustentacion.Font = new System.Drawing.Font("Calibri", 9F);
             this.txtRutaSustentacion.Location = new System.Drawing.Point(244, 36);
             this.txtRutaSustentacion.Name = "txtRutaSustentacion";
@@ -242,6 +248,7 @@
             // btnSelConcepto2Calificador2
             // 
             this.btnSelConcepto2Calificador2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSelConcepto2Calificador2.Enabled = false;
             this.btnSelConcepto2Calificador2.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnSelConcepto2Calificador2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelConcepto2Calificador2.Font = new System.Drawing.Font("Calibri", 9F);
@@ -255,6 +262,7 @@
             // 
             // txtRutaConcepto2Calificador2
             // 
+            this.txtRutaConcepto2Calificador2.Enabled = false;
             this.txtRutaConcepto2Calificador2.Font = new System.Drawing.Font("Calibri", 9F);
             this.txtRutaConcepto2Calificador2.Location = new System.Drawing.Point(244, 94);
             this.txtRutaConcepto2Calificador2.Name = "txtRutaConcepto2Calificador2";
@@ -273,6 +281,7 @@
             // 
             // txtRutaConcepto2Calificador1
             // 
+            this.txtRutaConcepto2Calificador1.Enabled = false;
             this.txtRutaConcepto2Calificador1.Font = new System.Drawing.Font("Calibri", 9F);
             this.txtRutaConcepto2Calificador1.Location = new System.Drawing.Point(244, 36);
             this.txtRutaConcepto2Calificador1.Name = "txtRutaConcepto2Calificador1";
@@ -599,6 +608,7 @@
             // 
             // cmbConcepto2Calificador2
             // 
+            this.cmbConcepto2Calificador2.Enabled = false;
             this.cmbConcepto2Calificador2.FormattingEnabled = true;
             this.cmbConcepto2Calificador2.Location = new System.Drawing.Point(89, 94);
             this.cmbConcepto2Calificador2.Name = "cmbConcepto2Calificador2";
@@ -607,6 +617,7 @@
             // 
             // dateCorrecciones
             // 
+            this.dateCorrecciones.Enabled = false;
             this.dateCorrecciones.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateCorrecciones.Location = new System.Drawing.Point(245, 5);
             this.dateCorrecciones.Name = "dateCorrecciones";
@@ -616,6 +627,7 @@
             // btnVerConcepto2Calificador2
             // 
             this.btnVerConcepto2Calificador2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVerConcepto2Calificador2.Enabled = false;
             this.btnVerConcepto2Calificador2.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnVerConcepto2Calificador2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerConcepto2Calificador2.Font = new System.Drawing.Font("Calibri", 9F);
@@ -639,6 +651,7 @@
             // 
             // cmbConcepto2Calificador1
             // 
+            this.cmbConcepto2Calificador1.Enabled = false;
             this.cmbConcepto2Calificador1.FormattingEnabled = true;
             this.cmbConcepto2Calificador1.Location = new System.Drawing.Point(89, 36);
             this.cmbConcepto2Calificador1.Name = "cmbConcepto2Calificador1";
@@ -648,6 +661,7 @@
             // btnVerConcepto2Calificador1
             // 
             this.btnVerConcepto2Calificador1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVerConcepto2Calificador1.Enabled = false;
             this.btnVerConcepto2Calificador1.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnVerConcepto2Calificador1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerConcepto2Calificador1.Font = new System.Drawing.Font("Calibri", 9F);
@@ -662,6 +676,7 @@
             // btnSelConcepto2Calificador1
             // 
             this.btnSelConcepto2Calificador1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSelConcepto2Calificador1.Enabled = false;
             this.btnSelConcepto2Calificador1.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnSelConcepto2Calificador1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelConcepto2Calificador1.Font = new System.Drawing.Font("Calibri", 9F);
@@ -707,6 +722,7 @@
             this.chkCorrecciones.TabIndex = 54;
             this.chkCorrecciones.Text = "Hubo correcciones?";
             this.chkCorrecciones.UseVisualStyleBackColor = true;
+            this.chkCorrecciones.CheckedChanged += new System.EventHandler(this.chkCorrecciones_CheckedChanged);
             // 
             // tabControl1
             // 
@@ -763,7 +779,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(630, 446);
+            this.ClientSize = new System.Drawing.Size(630, 441);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label26);

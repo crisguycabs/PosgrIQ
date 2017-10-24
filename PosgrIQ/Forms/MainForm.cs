@@ -229,6 +229,30 @@ namespace PosgrIQ
             InitializeComponent();
         }
 
+        public void VerArchivo(string textBox)
+        {
+            string rutaAabrir = "";
+            if (textBox.Contains("ac1017"))
+            {
+                // ruta relativa
+                rutaAabrir = sourceONE + "\\Soportes\\" + textBox;
+            }
+            else
+            {
+                // ruta absoluta
+                rutaAabrir = textBox;
+            }
+
+            try
+            {
+                System.Diagnostics.Process.Start(rutaAabrir);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         /// <summary>
         /// Se muestra la ventana WaitingForm, con el mensaje que se muestra como argumento
         /// </summary>
