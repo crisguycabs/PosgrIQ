@@ -525,7 +525,7 @@ namespace PosgrIQ
                 System.IO.Directory.CreateDirectory(padre.sourceONE + "\\Soportes\\PropuestasMaestria\\" + folderEst);
             }
 
-            // se intenta mover el archivo de la tesis. Si no se puede, se cancela todo            
+            // se intenta mover el archivo de la propuesta. Si no se puede, se cancela todo            
             string destino = folderEst + "\\Propuesta_" + codEst.ToString() + "_ac1017" + System.IO.Path.GetExtension(txtRutaPropuesta.Text);
             if (!System.IO.Path.GetFileName(txtRutaPropuesta.Text).Contains("ac1017")) // no contienen la cadena => no es necesario verificar
             {
