@@ -78,34 +78,34 @@ namespace PosgrIQ
                             System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][3]));
                             break;
                         case 1: // concepto 1 calificador 1
-                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][10]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][15]));
                             break;
                         case 2: // concepto 1 calificador 2
-                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][11]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][16]));
                             break;
                         case 3: // concepto 1 calificador 3
-                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][12]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][17]));
                             break;
                         case 4: // concepto 1 calificador 4
-                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][13]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][18]));
                             break;
                         case 5: // concepto 1 calificador 5
-                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][14]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][19]));
                             break;
                         case 6: // concepto 2 calificador 1
-                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][21]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][26]));
                             break;
                         case 7: // concepto 2 calificador 2
-                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][22]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][27]));
                             break;
                         case 8: // concepto 2 calificador 3
-                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][23]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][28]));
                             break;
                         case 9: // concepto 2 calificador 4
-                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][24]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][29]));
                             break;
                         case 10: // concepto 2 calificador 5
-                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][25]));
+                            System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][30]));
                             break;
                         case 11: // sustentacion
                             System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtTesisDoct.Rows[0][33]));

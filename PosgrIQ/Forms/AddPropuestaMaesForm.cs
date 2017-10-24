@@ -308,10 +308,10 @@ namespace PosgrIQ
                             cmbConcepto2Calificador2.SelectedIndex = Convert.ToInt32(seleccionado[0][13]);
 
                             // ruta concepto 2 calificador 1
-                            if (!string.IsNullOrWhiteSpace(seleccionado[0][14].ToString())) txtRutaConcepto1Calificador1.Text = Convert.ToString(seleccionado[0][14]);
+                            if (!string.IsNullOrWhiteSpace(seleccionado[0][14].ToString())) txtRutaConcepto2Calificador1.Text = Convert.ToString(seleccionado[0][14]);
 
                             // ruta concepto 2 calificador 2
-                            if (!string.IsNullOrWhiteSpace(seleccionado[0][15].ToString())) txtRutaConcepto1Calificador2.Text = Convert.ToString(seleccionado[0][15]);
+                            if (!string.IsNullOrWhiteSpace(seleccionado[0][15].ToString())) txtRutaConcepto2Calificador2.Text = Convert.ToString(seleccionado[0][15]);
                         }
                         else
                         {
@@ -691,7 +691,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador1.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador1";
-                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -702,7 +702,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador2.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador2";
-                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex).ToString();
                         }
                         else
                         {
@@ -730,7 +730,7 @@ namespace PosgrIQ
                             if (cmbConcepto2Calificador1.SelectedIndex >= 0)
                             {
                                 query += ", concepto2calificador1";
-                                query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
+                                query2 += ", " + (cmbConcepto2Calificador1.SelectedIndex).ToString();
                             }
                             else
                             {
@@ -741,7 +741,7 @@ namespace PosgrIQ
                             if (cmbConcepto2Calificador2.SelectedIndex >= 0)
                             {
                                 query += ", concepto2calificador2";
-                                query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
+                                query2 += ", " + (cmbConcepto2Calificador2.SelectedIndex).ToString();
                             }
                             else
                             {
@@ -885,6 +885,10 @@ namespace PosgrIQ
 
                             if (cmbConcepto2Calificador2.SelectedIndex >= 0) query += ", concepto2calificador2=" + (cmbConcepto2Calificador2.SelectedIndex + 1).ToString();
                             else query += ", concepto2calificador2=0";
+
+                            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text)) query += ", rutaconcepto2calificador1='PropuestasMaestria\\" + destinoC2C1 + "'";
+
+                            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text)) query += ", rutaconcepto2calificador2='PropuestasMaestria\\" + destinoC2C2 + "'";
                         }
                         else 
                         {
@@ -892,11 +896,7 @@ namespace PosgrIQ
                             query += ", concepto2calificador1=0";
                             query += ", concepto2calificador2=0";
                         }
-
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text)) query += ", rutaconcepto2calificador1='PropuestasMaestria\\" + destinoC2C1 + "'";
-
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text)) query += ", rutaconcepto2calificador2='PropuestasMaestria\\" + destinoC2C2 + "'";
-
+                        
                         if(chkSustentacion.Checked)
                         {
                             // existe sustentacion, se guardan en la base de datos
@@ -904,10 +904,10 @@ namespace PosgrIQ
 
                             if (cmbSustentacion.SelectedIndex >= 0) query += ", conceptofinal=" + (cmbSustentacion.SelectedIndex + 1).ToString();
                             else query += ", conceptofinal=0";
+
+                            if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text)) query += ", rutaconceptofinal='PropuestasMaestria\\" + destinoActa + "'";
                         }
                         else query += ", conceptofinal=0";
-
-                        if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text)) query += ", rutaconceptofinal='PropuestasMaestria\\" + destinoActa + "'";
 
                         query += " WHERE codigo=" + codigo.ToString();
 
