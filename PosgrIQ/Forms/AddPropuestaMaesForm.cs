@@ -372,14 +372,7 @@ namespace PosgrIQ
 
         private void btnVerArchivoPropuesta_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaPropuesta.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaPropuesta.Text);            
         }
 
         private void btnAddProfesor_Click(object sender, EventArgs e)
@@ -417,26 +410,12 @@ namespace PosgrIQ
 
         private void btnVerConcepto1Calificador1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaConcepto1Calificador1.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaConcepto1Calificador1.Text);
         }
 
         private void btnVerConcepto1Calificador2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaConcepto1Calificador2.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaConcepto1Calificador2.Text);
         }
 
         private void btnSelConcepto2Calificador1_Click(object sender, EventArgs e)
@@ -465,26 +444,12 @@ namespace PosgrIQ
 
         private void btnVerConcepto2Calificador1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaConcepto2Calificador1.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaConcepto2Calificador1.Text);
         }
 
         private void btnVerConcepto2Calificador2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaConcepto2Calificador2.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaConcepto2Calificador2.Text);
         }
 
         private void btnSelSustentacion_Click(object sender, EventArgs e)
@@ -501,14 +466,7 @@ namespace PosgrIQ
 
         private void btnVerSustentacion_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaSustentacion.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaSustentacion.Text);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -558,14 +516,22 @@ namespace PosgrIQ
                 return;
             }
 
-            string destino="";
-            // se intenta mover el archivo de la propuesta. Si no se puede, se cancela todo
-            if (!txtRutaPropuesta.Text.Contains("PropuestasMaestria")) // no contienen la cadena => no es necesario verificar
+            // se revisa si ya existe el folder para alojar la informacion del estudiante. Si no existe, se crea
+            busqueda = dtEstudiantes.Select("nombre='" + cmbEstudiante.Items[cmbEstudiante.SelectedIndex] + "'");
+            string codEst = Convert.ToString(busqueda[0][0]);
+            string folderEst = "Est_" + codEst.ToString();
+            if (!System.IO.Directory.Exists(padre.sourceONE + "\\Soportes\\PropuestasMaestria\\" + folderEst))
+            {
+                System.IO.Directory.CreateDirectory(padre.sourceONE + "\\Soportes\\PropuestasMaestria\\" + folderEst);
+            }
+
+            // se intenta mover el archivo de la tesis. Si no se puede, se cancela todo            
+            string destino = folderEst + "\\Propuesta_" + codEst.ToString() + "_ac1017" + System.IO.Path.GetExtension(txtRutaPropuesta.Text);
+            if (!System.IO.Path.GetFileName(txtRutaPropuesta.Text).Contains("ac1017")) // no contienen la cadena => no es necesario verificar
             {
                 try
                 {
-                    destino = "PropuestasMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_Propuesta.pdf";
-                    System.IO.File.Copy(txtRutaPropuesta.Text, padre.sourceONE + "\\Soportes\\" + destino, true);
+                    System.IO.File.Copy(txtRutaPropuesta.Text, padre.sourceONE + "\\Soportes\\PropuestasMaestria\\" + destino, true);
                 }
                 catch
                 {
@@ -594,15 +560,15 @@ namespace PosgrIQ
                 return;
             }
 
-            string destinoC1C1 = "PropuestasMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_PC1C1.pdf";
+            string destinoC1C1 = folderEst + "\\Concepto1Cal1_" + codEst.ToString() + "_ac1017" + System.IO.Path.GetExtension(txtRutaConcepto1Calificador1.Text);
             if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text))
             {
                 // se intenta mover el archivo del tema. Si no se puede, se cancela todo
-                if (!txtRutaConcepto1Calificador1.Text.Contains("PropuestasMaestria")) // no contienen la cadena => es necesario verificar
+                if (!System.IO.Path.GetFileName(txtRutaConcepto1Calificador1.Text).Contains("ac1017")) // no contienen la cadena => es necesario verificar
                 {
                     try
                     {
-                        System.IO.File.Copy(txtRutaConcepto1Calificador1.Text, padre.sourceONE + "\\Soportes\\" + destinoC1C1, true);
+                        System.IO.File.Copy(txtRutaConcepto1Calificador1.Text, padre.sourceONE + "\\Soportes\\PropuestasMaestria\\" + destinoC1C1, true);
                     }
                     catch
                     {
@@ -612,15 +578,15 @@ namespace PosgrIQ
                 }
             }
 
-            string destinoC1C2 = "PropuestasMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_PC1C2.pdf";
+            string destinoC1C2 = folderEst + "\\Concepto1Cal2_" + codEst.ToString() + "_ac1017" + System.IO.Path.GetExtension(txtRutaConcepto1Calificador2.Text);
             if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador2.Text))
             {
                 // se intenta mover el archivo del tema. Si no se puede, se cancela todo
-                if (!txtRutaConcepto1Calificador2.Text.Contains("PropuestasMaestria")) // no contienen la cadena => es necesario verificar
+                if (!System.IO.Path.GetFileName(txtRutaConcepto1Calificador2.Text).Contains("ac1017")) // no contienen la cadena => es necesario verificar
                 {
                     try
                     {
-                        System.IO.File.Copy(txtRutaConcepto1Calificador2.Text, padre.sourceONE + "\\Soportes\\" + destinoC1C2, true);
+                        System.IO.File.Copy(txtRutaConcepto1Calificador2.Text, padre.sourceONE + "\\Soportes\\PropuestasMaestria\\" + destinoC1C2, true);
                     }
                     catch
                     {
@@ -630,15 +596,15 @@ namespace PosgrIQ
                 }
             }
 
-            string destinoC2C1 = "PropuestasMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_PC2C1.pdf";
-            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text) & chkCorrecciones.Checked)
+            string destinoC2C1 = folderEst + "\\Concepto2Cal1_" + codEst.ToString() + "_ac1017" + System.IO.Path.GetExtension(txtRutaConcepto2Calificador1.Text);
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text))
             {
                 // se intenta mover el archivo del tema. Si no se puede, se cancela todo
-                if (!txtRutaConcepto2Calificador1.Text.Contains("PropuestasMaestria")) // no contienen la cadena => no es necesario verificar
+                if (!System.IO.Path.GetFileName(txtRutaConcepto2Calificador1.Text).Contains("ac1017")) // no contienen la cadena => es necesario verificar
                 {
                     try
                     {
-                        System.IO.File.Copy(txtRutaConcepto2Calificador1.Text, padre.sourceONE + "\\Soportes\\" + destinoC2C1, true);
+                        System.IO.File.Copy(txtRutaConcepto2Calificador1.Text, padre.sourceONE + "\\Soportes\\PropuestasMaestria\\" + destinoC2C1, true);
                     }
                     catch
                     {
@@ -648,37 +614,37 @@ namespace PosgrIQ
                 }
             }
 
-            string destinoC2C2 = "PropuestasMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_PC2C2.pdf";
-            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text) & chkCorrecciones.Checked)
+            string destinoC2C2 = folderEst + "\\Concepto2Cal2_" + codEst.ToString() + "_ac1017" + System.IO.Path.GetExtension(txtRutaConcepto2Calificador2.Text);
+            if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text))
             {
                 // se intenta mover el archivo del tema. Si no se puede, se cancela todo
-                if (!txtRutaConcepto2Calificador2.Text.Contains("PropuestasMaestria")) // no contienen la cadena => no es necesario verificar
+                if (!System.IO.Path.GetFileName(txtRutaConcepto2Calificador2.Text).Contains("ac1017")) // no contienen la cadena => es necesario verificar
                 {
                     try
                     {
-                        System.IO.File.Copy(txtRutaConcepto2Calificador2.Text, padre.sourceONE + "\\Soportes\\" + destinoC2C2, true);
+                        System.IO.File.Copy(txtRutaConcepto2Calificador2.Text, padre.sourceONE + "\\Soportes\\PropuestasMaestria\\" + destinoC2C2, true);
                     }
                     catch
                     {
-                        MessageBox.Show("No se tiene acceso al archivo Conceto 1 Calificador 2. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se tiene acceso al archivo Concepto 2 Calificador 2. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
             }
 
-            string destinoSust = "PropuestasMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_Sustentacion.pdf";
-            if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text) & chkSustentacion.Checked)
+            string destinoActa = folderEst + "\\Acta_" + codEst.ToString() + "_ac1017" + System.IO.Path.GetExtension(txtRutaSustentacion.Text);
+            if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text))
             {
                 // se intenta mover el archivo del tema. Si no se puede, se cancela todo
-                if (!txtRutaSustentacion.Text.Contains("PropuestasMaestria")) // no contienen la cadena => no es necesario verificar
+                if (!System.IO.Path.GetFileName(txtRutaSustentacion.Text).Contains("ac1017")) // no contienen la cadena => es necesario verificar
                 {
                     try
                     {
-                        System.IO.File.Copy(txtRutaSustentacion.Text, padre.sourceONE + "\\Soportes\\" + destinoSust, true);
+                        System.IO.File.Copy(txtRutaSustentacion.Text, padre.sourceONE + "\\Soportes\\PropuestasMaestria\\" + destinoActa, true);
                     }
                     catch
                     {
-                        MessageBox.Show("No se tiene acceso al archivo de la Sustentacion. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se tiene acceso al archivo del Acta de Sustentacion. Verifique que el archivo no esté abierto o siendo usado", "Fallo acceso a PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -710,7 +676,7 @@ namespace PosgrIQ
                         query2 += ", '" + txtPropuesta.Text + "'";
 
                         query += ", ruta";
-                        query2 += ", '" + "PropuestasMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_Propuesta.pdf" + "'";
+                        query2 += ", 'PropuestasMaestria\\" + destino + "'";
 
                         query += ", calificador1";
                         query2 += ", " + (dtProfesores.Rows[cmbCalificador1.SelectedIndex][0]).ToString();
@@ -725,7 +691,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador1.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador1";
-                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
                         }
                         else
                         {
@@ -736,7 +702,7 @@ namespace PosgrIQ
                         if (cmbConcepto1Calificador2.SelectedIndex >= 0)
                         {
                             query += ", concepto1calificador2";
-                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex).ToString();
+                            query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
                         }
                         else
                         {
@@ -747,13 +713,13 @@ namespace PosgrIQ
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text))
                         {
                             query += ", rutaconcepto1calificador1";
-                            query2 += ", '" + destinoC1C1 + "'";
+                            query2 += ", 'PropuestasMaestria\\" + destinoC1C1 + "'";
                         }
 
                         if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador2.Text))
                         {
                             query += ", rutaconcepto1calificador2";
-                            query2 += ", '" + destinoC1C2 + "'";
+                            query2 += ", 'PropuestasMaestria\\" + destinoC1C2 + "'";
                         }
 
                         if (chkCorrecciones.Checked)
@@ -764,7 +730,7 @@ namespace PosgrIQ
                             if (cmbConcepto2Calificador1.SelectedIndex >= 0)
                             {
                                 query += ", concepto2calificador1";
-                                query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex).ToString();
+                                query2 += ", " + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
                             }
                             else
                             {
@@ -775,7 +741,7 @@ namespace PosgrIQ
                             if (cmbConcepto2Calificador2.SelectedIndex >= 0)
                             {
                                 query += ", concepto2calificador2";
-                                query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex).ToString();
+                                query2 += ", " + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
                             }
                             else
                             {
@@ -786,13 +752,13 @@ namespace PosgrIQ
                             if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text))
                             {
                                 query += ", rutaconcepto2calificador1";
-                                query2 += ", '" + destinoC2C1 + "'";
+                                query2 += ", 'PropuestasMaestria\\" + destinoC2C1 + "'";
                             }
 
                             if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text))
                             {
                                 query += ", rutaconcepto2calificador2";
-                                query2 += ", '" + destinoC2C2 + "'";
+                                query2 += ", 'PropuestasMaestria\\" + destinoC2C2 + "'";
                             }
                         }
                         else
@@ -823,7 +789,7 @@ namespace PosgrIQ
                             if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text))
                             {
                                 query += ", rutaconceptofinal";
-                                query2 += ", '" + destinoSust + "'";
+                                query2 += ", 'PropuestasMaestria\\" + destinoActa + "'";
                             }
                         }
                         else
@@ -894,30 +860,30 @@ namespace PosgrIQ
                         query += ", estudiante=" + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
                         
                         query += ", titulo='" + txtPropuesta.Text + "'";
-                        query += ", ruta='" + "PropuestasMaestria\\" + cmbEstudiante.Text.Replace(" ", "") + "_Propuesta.pdf" + "'";
+                        query += ", ruta='PropuestasMaestria\\" + destino + "'";
                         query += ", calificador1=" + (cmbCalificador1.SelectedIndex + 1).ToString();
                         query += ", calificador2=" + (cmbCalificador2.SelectedIndex + 1).ToString();
                         query += ", entrega1='" + MainForm.Fecha2Texto(datePropuesta.Value) + "'";
 
-                        if (cmbConcepto1Calificador1.SelectedIndex >= 0) query += ", concepto1calificador1=" + (cmbConcepto1Calificador1.SelectedIndex).ToString();
+                        if (cmbConcepto1Calificador1.SelectedIndex >= 0) query += ", concepto1calificador1=" + (cmbConcepto1Calificador1.SelectedIndex + 1).ToString();
                         else query += ", concepto1calificador1=0";
                         
-                        if (cmbConcepto1Calificador1.SelectedIndex >= 0) query += ", concepto1calificador2=" + (cmbConcepto1Calificador2.SelectedIndex).ToString();
+                        if (cmbConcepto1Calificador1.SelectedIndex >= 0) query += ", concepto1calificador2=" + (cmbConcepto1Calificador2.SelectedIndex + 1).ToString();
                         else query += ", concepto1calificador2=0";
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text)) query += ", rutaconcepto1calificador1='" + destinoC1C1 + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador1.Text)) query += ", rutaconcepto1calificador1='PropuestasMaestria\\" + destinoC1C1 + "'";
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador2.Text)) query += ", rutaconcepto1calificador2='" + destinoC1C2 + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto1Calificador2.Text)) query += ", rutaconcepto1calificador2='PropuestasMaestria\\" + destinoC1C2 + "'";
 
                         if (chkCorrecciones.Checked)
                         {
                             // existen correcciones, se guardan en la base de datos
                             query += ", correcciones='" + MainForm.Fecha2Texto(dateCorrecciones.Value) + "'";
 
-                            if (cmbConcepto2Calificador1.SelectedIndex >= 0) query += ", concepto2calificador1=" + (cmbConcepto2Calificador1.SelectedIndex).ToString();
+                            if (cmbConcepto2Calificador1.SelectedIndex >= 0) query += ", concepto2calificador1=" + (cmbConcepto2Calificador1.SelectedIndex + 1).ToString();
                             else query += ", concepto2calificador1=0";
 
-                            if (cmbConcepto2Calificador2.SelectedIndex >= 0) query += ", concepto2calificador2=" + (cmbConcepto2Calificador2.SelectedIndex).ToString();
+                            if (cmbConcepto2Calificador2.SelectedIndex >= 0) query += ", concepto2calificador2=" + (cmbConcepto2Calificador2.SelectedIndex + 1).ToString();
                             else query += ", concepto2calificador2=0";
                         }
                         else 
@@ -927,21 +893,21 @@ namespace PosgrIQ
                             query += ", concepto2calificador2=0";
                         }
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text)) query += ", rutaconcepto2calificador1='" + destinoC2C1 + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador1.Text)) query += ", rutaconcepto2calificador1='PropuestasMaestria\\" + destinoC2C1 + "'";
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text)) query += ", rutaconcepto2calificador2='" + destinoC2C2 + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaConcepto2Calificador2.Text)) query += ", rutaconcepto2calificador2='PropuestasMaestria\\" + destinoC2C2 + "'";
 
                         if(chkSustentacion.Checked)
                         {
                             // existe sustentacion, se guardan en la base de datos
                             query += ", sustentacion='" + MainForm.Fecha2Texto(dateSustentacion.Value) + "'";
 
-                            if (cmbSustentacion.SelectedIndex >= 0) query += ", conceptofinal=" + (cmbSustentacion.SelectedIndex).ToString();
+                            if (cmbSustentacion.SelectedIndex >= 0) query += ", conceptofinal=" + (cmbSustentacion.SelectedIndex + 1).ToString();
                             else query += ", conceptofinal=0";
                         }
                         else query += ", conceptofinal=0";
 
-                        if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text)) query += ", rutaconceptofinal='" + destinoSust + "'";
+                        if (!string.IsNullOrWhiteSpace(txtRutaSustentacion.Text)) query += ", rutaconceptofinal='PropuestasMaestria\\" + destinoActa + "'";
 
                         query += " WHERE codigo=" + codigo.ToString();
 

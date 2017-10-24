@@ -1236,98 +1236,42 @@ namespace PosgrIQ
 
         private void btnVerArchivoTema_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaPropuesta.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaPropuesta.Text);
         }
 
         private void btnVerConcepto1Calificador1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaConcepto1Calificador1.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaConcepto1Calificador1.Text);
         }
 
         private void btnVerConcepto1Calificador2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaConcepto1Calificador2.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaConcepto1Calificador2.Text);
         }
 
         private void btnVerConcepto1Calificador3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaConcepto1Calificador3.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaConcepto1Calificador3.Text);
         }
 
         private void btnVerConcepto2Calificador1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaConcepto2Calificador1.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaConcepto2Calificador1.Text);
         }
 
         private void btnVerConcepto2Calificador2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaConcepto2Calificador2.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaConcepto2Calificador2.Text);
         }
 
         private void btnVerConcepto2Calificador3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaConcepto2Calificador3.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaConcepto2Calificador3.Text);
         }
 
         private void btnVerSustentacion_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaSustentacion.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            padre.VerArchivo(txtRutaSustentacion.Text);
         }
 
         private void btnAddProfesor_Click(object sender, EventArgs e)
@@ -1407,14 +1351,12 @@ namespace PosgrIQ
 
         private void btnVerConcepto2Calificador4_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start(txtRutaConcepto2Calificador4.Text);
-            }
-            catch
-            {
-                MessageBox.Show("No se puede abrir el archivo debido a que no existe o esta dañado", "Error al intentar abrir", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           padre.VerArchivo(txtRutaConcepto2Calificador4.Text);
+        }
+
+        private void btnVerConcepto1Calificador4_Click(object sender, EventArgs e)
+        {
+            padre.VerArchivo(txtRutaConcepto1Calificador4.Text);
         }
     }
 }
