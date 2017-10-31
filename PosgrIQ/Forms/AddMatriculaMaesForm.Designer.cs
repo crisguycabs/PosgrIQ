@@ -76,6 +76,7 @@
             this.numPromedio5 = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.numPromedio1 = new System.Windows.Forms.NumericUpDown();
+            this.txtTest = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numPromedio8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPromedio4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPromedio7)).BeginInit();
@@ -633,6 +634,13 @@
             this.numPromedio1.Size = new System.Drawing.Size(47, 22);
             this.numPromedio1.TabIndex = 4;
             // 
+            // txtTest
+            // 
+            this.txtTest.Location = new System.Drawing.Point(306, 177);
+            this.txtTest.Name = "txtTest";
+            this.txtTest.Size = new System.Drawing.Size(100, 22);
+            this.txtTest.TabIndex = 106;
+            // 
             // AddMatriculaMaesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -641,6 +649,7 @@
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(861, 207);
             this.ControlBox = false;
+            this.Controls.Add(this.txtTest);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label37);
@@ -758,5 +767,6 @@
         private System.Windows.Forms.NumericUpDown numPromedio5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numPromedio1;
+        private System.Windows.Forms.TextBox txtTest;
     }
 }

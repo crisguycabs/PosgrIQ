@@ -267,6 +267,11 @@ namespace PosgrIQ
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // prueba parser
+            if (MainForm.TestParser(txtTest.Text)) MessageBox.Show("cadena aceptada");
+            else MessageBox.Show("cadena rechazada");
+
+            
             // se realizan algunas comprobaciones de seguridad
 
             DataRow[] busqueda;

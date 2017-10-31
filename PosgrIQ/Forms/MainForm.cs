@@ -229,6 +229,42 @@ namespace PosgrIQ
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Evalua si la cadena ingresada corresponde a la forma #.##
+        /// </summary>
+        /// <param name="cadena"></param>
+        /// <returns></returns>
+        public static bool TestParser(string cadena)
+        {
+            // solo pueden haber 4 caracteres
+            if (cadena.Length > 4) return false;
+
+            switch(cadena.Length)
+            {
+                case 1:
+                    cadena = cadena + ".00";                    
+                    break;
+                case 2:
+                    cadena = cadena + "00";
+                    break;
+                case 3:
+                    cadena = cadena + "0";
+                    break;
+            }
+
+            // la posicion debe ser un punto o una coma
+            if ((cadena[1] != '.') && (cadena[1] != ',')) return false;
+
+            // las posiciones 0, 2 y 3 deben ser digitos decimales
+            if (!Char.IsDigit(cadena[0]) || !Char.IsDigit(cadena[2]) || !Char.IsDigit(cadena[3])) return false;
+
+            // el maximo es 5.00
+            if (Convert.ToInt16(cadena[0].ToString()) > 5) return false;
+            if ((cadena[0] == '5') && ((cadena[2] != '0') || (cadena[3] != '0'))) return false;
+                        
+            return true;
+        }
+
         public void VerArchivo(string textBox)
         {
             string rutaAabrir = "";
