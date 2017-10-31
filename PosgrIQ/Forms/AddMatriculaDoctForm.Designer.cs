@@ -35,33 +35,25 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbSemestre1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.numPromedio1 = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbBeca1 = new System.Windows.Forms.ComboBox();
-            this.numPromedio3 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbSemestre3 = new System.Windows.Forms.ComboBox();
             this.cmbBeca3 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.numPromedio5 = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.cmbSemestre5 = new System.Windows.Forms.ComboBox();
             this.cmbBeca5 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.numPromedio7 = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.cmbSemestre7 = new System.Windows.Forms.ComboBox();
             this.cmbBeca7 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.numPromedio2 = new System.Windows.Forms.NumericUpDown();
-            this.numPromedio4 = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
-            this.numPromedio6 = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
-            this.numPromedio8 = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -81,11 +73,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.numPromedio9 = new System.Windows.Forms.NumericUpDown();
-            this.numPromedio10 = new System.Windows.Forms.NumericUpDown();
-            this.numPromedio11 = new System.Windows.Forms.NumericUpDown();
             this.label29 = new System.Windows.Forms.Label();
-            this.numPromedio12 = new System.Windows.Forms.NumericUpDown();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -100,18 +88,18 @@
             this.label37 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio12)).BeginInit();
+            this.numPromedio1 = new System.Windows.Forms.TextBox();
+            this.numPromedio3 = new System.Windows.Forms.TextBox();
+            this.numPromedio5 = new System.Windows.Forms.TextBox();
+            this.numPromedio7 = new System.Windows.Forms.TextBox();
+            this.numPromedio9 = new System.Windows.Forms.TextBox();
+            this.numPromedio11 = new System.Windows.Forms.TextBox();
+            this.numPromedio2 = new System.Windows.Forms.TextBox();
+            this.numPromedio4 = new System.Windows.Forms.TextBox();
+            this.numPromedio6 = new System.Windows.Forms.TextBox();
+            this.numPromedio8 = new System.Windows.Forms.TextBox();
+            this.numPromedio10 = new System.Windows.Forms.TextBox();
+            this.numPromedio12 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cmbEstudiante
@@ -171,25 +159,6 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "Promedio:";
             // 
-            // numPromedio1
-            // 
-            this.numPromedio1.DecimalPlaces = 2;
-            this.numPromedio1.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numPromedio1.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numPromedio1.Location = new System.Drawing.Point(239, 47);
-            this.numPromedio1.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numPromedio1.Name = "numPromedio1";
-            this.numPromedio1.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio1.TabIndex = 4;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -211,25 +180,6 @@
             this.cmbBeca1.Name = "cmbBeca1";
             this.cmbBeca1.Size = new System.Drawing.Size(42, 22);
             this.cmbBeca1.TabIndex = 5;
-            // 
-            // numPromedio3
-            // 
-            this.numPromedio3.DecimalPlaces = 2;
-            this.numPromedio3.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numPromedio3.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numPromedio3.Location = new System.Drawing.Point(239, 75);
-            this.numPromedio3.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numPromedio3.Name = "numPromedio3";
-            this.numPromedio3.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio3.TabIndex = 10;
             // 
             // label6
             // 
@@ -282,25 +232,6 @@
             this.label8.TabIndex = 31;
             this.label8.Text = "Beca:";
             // 
-            // numPromedio5
-            // 
-            this.numPromedio5.DecimalPlaces = 2;
-            this.numPromedio5.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numPromedio5.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numPromedio5.Location = new System.Drawing.Point(239, 103);
-            this.numPromedio5.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numPromedio5.Name = "numPromedio5";
-            this.numPromedio5.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio5.TabIndex = 16;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -351,25 +282,6 @@
             this.label12.Size = new System.Drawing.Size(36, 14);
             this.label12.TabIndex = 31;
             this.label12.Text = "Beca:";
-            // 
-            // numPromedio7
-            // 
-            this.numPromedio7.DecimalPlaces = 2;
-            this.numPromedio7.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numPromedio7.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numPromedio7.Location = new System.Drawing.Point(239, 131);
-            this.numPromedio7.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numPromedio7.Name = "numPromedio7";
-            this.numPromedio7.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio7.TabIndex = 22;
             // 
             // label13
             // 
@@ -422,44 +334,6 @@
             this.label15.TabIndex = 31;
             this.label15.Text = "Beca:";
             // 
-            // numPromedio2
-            // 
-            this.numPromedio2.DecimalPlaces = 2;
-            this.numPromedio2.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numPromedio2.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numPromedio2.Location = new System.Drawing.Point(694, 47);
-            this.numPromedio2.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numPromedio2.Name = "numPromedio2";
-            this.numPromedio2.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio2.TabIndex = 7;
-            // 
-            // numPromedio4
-            // 
-            this.numPromedio4.DecimalPlaces = 2;
-            this.numPromedio4.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numPromedio4.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numPromedio4.Location = new System.Drawing.Point(694, 75);
-            this.numPromedio4.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numPromedio4.Name = "numPromedio4";
-            this.numPromedio4.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio4.TabIndex = 13;
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -470,25 +344,6 @@
             this.label16.TabIndex = 22;
             this.label16.Text = "Semestre 2:";
             // 
-            // numPromedio6
-            // 
-            this.numPromedio6.DecimalPlaces = 2;
-            this.numPromedio6.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numPromedio6.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numPromedio6.Location = new System.Drawing.Point(694, 103);
-            this.numPromedio6.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numPromedio6.Name = "numPromedio6";
-            this.numPromedio6.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio6.TabIndex = 19;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -498,25 +353,6 @@
             this.label17.Size = new System.Drawing.Size(70, 14);
             this.label17.TabIndex = 22;
             this.label17.Text = "Semestre 4:";
-            // 
-            // numPromedio8
-            // 
-            this.numPromedio8.DecimalPlaces = 2;
-            this.numPromedio8.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numPromedio8.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numPromedio8.Location = new System.Drawing.Point(694, 131);
-            this.numPromedio8.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numPromedio8.Name = "numPromedio8";
-            this.numPromedio8.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio8.TabIndex = 25;
             // 
             // label18
             // 
@@ -711,63 +547,6 @@
             this.label28.Size = new System.Drawing.Size(842, 3);
             this.label28.TabIndex = 30;
             // 
-            // numPromedio9
-            // 
-            this.numPromedio9.DecimalPlaces = 2;
-            this.numPromedio9.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numPromedio9.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numPromedio9.Location = new System.Drawing.Point(239, 168);
-            this.numPromedio9.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numPromedio9.Name = "numPromedio9";
-            this.numPromedio9.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio9.TabIndex = 28;
-            // 
-            // numPromedio10
-            // 
-            this.numPromedio10.DecimalPlaces = 2;
-            this.numPromedio10.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numPromedio10.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numPromedio10.Location = new System.Drawing.Point(694, 168);
-            this.numPromedio10.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numPromedio10.Name = "numPromedio10";
-            this.numPromedio10.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio10.TabIndex = 30;
-            // 
-            // numPromedio11
-            // 
-            this.numPromedio11.DecimalPlaces = 2;
-            this.numPromedio11.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numPromedio11.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numPromedio11.Location = new System.Drawing.Point(239, 196);
-            this.numPromedio11.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numPromedio11.Name = "numPromedio11";
-            this.numPromedio11.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio11.TabIndex = 32;
-            // 
             // label29
             // 
             this.label29.AutoSize = true;
@@ -777,25 +556,6 @@
             this.label29.Size = new System.Drawing.Size(70, 14);
             this.label29.TabIndex = 22;
             this.label29.Text = "Semestre 9:";
-            // 
-            // numPromedio12
-            // 
-            this.numPromedio12.DecimalPlaces = 2;
-            this.numPromedio12.Font = new System.Drawing.Font("Calibri", 9F);
-            this.numPromedio12.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numPromedio12.Location = new System.Drawing.Point(694, 196);
-            this.numPromedio12.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numPromedio12.Name = "numPromedio12";
-            this.numPromedio12.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio12.TabIndex = 34;
             // 
             // label30
             // 
@@ -941,6 +701,102 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // numPromedio1
+            // 
+            this.numPromedio1.Location = new System.Drawing.Point(239, 47);
+            this.numPromedio1.MaxLength = 4;
+            this.numPromedio1.Name = "numPromedio1";
+            this.numPromedio1.Size = new System.Drawing.Size(47, 22);
+            this.numPromedio1.TabIndex = 107;
+            // 
+            // numPromedio3
+            // 
+            this.numPromedio3.Location = new System.Drawing.Point(239, 75);
+            this.numPromedio3.MaxLength = 4;
+            this.numPromedio3.Name = "numPromedio3";
+            this.numPromedio3.Size = new System.Drawing.Size(47, 22);
+            this.numPromedio3.TabIndex = 107;
+            // 
+            // numPromedio5
+            // 
+            this.numPromedio5.Location = new System.Drawing.Point(239, 103);
+            this.numPromedio5.MaxLength = 4;
+            this.numPromedio5.Name = "numPromedio5";
+            this.numPromedio5.Size = new System.Drawing.Size(47, 22);
+            this.numPromedio5.TabIndex = 107;
+            // 
+            // numPromedio7
+            // 
+            this.numPromedio7.Location = new System.Drawing.Point(239, 131);
+            this.numPromedio7.MaxLength = 4;
+            this.numPromedio7.Name = "numPromedio7";
+            this.numPromedio7.Size = new System.Drawing.Size(47, 22);
+            this.numPromedio7.TabIndex = 107;
+            // 
+            // numPromedio9
+            // 
+            this.numPromedio9.Location = new System.Drawing.Point(239, 168);
+            this.numPromedio9.MaxLength = 4;
+            this.numPromedio9.Name = "numPromedio9";
+            this.numPromedio9.Size = new System.Drawing.Size(47, 22);
+            this.numPromedio9.TabIndex = 107;
+            // 
+            // numPromedio11
+            // 
+            this.numPromedio11.Location = new System.Drawing.Point(239, 196);
+            this.numPromedio11.MaxLength = 4;
+            this.numPromedio11.Name = "numPromedio11";
+            this.numPromedio11.Size = new System.Drawing.Size(47, 22);
+            this.numPromedio11.TabIndex = 107;
+            // 
+            // numPromedio2
+            // 
+            this.numPromedio2.Location = new System.Drawing.Point(698, 47);
+            this.numPromedio2.MaxLength = 4;
+            this.numPromedio2.Name = "numPromedio2";
+            this.numPromedio2.Size = new System.Drawing.Size(47, 22);
+            this.numPromedio2.TabIndex = 107;
+            // 
+            // numPromedio4
+            // 
+            this.numPromedio4.Location = new System.Drawing.Point(698, 75);
+            this.numPromedio4.MaxLength = 4;
+            this.numPromedio4.Name = "numPromedio4";
+            this.numPromedio4.Size = new System.Drawing.Size(47, 22);
+            this.numPromedio4.TabIndex = 107;
+            // 
+            // numPromedio6
+            // 
+            this.numPromedio6.Location = new System.Drawing.Point(698, 103);
+            this.numPromedio6.MaxLength = 4;
+            this.numPromedio6.Name = "numPromedio6";
+            this.numPromedio6.Size = new System.Drawing.Size(47, 22);
+            this.numPromedio6.TabIndex = 107;
+            // 
+            // numPromedio8
+            // 
+            this.numPromedio8.Location = new System.Drawing.Point(698, 131);
+            this.numPromedio8.MaxLength = 4;
+            this.numPromedio8.Name = "numPromedio8";
+            this.numPromedio8.Size = new System.Drawing.Size(47, 22);
+            this.numPromedio8.TabIndex = 107;
+            // 
+            // numPromedio10
+            // 
+            this.numPromedio10.Location = new System.Drawing.Point(698, 168);
+            this.numPromedio10.MaxLength = 4;
+            this.numPromedio10.Name = "numPromedio10";
+            this.numPromedio10.Size = new System.Drawing.Size(47, 22);
+            this.numPromedio10.TabIndex = 107;
+            // 
+            // numPromedio12
+            // 
+            this.numPromedio12.Location = new System.Drawing.Point(698, 196);
+            this.numPromedio12.MaxLength = 4;
+            this.numPromedio12.Name = "numPromedio12";
+            this.numPromedio12.Size = new System.Drawing.Size(47, 22);
+            this.numPromedio12.TabIndex = 107;
+            // 
             // AddMatriculaDoctForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -949,6 +805,18 @@
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(860, 262);
             this.ControlBox = false;
+            this.Controls.Add(this.numPromedio12);
+            this.Controls.Add(this.numPromedio11);
+            this.Controls.Add(this.numPromedio10);
+            this.Controls.Add(this.numPromedio9);
+            this.Controls.Add(this.numPromedio8);
+            this.Controls.Add(this.numPromedio7);
+            this.Controls.Add(this.numPromedio6);
+            this.Controls.Add(this.numPromedio5);
+            this.Controls.Add(this.numPromedio4);
+            this.Controls.Add(this.numPromedio3);
+            this.Controls.Add(this.numPromedio2);
+            this.Controls.Add(this.numPromedio1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label37);
@@ -999,27 +867,15 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.numPromedio8);
-            this.Controls.Add(this.numPromedio7);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.numPromedio6);
-            this.Controls.Add(this.numPromedio5);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.numPromedio12);
-            this.Controls.Add(this.numPromedio4);
             this.Controls.Add(this.label29);
-            this.Controls.Add(this.numPromedio11);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.numPromedio10);
-            this.Controls.Add(this.numPromedio3);
-            this.Controls.Add(this.numPromedio2);
-            this.Controls.Add(this.numPromedio9);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.numPromedio1);
             this.Font = new System.Drawing.Font("Calibri", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1029,18 +885,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AGREGAR MATRICULA DOCTORADO";
             this.Load += new System.EventHandler(this.AddMatriculaDoctForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPromedio12)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1054,33 +898,25 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbSemestre1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numPromedio1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbBeca1;
-        private System.Windows.Forms.NumericUpDown numPromedio3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbSemestre3;
         private System.Windows.Forms.ComboBox cmbBeca3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numPromedio5;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cmbSemestre5;
         private System.Windows.Forms.ComboBox cmbBeca5;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.NumericUpDown numPromedio7;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cmbSemestre7;
         private System.Windows.Forms.ComboBox cmbBeca7;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.NumericUpDown numPromedio2;
-        private System.Windows.Forms.NumericUpDown numPromedio4;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.NumericUpDown numPromedio6;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.NumericUpDown numPromedio8;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
@@ -1100,11 +936,7 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.NumericUpDown numPromedio9;
-        private System.Windows.Forms.NumericUpDown numPromedio10;
-        private System.Windows.Forms.NumericUpDown numPromedio11;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.NumericUpDown numPromedio12;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
@@ -1119,5 +951,17 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox numPromedio1;
+        private System.Windows.Forms.TextBox numPromedio3;
+        private System.Windows.Forms.TextBox numPromedio5;
+        private System.Windows.Forms.TextBox numPromedio7;
+        private System.Windows.Forms.TextBox numPromedio9;
+        private System.Windows.Forms.TextBox numPromedio11;
+        private System.Windows.Forms.TextBox numPromedio2;
+        private System.Windows.Forms.TextBox numPromedio4;
+        private System.Windows.Forms.TextBox numPromedio6;
+        private System.Windows.Forms.TextBox numPromedio8;
+        private System.Windows.Forms.TextBox numPromedio10;
+        private System.Windows.Forms.TextBox numPromedio12;
     }
 }

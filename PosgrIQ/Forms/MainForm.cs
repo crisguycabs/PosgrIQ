@@ -239,6 +239,8 @@ namespace PosgrIQ
             // solo pueden haber 4 caracteres
             if (cadena.Length > 4) return false;
 
+            if (string.IsNullOrEmpty(cadena)) cadena = "0.00";
+
             switch(cadena.Length)
             {
                 case 1:
