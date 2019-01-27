@@ -511,6 +511,7 @@ namespace PosgrIQ
             string query, query2;
             OleDbCommand command;
 
+            // MessageBox.Show("conexion creada");
             switch (modo)
             {
                 case true: // se agrega la matricula
@@ -527,6 +528,8 @@ namespace PosgrIQ
                         query += ", estudiante";
                         query2 += ", " + (dtEstudiantes.Rows[cmbEstudiante.SelectedIndex][0]).ToString();
 
+                        // MessageBox.Show("codigo y estudiante listo");
+
                         // el primer semestre es obligatorio
                         query += ", semestre1";
                         query2 += ", " + (cmbSemestre1.SelectedIndex + 1).ToString();
@@ -535,6 +538,8 @@ namespace PosgrIQ
                         query += ", beca1";
                         if (cmbBeca1.SelectedIndex == 0) query2 += ", 'Si'";
                         else query2 += ", 'No'";
+
+                        // MessageBox.Show("semestre 1 listo");
 
                         // los demas semestres no son obligatorios
                         if (cmbSemestre2.SelectedIndex >= 0)
@@ -546,6 +551,8 @@ namespace PosgrIQ
                             query += ", beca2";
                             if (cmbBeca2.SelectedIndex == 0) query2 += ", 'Si'";
                             else query2 += ", 'No'";
+
+                            // MessageBox.Show("semestre 2 listo");
                         }
 
                         if (cmbSemestre3.SelectedIndex >= 0)
@@ -557,6 +564,8 @@ namespace PosgrIQ
                             query += ", beca3";
                             if (cmbBeca3.SelectedIndex == 0) query2 += ", 'Si'";
                             else query2 += ", 'No'";
+
+                            // MessageBox.Show("semestre 3 listo");
                         }
 
                         if (cmbSemestre4.SelectedIndex >= 0)
@@ -568,6 +577,8 @@ namespace PosgrIQ
                             query += ", beca4";
                             if (cmbBeca4.SelectedIndex == 0) query2 += ", 'Si'";
                             else query2 += ", 'No'";
+
+                            // MessageBox.Show("semestre 4 listo");
                         }
 
                         if (cmbSemestre5.SelectedIndex >= 0)
@@ -576,6 +587,8 @@ namespace PosgrIQ
                             query2 += ", " + (cmbSemestre5.SelectedIndex + 1).ToString();
                             query += ", promedio5";
                             query2 += ", '" + (numPromedio5.Text).ToString() + "'";
+
+                            // MessageBox.Show("semestre 5 listo");
                         }
 
                         if (cmbSemestre6.SelectedIndex >= 0)
@@ -584,6 +597,8 @@ namespace PosgrIQ
                             query2 += ", " + (cmbSemestre6.SelectedIndex + 1).ToString();
                             query += ", promedio6";
                             query2 += ", '" + (numPromedio6.Text).ToString() + "'";
+
+                            // MessageBox.Show("semestre 6 listo");
                         }
 
                         if (cmbSemestre7.SelectedIndex >= 0)
@@ -592,6 +607,8 @@ namespace PosgrIQ
                             query2 += ", " + (cmbSemestre7.SelectedIndex + 1).ToString();
                             query += ", promedio7";
                             query2 += ", '" + (numPromedio7.Text).ToString() + "'";
+
+                            // MessageBox.Show("semestre 7 listo");
                         }
 
                         if (cmbSemestre8.SelectedIndex >= 0)
@@ -600,23 +617,34 @@ namespace PosgrIQ
                             query2 += ", " + (cmbSemestre8.SelectedIndex + 1).ToString();
                             query += ", promedio8";
                             query2 += ", '" + (numPromedio8.Text+ "'").ToString() + "'";
+
+                            // MessageBox.Show("semestre 8 listo");
                         }
 
                         query += ")";
                         query2 += ")";
                         query += query2;
 
+                        // MessageBox.Show(query);
+                        // MessageBox.Show(query2);
+
                         conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
                         conection.Open();
+
+                        // MessageBox.Show("conexion abierta");
 
                         command = new OleDbCommand(query, conection);
 
                         command.ExecuteNonQuery();
 
+                        // MessageBox.Show("consulta ejecutada");
+
                         conection.Close();
                         conection.Dispose();
                         GC.Collect();
                         GC.WaitForPendingFinalizers();
+
+                        // MessageBox.Show("conexion cerrada");
                         while (System.IO.Directory.GetFiles(padre.sourceONE, "*.ldb").Length > 0)
                         {
                             System.Threading.Thread.Sleep(100);
@@ -747,6 +775,11 @@ namespace PosgrIQ
                     }
                     break;
             }
+        }
+
+        private void cmbSemestre2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

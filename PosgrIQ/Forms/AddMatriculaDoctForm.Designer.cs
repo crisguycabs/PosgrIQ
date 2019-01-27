@@ -109,7 +109,7 @@
             this.cmbEstudiante.Location = new System.Drawing.Point(90, 9);
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(223, 22);
-            this.cmbEstudiante.TabIndex = 2;
+            this.cmbEstudiante.TabIndex = 0;
             // 
             // label9
             // 
@@ -147,7 +147,7 @@
             this.cmbSemestre1.Location = new System.Drawing.Point(90, 47);
             this.cmbSemestre1.Name = "cmbSemestre1";
             this.cmbSemestre1.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre1.TabIndex = 3;
+            this.cmbSemestre1.TabIndex = 1;
             // 
             // label3
             // 
@@ -179,7 +179,7 @@
             this.cmbBeca1.Location = new System.Drawing.Point(355, 47);
             this.cmbBeca1.Name = "cmbBeca1";
             this.cmbBeca1.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca1.TabIndex = 5;
+            this.cmbBeca1.TabIndex = 3;
             // 
             // label6
             // 
@@ -208,7 +208,7 @@
             this.cmbSemestre3.Location = new System.Drawing.Point(90, 75);
             this.cmbSemestre3.Name = "cmbSemestre3";
             this.cmbSemestre3.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre3.TabIndex = 9;
+            this.cmbSemestre3.TabIndex = 7;
             // 
             // cmbBeca3
             // 
@@ -220,7 +220,7 @@
             this.cmbBeca3.Location = new System.Drawing.Point(355, 75);
             this.cmbBeca3.Name = "cmbBeca3";
             this.cmbBeca3.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca3.TabIndex = 11;
+            this.cmbBeca3.TabIndex = 9;
             // 
             // label8
             // 
@@ -259,7 +259,7 @@
             this.cmbSemestre5.Location = new System.Drawing.Point(90, 103);
             this.cmbSemestre5.Name = "cmbSemestre5";
             this.cmbSemestre5.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre5.TabIndex = 15;
+            this.cmbSemestre5.TabIndex = 13;
             // 
             // cmbBeca5
             // 
@@ -271,7 +271,7 @@
             this.cmbBeca5.Location = new System.Drawing.Point(355, 103);
             this.cmbBeca5.Name = "cmbBeca5";
             this.cmbBeca5.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca5.TabIndex = 17;
+            this.cmbBeca5.TabIndex = 15;
             // 
             // label12
             // 
@@ -310,7 +310,7 @@
             this.cmbSemestre7.Location = new System.Drawing.Point(90, 131);
             this.cmbSemestre7.Name = "cmbSemestre7";
             this.cmbSemestre7.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre7.TabIndex = 21;
+            this.cmbSemestre7.TabIndex = 19;
             // 
             // cmbBeca7
             // 
@@ -322,7 +322,7 @@
             this.cmbBeca7.Location = new System.Drawing.Point(355, 131);
             this.cmbBeca7.Name = "cmbBeca7";
             this.cmbBeca7.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca7.TabIndex = 23;
+            this.cmbBeca7.TabIndex = 21;
             // 
             // label15
             // 
@@ -421,7 +421,7 @@
             this.cmbSemestre2.Location = new System.Drawing.Point(545, 47);
             this.cmbSemestre2.Name = "cmbSemestre2";
             this.cmbSemestre2.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre2.TabIndex = 6;
+            this.cmbSemestre2.TabIndex = 4;
             // 
             // cmbSemestre4
             // 
@@ -430,7 +430,7 @@
             this.cmbSemestre4.Location = new System.Drawing.Point(545, 75);
             this.cmbSemestre4.Name = "cmbSemestre4";
             this.cmbSemestre4.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre4.TabIndex = 12;
+            this.cmbSemestre4.TabIndex = 10;
             // 
             // cmbSemestre6
             // 
@@ -439,7 +439,7 @@
             this.cmbSemestre6.Location = new System.Drawing.Point(545, 103);
             this.cmbSemestre6.Name = "cmbSemestre6";
             this.cmbSemestre6.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre6.TabIndex = 18;
+            this.cmbSemestre6.TabIndex = 16;
             // 
             // cmbSemestre8
             // 
@@ -448,7 +448,7 @@
             this.cmbSemestre8.Location = new System.Drawing.Point(545, 131);
             this.cmbSemestre8.Name = "cmbSemestre8";
             this.cmbSemestre8.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre8.TabIndex = 24;
+            this.cmbSemestre8.TabIndex = 22;
             // 
             // cmbBeca2
             // 
@@ -460,7 +460,7 @@
             this.cmbBeca2.Location = new System.Drawing.Point(810, 47);
             this.cmbBeca2.Name = "cmbBeca2";
             this.cmbBeca2.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca2.TabIndex = 8;
+            this.cmbBeca2.TabIndex = 6;
             // 
             // cmbBeca4
             // 
@@ -472,7 +472,7 @@
             this.cmbBeca4.Location = new System.Drawing.Point(810, 75);
             this.cmbBeca4.Name = "cmbBeca4";
             this.cmbBeca4.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca4.TabIndex = 14;
+            this.cmbBeca4.TabIndex = 12;
             // 
             // cmbBeca6
             // 
@@ -484,7 +484,7 @@
             this.cmbBeca6.Location = new System.Drawing.Point(810, 103);
             this.cmbBeca6.Name = "cmbBeca6";
             this.cmbBeca6.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca6.TabIndex = 20;
+            this.cmbBeca6.TabIndex = 18;
             // 
             // cmbBeca8
             // 
@@ -496,7 +496,7 @@
             this.cmbBeca8.Location = new System.Drawing.Point(810, 131);
             this.cmbBeca8.Name = "cmbBeca8";
             this.cmbBeca8.Size = new System.Drawing.Size(42, 22);
-            this.cmbBeca8.TabIndex = 26;
+            this.cmbBeca8.TabIndex = 24;
             // 
             // label24
             // 
@@ -634,7 +634,7 @@
             this.cmbSemestre9.Location = new System.Drawing.Point(90, 168);
             this.cmbSemestre9.Name = "cmbSemestre9";
             this.cmbSemestre9.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre9.TabIndex = 27;
+            this.cmbSemestre9.TabIndex = 25;
             // 
             // cmbSemestre10
             // 
@@ -643,7 +643,7 @@
             this.cmbSemestre10.Location = new System.Drawing.Point(545, 168);
             this.cmbSemestre10.Name = "cmbSemestre10";
             this.cmbSemestre10.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre10.TabIndex = 29;
+            this.cmbSemestre10.TabIndex = 27;
             // 
             // cmbSemestre11
             // 
@@ -652,7 +652,7 @@
             this.cmbSemestre11.Location = new System.Drawing.Point(90, 196);
             this.cmbSemestre11.Name = "cmbSemestre11";
             this.cmbSemestre11.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre11.TabIndex = 31;
+            this.cmbSemestre11.TabIndex = 29;
             // 
             // cmbSemestre12
             // 
@@ -661,7 +661,7 @@
             this.cmbSemestre12.Location = new System.Drawing.Point(545, 196);
             this.cmbSemestre12.Name = "cmbSemestre12";
             this.cmbSemestre12.Size = new System.Drawing.Size(59, 22);
-            this.cmbSemestre12.TabIndex = 33;
+            this.cmbSemestre12.TabIndex = 31;
             // 
             // label37
             // 
@@ -681,7 +681,7 @@
             this.btnAdd.Location = new System.Drawing.Point(779, 232);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 35;
+            this.btnAdd.TabIndex = 33;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -696,7 +696,7 @@
             this.btnCancel.Location = new System.Drawing.Point(698, 232);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 36;
+            this.btnCancel.TabIndex = 34;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -707,7 +707,7 @@
             this.numPromedio1.MaxLength = 4;
             this.numPromedio1.Name = "numPromedio1";
             this.numPromedio1.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio1.TabIndex = 107;
+            this.numPromedio1.TabIndex = 2;
             // 
             // numPromedio3
             // 
@@ -715,7 +715,7 @@
             this.numPromedio3.MaxLength = 4;
             this.numPromedio3.Name = "numPromedio3";
             this.numPromedio3.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio3.TabIndex = 107;
+            this.numPromedio3.TabIndex = 8;
             // 
             // numPromedio5
             // 
@@ -723,7 +723,7 @@
             this.numPromedio5.MaxLength = 4;
             this.numPromedio5.Name = "numPromedio5";
             this.numPromedio5.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio5.TabIndex = 107;
+            this.numPromedio5.TabIndex = 14;
             // 
             // numPromedio7
             // 
@@ -731,7 +731,7 @@
             this.numPromedio7.MaxLength = 4;
             this.numPromedio7.Name = "numPromedio7";
             this.numPromedio7.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio7.TabIndex = 107;
+            this.numPromedio7.TabIndex = 20;
             // 
             // numPromedio9
             // 
@@ -739,7 +739,7 @@
             this.numPromedio9.MaxLength = 4;
             this.numPromedio9.Name = "numPromedio9";
             this.numPromedio9.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio9.TabIndex = 107;
+            this.numPromedio9.TabIndex = 26;
             // 
             // numPromedio11
             // 
@@ -747,7 +747,7 @@
             this.numPromedio11.MaxLength = 4;
             this.numPromedio11.Name = "numPromedio11";
             this.numPromedio11.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio11.TabIndex = 107;
+            this.numPromedio11.TabIndex = 30;
             // 
             // numPromedio2
             // 
@@ -755,7 +755,7 @@
             this.numPromedio2.MaxLength = 4;
             this.numPromedio2.Name = "numPromedio2";
             this.numPromedio2.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio2.TabIndex = 107;
+            this.numPromedio2.TabIndex = 5;
             // 
             // numPromedio4
             // 
@@ -763,7 +763,7 @@
             this.numPromedio4.MaxLength = 4;
             this.numPromedio4.Name = "numPromedio4";
             this.numPromedio4.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio4.TabIndex = 107;
+            this.numPromedio4.TabIndex = 11;
             // 
             // numPromedio6
             // 
@@ -771,7 +771,7 @@
             this.numPromedio6.MaxLength = 4;
             this.numPromedio6.Name = "numPromedio6";
             this.numPromedio6.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio6.TabIndex = 107;
+            this.numPromedio6.TabIndex = 17;
             // 
             // numPromedio8
             // 
@@ -779,7 +779,7 @@
             this.numPromedio8.MaxLength = 4;
             this.numPromedio8.Name = "numPromedio8";
             this.numPromedio8.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio8.TabIndex = 107;
+            this.numPromedio8.TabIndex = 23;
             // 
             // numPromedio10
             // 
@@ -787,7 +787,7 @@
             this.numPromedio10.MaxLength = 4;
             this.numPromedio10.Name = "numPromedio10";
             this.numPromedio10.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio10.TabIndex = 107;
+            this.numPromedio10.TabIndex = 28;
             // 
             // numPromedio12
             // 
@@ -795,7 +795,7 @@
             this.numPromedio12.MaxLength = 4;
             this.numPromedio12.Name = "numPromedio12";
             this.numPromedio12.Size = new System.Drawing.Size(47, 22);
-            this.numPromedio12.TabIndex = 107;
+            this.numPromedio12.TabIndex = 32;
             // 
             // AddMatriculaDoctForm
             // 

@@ -114,7 +114,7 @@ namespace PosgrIQ
                 for (int i = 1; i <= 8; i++)
                 {
                     dt.Columns.Add("Semestre "+i.ToString(), typeof(string));
-                    dt.Columns.Add("Promedio " + i.ToString(), typeof(double));
+                    dt.Columns.Add("Promedio " + i.ToString(), typeof(string));
                     dt.Columns.Add("Beca " + i.ToString(), typeof(string));
                 }
 
@@ -122,7 +122,7 @@ namespace PosgrIQ
                 for (int i = 9; i <= 12; i++)
                 {
                     dt.Columns.Add("Semestre " + i.ToString(), typeof(string));
-                    dt.Columns.Add("Promedio " + i.ToString(), typeof(double));                    
+                    dt.Columns.Add("Promedio " + i.ToString(), typeof(string));                    
                 }
 
                 // se llena el nuevo datatable
@@ -142,7 +142,7 @@ namespace PosgrIQ
                     j=2;
                     seleccionado=dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
                     fila[j] = Convert.ToString(seleccionado[0][1]);
-                    fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                    fila[j + 1] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 1]);
                     fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
 
                     // semestre 2
@@ -151,7 +151,7 @@ namespace PosgrIQ
                     {
                         seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
                         fila[j] = Convert.ToString(seleccionado[0][1]);
-                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 1] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 1]);
                         fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
                     }
 
@@ -161,7 +161,7 @@ namespace PosgrIQ
                     {
                         seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
                         fila[j] = Convert.ToString(seleccionado[0][1]);
-                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 1] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 1]);
                         fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
                     }
 
@@ -171,7 +171,7 @@ namespace PosgrIQ
                     {
                         seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
                         fila[j] = Convert.ToString(seleccionado[0][1]);
-                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 1] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 1]);
                         fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
                     }
 
@@ -181,7 +181,7 @@ namespace PosgrIQ
                     {
                         seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
                         fila[j] = Convert.ToString(seleccionado[0][1]);
-                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 1] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 1]);
                         fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
                     }
 
@@ -191,7 +191,7 @@ namespace PosgrIQ
                     {
                         seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
                         fila[j] = Convert.ToString(seleccionado[0][1]);
-                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 1] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 1]);
                         fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
                     }
 
@@ -201,7 +201,7 @@ namespace PosgrIQ
                     {
                         seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
                         fila[j] = Convert.ToString(seleccionado[0][1]);
-                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 1] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 1]);
                         fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
                     }
 
@@ -211,7 +211,7 @@ namespace PosgrIQ
                     {
                         seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
                         fila[j] = Convert.ToString(seleccionado[0][1]);
-                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 1] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 1]);
                         fila[j + 2] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 2]);
                     }
 
@@ -221,7 +221,7 @@ namespace PosgrIQ
                     {
                         seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
                         fila[j] = Convert.ToString(seleccionado[0][1]);
-                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 1] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 1]);
                     }
 
                     // semestre 10
@@ -230,7 +230,7 @@ namespace PosgrIQ
                     {
                         seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
                         fila[j] = Convert.ToString(seleccionado[0][1]);
-                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 1] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 1]);
                     }
 
                     // semestre 11
@@ -239,7 +239,7 @@ namespace PosgrIQ
                     {
                         seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
                         fila[j] = Convert.ToString(seleccionado[0][1]);
-                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 1] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 1]);
                     }
 
                     // semestre 12
@@ -248,7 +248,7 @@ namespace PosgrIQ
                     {
                         seleccionado = dtSemestre.Select("codigo=" + dtMatriculaDoct.Rows[i][j]);
                         fila[j] = Convert.ToString(seleccionado[0][1]);
-                        fila[j + 1] = Convert.ToDouble(dtMatriculaDoct.Rows[i][j + 1]);
+                        fila[j + 1] = Convert.ToString(dtMatriculaDoct.Rows[i][j + 1]);
                     }
 
                     dt.Rows.Add(fila);
