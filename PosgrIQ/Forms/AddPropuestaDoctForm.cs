@@ -1382,5 +1382,17 @@ namespace PosgrIQ
         {
             padre.VerArchivo(txtRutaConcepto1Calificador4.Text);
         }
+
+        private void btnSelConcepto1Calificador4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Archivos PDF (.pdf)|*.pdf|Archivos DOCX (.docx)|*.docx|Archivos DOC (.doc)|*.doc";
+            open.FilterIndex = 0;
+
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                txtRutaConcepto1Calificador4.Text = open.FileName;
+            }
+        }
     }
 }

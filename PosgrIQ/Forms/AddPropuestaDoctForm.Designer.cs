@@ -869,6 +869,7 @@
             this.btnSelConcepto1Calificador4.TabIndex = 33;
             this.btnSelConcepto1Calificador4.Text = "Seleccionar Archivo";
             this.btnSelConcepto1Calificador4.UseVisualStyleBackColor = false;
+            this.btnSelConcepto1Calificador4.Click += new System.EventHandler(this.btnSelConcepto1Calificador4_Click);
             // 
             // label28
             // 
