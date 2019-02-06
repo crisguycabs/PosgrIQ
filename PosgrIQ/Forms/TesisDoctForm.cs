@@ -215,28 +215,30 @@ namespace PosgrIQ
 
                 // se crea una tabla que reemplaza el codigo de colegiatura y de escuela por el nombre
                 dt = new DataTable();
-                dt.Columns.Add("Codigo", typeof(int));
-                dt.Columns.Add("Estudiante", typeof(string));
-                dt.Columns.Add("Titulo", typeof(string));
-                dt.Columns.Add("Fecha Entrega", typeof(string));
-                dt.Columns.Add("Calificador 1", typeof(string));
-                dt.Columns.Add("Calificador 2", typeof(string));
-                dt.Columns.Add("Calificador 3", typeof(string));
-                dt.Columns.Add("Calificador 4", typeof(string));
-                dt.Columns.Add("Calificador 5", typeof(string));
-                dt.Columns.Add("Concepto 1 Calificador 1", typeof(string));
-                dt.Columns.Add("Concepto 1 Calificador 2", typeof(string));
-                dt.Columns.Add("Concepto 1 Calificador 3", typeof(string));
-                dt.Columns.Add("Concepto 1 Calificador 4", typeof(string));
-                dt.Columns.Add("Concepto 1 Calificador 5", typeof(string));
-                dt.Columns.Add("Fecha Entrega Correcciones", typeof(string));
-                dt.Columns.Add("Concepto 2 Calificador 1", typeof(string));
-                dt.Columns.Add("Concepto 2 Calificador 2", typeof(string));
-                dt.Columns.Add("Concepto 2 Calificador 3", typeof(string));
-                dt.Columns.Add("Concepto 2 Calificador 4", typeof(string));
-                dt.Columns.Add("Concepto 2 Calificador 5", typeof(string));
-                dt.Columns.Add("Fecha Sustentacion", typeof(string));
-                dt.Columns.Add("Concepto Final", typeof(string));
+                dt.Columns.Add("Codigo", typeof(int));                          // 0
+                dt.Columns.Add("Estudiante", typeof(string));                   // 1
+                dt.Columns.Add("Titulo", typeof(string));                       // 2
+                dt.Columns.Add("Fecha Entrega", typeof(DateTime));                // 3
+                dt.Columns.Add("Calificador 1", typeof(string));                // 4
+                dt.Columns.Add("Calificador 2", typeof(string));                // 5
+                dt.Columns.Add("Calificador 3", typeof(string));                // 6
+                dt.Columns.Add("Calificador 4", typeof(string));                // 7
+                dt.Columns.Add("Calificador 5", typeof(string));                // 8
+                dt.Columns.Add("Concepto 1 Calificador 1", typeof(string));     // 9
+                dt.Columns.Add("Concepto 1 Calificador 2", typeof(string));     // 10
+                dt.Columns.Add("Concepto 1 Calificador 3", typeof(string));     // 11
+                dt.Columns.Add("Concepto 1 Calificador 4", typeof(string));     // 12
+                dt.Columns.Add("Concepto 1 Calificador 5", typeof(string));     // 13
+                dt.Columns.Add("Fecha Entrega Correcciones", typeof(DateTime));   // 14
+                dt.Columns.Add("Concepto 2 Calificador 1", typeof(string));     // 15
+                dt.Columns.Add("Concepto 2 Calificador 2", typeof(string));     // 16
+                dt.Columns.Add("Concepto 2 Calificador 3", typeof(string));     // 17
+                dt.Columns.Add("Concepto 2 Calificador 4", typeof(string));     // 18
+                dt.Columns.Add("Concepto 2 Calificador 5", typeof(string));     // 19
+                dt.Columns.Add("Fecha Sustentacion", typeof(DateTime));           // 20
+                dt.Columns.Add("Concepto Final", typeof(string));               // 21
+
+                string[] fechaArray = null;
 
                 // se llena el nuevo datatable
                 for (int i = 0; i < dtTesisDoct.Rows.Count; i++)
@@ -254,7 +256,10 @@ namespace PosgrIQ
                     fila[2] = dtTesisDoct.Rows[i][2];
 
                     // fecha de entrega
-                    fila[3] = Convert.ToString(dtTesisDoct.Rows[i][9].ToString());
+                    fechaArray = dtTesisDoct.Rows[i][9].ToString().Split('/');
+                    if (fechaArray.Length > 1) fila[3] = new DateTime(Convert.ToInt16(fechaArray[2]), Convert.ToInt16(fechaArray[1]), Convert.ToInt16(fechaArray[0]));
+                    else fila[3] = new DateTime();
+                    //fila[3] = Convert.ToString(dtTesisDoct.Rows[i][9].ToString());
 
                     // calificador 1
                     fila[4] = dtProfesores.Select("codigo=" + dtTesisDoct.Rows[i][4].ToString())[0][1];
@@ -287,7 +292,10 @@ namespace PosgrIQ
                     fila[13] = dtConceptos.Select("codigo=" + dtTesisDoct.Rows[i][14].ToString())[0][1];
 
                     // fecha de entrega de correcciones
-                    fila[14] = dtTesisDoct.Rows[i][20];
+                    fechaArray = dtTesisDoct.Rows[i][20].ToString().Split('/');
+                    if (fechaArray.Length > 1) fila[14] = new DateTime(Convert.ToInt16(fechaArray[2]), Convert.ToInt16(fechaArray[1]), Convert.ToInt16(fechaArray[0]));
+                    else fila[14] = new DateTime();
+                    //fila[14] = dtTesisDoct.Rows[i][20];
 
                     // concepto 2 calificador 1
                     fila[15] = dtConceptos.Select("codigo=" + dtTesisDoct.Rows[i][21].ToString())[0][1];
@@ -305,7 +313,10 @@ namespace PosgrIQ
                     fila[19] = dtConceptos.Select("codigo=" + dtTesisDoct.Rows[i][25].ToString())[0][1];
 
                     // fecha sustentacion
-                    fila[20] = dtTesisDoct.Rows[i][31];
+                    fechaArray = dtTesisDoct.Rows[i][31].ToString().Split('/');
+                    if (fechaArray.Length > 1) fila[20] = new DateTime(Convert.ToInt16(fechaArray[2]), Convert.ToInt16(fechaArray[1]), Convert.ToInt16(fechaArray[0]));
+                    else fila[20] = new DateTime();
+                    //fila[20] = dtTesisDoct.Rows[i][31];
 
                     // concepto sustentacion
                     fila[21] = dtConceptos.Select("codigo=" + dtTesisDoct.Rows[i][32].ToString())[0][1];
