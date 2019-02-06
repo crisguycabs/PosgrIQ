@@ -125,19 +125,21 @@ namespace PosgrIQ
 
                 // se crea una tabla que reemplaza el codigo de colegiatura y de escuela por el nombre
                 dt = new DataTable();
-                dt.Columns.Add("Codigo", typeof(int));
-                dt.Columns.Add("Estudiante", typeof(string));
-                dt.Columns.Add("Titulo", typeof(string));
-                dt.Columns.Add("Fecha Entrega", typeof(string));
-                dt.Columns.Add("Calificador 1", typeof(string));
-                dt.Columns.Add("Calificador 2", typeof(string));
-                dt.Columns.Add("Concepto 1 Calificador 1", typeof(string));
-                dt.Columns.Add("Concepto 1 Calificador 2", typeof(string));
-                dt.Columns.Add("Fecha Entrega Correcciones", typeof(string));
-                dt.Columns.Add("Concepto 2 Calificador 1", typeof(string));
-                dt.Columns.Add("Concepto 2 Calificador 2", typeof(string));
-                dt.Columns.Add("Fecha Sustentacion", typeof(string));
-                dt.Columns.Add("Concepto Final", typeof(string));
+                dt.Columns.Add("Codigo", typeof(int));                          // 0
+                dt.Columns.Add("Estudiante", typeof(string));                   // 1
+                dt.Columns.Add("Titulo", typeof(string));                       // 2
+                dt.Columns.Add("Fecha Entrega", typeof(DateTime));              // 3
+                dt.Columns.Add("Calificador 1", typeof(string));                // 4
+                dt.Columns.Add("Calificador 2", typeof(string));                // 5
+                dt.Columns.Add("Concepto 1 Calificador 1", typeof(string));     // 6
+                dt.Columns.Add("Concepto 1 Calificador 2", typeof(string));     // 7
+                dt.Columns.Add("Fecha Entrega Correcciones", typeof(DateTime)); // 8
+                dt.Columns.Add("Concepto 2 Calificador 1", typeof(string));     // 9
+                dt.Columns.Add("Concepto 2 Calificador 2", typeof(string));     // 10
+                dt.Columns.Add("Fecha Sustentacion", typeof(DateTime));         // 11
+                dt.Columns.Add("Concepto Final", typeof(string));               // 12
+
+                string[] fechaArray = null;
 
                 // se llena el nuevo datatable
                 for (int i = 0; i < dtTesisMaes.Rows.Count; i++)
@@ -155,7 +157,10 @@ namespace PosgrIQ
                     fila[2] = dtTesisMaes.Rows[i][2];
 
                     // fecha de entrega
-                    fila[3] = Convert.ToString(dtTesisMaes.Rows[i][6].ToString());
+                    fechaArray = dtTesisMaes.Rows[i][6].ToString().Split('/');
+                    if (fechaArray.Length > 1) fila[3] = new DateTime(Convert.ToInt16(fechaArray[2]), Convert.ToInt16(fechaArray[1]), Convert.ToInt16(fechaArray[0]));
+                    else fila[3] = new DateTime();
+                    // fila[3] = Convert.ToString(dtTesisMaes.Rows[i][6].ToString());
 
                     // calificador 1
                     fila[4] = dtProfesores.Select("codigo=" + dtTesisMaes.Rows[i][4].ToString())[0][1];
@@ -170,7 +175,10 @@ namespace PosgrIQ
                     fila[7] = dtConceptos.Select("codigo=" + dtTesisMaes.Rows[i][8].ToString())[0][1];
 
                     // fecha de entrega de correcciones
-                    fila[8] = dtTesisMaes.Rows[i][11];
+                    fechaArray = dtTesisMaes.Rows[i][11].ToString().Split('/');
+                    if (fechaArray.Length > 1) fila[8] = new DateTime(Convert.ToInt16(fechaArray[2]), Convert.ToInt16(fechaArray[1]), Convert.ToInt16(fechaArray[0]));
+                    else fila[8] = new DateTime();
+                    // fila[8] = dtTesisMaes.Rows[i][11];
 
                     // concepto 2 calificador 1
                     fila[9] = dtConceptos.Select("codigo=" + dtTesisMaes.Rows[i][12].ToString())[0][1];
@@ -179,7 +187,10 @@ namespace PosgrIQ
                     fila[10] = dtConceptos.Select("codigo=" + dtTesisMaes.Rows[i][13].ToString())[0][1];
 
                     // fecha sustentacion
-                    fila[11] = dtTesisMaes.Rows[i][16];
+                    fechaArray = dtTesisMaes.Rows[i][16].ToString().Split('/');
+                    if (fechaArray.Length > 1) fila[11] = new DateTime(Convert.ToInt16(fechaArray[2]), Convert.ToInt16(fechaArray[1]), Convert.ToInt16(fechaArray[0]));
+                    else fila[11] = new DateTime();
+                    // fila[11] = dtTesisMaes.Rows[i][16];
 
                     // concepto sustentacion
                     fila[12] = dtConceptos.Select("codigo=" + dtTesisMaes.Rows[i][17].ToString())[0][1];

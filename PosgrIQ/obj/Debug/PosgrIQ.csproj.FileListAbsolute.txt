@@ -94,12 +94,6 @@ C:\Users\Cross\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.W
 C:\Users\Cross\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.csproj.GenerateResource.Cache
 C:\Users\Cross\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.exe
 C:\Users\Cross\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.pdb
-C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\PosgrIQ.exe.config
-C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\PosgrIQ.exe
-C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\PosgrIQ.pdb
-C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\EASendMail45.dll
-C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\GemBox.Spreadsheet.dll
-C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\GemBox.Spreadsheet.xml
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.AboutForm.resources
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.AddTesisMaesForm.resources
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.AddPropuestaMaesForm.resources
@@ -140,5 +134,11 @@ C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\Posg
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.TesisMaes.resources
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.WaitingForm.resources
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.csproj.GenerateResource.Cache
+C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\PosgrIQ.exe.config
+C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\PosgrIQ.exe
+C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\PosgrIQ.pdb
+C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\EASendMail45.dll
+C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\GemBox.Spreadsheet.dll
+C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\GemBox.Spreadsheet.xml
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.exe
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.pdb
