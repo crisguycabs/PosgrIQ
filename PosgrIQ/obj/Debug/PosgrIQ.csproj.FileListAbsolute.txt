@@ -142,3 +142,5 @@ C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\GemB
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Debug\GemBox.Spreadsheet.xml
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.exe
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.pdb
+C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.csprojResolveAssemblyReference.cache
+C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Debug\PosgrIQ.ConsultaForm.resources

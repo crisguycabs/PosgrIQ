@@ -207,6 +207,10 @@ namespace PosgrIQ
         /// </summary>
         public bool abiertoConfiguracionForm = false;
 
+        public ConsultaForm consultaForm = null;
+
+        public bool abiertoConsultaForm = false;
+
         /// <summary>
         /// Ruta fisica de la BD
         /// </summary>
@@ -861,6 +865,23 @@ namespace PosgrIQ
             }
         }
 
+        public void AbrirConsultaForm()
+        {
+            if (!abiertoConsultaForm)
+            {
+                consultaForm = new ConsultaForm();
+                consultaForm.padre = this;
+                consultaForm.MdiParent = this;
+
+                abiertoConsultaForm = true;
+                consultaForm.Show();
+            }
+            else
+            {
+                consultaForm.Select();
+            }
+        }
+
         public void CerrarConfiguracionForm()
         {
             configuracionForm.Close();
@@ -1066,6 +1087,13 @@ namespace PosgrIQ
             escuelasForm.Close();
             escuelasForm = null;
             abiertoEscuelasForm = false;
+        }
+
+        public void CerrarConsultaForm()
+        {
+            consultaForm.Close();
+            consultaForm = null;
+            abiertoConsultaForm = false;
         }
 
         public void AbrirMatriculaDoctForm()
@@ -5740,6 +5768,11 @@ namespace PosgrIQ
                 MessageBox.Show("No se puede leer la BD para extraer la información de la cuenta de correo", "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+        }
+
+        private void busquedaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirConsultaForm();
         }
     }
 }

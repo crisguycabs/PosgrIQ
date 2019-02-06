@@ -53,6 +53,8 @@
             this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reglamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.semestresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.busquedaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventanasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarTodo = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAcerca = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,9 +108,11 @@
             this.escuelasToolStripMenuItem,
             this.profesoresToolStripMenuItem,
             this.reglamentosToolStripMenuItem,
-            this.semestresToolStripMenuItem});
+            this.semestresToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.busquedaToolStripMenuItem});
             this.tablasToolStripMenuItem.Name = "tablasToolStripMenuItem";
-            this.tablasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.tablasToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.tablasToolStripMenuItem.Text = "Tablas";
             // 
             // menuDoct
@@ -121,7 +125,7 @@
             this.menuPublicacionesDoct,
             this.menuTesisDoct});
             this.menuDoct.Name = "menuDoct";
-            this.menuDoct.Size = new System.Drawing.Size(143, 22);
+            this.menuDoct.Size = new System.Drawing.Size(152, 22);
             this.menuDoct.Text = "&Doctorado";
             // 
             // menuEstudiantesDoct
@@ -176,7 +180,7 @@
             this.menuPublicacionesMaes,
             this.menuTesisMaes});
             this.menuMaes.Name = "menuMaes";
-            this.menuMaes.Size = new System.Drawing.Size(143, 22);
+            this.menuMaes.Size = new System.Drawing.Size(152, 22);
             this.menuMaes.Text = "&Maestría";
             // 
             // menuEstudiantesMaes
@@ -224,48 +228,60 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // escuelasToolStripMenuItem
             // 
             this.escuelasToolStripMenuItem.Name = "escuelasToolStripMenuItem";
-            this.escuelasToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.escuelasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.escuelasToolStripMenuItem.Text = "&Escuelas";
             this.escuelasToolStripMenuItem.Click += new System.EventHandler(this.escuelasToolStripMenuItem_Click);
             // 
             // profesoresToolStripMenuItem
             // 
             this.profesoresToolStripMenuItem.Name = "profesoresToolStripMenuItem";
-            this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.profesoresToolStripMenuItem.Text = "&Profesores";
             this.profesoresToolStripMenuItem.Click += new System.EventHandler(this.profesoresToolStripMenuItem_Click);
             // 
             // reglamentosToolStripMenuItem
             // 
             this.reglamentosToolStripMenuItem.Name = "reglamentosToolStripMenuItem";
-            this.reglamentosToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.reglamentosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.reglamentosToolStripMenuItem.Text = "&Reglamentos";
             this.reglamentosToolStripMenuItem.Click += new System.EventHandler(this.reglamentosToolStripMenuItem_Click);
             // 
             // semestresToolStripMenuItem
             // 
             this.semestresToolStripMenuItem.Name = "semestresToolStripMenuItem";
-            this.semestresToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.semestresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.semestresToolStripMenuItem.Text = "&Semestres";
             this.semestresToolStripMenuItem.Click += new System.EventHandler(this.semestresToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // busquedaToolStripMenuItem
+            // 
+            this.busquedaToolStripMenuItem.Name = "busquedaToolStripMenuItem";
+            this.busquedaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.busquedaToolStripMenuItem.Text = "&Busqueda";
+            this.busquedaToolStripMenuItem.Click += new System.EventHandler(this.busquedaToolStripMenuItem_Click);
             // 
             // ventanasToolStripMenuItem
             // 
             this.ventanasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cerrarTodo});
             this.ventanasToolStripMenuItem.Name = "ventanasToolStripMenuItem";
-            this.ventanasToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.ventanasToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.ventanasToolStripMenuItem.Text = "&Ventanas";
             // 
             // cerrarTodo
             // 
             this.cerrarTodo.Name = "cerrarTodo";
-            this.cerrarTodo.Size = new System.Drawing.Size(134, 22);
+            this.cerrarTodo.Size = new System.Drawing.Size(152, 22);
             this.cerrarTodo.Text = "&Cerrar todo";
             this.cerrarTodo.Click += new System.EventHandler(this.cerrarTodoToolStripMenuItem_Click);
             // 
@@ -329,6 +345,8 @@
         private System.Windows.Forms.ToolStripMenuItem ventanasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarTodo;
         private System.Windows.Forms.ToolStripMenuItem menuAcerca;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem busquedaToolStripMenuItem;
 
     }
 }

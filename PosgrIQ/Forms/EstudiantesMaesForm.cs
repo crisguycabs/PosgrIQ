@@ -51,7 +51,7 @@ namespace PosgrIQ
                 DataTable dt, dtEstudiantesMaes, dtProfesores, dtCondicion, dtReglamentos, dtConceptos;
                 OleDbDataAdapter da;
 
-                // se pide la informacion de los estudiantes de doctorad
+                // se pide la informacion de los estudiantes de maestria
                 query = "SELECT * FROM EstudiantesMaes ORDER BY codigo ASC";
                 conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
                 conection.Open();
