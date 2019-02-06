@@ -163,7 +163,7 @@ namespace PosgrIQ
                     fila[2] = dtPropuestasDoct.Rows[i][2];
 
                     // fecha de entrega
-                    fila[3] = Convert.ToString(dtPropuestasDoct.Rows[i][7].ToString());
+                    fila[3] = Convert.ToString(dtPropuestasDoct.Rows[i][8].ToString());
 
                     // calificador 1
                     fila[4] = dtProfesores.Select("codigo=" + dtPropuestasDoct.Rows[i][4].ToString())[0][1];
