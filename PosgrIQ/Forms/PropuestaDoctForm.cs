@@ -12,7 +12,7 @@ using GemBox.Spreadsheet;
 
 namespace PosgrIQ
 {
-    public partial class PropuestaDoctForm: Form
+    public partial class PropuestaDoctForm : Form
     {
         #region variables de clase
 
@@ -45,7 +45,7 @@ namespace PosgrIQ
             var conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
             try
             {
-                
+
                 // algunas variables
                 string query;
                 OleDbCommand command;
@@ -54,7 +54,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de las propuestas de doctorado
                 query = "SELECT * FROM PropuestaDoct ORDER BY codigo ASC";
-                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 da = new OleDbDataAdapter(command);
@@ -72,7 +72,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de los estudiantes de doctorado
                 query = "SELECT * FROM EstudiantesDoct ORDER BY codigo ASC";
-                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 da = new OleDbDataAdapter(command);
@@ -90,7 +90,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de los profesores
                 query = "SELECT * FROM Profesores ORDER BY codigo ASC";
-                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 da = new OleDbDataAdapter(command);
@@ -108,7 +108,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de los conceptos
                 query = "SELECT * FROM Conceptos ORDER BY codigo ASC";
-                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
                 conection.Open();
                 command = new OleDbCommand(query, conection);
                 da = new OleDbDataAdapter(command);
@@ -126,102 +126,122 @@ namespace PosgrIQ
 
                 // se crea una tabla que reemplaza el codigo de colegiatura y de escuela por el nombre
                 dt = new DataTable();
-                dt.Columns.Add("Codigo", typeof(int));
-                dt.Columns.Add("Estudiante", typeof(string));
-                dt.Columns.Add("Titulo", typeof(string));
-                dt.Columns.Add("Fecha Entrega", typeof(DateTime));
-                dt.Columns.Add("Calificador 1", typeof(string));
-                dt.Columns.Add("Calificador 2", typeof(string));
-                dt.Columns.Add("Calificador 3", typeof(string));
-                dt.Columns.Add("Calificador 4", typeof(string));
-                dt.Columns.Add("Concepto 1 Calificador 1", typeof(string));
-                dt.Columns.Add("Concepto 1 Calificador 2", typeof(string));
-                dt.Columns.Add("Concepto 1 Calificador 3", typeof(string));
-                dt.Columns.Add("Concepto 1 Calificador 4", typeof(string));
-                dt.Columns.Add("Fecha Entrega Correcciones", typeof(string));
-                dt.Columns.Add("Concepto 2 Calificador 1", typeof(string));
-                dt.Columns.Add("Concepto 2 Calificador 2", typeof(string));
-                dt.Columns.Add("Concepto 2 Calificador 3", typeof(string));
-                dt.Columns.Add("Concepto 2 Calificador 4", typeof(string));
-                dt.Columns.Add("Fecha Sustentacion", typeof(string));
-                dt.Columns.Add("Concepto Final", typeof(string));
-                
+                dt.Columns.Add("Codigo", typeof(int));                              // 0
+                dt.Columns.Add("Estudiante", typeof(string));                       // 1
+                dt.Columns.Add("Titulo", typeof(string));                           // 2
+                dt.Columns.Add("Fecha Entrega", typeof(DateTime));                  // 3
+                dt.Columns.Add("Calificador 1", typeof(string));                    // 4
+                dt.Columns.Add("Calificador 2", typeof(string));                    // 5
+                dt.Columns.Add("Calificador 3", typeof(string));                    // 6
+                dt.Columns.Add("Calificador 4", typeof(string));                    // 7
+                dt.Columns.Add("Concepto 1 Calificador 1", typeof(string));         // 8
+                dt.Columns.Add("Concepto 1 Calificador 2", typeof(string));         // 9
+                dt.Columns.Add("Concepto 1 Calificador 3", typeof(string));         // 10
+                dt.Columns.Add("Concepto 1 Calificador 4", typeof(string));         // 11
+                dt.Columns.Add("Fecha Entrega Correcciones", typeof(DateTime));     // 12
+                dt.Columns.Add("Concepto 2 Calificador 1", typeof(string));         // 13
+                dt.Columns.Add("Concepto 2 Calificador 2", typeof(string));         // 14
+                dt.Columns.Add("Concepto 2 Calificador 3", typeof(string));         // 15
+                dt.Columns.Add("Concepto 2 Calificador 4", typeof(string));         // 16
+                dt.Columns.Add("Fecha Sustentacion", typeof(DateTime));             // 17
+                dt.Columns.Add("Concepto Final", typeof(string));                   // 18
+
+                string[] fechaArray = null;
+
 
                 // se llena el nuevo datatable
                 for (int i = 0; i < dtPropuestasDoct.Rows.Count; i++)
                 {
-                    DataRow fila = dt.NewRow();
 
-                    // codigo del estudiante
-                    fila[0] = dtPropuestasDoct.Rows[i][0];
-
-                    // nombre del estudiante
-                    DataRow[] seleccionado = dtEstudiantesDoct.Select("codigo=" + dtPropuestasDoct.Rows[i][1]);
-                    fila[1] = Convert.ToString(seleccionado[0][1]);
-
-                    // titulo de la propuesta
-                    fila[2] = dtPropuestasDoct.Rows[i][2];
-
-                    // fecha de entrega
-                    string[] fechaArray = dtPropuestasDoct.Rows[i][8].ToString().Split('/');
-                    // fila[3] = Convert.ToString(dtPropuestasDoct.Rows[i][8].ToString());
-                    fila[3] = new DateTime(Convert.ToInt16(fechaArray[2]), Convert.ToInt16(fechaArray[1]), Convert.ToInt16(fechaArray[0]));
-
-                    // calificador 1
-                    fila[4] = dtProfesores.Select("codigo=" + dtPropuestasDoct.Rows[i][4].ToString())[0][1];
-
-                    // calificador 2
-                    fila[5] = dtProfesores.Select("codigo=" + dtPropuestasDoct.Rows[i][5].ToString())[0][1];
-
-                    // calificador 3
-                    fila[6] = dtProfesores.Select("codigo=" + dtPropuestasDoct.Rows[i][6].ToString())[0][1];
-
-                    // calificador 4, opcional
-                    if (dtPropuestasDoct.Rows[i][7].ToString() != "")
+                    try
                     {
-                        // hay un calificador 4
-                        fila[7] = dtProfesores.Select("codigo=" + dtPropuestasDoct.Rows[i][7].ToString())[0][1];
+                        DataRow fila = dt.NewRow();
+
+                        // codigo del estudiante
+                        fila[0] = dtPropuestasDoct.Rows[i][0];
+
+                        // nombre del estudiante
+                        DataRow[] seleccionado = dtEstudiantesDoct.Select("codigo=" + dtPropuestasDoct.Rows[i][1]);
+                        fila[1] = Convert.ToString(seleccionado[0][1]);
+
+                        // titulo de la propuesta
+                        fila[2] = dtPropuestasDoct.Rows[i][2];
+
+                        // fecha de entrega
+                        fechaArray = dtPropuestasDoct.Rows[i][8].ToString().Split('/');
+                        if (fechaArray.Length > 1) fila[3] = new DateTime(Convert.ToInt16(fechaArray[2]), Convert.ToInt16(fechaArray[1]), Convert.ToInt16(fechaArray[0]));
+                        else fila[3] = new DateTime();
+                        // fila[3] = Convert.ToString(dtPropuestasDoct.Rows[i][8].ToString());
+
+                        // calificador 1
+                        fila[4] = dtProfesores.Select("codigo=" + dtPropuestasDoct.Rows[i][4].ToString())[0][1];
+
+                        // calificador 2
+                        fila[5] = dtProfesores.Select("codigo=" + dtPropuestasDoct.Rows[i][5].ToString())[0][1];
+
+                        // calificador 3
+                        fila[6] = dtProfesores.Select("codigo=" + dtPropuestasDoct.Rows[i][6].ToString())[0][1];
+
+                        // calificador 4, opcional
+                        if (dtPropuestasDoct.Rows[i][7].ToString() != "")
+                        {
+                            // hay un calificador 4
+                            fila[7] = dtProfesores.Select("codigo=" + dtPropuestasDoct.Rows[i][7].ToString())[0][1];
+                        }
+                        else
+                        {
+                            fila[7] = "";
+                        }
+
+                        // concepto 1 calificador 1
+                        fila[8] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][9].ToString())[0][1];
+
+                        // concepto 1 calificador 2
+                        fila[9] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][10].ToString())[0][1];
+
+                        // concepto 1 calificador 3
+                        fila[10] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][11].ToString())[0][1];
+
+                        // concepto 1 calificador 4
+                        fila[11] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][12].ToString())[0][1];
+
+                        // fecha de entrega de correcciones
+                        fechaArray = dtPropuestasDoct.Rows[i][17].ToString().Split('/');
+                        if (fechaArray.Length > 1) fila[12] = new DateTime(Convert.ToInt16(fechaArray[2]), Convert.ToInt16(fechaArray[1]), Convert.ToInt16(fechaArray[0]));
+                        else fila[12] = new DateTime();
+                        // fila[12] = dtPropuestasDoct.Rows[i][17];
+
+                        // concepto 2 calificador 1
+                        fila[13] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][18].ToString())[0][1];
+
+                        // concepto 2 calificador 2
+                        fila[14] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][19].ToString())[0][1];
+
+                        // concepto 2 calificador 3
+                        fila[15] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][20].ToString())[0][1];
+
+                        // concepto 2 calificador 4
+                        fila[16] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][21].ToString())[0][1];
+
+                        // fecha sustentacion
+                        fechaArray = dtPropuestasDoct.Rows[i][26].ToString().Split('/');
+                        if (fechaArray.Length > 1) fila[17] = new DateTime(Convert.ToInt16(fechaArray[2]), Convert.ToInt16(fechaArray[1]), Convert.ToInt16(fechaArray[0]));
+                        else fila[17] = new DateTime();
+                        // fila[17] = dtPropuestasDoct.Rows[i][26];
+
+                        // concepto sustentacion
+                        fila[18] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][27].ToString())[0][1];
+
+                        dt.Rows.Add(fila);
                     }
-                    else
+                    catch
                     {
-                        fila[7] = "";
+                        int a = 1;
+                        a++;
                     }
-
-                    // concepto 1 calificador 1
-                    fila[8] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][9].ToString())[0][1];
-
-                    // concepto 1 calificador 2
-                    fila[9] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][10].ToString())[0][1];
-
-                    // concepto 1 calificador 3
-                    fila[10] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][11].ToString())[0][1];
-
-                    // concepto 1 calificador 4
-                    fila[11] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][12].ToString())[0][1];
-
-                    // fecha de entrega de correcciones
-                    fila[12] = dtPropuestasDoct.Rows[i][17];
-
-                    // concepto 2 calificador 1
-                    fila[13] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][18].ToString())[0][1];
-
-                    // concepto 2 calificador 2
-                    fila[14] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][19].ToString())[0][1];
-
-                    // concepto 2 calificador 3
-                    fila[15] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][20].ToString())[0][1];
-
-                    // concepto 2 calificador 4
-                    fila[16] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][21].ToString())[0][1];
-
-                    // fecha sustentacion
-                    fila[17] = dtPropuestasDoct.Rows[i][26];
-
-                    // concepto sustentacion
-                    fila[18] = dtConceptos.Select("codigo=" + dtPropuestasDoct.Rows[i][27].ToString())[0][1];
-
-                    dt.Rows.Add(fila);
                 }
+
+
 
                 // se enlaza el datatable con el datagrid
                 dataGridPropuestas.DataSource = dt;
@@ -277,7 +297,7 @@ namespace PosgrIQ
 
                 // se pide la informacion de la propuesta de doct
                 query = "SELECT * FROM PropuestaDoct WHERE codigo=" + codigo.ToString() + " ORDER BY codigo ASC";
-                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD); 
+                conection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;" + "data source=" + padre.sourceBD);
                 conection.Open();
                 command = new OleDbCommand(query, conection);
 
@@ -328,7 +348,7 @@ namespace PosgrIQ
                         case 9: // sustentacion
                             System.Diagnostics.Process.Start(padre.sourceONE + "\\Soportes\\" + Convert.ToString(dtPropuestaDoct.Rows[0][28]));
                             break;
-                    }                    
+                    }
                 }
                 catch
                 {
