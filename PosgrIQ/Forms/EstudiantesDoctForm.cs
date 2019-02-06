@@ -158,11 +158,13 @@ namespace PosgrIQ
                 dt.Columns.Add("Codirector2", typeof(string));
                 dt.Columns.Add("Reglamento", typeof(string));
                 dt.Columns.Add("Tema", typeof(string));
-                dt.Columns.Add("Fecha Entrega Tema", typeof(string));
+                dt.Columns.Add("Fecha Entrega Tema", typeof(DateTime));
                 dt.Columns.Add("Concepto Tema", typeof(string));
                 dt.Columns.Add("Solicito Qualify", typeof(string));
                 dt.Columns.Add("Aprobo Qualify", typeof(string));
                 dt.Columns.Add("Observaciones", typeof(string));
+
+                string[] fechaArray = null;
 
                 // se llena el nuevo datatable
                 for (int i = 0; i < dtEstudiantesDoct.Rows.Count; i++)
@@ -209,7 +211,10 @@ namespace PosgrIQ
                     fila[11] = dtEstudiantesDoct.Rows[i][11];
 
                     // fecha de entrega del tema
-                    fila[12] = dtEstudiantesDoct.Rows[i][12];
+                    fechaArray = dtEstudiantesDoct.Rows[i][12].ToString().Split('/');
+                    if (fechaArray.Length > 1) fila[12] = new DateTime(Convert.ToInt16(fechaArray[2]), Convert.ToInt16(fechaArray[1]), Convert.ToInt16(fechaArray[0]));
+                    else fila[12] = new DateTime();
+                    //fila[12] = dtEstudiantesDoct.Rows[i][12];
 
                     // concepto del tema, sensible a valores vacios
                     if (string.IsNullOrWhiteSpace(dtEstudiantesDoct.Rows[i][13].ToString())) fila[13] = "";
