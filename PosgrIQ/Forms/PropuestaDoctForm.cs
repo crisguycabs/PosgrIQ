@@ -129,7 +129,7 @@ namespace PosgrIQ
                 dt.Columns.Add("Codigo", typeof(int));
                 dt.Columns.Add("Estudiante", typeof(string));
                 dt.Columns.Add("Titulo", typeof(string));
-                dt.Columns.Add("Fecha Entrega", typeof(string));
+                dt.Columns.Add("Fecha Entrega", typeof(DateTime));
                 dt.Columns.Add("Calificador 1", typeof(string));
                 dt.Columns.Add("Calificador 2", typeof(string));
                 dt.Columns.Add("Calificador 3", typeof(string));
@@ -163,7 +163,9 @@ namespace PosgrIQ
                     fila[2] = dtPropuestasDoct.Rows[i][2];
 
                     // fecha de entrega
-                    fila[3] = Convert.ToString(dtPropuestasDoct.Rows[i][8].ToString());
+                    string[] fechaArray = dtPropuestasDoct.Rows[i][8].ToString().Split('/');
+                    // fila[3] = Convert.ToString(dtPropuestasDoct.Rows[i][8].ToString());
+                    fila[3] = new DateTime(Convert.ToInt16(fechaArray[2]), Convert.ToInt16(fechaArray[1]), Convert.ToInt16(fechaArray[0]));
 
                     // calificador 1
                     fila[4] = dtProfesores.Select("codigo=" + dtPropuestasDoct.Rows[i][4].ToString())[0][1];
