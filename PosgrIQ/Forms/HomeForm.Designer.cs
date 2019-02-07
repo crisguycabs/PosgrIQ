@@ -356,7 +356,7 @@
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(96, 39);
             this.btnReportes.TabIndex = 3;
-            this.btnReportes.Text = "Reportes y Correos";
+            this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 

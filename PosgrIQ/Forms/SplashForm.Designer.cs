@@ -64,7 +64,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 14);
             this.label7.TabIndex = 10;
-            this.label7.Text = "2016";
+            this.label7.Text = "2019";
             // 
             // label6
             // 
@@ -133,7 +133,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SplashForm";
-            this.Size = new System.Drawing.Size(285, 241);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SplashForm";
             this.Load += new System.EventHandler(this.SplashForm_Load);

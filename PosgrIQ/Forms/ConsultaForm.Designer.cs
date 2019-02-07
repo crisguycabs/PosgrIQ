@@ -37,6 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboConsulta = new System.Windows.Forms.ComboBox();
+            this.labelN = new System.Windows.Forms.Label();
+            this.btnCopy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConsulta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,12 +47,15 @@
             this.dataGridConsulta.AllowUserToAddRows = false;
             this.dataGridConsulta.AllowUserToDeleteRows = false;
             this.dataGridConsulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridConsulta.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridConsulta.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridConsulta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridConsulta.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.dataGridConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridConsulta.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridConsulta.Location = new System.Drawing.Point(8, 84);
             this.dataGridConsulta.Name = "dataGridConsulta";
+            this.dataGridConsulta.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridConsulta.Size = new System.Drawing.Size(757, 293);
             this.dataGridConsulta.TabIndex = 1;
             // 
@@ -120,24 +125,48 @@
             // 
             this.comboConsulta.FormattingEnabled = true;
             this.comboConsulta.Items.AddRange(new object[] {
-            "Fecha de entrega del Tema de Maestria",
-            "Fecha de entrega del Tema de Doctorado",
-            "Fecha de entrega de la Propuesta de Maestria",
-            "Fecha de entrega de las correcciones de la Propuesta de Maestria",
-            "Fecha de sustentacion de la Propuesta de Maestria",
-            "Fecha de entrega de la Propuesta de Doctorado",
-            "Fecha de entrega de las correcciones de la Propuesta de Doctorado",
-            "Fecha de sustentacion de la Propuesta de Doctorado",
-            "Fecha de entrega del Trabajo de Maestria",
-            "Fecha de entrega de las correcciones del Trabajo de Maestria",
-            "Fecha de sustentacion del Trabajo de Maestria",
-            "Fecha de entrega de la Tesis de Doctorado",
-            "Fecha de entrega de las correcciones de la Tesis de Doctorado",
-            "Fecha de sustentacion de la Tesis de Doctorado"});
+            "01 - Fecha de entrega del TEMA de MAESTRIA",
+            "02 - Fecha de entrega del TEMA de DOCTORADO",
+            "03 - Fecha de entrega de la PROPUESTA de MAESTRIA",
+            "04 - Fecha de entrega de las CORRECCIONES de la PROPUESTA de MAESTRIA",
+            "05 - Fecha de sustentacion de la PROPUESTA de MAESTRIA",
+            "06 - Fecha de entrega de la PROPUESTA de DOCTORADO",
+            "07 - Fecha de entrega de las CORRECCIONES de la PROPUESTA de DOCTORADO",
+            "08 - Fecha de sustentacion de la PROPUESTA de DOCTORADO",
+            "09 - Fecha de entrega del TRABAJO de MAESTRIA",
+            "10 - Fecha de entrega de las CORRECCIONES del TRABAJO de MAESTRIA",
+            "11 - Fecha de sustentacion del TRABAJO de MAESTRIA",
+            "12 - Fecha de entrega de la TESIS de DOCTORADO",
+            "13 - Fecha de entrega de las CORRECCIONES de la TESIS de DOCTORADO",
+            "14 - Fecha de sustentacion de la TESIS de DOCTORADO"});
             this.comboConsulta.Location = new System.Drawing.Point(12, 12);
             this.comboConsulta.Name = "comboConsulta";
-            this.comboConsulta.Size = new System.Drawing.Size(302, 22);
+            this.comboConsulta.Size = new System.Drawing.Size(618, 22);
             this.comboConsulta.TabIndex = 10;
+            // 
+            // labelN
+            // 
+            this.labelN.AutoSize = true;
+            this.labelN.ForeColor = System.Drawing.Color.Red;
+            this.labelN.Location = new System.Drawing.Point(5, 388);
+            this.labelN.Name = "labelN";
+            this.labelN.Size = new System.Drawing.Size(155, 14);
+            this.labelN.TabIndex = 8;
+            this.labelN.Text = "Se encontraron ## registros";
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCopy.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCopy.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopy.Location = new System.Drawing.Point(538, 384);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(146, 23);
+            this.btnCopy.TabIndex = 5;
+            this.btnCopy.Text = "Copiar al Portapapeles";
+            this.btnCopy.UseVisualStyleBackColor = false;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // ConsultaForm
             // 
@@ -148,7 +177,9 @@
             this.ControlBox = false;
             this.Controls.Add(this.comboConsulta);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.labelN);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridConsulta);
             this.Controls.Add(this.dateFin);
@@ -177,5 +208,7 @@
         private System.Windows.Forms.DateTimePicker dateFin;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.ComboBox comboConsulta;
+        private System.Windows.Forms.Label labelN;
+        private System.Windows.Forms.Button btnCopy;
     }
 }

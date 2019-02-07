@@ -143,14 +143,11 @@ C:\Users\Cross\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ
 C:\Users\Cross\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.WaitingForm.resources
 C:\Users\Cross\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csproj.GenerateResource.Cache
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.exe.config
-C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.exe
-C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.pdb
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.exe
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\PosgrIQ.pdb
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\EASendMail45.dll
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\GemBox.Spreadsheet.dll
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\bin\Release\GemBox.Spreadsheet.xml
-C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csprojResolveAssemblyReference.cache
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AboutForm.resources
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddTesisMaesForm.resources
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddPropuestaMaesForm.resources
@@ -158,6 +155,7 @@ C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\Po
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddPublicacionesMaesForm.resources
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddMatriculaMaesForm.resources
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddEstudianteMaesForm.resources
+C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.ConsultaForm.resources
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.EstudiantesMaesForm.resources
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddMatriculaDoctForm.resources
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.AddPonenciasDoctForm.resources
@@ -191,3 +189,5 @@ C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\Po
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.TesisMaes.resources
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.WaitingForm.resources
 C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.csproj.GenerateResource.Cache
+C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.exe
+C:\Users\CROSS-HDSP\Dropbox\Posgrados Ing Quimica\PosgrIQ\PosgrIQ\obj\Release\PosgrIQ.pdb
